@@ -5,6 +5,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/configuration/app_configuration.dart';
 import 'package:marketplace_store_web/app/core/auth/auth_repository.dart';
 
+import '../../app_store.dart';
+
 
 
 class ApiClient {

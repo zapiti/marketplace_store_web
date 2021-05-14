@@ -4,5 +4,19 @@ class ImagePath {
   static final String imageEmpty = "assets/images/ic_empty_file.png";
   static final String loadingImage = "assets/images/loading.gif";
 
+  static final String bgTopLanding = "assets/images/front_bg_login.svg";
+  static final String bgLanding = "assets/images/bg_login.png";
+
+  static final String phones = "assets/images/phones.png";
+
+  static final String apple = "assets/images/apple.svg";
+
+  static final String google = "assets/images/google.svg";
+
+  static final String icEmptyLogin = "assets/images/ic_empty_login.png";
+
+  static final String bgLogin = "assets/images/ic_bg_register_login.png";
+
+  static final String bgTopLogin = "assets/images/ic_register_top_bg.png";
   // static final String icupload = "assets/images/ic_logo.svg";
 }

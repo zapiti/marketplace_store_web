@@ -19,6 +19,8 @@ dependencies:
   google_fonts:
   localstorage:
   dio:
+  responsive:
+  flutter_icons:
 
 dev_dependencies:
   flutter_test:
@@ -35,4 +37,6 @@ flutter:
 scripts:
   mobx: flutter pub get & flutter pub run build_runner watch --delete-conflicting-outputs
 
-  #slidy g m modules/home/modules/configuration  & slidy g mbx modules/home/modules/configuration/configuration  & slidy g w modules/home/modules/configuration/configuration
+  #slidy g m modules/home/modules/configuration  & slidy g mbx modules/home/modules/configuration/configuration  & slidy g p modules/home/modules/configuration/configuration
+
+  #slidy g m modules/registre  & slidy g mbx modules/registre/registre  & slidy g p modules/registre/registre

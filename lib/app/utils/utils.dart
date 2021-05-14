@@ -29,6 +29,10 @@ class Utils {
     });
   }
 
+  static isSmalSize(BoxConstraints constraints) {
+    return constraints.maxWidth >= 800;
+  }
+
 
 
 

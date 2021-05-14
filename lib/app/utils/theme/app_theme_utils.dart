@@ -49,7 +49,7 @@ class AppThemeUtils {
       GoogleFonts.quicksand(
           decoration: TextDecoration.none, fontSize: fontSise, color: color);
 
-  static TextStyle normalBoldSize({Color color, double fontSize = 14}) =>
+  static TextStyle normalBoldSize({Color color, double fontSize = 16}) =>
       GoogleFonts.quicksand(
           decoration: TextDecoration.none,
           fontSize: fontSize,
@@ -72,12 +72,9 @@ class AppThemeUtils {
       GoogleFonts.quicksand(
           decoration: TextDecoration.none, fontSize: fontSize, color: color);
 
-  static Color colorPrimary = HexColor("33C9BE");
-  static Color colorPrimaryDark = HexColor("49CEC5");
-  static Color colorPrimarylight = HexColor("77DAD3");
-  static Color colorPrimarylight2 = HexColor("BBEDEA");
-  static Color colorSecundary = HexColor("#E78755");
-  static Color colorSecundaryLight = HexColor("#E78755");
+  static Color colorPrimary = HexColor("192BC2"); //" 00A4D5");
+  static Color colorPrimaryDark = HexColor("192BC2"); //"00A4D5");
+
   static Color iconColor = HexColor("964015");
   static Color black = HexColor("313534");
   static Color darkGrey = HexColor("ADAEAE");

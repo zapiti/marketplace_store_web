@@ -52,7 +52,7 @@ class DrawerButton extends StatelessWidget {
                       iconData,
                       size: 24,
                       color: active
-                          ? Theme.of(context).backgroundColor
+                          ? Colors.white
                           : Theme.of(context).primaryColor,
                     ),
                     SizedBox(
@@ -63,7 +63,7 @@ class DrawerButton extends StatelessWidget {
                       style: AppThemeUtils.normalSize(
                           color: active
                               ? Colors.white
-                              : Theme.of(context).textTheme.bodyText1.color),
+                              : AppThemeUtils.black),
                     ),
                   ]),
                 ),

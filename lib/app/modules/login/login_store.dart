@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:mobx/mobx.dart';
 
 part 'login_store.g.dart';
@@ -45,7 +47,8 @@ abstract class _LoginStoreBase with Store {
     actualPage = page;
   }
 
-  getLogin(BuildContext context){
+  getLoginStore(BuildContext context){
 
+    Modular.to.pushReplacementNamed(ConstantsRoutes.STOREROUTE);
   }
 }

@@ -150,7 +150,7 @@ class _LoginProdutoPageState
                                   style: ElevatedButton.styleFrom(
                                       primary: AppThemeUtils.colorPrimary),
                                   onPressed: () {
-                                    controller.getLogin(context);
+                                    controller.getLoginStore(context);
                                   },
                                   child: Text(
                                     "Entrar",

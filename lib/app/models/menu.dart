@@ -21,9 +21,9 @@ class Menu {
 
 final List<Menu> _meusMenus = [
   Menu(
-      title: ConstantsRoutes.getNameByRoute(ConstantsRoutes.HOME),
+      title: ConstantsRoutes.getNameByRoute(ConstantsRoutes.STOREROUTE),
       icon: MaterialCommunityIcons.information,
-      route: ConstantsRoutes.HOME,
+      route: ConstantsRoutes.STOREROUTE,
       hide: !kIsWeb),
 
 ];

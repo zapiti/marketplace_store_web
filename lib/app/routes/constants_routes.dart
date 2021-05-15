@@ -4,20 +4,17 @@ class ConstantsRoutes {
   //static const String INICIO = '/inicio';
   static const String LOGIN = '/login';
   static const String SEARCH = '/search';
-  static const String HOME = '/home';
+  static const String STOREROUTE = '/loja';
 
-  static const String OBJECTIVESPAGE = '/objectivespage';
-  static const String CALL_HOMEPAGE = HOME+OBJECTIVESPAGE;
+  static const String HOMEPAGE = '/home';
+  static const String CALL_HOMEPAGE = STOREROUTE+HOMEPAGE;
 
-  static const String HISTORYPAGE = '/historypage';
-  static const String CALL_HISTORYPAGE = HOME+HISTORYPAGE;
+  static const String MY_STORE_PAGE = '/minha_loja';
+  static const String CALL_MY_STORE = STOREROUTE+MY_STORE_PAGE;
 
-  static const String ACCOUNTPAGE = '/accountpage';
-  static const String CALL_ACCOUNTPAGE = HOME+ACCOUNTPAGE;
+  static const String ACCOUNTPAGE = '/conta';
+  static const String CALL_ACCOUNTPAGE = STOREROUTE+ACCOUNTPAGE;
 
-  static const String CONFIGURATIONPAGE = '/configurationpage';
-  static const String CALL_CONFIGURATIONPAGE = HOME+CONFIGURATIONPAGE;
-  
 
   static const String LOGINPAGE = '/loginPage';
   static const String CALL_LOGINPAGE  = LOGIN+LOGINPAGE ;

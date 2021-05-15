@@ -146,7 +146,7 @@ class _LoginEntregadorPageState extends ModularState<LoginEntregadorPage, LoginS
                         style: ElevatedButton.styleFrom(
                             primary: AppThemeUtils.colorPrimary),
                         onPressed: () {
-                          controller.getLogin(context);
+                          controller.getLoginStore(context);
                         },
                         child: Text(
                           "Entrar",

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
 import 'package:marketplace_store_web/app/modules/register/pages/register_entregador_page.dart';
 import 'package:marketplace_store_web/app/modules/register/pages/register_pedido_page.dart';
 import 'package:marketplace_store_web/app/modules/register/pages/register_produto_page.dart';
 import 'package:marketplace_store_web/app/modules/register/register_store.dart';
 import 'package:marketplace_store_web/app/utils/image/image_path.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+
 
 class OptionsRegisterPage extends StatefulWidget {
   OptionsRegisterPage();

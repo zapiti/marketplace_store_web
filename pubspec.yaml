@@ -21,6 +21,9 @@ dependencies:
   dio:
   responsive:
   flutter_icons:
+  flutter_masked_text:
+  auto_size_text:
+  grouped_list:
 
 dev_dependencies:
   flutter_test:

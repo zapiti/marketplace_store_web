@@ -3,9 +3,6 @@ import 'package:intl/intl.dart';
 class MyDateUtils {
   static String parseDateTimeFormat(dynamic mydate,
       {format = "dd/MM/yyy", String defaultValue = ""}) {
-    if (mydate == null) {
-      return null;
-    }
     var date;
     if (mydate.toString().contains("+")) {
       date = mydate.toString().split("+")[0];
@@ -32,35 +29,14 @@ class MyDateUtils {
     }
   }
 
-  static DateTime convertStringToDateTime(String date,
-      {bool isDateTime = false, String format = "dd/MM/yyyy"}) {
-    if (date == null || date == "" || date == "null") {
+  static DateTime convertStringToDateTime(String date) {
+    if (date == null || !date.contains("/")) {
       return null;
-    } else {
-      if (date.contains("Z")) {
-        DateTime tempDate =
-        DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(date);
-        return tempDate;
-      } else {
-        if (date.contains("/")) {
-          DateTime tempDate;
-          if (date.contains(":")) {
-            tempDate = DateFormat(format).parse(date);
-          } else {
-            tempDate = DateFormat(format).parse("$date 00:00");
-          }
-
-          return tempDate;
-        } else {
-          DateTime tempDate = isDateTime
-              ? DateTime.parse(date)
-              : new DateFormat(format).parse(date);
-          return tempDate;
-        }
-      }
     }
-  }
 
+    DateTime tempDate = new DateFormat("dd/MM/yyyy").parse(date);
+    return tempDate;
+  }
 
   static int compareDateNow(String dateInit,
       {String dateEnd, bool isHours = false}) {
@@ -78,7 +54,7 @@ class MyDateUtils {
       {DateTime dateEnd, bool isDays = false}) {
     final dateInitial = dateInit;
 
-    final date2 = dateEnd ?? DateTime.now();
+    final date2 = dateEnd;
     final difference = isDays
         ? date2.difference(dateInitial).inDays
         : date2.difference(dateInitial).inMinutes;
@@ -97,6 +73,8 @@ class MyDateUtils {
       return MyDateUtils.parseDateTimeFormat(date2, format: "yyyy/MM/dd");
     }
   }
+
+
 
   static String updateToDateFilter(String text) {
     var temp = text;
@@ -121,4 +99,27 @@ class MyDateUtils {
     }
     return temp;
   }
+
+  static hoursToCompareNow(DateTime dtCreate) {
+    final minutes =  compareDateNowDatime(dtCreate,dateEnd: DateTime.now());
+    final duration = Duration(minutes: minutes);
+
+    return _printDuration(duration);
+  }
 }
+
+
+String _printDuration(Duration duration) {
+  String twoDigitDays = duration.inDays.toString();
+  String twoDigitHours = twoDigits(duration.inHours.remainder(24));
+  String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+
+
+
+  return duration.inHours == 0
+      ? "$twoDigitMinutes minutos"
+      :duration.inDays == 0
+      ? "$twoDigitHours:$twoDigitMinutes horas" : "$twoDigitDays dias e $twoDigitHours:$twoDigitMinutes horas";
+}
+
+String twoDigits(int n) => n.toString().padLeft(2, "0");

@@ -26,7 +26,8 @@ class DrawerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment:  MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         menutitle == null
             ? SizedBox()
@@ -40,9 +41,14 @@ class DrawerButton extends StatelessWidget {
               ),
         menutitle == null ? SizedBox() : lineViewWidget(top: 5, bottom: 15),
         semiCircleWidget(
-            48, active ? (color ?? Theme.of(context).primaryColor) : Colors.transparent,
+            48,
+            active
+                ? (color ?? Theme.of(context).primaryColor)
+                : Colors.transparent,
             child: ElevatedButton(
-              onPressed: onPressed,style: ElevatedButton.styleFrom(primary: Colors.transparent, elevation: 0),
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.transparent, elevation: 0),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
@@ -61,9 +67,7 @@ class DrawerButton extends StatelessWidget {
                     Text(
                       title,
                       style: AppThemeUtils.normalSize(
-                          color: active
-                              ? Colors.white
-                              : AppThemeUtils.black),
+                          color: active ? Colors.white : AppThemeUtils.black),
                     ),
                   ]),
                 ),

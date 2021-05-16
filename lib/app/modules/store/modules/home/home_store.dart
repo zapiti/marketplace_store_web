@@ -22,6 +22,8 @@ abstract class _HomeStoreBase with Store {
   @observable
   String actualPage;
 
+
+
   @action
   void selectPage(String page) {
     actualPage = page;
@@ -31,6 +33,8 @@ abstract class _HomeStoreBase with Store {
       _getListOrderHistory();
     }
   }
+
+
 
 
   void _getPendingOrders() {

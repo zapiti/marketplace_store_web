@@ -1,15 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/home_store.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
-class BodyPending extends StatelessWidget {
+import '../../../home_store.dart';
+
+class BodyHistory extends StatelessWidget {
   final HomeStore controller;
   final Order order;
 
-  BodyPending(this.order, this.controller);
+  BodyHistory(this.order, this.controller);
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +92,12 @@ class BodyPending extends StatelessWidget {
                                         margin: EdgeInsets.only(left: 10),
                                         child: Image.network(
                                           e.imageUrl,
-                                          width: MediaQuery.of(context).size.width < 500 ? 50: 150,
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .width <
+                                                  500
+                                              ? 50
+                                              : 150,
                                         ),
                                       )
                                     ],
@@ -105,32 +112,14 @@ class BodyPending extends StatelessWidget {
               )
             ],
           ),
+          lineViewWidget(),
           Container(
-            height: 45,width: 200,
-              margin: EdgeInsets.only(top: 20,left: 10,right: 10),
-              child:  ElevatedButton(
-                style:
-                ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
-                onPressed: () {},
-                child: Text(
-                  "ACEITAR",
-                  style:
-                  AppThemeUtils.normalBoldSize(color: AppThemeUtils.whiteColor),
-                ),
-              )),
-          Container(
-              height: 45,width: 200,
-              margin: EdgeInsets.all(20),
-              child:  ElevatedButton(
-                style:
-                ElevatedButton.styleFrom(primary: AppThemeUtils.whiteColor),
-                onPressed: () {},
-                child: Text(
-                  "RECUSAR",
-                  style:
-                  AppThemeUtils.normalBoldSize(color: AppThemeUtils.colorPrimary),
-                ),
-              ))
+              margin: EdgeInsets.symmetric(vertical: 15),
+              child: Text(
+                  "TOTAL: ${MoneyMaskedTextController(initialValue: order.value, leftSymbol: "R\$").text}",
+                  textAlign: TextAlign.center,
+                  style: AppThemeUtils.normalBoldSize(
+                      color: AppThemeUtils.colorPrimary))),
         ],
       ),
     );

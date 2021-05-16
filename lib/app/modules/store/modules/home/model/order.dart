@@ -13,7 +13,7 @@ class Order {
   int numPedido = 80045;
   String status;
 
-  List<Product> products = [ Product(),Product(),Product(),Product(),Product(),Product()];
+  List<Product> products = [ Product(),Product(),Product()];
 
   double value = 500.0;
 

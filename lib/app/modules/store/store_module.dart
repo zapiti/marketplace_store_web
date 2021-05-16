@@ -1,3 +1,6 @@
+import 'package:marketplace_store_web/app/modules/store/modules/account/page/account_alter_pass_page.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/account/page/account_help_page.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/account/page/account_my_wallet_page.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/home_module.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_module.dart';
 
@@ -27,6 +30,12 @@ class StoreModule extends Module {
             module: MyStoreModule(), transition: TransitionType.fadeIn),
         ModuleRoute(ConstantsRoutes.ACCOUNTPAGE,
             module: AccountModule(), transition: TransitionType.fadeIn),
+        ChildRoute(ConstantsRoutes.ALTERPASS,
+            child: (_, args) => AccountAlterPassPage(), transition: TransitionType.fadeIn),
+        ChildRoute(ConstantsRoutes.HELP,
+            child: (_, args) => AccountHelpPage(), transition: TransitionType.fadeIn),
+        ChildRoute(ConstantsRoutes.WALLET,
+            child: (_, args) => AccountMyWalletPage(), transition: TransitionType.fadeIn)
       ],
     ),
   ];

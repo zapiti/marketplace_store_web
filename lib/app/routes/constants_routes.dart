@@ -28,6 +28,15 @@ class ConstantsRoutes {
   static const String DETAILOBJECT = '/detailObjectivePage';
   static const String CALL_DETAIL_OBJECTIVE = CALL_HOMEPAGE+DETAILOBJECT;
 
+  static const String ALTERPASS = '/alterar_senha';
+  static const String CALL_ALTERPASS = STOREROUTE+ALTERPASS;
+
+  static const String WALLET = '/carteira';
+  static const String CALL_WALLET =  STOREROUTE+WALLET;
+
+  static const String HELP = '/ajuda';
+  static const String CALL_HELP =  STOREROUTE+HELP;
+
   static String getNameByRoute(String route) {
     switch ("/${route.replaceAll("/", "")}") {
 

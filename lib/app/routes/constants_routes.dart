@@ -12,6 +12,12 @@ class ConstantsRoutes {
   static const String MY_STORE_PAGE = '/minha_loja';
   static const String CALL_MY_STORE = STOREROUTE+MY_STORE_PAGE;
 
+  static const String  ALTER_STORE_PAGE = '/alterar_loja';
+  static const String CALL_ALTER_STORE_PAGE = STOREROUTE+ALTER_STORE_PAGE;
+
+  static const String ALTER_PRODUCT_STORE_PAGE = "/alterar_produto";
+  static const String CALL_ALTER_PRODUCT_STORE_PAGE = STOREROUTE+ALTER_PRODUCT_STORE_PAGE;
+
   static const String ACCOUNTPAGE = '/conta';
   static const String CALL_ACCOUNTPAGE = STOREROUTE+ACCOUNTPAGE;
 
@@ -33,6 +39,9 @@ class ConstantsRoutes {
 
   static const String WALLET = '/carteira';
   static const String CALL_WALLET =  STOREROUTE+WALLET;
+
+  static const String ALTERWALLET = '/alterar_carteira';
+  static const String CALL_ALTERWALLET =  STOREROUTE+ALTERWALLET;
 
   static const String HELP = '/ajuda';
   static const String CALL_HELP =  STOREROUTE+HELP;

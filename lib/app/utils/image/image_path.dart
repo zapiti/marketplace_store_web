@@ -18,5 +18,8 @@ class ImagePath {
   static final String bgLogin = "assets/images/ic_bg_register_login.png";
 
   static final String bgTopLogin = "assets/images/ic_register_top_bg.png";
+
+  static final String ic_barcode  = "assets/images/ic_barcode.svg";
+  static final String bg_barcode  = "assets/images/bg_barcode.svg";
   // static final String icupload = "assets/images/ic_logo.svg";
 }

@@ -24,6 +24,8 @@ dependencies:
   flutter_masked_text:
   auto_size_text:
   grouped_list:
+  timelines:
+  image_picker:
 
 dev_dependencies:
   flutter_test:

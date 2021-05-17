@@ -44,12 +44,15 @@ class _MyStoreAddProductPageState
                 Flexible(
                     child: Observer(
                         builder: (_) => Container(
-                            height: 60,width: 240,
+                            height: 60,
+                            width: 240,
                             margin: EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 20),
+                                horizontal: 5, vertical: 25),
                             child: ElevatedButton(
                               child: AutoSizeText(
-                                "Sobre o produto",textAlign: TextAlign.center,minFontSize: 8,
+                                "Sobre o produto",
+                                textAlign: TextAlign.center,
+                                minFontSize: 8,
                                 style: AppThemeUtils.normalSize(
                                     fontSize: 14,
                                     color: controller.actualProductPage ==
@@ -68,48 +71,56 @@ class _MyStoreAddProductPageState
                                       side: BorderSide(
                                           color: AppThemeUtils.colorPrimary))),
                               onPressed: () {
-                                controller.selectedProductPage(controller.SOBRE);
+                                controller
+                                    .selectedProductPage(controller.SOBRE);
                               },
                             )))),
                 Flexible(
                     child: Observer(
                         builder: (_) => Container(
-                            height: 60,width: 240,
+                            height: 60,
+                            width: 240,
                             margin: EdgeInsets.symmetric(
                                 horizontal: 2, vertical: 20),
                             child: ElevatedButton(
                               child: AutoSizeText(
-                                "Quantidade",textAlign: TextAlign.center,minFontSize: 8,
+                                "Quantidade",
+                                textAlign: TextAlign.center,
+                                minFontSize: 8,
                                 style: AppThemeUtils.normalSize(
                                     fontSize: 14,
                                     color: controller.actualProductPage ==
-                                        controller.QUANTIDADE
+                                            controller.QUANTIDADE
                                         ? AppThemeUtils.whiteColor
                                         : AppThemeUtils.colorPrimary),
                               ),
                               style: ElevatedButton.styleFrom(
                                   primary: controller.actualProductPage ==
-                                      controller.QUANTIDADE
+                                          controller.QUANTIDADE
                                       ? AppThemeUtils.colorPrimary
                                       : AppThemeUtils.whiteColor,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
-                                      new BorderRadius.circular(4.0),
+                                          new BorderRadius.circular(4.0),
                                       side: BorderSide(
                                           color: AppThemeUtils.colorPrimary))),
                               onPressed: () {
-                                controller.selectedProductPage(controller.QUANTIDADE);
+                                controller
+                                    .selectedProductPage(controller.QUANTIDADE);
                               },
                             )))),
                 Flexible(
                     child: Observer(
                         builder: (_) => Container(
-                            height: 60,width: 240,
+                            height: 60,
+                            width: 240,
                             margin: EdgeInsets.symmetric(
                                 horizontal: 2, vertical: 20),
                             child: ElevatedButton(
                               child: AutoSizeText(
-                                "Código de barras",textAlign: TextAlign.center,minFontSize: 8,
+                                "Código de barras",
+                                textAlign: TextAlign.center,
+                                minFontSize: 8,
                                 style: AppThemeUtils.normalSize(
                                     fontSize: 14,
                                     color: controller.actualProductPage ==
@@ -128,7 +139,8 @@ class _MyStoreAddProductPageState
                                       side: BorderSide(
                                           color: AppThemeUtils.colorPrimary))),
                               onPressed: () {
-                                controller.selectedProductPage(controller.CODIGO_DE_BARRAS);
+                                controller.selectedProductPage(
+                                    controller.CODIGO_DE_BARRAS);
                               },
                             )))),
               ],

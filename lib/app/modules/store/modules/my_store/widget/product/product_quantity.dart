@@ -28,7 +28,7 @@ class _ProductQuantityState extends State<ProductQuantity> {
           children: [
 
             Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
                 child: SelectButton(
                   title: [Pairs("Unidade", "Unidade"), Pairs("Peso", "Peso")],
                   tapIndex: (myPairs) {

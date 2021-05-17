@@ -16,7 +16,7 @@ class ProductSobre extends StatelessWidget {
         child: Column(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
           child: UserImageWidget(
             changeImage: (txt) {},
             width: MediaQuery.of(context).size.width,
@@ -35,11 +35,13 @@ class ProductSobre extends StatelessWidget {
                   border: OutlineInputBorder(borderSide: BorderSide()),
                   labelText: 'Nome do produto*'),
             )),
-        Row(
+    Padding(
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+    child: Row(
           children: [
             Expanded(
               child: Padding(
-                  padding: EdgeInsets.only(left: 20, right: 5),
+                  padding: EdgeInsets.only(left: 0, right: 5),
                   child: TextField(
                     controller: controller.valueProductController,
                     onChanged: (text) {},
@@ -50,7 +52,7 @@ class ProductSobre extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                  padding: EdgeInsets.only(right: 20, left: 5),
+                  padding: EdgeInsets.only(right: 0, left: 5),
                   child: TextField(
                     controller: controller.valuePromotionController,
                     onChanged: (text) {},
@@ -60,7 +62,7 @@ class ProductSobre extends StatelessWidget {
                   )),
             )
           ],
-        ),
+        )),
         Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             child: CustomDropMenuWidget(
@@ -106,7 +108,7 @@ class ProductSobre extends StatelessWidget {
             style:
                 ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
           ),
-        )
+        ),SizedBox(height: 50,),
       ],
     ));
   }

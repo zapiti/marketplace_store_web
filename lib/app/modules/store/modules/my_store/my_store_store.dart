@@ -113,13 +113,10 @@ abstract class _MyStoreStoreBase with Store {
         positiveText: "Confirmar",
         containsPop: true,
         positiveCallback: () {
-
           Modular.to.pushReplacementNamed(ConstantsRoutes.CALL_MY_STORE);
         },
         negativeText: "Cancelar",
-        negativeCallback: () {
-
-        },
+        negativeCallback: () {},
         iconData: Icons.error_outline,
         customWidget: Container(
           color: Colors.white,

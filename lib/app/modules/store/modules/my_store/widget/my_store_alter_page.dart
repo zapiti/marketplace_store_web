@@ -138,7 +138,7 @@ class _MyStoreAlterPageState
                     horizontal: 10,
                     vertical: Utils.isSmalSize(BoxConstraints(
                             maxWidth: MediaQuery.of(context).size.width))
-                        ? 20
+                        ? 0
                         : 0),
                 child: OptionsMyStore(controller)))
       ],

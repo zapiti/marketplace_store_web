@@ -28,21 +28,8 @@ class CustomDropMenuWidget extends StatefulWidget {
 class _CustomDropMenuWidgetState extends State<CustomDropMenuWidget> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 0),
-              padding: EdgeInsets.only(top: 5, bottom: 0),
-              child: Text(
-                widget.title,
-                maxLines: 1,
-                style: AppThemeUtils.normalSize(color: AppThemeUtils.black),
-              )),
-          SizedBox(
-            height: 2,
-          ),
+    return
+
           Container(
             height: widget.sized,
               margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
@@ -65,7 +52,7 @@ class _CustomDropMenuWidgetState extends State<CustomDropMenuWidget> {
                   },
                   hint: Center(
                       child: Text(
-                    widget.controller.text,
+                    widget.controller.text.isEmpty ?  widget.title :   widget.controller.text ,
                     maxLines: 1,
                   )),
                   selectedItemBuilder: (BuildContext context) {
@@ -89,7 +76,6 @@ class _CustomDropMenuWidgetState extends State<CustomDropMenuWidget> {
                     );
                   }).toList(),
                 ),
-              ))
-        ]);
+              ));
   }
 }

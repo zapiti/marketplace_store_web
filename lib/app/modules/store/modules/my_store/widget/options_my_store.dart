@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/store/store_hours.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/store/store_phone.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/store/store_prepar_time.dart';
 
 class OptionsMyStore extends StatelessWidget {
   MyStoreStore controller;
@@ -12,11 +15,11 @@ class OptionsMyStore extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Observer(
         builder: (_) => Container(
-      color: controller.actualPage == controller.HORARIO
-          ? Colors.pink
+      child: controller.actualPage == controller.HORARIO
+          ? StoreHours(controller)
           : controller.actualPage == controller.MYTEMPO
-              ? Colors.grey
-              : Colors.green,
+              ? StorePreparTime(controller)
+              : StorePhone(controller),
     ));
   }
 }

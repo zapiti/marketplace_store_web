@@ -84,30 +84,64 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  final _$currentShopsAtom = Atom(name: '_HomeStoreBase.currentShops');
+
+  @override
+  Shops get currentShops {
+    _$currentShopsAtom.reportRead();
+    return super.currentShops;
+  }
+
+  @override
+  set currentShops(Shops value) {
+    _$currentShopsAtom.reportWrite(value, super.currentShops, () {
+      super.currentShops = value;
+    });
+  }
+
+  final _$getListShopsAsyncAction = AsyncAction('_HomeStoreBase.getListShops');
+
+  @override
+  Future getListShops() {
+    return _$getListShopsAsyncAction.run(() => super.getListShops());
+  }
+
+  final _$getListCategoryAsyncAction =
+      AsyncAction('_HomeStoreBase.getListCategory');
+
+  @override
+  Future getListCategory() {
+    return _$getListCategoryAsyncAction.run(() => super.getListCategory());
+  }
+
+  final _$getListProductAsyncAction =
+      AsyncAction('_HomeStoreBase.getListProduct');
+
+  @override
+  Future getListProduct() {
+    return _$getListProductAsyncAction.run(() => super.getListProduct());
+  }
+
+  final _$setCurrentShopsAsyncAction =
+      AsyncAction('_HomeStoreBase.setCurrentShops');
+
+  @override
+  Future setCurrentShops(Shops myCurrentShop) {
+    return _$setCurrentShopsAsyncAction
+        .run(() => super.setCurrentShops(myCurrentShop));
+  }
+
+  final _$getListCurrentStoreAsyncAction =
+      AsyncAction('_HomeStoreBase.getListCurrentStore');
+
+  @override
+  Future getListCurrentStore(String idShops) {
+    return _$getListCurrentStoreAsyncAction
+        .run(() => super.getListCurrentStore(idShops));
+  }
+
   final _$_HomeStoreBaseActionController =
       ActionController(name: '_HomeStoreBase');
-
-  @override
-  dynamic getListShops() {
-    final _$actionInfo = _$_HomeStoreBaseActionController.startAction(
-        name: '_HomeStoreBase.getListShops');
-    try {
-      return super.getListShops();
-    } finally {
-      _$_HomeStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic getListCategory() {
-    final _$actionInfo = _$_HomeStoreBaseActionController.startAction(
-        name: '_HomeStoreBase.getListCategory');
-    try {
-      return super.getListCategory();
-    } finally {
-      _$_HomeStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
 
   @override
   dynamic getBanner() {
@@ -121,24 +155,14 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   }
 
   @override
-  dynamic getListProduct() {
-    final _$actionInfo = _$_HomeStoreBaseActionController.startAction(
-        name: '_HomeStoreBase.getListProduct');
-    try {
-      return super.getListProduct();
-    } finally {
-      _$_HomeStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 listCategory: ${listCategory},
 listProduct: ${listProduct},
 listPromo: ${listPromo},
 listShops: ${listShops},
-banner: ${banner}
+banner: ${banner},
+currentShops: ${currentShops}
     ''';
   }
 }

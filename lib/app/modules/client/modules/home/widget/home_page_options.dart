@@ -31,8 +31,11 @@ class _HomePageOptionsState extends State<HomePageOptions> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Container(
+        height: MediaQuery.of(context).size.height,
+        child:  SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.max,
       children: [
         Container(
             height: 120,
@@ -42,7 +45,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                     itemCount: widget.controller.listCategory.length,
                     itemBuilder: (context, index) =>
                         ItemCategory(widget.controller.listCategory[index])))),
-        Observer(builder: (_) => ItemBanner(widget.controller.banner)),
+         ItemBanner(widget.controller.banner),
         Flex(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +64,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                   : _listShops(),
             ])
       ],
-    ));
+    )));
   }
 
   Observer _listShops() {
@@ -80,7 +83,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                   ),
                 ),
                 ...widget.controller.listShops
-                    .map<Widget>((e) => ItemShops(e))
+                    .map<Widget>((e) => ItemShops(e,widget.controller))
                     .toList(),
               ],
             ));

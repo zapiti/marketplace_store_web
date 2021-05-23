@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/appbar/custom_client_app_bar.dart';
 import 'package:marketplace_store_web/app/components/drawer/custom_client_drawer.dart';
@@ -16,7 +17,9 @@ class ClientPageState extends ModularState<ClientPage, ClientStore> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Modular.to.navigate(ConstantsRoutes.CALL_CLIENT_HOMEPAGE);
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      Modular.to.navigate(ConstantsRoutes.CALL_CLIENT_HOMEPAGE);
+    });
   }
 
   @override

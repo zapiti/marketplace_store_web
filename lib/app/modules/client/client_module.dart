@@ -8,11 +8,17 @@ import 'modules/account/account_module.dart';
 import 'modules/account/page/account_alter_pass_page.dart';
 import 'modules/account/page/account_help_page.dart';
 import 'modules/home/home_module.dart';
+import 'modules/home/home_store.dart';
+import 'modules/home/page/home/initial_home_page.dart';
+import 'modules/home/page/store/detail_store_page.dart';
+import 'modules/home/repository/home_repository.dart';
 
 class ClientModule extends Module {
   @override
   final List<Bind> binds = [
     Bind.lazySingleton((i) => ClientStore()),
+    Bind.lazySingleton((i) => HomeRepository()),
+    Bind.lazySingleton((i) => HomeStore()),
   ];
 
   @override
@@ -20,8 +26,13 @@ class ClientModule extends Module {
     ChildRoute(Modular.initialRoute,
         child: (_, args) => ClientPage(),
         children: [
+
+          //region <!home>
           ModuleRoute(ConstantsRoutes.HOME_CLIENT_PAGE,
               module: HomeModule(), transition: TransitionType.fadeIn),
+          ChildRoute(ConstantsRoutes.HOME_SHOP_CLIENT_PAGE+ ":id",
+              child: (_, args) => DetailStorePage(args.params['id']), transition: TransitionType.fadeIn),
+          //endregion
 
           ModuleRoute(ConstantsRoutes.ACCOUNTCLIENTPAGE,
               module: AccountModule(), transition: TransitionType.fadeIn),

@@ -1,5 +1,7 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/category.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/home/repository/home_repository.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:mobx/mobx.dart';
 
@@ -11,54 +13,33 @@ class HomeStore = _HomeStoreBase with _$HomeStore;
 
 abstract class _HomeStoreBase with Store {
   @observable
-  List<Category> listCategory;
+  List<Category> listCategory = [];
 
   @observable
-  List<Product> listProduct;
+  List<Product> listProduct = [];
 
   @observable
-  List<Product> listPromo;
+  List<Product> listPromo = [];
 
   @observable
-  List<Shops> listShops;
+  List<Shops> listShops = [];
 
   @observable
   MyBanner banner;
 
+  @observable
+  Shops currentShops;
+
+  final _repository = Modular.get<HomeRepository>();
+
   @action
-  getListShops() {
-    listShops = [
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops(),
-      Shops()
-    ];
+  getListShops() async {
+    listShops = await _repository.getListShops();
   }
 
   @action
-  getListCategory() {
-    listCategory = [
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category(),
-      Category()
-    ];
+  getListCategory() async {
+    listCategory = await _repository.getListCategory();
   }
 
   @action
@@ -67,21 +48,18 @@ abstract class _HomeStoreBase with Store {
   }
 
   @action
-  getListProduct() {
-    listProduct = [
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product(),
-      Product()
-    ];
+  getListProduct() async {
+    listProduct = await _repository.getListProduct();
     listPromo = listProduct;
+  }
+
+  @action
+  setCurrentShops(Shops myCurrentShop) async {
+    currentShops = myCurrentShop;
+  }
+
+  @action
+  getListCurrentStore(String idShops) async {
+    currentShops = await _repository.getListCurrentStore(idShops);
   }
 }

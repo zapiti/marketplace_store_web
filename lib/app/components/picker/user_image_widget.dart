@@ -15,6 +15,7 @@ class UserImageWidget extends StatefulWidget {
   final Function(String) changeImage;
   final String userImage;
   final String addButtom;
+  final bool enable;
 
   UserImageWidget({
     this.height,
@@ -22,7 +23,7 @@ class UserImageWidget extends StatefulWidget {
     this.isRounded = true,
     this.changeImage,
     this.userImage,
-    this.addButtom,
+    this.addButtom, this.enable = true,
   });
 
   @override
@@ -114,7 +115,7 @@ class _UserImageWidgetState extends State<UserImageWidget> {
             child: Container(
                 color: Colors.grey[200],
                 child: InkWell(
-                    onTap:  () {
+                    onTap: !widget.enable ? null: () {
                       _onImageButtonPressed(ImageSource.camera);
                           },
                     child: Stack(children: <Widget>[
@@ -153,7 +154,7 @@ class _UserImageWidgetState extends State<UserImageWidget> {
                                   height: 120,
                                   fit: BoxFit.fill,
                                 ),
-                      !widget.isRounded
+                      !widget.isRounded || !widget.enable
                           ? SizedBox()
                           : Align(
                               alignment: Alignment.bottomCenter,
@@ -177,7 +178,7 @@ class _UserImageWidgetState extends State<UserImageWidget> {
                                   style: AppThemeUtils.normalSize(
                                       color: Colors.white),
                                 ),
-                                onPressed: () {
+                                onPressed:!widget.enable ? null: () {
                                   _onImageButtonPressed(ImageSource.camera);
                                 },
                                 style: ElevatedButton.styleFrom(

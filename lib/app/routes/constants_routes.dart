@@ -57,6 +57,13 @@ class ConstantsRoutes {
   static const String HOME_CLIENT_PAGE = '/home';
   static const String CALL_CLIENT_HOMEPAGE = CLIENTROUTE + HOME_CLIENT_PAGE;
 
+  // static const String HOME_INITIAL_CLIENT_PAGE  = '/inicio';
+  // static const String CALL_INITIAL_CLIENT_HOMEPAGE = CLIENTROUTE + HOME_INITIAL_CLIENT_PAGE;
+
+
+  static const String HOME_SHOP_CLIENT_PAGE  = '/detalhe_loja/';
+  static const String CALL_HOME_SHOP_CLIENT_PAGE = CLIENTROUTE + HOME_SHOP_CLIENT_PAGE;
+
   static const String ALTERPASSCLIENT = '/alterar_senha';
   static const String CALL_CLIENT_ALTERPASS = CLIENTROUTE + ALTERPASSCLIENT;
 
@@ -65,6 +72,8 @@ class ConstantsRoutes {
 
   static const String ACCOUNTCLIENTPAGE = '/conta';
   static const String CALL_ACCOUNT_CLIENT_PAGE = CLIENTROUTE + ACCOUNTCLIENTPAGE;
+
+
 
 
 

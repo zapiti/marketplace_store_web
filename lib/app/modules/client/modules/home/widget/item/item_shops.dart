@@ -2,14 +2,18 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/home/home_store.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
+import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 class ItemShops extends StatelessWidget {
   final Shops shops;
+  final HomeStore controller;
 
-  ItemShops(this.shops);
+  ItemShops(this.shops,this.controller);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,12 @@ class ItemShops extends StatelessWidget {
       width: 500,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       child:InkWell(
-          onTap: (){},
+          onTap: (){
+            controller.setCurrentShops(shops);
+            Modular.to.navigate(
+                ConstantsRoutes.CALL_HOME_SHOP_CLIENT_PAGE + shops.id.toString(),);
+
+          },
           child:  Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

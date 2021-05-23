@@ -32,20 +32,24 @@ class StoreModule extends Module {
       Modular.initialRoute,
       child: (_, args) => StorePage(),
       children: [
-        ModuleRoute(ConstantsRoutes.HOMEPAGE,
+        ModuleRoute(ConstantsRoutes.HOME_STORE_PAGE,
             module: HomeModule(), transition: TransitionType.fadeIn),
         ModuleRoute(ConstantsRoutes.MY_STORE_PAGE,
             module: MyStoreModule(), transition: TransitionType.fadeIn),
+
+        ModuleRoute(ConstantsRoutes.ACCOUNTSTOREPAGE,
+            module: AccountModule(), transition: TransitionType.fadeIn),
+        ChildRoute(ConstantsRoutes.ALTERPASSSTORE,
+            child: (_, args) => AccountAlterPassPage(), transition: TransitionType.fadeIn),
+        ChildRoute(ConstantsRoutes.HELPSTORE,
+            child: (_, args) => AccountHelpPage(), transition: TransitionType.fadeIn),
+        
         ChildRoute(ConstantsRoutes.ALTER_STORE_PAGE,
             child: (_, args) => AlterMyStorePage(), transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.ALTER_PRODUCT_STORE_PAGE,
             child: (_, args) => AddProductStorePage(), transition: TransitionType.fadeIn),
-        ModuleRoute(ConstantsRoutes.ACCOUNTPAGE,
-            module: AccountModule(), transition: TransitionType.fadeIn),
-        ChildRoute(ConstantsRoutes.ALTERPASS,
-            child: (_, args) => AccountAlterPassPage(), transition: TransitionType.fadeIn),
-        ChildRoute(ConstantsRoutes.HELP,
-            child: (_, args) => AccountHelpPage(), transition: TransitionType.fadeIn),
+     
+      
         ChildRoute(ConstantsRoutes.WALLET,
             child: (_, args) => AccountMyWalletPage(), transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.ALTERWALLET,

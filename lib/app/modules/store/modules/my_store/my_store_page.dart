@@ -31,15 +31,8 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          margin: EdgeInsets.all(15),
-          child: Center(
-              child: Container(
-                  width: 1200,
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
+      body: PageWeb(
+          child:Column(
                     children: [
                       Stack(
                         children: [
@@ -117,7 +110,7 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                           )),
                       Expanded(child: MyStoreMainPage(controller))
                     ],
-                  )))),
+                  )),
     );
   }
 }

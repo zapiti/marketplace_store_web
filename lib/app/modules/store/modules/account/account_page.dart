@@ -31,7 +31,7 @@ class AccountPageState extends State<AccountPage> {
                       TitleDescriptionWebWidget(
                         title: "Alterar senha",
                         action: () {
-                          Modular.to.pushNamed(ConstantsRoutes.CALL_ALTERPASS);
+                          Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_ALTERPASS);
                         },
                         iconData: MaterialCommunityIcons.lock_outline,
                       ),
@@ -47,14 +47,17 @@ class AccountPageState extends State<AccountPage> {
                       TitleDescriptionWebWidget(
                         title: "Ajuda",
                         action: () {
-                          Modular.to.pushNamed(ConstantsRoutes.CALL_HELP);
+                          Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_HELP);
                         },
                         iconData: MaterialCommunityIcons.information_outline,
                       ),
                       lineViewWidget(),
                       TitleDescriptionWebWidget(
                         title: "Sair",
-                        action: () {},
+                        action: () {
+                          
+                          Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
+                        },
                         iconData: MaterialCommunityIcons.exit_to_app,
                       ),
                       lineViewWidget(),

@@ -13,8 +13,8 @@ class PageWeb extends StatelessWidget {
         margin: EdgeInsets.all(15),
         child: Center(
             child: Container(
-                width: 530,
+                width: 1200,
                 height: MediaQuery.of(context).size.height,
-                child: SingleChildScrollView(child: child))));
+                child:  child)));
   }
 }

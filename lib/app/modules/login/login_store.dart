@@ -6,6 +6,7 @@ import 'package:mobx/mobx.dart';
 part 'login_store.g.dart';
 
 class LoginStore = _LoginStoreBase with _$LoginStore;
+
 abstract class _LoginStoreBase with Store {
   final PEDIDO = "PEDIDO";
   final PRODUTO = "PRODUTO";
@@ -13,8 +14,6 @@ abstract class _LoginStoreBase with Store {
 
   final passController = TextEditingController();
   final userController = TextEditingController();
-
-
 
   @observable
   bool showHidePass = true;
@@ -24,7 +23,6 @@ abstract class _LoginStoreBase with Store {
 
   @observable
   String actualPage;
-
 
   @action
   void showHideIcon() {
@@ -41,14 +39,16 @@ abstract class _LoginStoreBase with Store {
     isLoadLogin = false;
   }
 
-
   @action
   void selectPage(String page) {
     actualPage = page;
   }
 
-  getLoginStore(BuildContext context){
+  getLoginClient(BuildContext context) {
+    Modular.to.pushReplacementNamed(ConstantsRoutes.CLIENTROUTE);
+  }
 
+  getLoginStore(BuildContext context) {
     Modular.to.pushReplacementNamed(ConstantsRoutes.STOREROUTE);
   }
 }

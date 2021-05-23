@@ -24,6 +24,52 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
+  final _$showHidePassConfirmAtom =
+      Atom(name: '_RegisterStoreBase.showHidePassConfirm');
+
+  @override
+  bool get showHidePassConfirm {
+    _$showHidePassConfirmAtom.reportRead();
+    return super.showHidePassConfirm;
+  }
+
+  @override
+  set showHidePassConfirm(bool value) {
+    _$showHidePassConfirmAtom.reportWrite(value, super.showHidePassConfirm, () {
+      super.showHidePassConfirm = value;
+    });
+  }
+
+  final _$showHidePassAtom = Atom(name: '_RegisterStoreBase.showHidePass');
+
+  @override
+  bool get showHidePass {
+    _$showHidePassAtom.reportRead();
+    return super.showHidePass;
+  }
+
+  @override
+  set showHidePass(bool value) {
+    _$showHidePassAtom.reportWrite(value, super.showHidePass, () {
+      super.showHidePass = value;
+    });
+  }
+
+  final _$termAtom = Atom(name: '_RegisterStoreBase.term');
+
+  @override
+  bool get term {
+    _$termAtom.reportRead();
+    return super.term;
+  }
+
+  @override
+  set term(bool value) {
+    _$termAtom.reportWrite(value, super.term, () {
+      super.term = value;
+    });
+  }
+
   final _$actualPageAtom = Atom(name: '_RegisterStoreBase.actualPage');
 
   @override
@@ -41,6 +87,39 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
 
   final _$_RegisterStoreBaseActionController =
       ActionController(name: '_RegisterStoreBase');
+
+  @override
+  dynamic changeTerm() {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.changeTerm');
+    try {
+      return super.changeTerm();
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void showHideConfirmIcon() {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.showHideConfirmIcon');
+    try {
+      return super.showHideConfirmIcon();
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void showHideIcon() {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.showHideIcon');
+    try {
+      return super.showHideIcon();
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void selectPage(String page) {
@@ -65,9 +144,23 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
   }
 
   @override
+  dynamic getRegisterProduct(BuildContext context) {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.getRegisterProduct');
+    try {
+      return super.getRegisterProduct(context);
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 isLoadLogin: ${isLoadLogin},
+showHidePassConfirm: ${showHidePassConfirm},
+showHidePass: ${showHidePass},
+term: ${term},
 actualPage: ${actualPage}
     ''';
   }

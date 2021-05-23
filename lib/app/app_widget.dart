@@ -7,7 +7,8 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Slidy',debugShowCheckedModeBanner: false,
+      title: 'Marketplace',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: AppThemeUtils.colorPrimary),
       supportedLocales: [const Locale('pt', 'BR')],
       localizationsDelegates: [

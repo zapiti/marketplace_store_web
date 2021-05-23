@@ -44,7 +44,7 @@ class CustomStoreAppBar extends PreferredSize {
                           onPressed: () {
                             controller.addCurrentIndex(0);
                             Modular.to.navigate(
-                                ConstantsRoutes.CALL_HOMEPAGE);
+                                ConstantsRoutes.CALL_STORE_HOMEPAGE);
                           },
                           child: Text(
                             "Home",
@@ -83,7 +83,7 @@ class CustomStoreAppBar extends PreferredSize {
                             controller.addCurrentIndex(2);
 
                             Modular.to.navigate(
-                                ConstantsRoutes.CALL_ACCOUNTPAGE);
+                                ConstantsRoutes.CALL_ACCOUNT_STORE_PAGE);
                           },
                           child: Text(
                             "Conta",

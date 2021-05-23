@@ -128,10 +128,10 @@ class _RegisterProdutoPageState   extends ModularState<RegisterProdutoPage, Regi
                                     style: ElevatedButton.styleFrom(
                                         primary: AppThemeUtils.colorPrimary),
                                     onPressed: () {
-                                      controller.getRegister(context);
+                                      controller.getRegisterProduct(context);
                                     },
                                     child: Text(
-                                      "Entrar",
+                                      "Cadastrar",
                                       style: AppThemeUtils.normalBoldSize(
                                           color: AppThemeUtils.whiteColor),
                                     ),

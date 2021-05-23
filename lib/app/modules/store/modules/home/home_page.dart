@@ -4,6 +4,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marketplace_store_web/app/components/page/page_web.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/home_store.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/widget/home_page_options.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
@@ -26,13 +27,14 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body:PageWeb(
+        child: Column(
         children: <Widget>[
           Container(
             child: Center(
               child: Observer(
                   builder: (_) => Container(
-                        width: 500,
+
                         margin:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                         child: Row(
@@ -182,13 +184,13 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
               child: Container(
             child: Center(
               child: Container(
-                width: 500,
+
                 child: HomePageOptions(controller),
               ),
             ),
           ))
         ],
-      ),
+      )),
     );
   }
 }

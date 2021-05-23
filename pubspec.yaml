@@ -42,6 +42,6 @@ flutter:
 scripts:
   mobx: flutter pub get & flutter pub run build_runner watch --delete-conflicting-outputs
 
-  #slidy g m modules/home/modules/configuration  & slidy g mbx modules/home/modules/configuration/configuration  & slidy g p modules/home/modules/configuration/configuration
+  #slidy g m modules/client/modules/account  & slidy g mbx modules/client/modules/account/account  & slidy g p modules/client/modules/account/account
 
-  #slidy g m modules/registre  & slidy g mbx modules/registre/registre  & slidy g p modules/registre/registre
+  #slidy g m modules/client  & slidy g mbx modules/client/client  & slidy g p modules/client/client

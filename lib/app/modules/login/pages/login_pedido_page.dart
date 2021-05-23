@@ -146,7 +146,7 @@ class _LoginPedidoPageState extends ModularState<LoginPedidoPage, LoginStore> {
                       style: ElevatedButton.styleFrom(
                           primary: AppThemeUtils.colorPrimary),
                       onPressed: () {
-                        controller.getLoginStore(context);
+                        controller.getLoginClient(context);
                       },
                       child: Text(
                         "Entrar",

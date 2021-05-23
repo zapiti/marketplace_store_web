@@ -19,7 +19,7 @@ class StorePageState extends ModularState<StorePage, StoreStore> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Modular.to.navigate(ConstantsRoutes.CALL_HOMEPAGE);
+    Modular.to.navigate(ConstantsRoutes.CALL_STORE_HOMEPAGE);
   }
 
   @override

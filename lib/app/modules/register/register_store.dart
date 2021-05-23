@@ -13,21 +13,49 @@ abstract class _RegisterStoreBase with Store {
   final modelController = TextEditingController();
   final cnpjController = TextEditingController();
   final cityController = TextEditingController();
+  final passControllerConfirm = TextEditingController();
+  final passController = TextEditingController();
+  final nameUserController = TextEditingController();
+  final emailController = TextEditingController();
+
   @observable
   bool isLoadLogin = false;
 
   @observable
+  bool showHidePassConfirm = false;
+
+  @observable
+  bool showHidePass = false;
+
+  @observable
+  bool term = false;
+
+  @observable
   String actualPage;
+
+  @action
+  changeTerm() {
+    term = !term;
+  }
+
+  @action
+  void showHideConfirmIcon() {
+    showHidePassConfirm = !showHidePassConfirm;
+  }
+
+  @action
+  void showHideIcon() {
+    showHidePass = !showHidePass;
+  }
 
   @action
   void selectPage(String page) {
     actualPage = page;
   }
 
-
+  @action
+  void getRegister(BuildContext context) {}
 
   @action
-  void getRegister(BuildContext context) {
-
-  }
+  getRegisterProduct(BuildContext context) {}
 }

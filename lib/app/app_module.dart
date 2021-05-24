@@ -7,11 +7,12 @@ import 'package:marketplace_store_web/app/modules/store/store_module.dart';
 
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 
+import 'modules/client/modules/cart/cart_store.dart';
 import 'modules/register/register_module.dart';
 
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [];
+  final List<Bind> binds = [    Bind.lazySingleton((i) => CartStore()),];
 
   @override
   final List<ModularRoute> routes = [

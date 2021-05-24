@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:marketplace_store_web/app/components/builder/load_builder.dart';
+import 'package:marketplace_store_web/app/components/builder/my_list_builder.dart';
+import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_page.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_category.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_product.dart';
@@ -34,38 +37,40 @@ class _HomePageOptionsState extends State<HomePageOptions> {
   Widget build(BuildContext context) {
     return Container(
         height: MediaQuery.of(context).size.height,
-        child:  SingleChildScrollView(
-        child: Column(
+        child: SingleChildScrollView(
+            child: Column(
           mainAxisSize: MainAxisSize.max,
-      children: [
-        Container(
-            height: 120,
-            child: Observer(
-                builder: (_) => ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: widget.controller.listCategory.length,
-                    itemBuilder: (context, index) =>
-                        ItemCategory(widget.controller.listCategory[index])))),
-         ItemBanner(widget.controller.banner),
-        Flex(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            direction: Utils.isSmalSize(
-                    BoxConstraints(maxWidth: MediaQuery.of(context).size.width))
-                ? Axis.horizontal
-                : Axis.vertical,
-            children: [
-              Utils.isSmalSize(BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width))
-                  ? _listShops()
-                  : _listProducts(),
-              Utils.isSmalSize(BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width))
-                  ? Expanded(child: _listProducts())
-                  : _listShops(),
-            ])
-      ],
-    )));
+          children: [
+            Container(
+                height: 120,
+                child: Observer(
+                    builder: (_) => MyListBuilder(
+                        scrollDirection: Axis.horizontal,
+                        list: widget.controller.listCategory,
+                        itemBuilder: (context, index) => ItemCategory(
+                            widget.controller.listCategory[index])))),
+            LoadBuilder(
+                item: widget.controller.banner,
+                child: ItemBanner(widget.controller.banner)),
+            Flex(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                direction: Utils.isSmalSize(BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width))
+                    ? Axis.horizontal
+                    : Axis.vertical,
+                children: [
+                  Utils.isSmalSize(BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width))
+                      ? _listShops()
+                      : _listProducts(),
+                  Utils.isSmalSize(BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width))
+                      ? Expanded(child: _listProducts())
+                      : _listShops(),
+                ])
+          ],
+        )));
   }
 
   Observer _listShops() {
@@ -75,7 +80,8 @@ class _HomePageOptionsState extends State<HomePageOptions> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  width: 500,
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: AutoSizeText(
                     "Estabelecimentos próximos",
                     maxLines: 1,
@@ -83,9 +89,9 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                     style: AppThemeUtils.normalSize(fontSize: 20),
                   ),
                 ),
-                ...widget.controller.listShops
-                    .map<Widget>((e) => ItemShops(e,widget.controller))
-                    .toList(),
+                ...widget.controller?.listShops
+                    ?.map<Widget>((e) => ItemShops(e, widget.controller))
+                    ?.toList() ?? [loadElements(width: 500)],
               ],
             ));
   }
@@ -123,13 +129,13 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: widget.controller.listProduct
-                      .map<Widget>((e) => ItemProduct(e,widget.controller))
-                      .toList(),
+                      ?.map<Widget>((e) => ItemProduct(e, widget.controller))
+                      ?.toList() ?? [loadElements(width: 500)],
                 ))),
         Row(children: [
           Expanded(
               child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
             child: AutoSizeText(
               "Ofertas",
               maxLines: 1,
@@ -155,8 +161,8 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: widget.controller.listPromo
-                      .map<Widget>((e) => ItemProduct(e,widget.controller))
-                      .toList(),
+                      ?.map<Widget>((e) => ItemProduct(e, widget.controller))
+                      ?.toList()??[loadElements(width: 500)],
                 ))),
       ],
     );

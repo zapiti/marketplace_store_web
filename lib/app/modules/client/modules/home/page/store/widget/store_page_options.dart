@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marketplace_store_web/app/components/builder/my_list_builder.dart';
 import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_page.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
@@ -50,9 +51,9 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
             Container(
                 height: 40,
                 child: Observer(
-                    builder: (_) => ListView.builder(
+                    builder: (_) => MyListBuilder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: widget.controller.listCategory.length,
+                        list: widget.controller.listCategory,
                         itemBuilder: (context, index) => ItemCategory(
                             widget.controller.listCategory[index],
                             hideImage: true)))),
@@ -107,9 +108,9 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: widget.controller.listProduct
-                          .map<Widget>(
+                          ?.map<Widget>(
                               (e) => ItemProductBuy(e, widget.controller))
-                          .toList(),
+                          ?.toList() ?? [loadElements(width: 500)],
                     ))),
           ],
         ));

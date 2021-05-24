@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
+import 'package:marketplace_store_web/app/utils/object/object_utils.dart';
+import 'package:marketplace_store_web/app/utils/preferences/local_storage.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
 
@@ -9,12 +10,29 @@ part 'cart_store.g.dart';
 class CartStore = _CartStoreBase with _$CartStore;
 
 abstract class _CartStoreBase with Store {
+  static const CART_LIST = "CART_LIST";
   @observable
   List<Product> listProductCart = [];
 
+  @action
+  getTempList() {
+    if (listProductCart.isEmpty) {
+      var list = LocalDataStore.getList<Product>(
+          key: CART_LIST, fromMap: Product.fromMap);
+      if (list.isNotEmpty) {
+        listProductCart = list;
+      }
+    }
+  }
+
+  _setTempList(List<Product> listProduct) {
+    LocalDataStore.setListData(
+        key: CART_LIST,
+        value: listProduct.map<Map>((e) => e.toMap()).toList());
+  }
+
   Product getProductByShopping(Product product) {
     final temp = _getTempProduct(product);
-
     return temp ?? product;
   }
 
@@ -60,5 +78,6 @@ abstract class _CartStoreBase with Store {
       }
     }
     listProductCart = tempList;
+    _setTempList(tempList);
   }
 }

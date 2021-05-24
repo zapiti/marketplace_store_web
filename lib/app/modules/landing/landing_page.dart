@@ -27,11 +27,11 @@ class LandingPageState extends State<LandingPage> {
             height: MediaQuery.of(context).size.height,
             fit: BoxFit.cover,
           ),
-          SvgPicture.asset(
+          Image.asset(
             ImagePath.bgTopLanding,
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover
           ),
           Align(
               alignment: Alignment.bottomRight,

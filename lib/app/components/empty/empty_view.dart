@@ -32,7 +32,7 @@ class EmptyView extends StatelessWidget {
             width: 500,
               margin: EdgeInsets.all(15),
               child: Text(
-                message,textAlign: TextAlign.center,
+                message ?? "Sem dados",textAlign: TextAlign.center,
                 style: AppThemeUtils.normalBoldSize(),
               ))
         ],

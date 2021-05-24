@@ -4,6 +4,9 @@ import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 
 class HomeRepository {
   Future<List<Shops>> getListShops() async {
+
+   await Future.delayed(Duration(seconds: 1));
+
     return [
       Shops(),
       Shops(),
@@ -21,6 +24,7 @@ class HomeRepository {
   }
 
   Future<List<Category>> getListCategory() async {
+    await Future.delayed(Duration(seconds: 1));
     return [
       Category(),
       Category(),
@@ -38,6 +42,7 @@ class HomeRepository {
   }
 
   Future<List<Product>> getListProduct() async {
+    await Future.delayed(Duration(seconds: 1));
     return [
       Product(),
       Product(),
@@ -55,7 +60,7 @@ class HomeRepository {
   }
 
   Future<Shops> getListCurrentStore(String idShops) async{
-
+    await Future.delayed(Duration(seconds: 1));
     return Shops();
   }
 }

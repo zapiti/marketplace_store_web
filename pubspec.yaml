@@ -26,6 +26,7 @@ dependencies:
   grouped_list:
   timelines:
   image_picker:
+  localstore:
 
 dev_dependencies:
   flutter_test:

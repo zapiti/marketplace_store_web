@@ -15,12 +15,21 @@ class CartPage extends StatefulWidget {
 }
 
 class CartPageState extends ModularState<CartPage, CartStore> {
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.getTempList();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Observer(
-        builder: (_) => controller.listProductCart.length == 0
-            ? SizedBox()
-            : Container(
+        builder: (_) =>  Container(
+          margin: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                     color: AppThemeUtils.colorPrimary,
                     border: Border.all(

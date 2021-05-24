@@ -20,7 +20,7 @@ class ClientModule extends Module {
     Bind.lazySingleton((i) => ClientStore()),
     Bind.lazySingleton((i) => HomeRepository()),
     Bind.lazySingleton((i) => HomeStore()),
-    Bind.singleton((i) => CartStore()),
+
   ];
 
   @override

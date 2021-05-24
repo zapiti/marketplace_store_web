@@ -21,7 +21,7 @@ buildPlusLessButton(BuildContext context, Product _product, CartStore controller
     return value;
   }
 
-  return  PlusLessComponent(
+  return   PlusLessComponent(
       controller: controllerTextField,
       containsValue:( getValueController(controllerTextField) > 0),
       actionAdd: () {

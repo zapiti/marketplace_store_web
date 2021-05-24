@@ -13,16 +13,16 @@ class HomeStore = _HomeStoreBase with _$HomeStore;
 
 abstract class _HomeStoreBase with Store {
   @observable
-  List<Category> listCategory = [];
+  List<Category> listCategory;
 
   @observable
-  List<Product> listProduct = [];
+  List<Product> listProduct;
 
   @observable
-  List<Product> listPromo = [];
+  List<Product> listPromo;
 
   @observable
-  List<Shops> listShops = [];
+  List<Shops> listShops;
 
   @observable
   MyBanner banner;

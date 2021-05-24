@@ -4,7 +4,7 @@ class ImagePath {
   static final String imageEmpty = "assets/images/ic_empty_file.png";
   static final String loadingImage = "assets/images/loading.gif";
 
-  static final String bgTopLanding = "assets/images/front_bg_login.svg";
+  static final String bgTopLanding = "assets/images/front_bg_login.png";
   static final String bgLanding = "assets/images/bg_login.png";
 
   static final String phones = "assets/images/phones.png";

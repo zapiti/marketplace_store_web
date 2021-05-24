@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:marketplace_store_web/app/components/builder/load_builder.dart';
 import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
 import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/item/item_product_edit.dart';
@@ -147,21 +148,19 @@ class MyStoreMainPage extends StatelessWidget {
                         ? 20
                         : 0),
                 child: Observer(
-                    builder: (_) => controller.listProducts == null
-                        ? loadElements()
-                        : controller.listProducts.isEmpty
-                            ? EmptyView(null,
-                                "Seu estabelecimento ainda não possui produtos para vendas",
-                                icon: Icons.access_time_outlined)
-                            : GroupedListView(
-                                elements: (((controller.listProducts)) ?? []),
-                                groupBy: (element) => element.categoria,
-                                padding: EdgeInsets.only(bottom: 200),
-                                groupSeparatorBuilder: _buildGroupSeparator,
-                                itemBuilder: (context, element) =>
-                                    ItemProductEdit(element),
-                                order: GroupedListOrder.DESC,
-                              ))))
+                    builder: (_) => LoadBuilder(
+                        item: controller.listProducts,
+                        emptyImage:
+                            "Seu estabelecimento ainda não possui produtos para vendas",
+                        child: GroupedListView(
+                          elements: (((controller.listProducts)) ?? []),
+                          groupBy: (element) => element.categoria,
+                          padding: EdgeInsets.only(bottom: 200),
+                          groupSeparatorBuilder: _buildGroupSeparator,
+                          itemBuilder: (context, element) =>
+                              ItemProductEdit(element),
+                          order: GroupedListOrder.DESC,
+                        )))))
       ],
     );
   }

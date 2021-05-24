@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 
@@ -31,6 +32,10 @@ class Utils {
 
   static isSmalSize(BoxConstraints constraints) {
     return constraints.maxWidth >= 800;
+  }
+
+  static String moneyMasked(double fold) {
+    return MoneyMaskedTextController(initialValue: fold ?? 0,leftSymbol: "R\$").text;
   }
 
 

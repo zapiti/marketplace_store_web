@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_page.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_category.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_product.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_shops.dart';
@@ -92,6 +93,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
   Column _listProducts() {
     return Column(
       children: [
+        CartPage(),
         Row(children: [
           Expanded(
               child: Container(
@@ -121,7 +123,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: widget.controller.listProduct
-                      .map<Widget>((e) => ItemProduct(e))
+                      .map<Widget>((e) => ItemProduct(e,widget.controller))
                       .toList(),
                 ))),
         Row(children: [
@@ -153,7 +155,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: widget.controller.listPromo
-                      .map<Widget>((e) => ItemProduct(e))
+                      .map<Widget>((e) => ItemProduct(e,widget.controller))
                       .toList(),
                 ))),
       ],

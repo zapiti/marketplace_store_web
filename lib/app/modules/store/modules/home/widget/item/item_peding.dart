@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/home_store.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/widget/item/body/body_history.dart';
 import 'package:marketplace_store_web/app/utils/date_utils.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
 import 'body/body_pending.dart';
 
@@ -76,11 +75,8 @@ class _ItemPendingState extends State<ItemPending> {
                                   children: [
                                     Container(
                                       child: Text(
-                                          MoneyMaskedTextController(
-                                                  initialValue:
-                                                      widget.orders.value,
-                                                  leftSymbol: "R\$")
-                                              .text,
+                                          Utils.moneyMasked(
+                                                      widget.orders.value),
                                           textAlign: TextAlign.start,
                                           style: AppThemeUtils.normalBoldSize(
                                             color: AppThemeUtils.successColor,

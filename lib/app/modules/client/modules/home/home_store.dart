@@ -30,6 +30,9 @@ abstract class _HomeStoreBase with Store {
   @observable
   Shops currentShops;
 
+  @observable
+  Product selectedProduct;
+
   final _repository = Modular.get<HomeRepository>();
 
   @action
@@ -61,5 +64,10 @@ abstract class _HomeStoreBase with Store {
   @action
   getListCurrentStore(String idShops) async {
     currentShops = await _repository.getListCurrentStore(idShops);
+  }
+
+  @action
+  setCurrentProduct(Product myCurrentProduct) async {
+    selectedProduct = myCurrentProduct;
   }
 }

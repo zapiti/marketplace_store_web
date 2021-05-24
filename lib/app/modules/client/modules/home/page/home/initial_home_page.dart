@@ -9,6 +9,7 @@ import 'package:marketplace_store_web/app/components/page/page_web.dart';
 import 'package:marketplace_store_web/app/components/select/custom_drop_menu.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/widget/home_page_options.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
 import '../../home_store.dart';
 
@@ -70,10 +71,7 @@ class _InitialHomePageState extends ModularState<InitialHomePage, HomeStore> {
                                               margin: EdgeInsets.symmetric(
                                                   horizontal: 10),
                                               child: AutoSizeText(
-                                                MoneyMaskedTextController(
-                                                    initialValue: 500000,
-                                                    leftSymbol: "R\$")
-                                                    .text,
+                                                Utils.moneyMasked( 500000),
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
                                                 minFontSize: 6,

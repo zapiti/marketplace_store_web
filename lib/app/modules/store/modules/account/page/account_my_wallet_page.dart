@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
+
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/mobile/title_descritption_web_widget.dart';
+
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'package:timelines/timelines.dart';
 
 class AccountMyWalletPage extends StatefulWidget {
@@ -45,9 +44,7 @@ class AccountMyWalletPageState extends State<AccountMyWalletPage> {
                       Container(
                         margin: EdgeInsets.only(top: 25),
                         child: Text(
-                          MoneyMaskedTextController(
-                                  initialValue: 45, leftSymbol: "R\$ ")
-                              .text,
+                          Utils.moneyMasked( 45),
                           style: AppThemeUtils.normalBoldSize(
                               fontSize: 28, color: AppThemeUtils.whiteColor),
                         ),
@@ -143,9 +140,7 @@ class AccountMyWalletPageState extends State<AccountMyWalletPage> {
                       ),
                       Container(
                         child: Text(
-                          MoneyMaskedTextController(
-                                  initialValue: 45, leftSymbol: "R\$")
-                              .text,
+                          Utils.moneyMasked( 45),
                           style: AppThemeUtils.normalSize(),
                         ),
                       )

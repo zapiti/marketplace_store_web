@@ -4,6 +4,7 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
 import '../../../home_store.dart';
 
@@ -115,8 +116,7 @@ class BodyHistory extends StatelessWidget {
           lineViewWidget(),
           Container(
               margin: EdgeInsets.symmetric(vertical: 15),
-              child: Text(
-                  "TOTAL: ${MoneyMaskedTextController(initialValue: order.value, leftSymbol: "R\$").text}",
+              child: Text("TOTAL: ${Utils.moneyMasked(order.value)}",
                   textAlign: TextAlign.center,
                   style: AppThemeUtils.normalBoldSize(
                       color: AppThemeUtils.colorPrimary))),

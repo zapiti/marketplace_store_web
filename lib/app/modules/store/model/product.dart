@@ -12,4 +12,8 @@ class Product {
   double valor = 50.0;
 
   String descricao = "Eis um belo tutu de feijão. Leva bacon, linguiça calabresa, ovos cozidos e pimenta biquinho. Um acompanhamento bem brasileiro, saboroso";
+
+  int idShops = 1;
+
+  int qtd = 0;
 }

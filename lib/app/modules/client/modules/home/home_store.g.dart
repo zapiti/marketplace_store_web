@@ -99,6 +99,21 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  final _$selectedProductAtom = Atom(name: '_HomeStoreBase.selectedProduct');
+
+  @override
+  Product get selectedProduct {
+    _$selectedProductAtom.reportRead();
+    return super.selectedProduct;
+  }
+
+  @override
+  set selectedProduct(Product value) {
+    _$selectedProductAtom.reportWrite(value, super.selectedProduct, () {
+      super.selectedProduct = value;
+    });
+  }
+
   final _$getListShopsAsyncAction = AsyncAction('_HomeStoreBase.getListShops');
 
   @override
@@ -140,6 +155,15 @@ mixin _$HomeStore on _HomeStoreBase, Store {
         .run(() => super.getListCurrentStore(idShops));
   }
 
+  final _$setCurrentProductAsyncAction =
+      AsyncAction('_HomeStoreBase.setCurrentProduct');
+
+  @override
+  Future setCurrentProduct(Product myCurrentProduct) {
+    return _$setCurrentProductAsyncAction
+        .run(() => super.setCurrentProduct(myCurrentProduct));
+  }
+
   final _$_HomeStoreBaseActionController =
       ActionController(name: '_HomeStoreBase');
 
@@ -162,7 +186,8 @@ listProduct: ${listProduct},
 listPromo: ${listPromo},
 listShops: ${listShops},
 banner: ${banner},
-currentShops: ${currentShops}
+currentShops: ${currentShops},
+selectedProduct: ${selectedProduct}
     ''';
   }
 }

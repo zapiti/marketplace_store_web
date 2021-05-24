@@ -8,6 +8,7 @@ import 'package:marketplace_store_web/app/modules/client/modules/home/home_store
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
 class ItemShops extends StatelessWidget {
   final Shops shops;
@@ -74,10 +75,7 @@ class ItemShops extends StatelessWidget {
                         margin:
                             EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                         child: AutoSizeText(
-                          MoneyMaskedTextController(
-                                  initialValue: shops.valueDelivery,
-                                  leftSymbol: "R\$")
-                              .text,
+                          Utils.moneyMasked( shops.valueDelivery),
                           maxLines: 1,
                           minFontSize: 8,
                           style: AppThemeUtils.normalSize(

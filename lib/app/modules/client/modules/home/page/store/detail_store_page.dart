@@ -8,13 +8,17 @@ import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
 import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/home_store.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/home/page/store/widget/store_page_options.dart';
+import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
 class DetailStorePage extends StatefulWidget {
   final String idShops;
+  final Product product;
 
-  DetailStorePage(this.idShops);
+  DetailStorePage(this.idShops,this.product);
 
   @override
   _DetailStorePageState createState() => _DetailStorePageState();
@@ -27,6 +31,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((_) {
       controller.getListCurrentStore(widget.idShops);
+      controller.setCurrentProduct(widget.product);
     });
   }
 
@@ -96,12 +101,9 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                           margin: EdgeInsets.symmetric(
                                               horizontal: 0, vertical: 0),
                                           child: AutoSizeText(
-                                            MoneyMaskedTextController(
-                                                    initialValue: controller
+                                            Utils.moneyMasked( controller
                                                         .currentShops
-                                                        .valueDelivery,
-                                                    leftSymbol: "R\$")
-                                                .text,
+                                                        .valueDelivery),
                                             maxLines: 1,
                                             minFontSize: 8,
                                             style: AppThemeUtils.normalBoldSize(
@@ -130,7 +132,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                     ),
                     Expanded(
                         child: Container(
-                      color: Colors.red,
+                      child: StorePageOptions(controller),
                     ))
                   ],
                 ))),

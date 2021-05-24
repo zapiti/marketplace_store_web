@@ -1,6 +1,7 @@
 import 'package:marketplace_store_web/app/modules/client/client_page.dart';
 import 'package:marketplace_store_web/app/modules/client/client_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
 
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 
@@ -19,6 +20,7 @@ class ClientModule extends Module {
     Bind.lazySingleton((i) => ClientStore()),
     Bind.lazySingleton((i) => HomeRepository()),
     Bind.lazySingleton((i) => HomeStore()),
+    Bind.singleton((i) => CartStore()),
   ];
 
   @override
@@ -31,7 +33,7 @@ class ClientModule extends Module {
           ModuleRoute(ConstantsRoutes.HOME_CLIENT_PAGE,
               module: HomeModule(), transition: TransitionType.fadeIn),
           ChildRoute(ConstantsRoutes.HOME_SHOP_CLIENT_PAGE+ ":id",
-              child: (_, args) => DetailStorePage(args.params['id']), transition: TransitionType.fadeIn),
+              child: (_, args) => DetailStorePage(args.params['id'],args.data), transition: TransitionType.fadeIn),
           //endregion
 
           ModuleRoute(ConstantsRoutes.ACCOUNTCLIENTPAGE,

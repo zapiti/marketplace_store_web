@@ -1,6 +1,6 @@
 class Pairs<T, D> {
-  dynamic first;
-  dynamic second;
+  T first;
+  D second;
   dynamic third;
   dynamic four;
   bool selected;

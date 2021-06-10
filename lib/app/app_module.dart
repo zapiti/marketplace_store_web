@@ -12,15 +12,21 @@ import 'modules/register/register_module.dart';
 
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [    Bind.lazySingleton((i) => CartStore()),];
+  final List<Bind> binds = [
+    Bind.lazySingleton((i) => CartStore()),
+  ];
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute(Modular.initialRoute, module: LandingModule(),transition: TransitionType.fadeIn),
-    ModuleRoute(ConstantsRoutes.LOGIN, module: LoginModule(),transition: TransitionType.fadeIn),
-    ModuleRoute(ConstantsRoutes.REGISTERPAGE, module: RegisterModule(),transition: TransitionType.fadeIn),
-    ModuleRoute(ConstantsRoutes.STOREROUTE, module: StoreModule(),transition: TransitionType.fadeIn),
-    ModuleRoute(ConstantsRoutes.CLIENTROUTE, module: ClientModule(),transition: TransitionType.fadeIn),
+    ModuleRoute(Modular.initialRoute,
+        module: LandingModule(), transition: TransitionType.fadeIn),
+    ModuleRoute(ConstantsRoutes.LOGIN,
+        module: LoginModule(), transition: TransitionType.fadeIn),
+    ModuleRoute(ConstantsRoutes.REGISTERPAGE,
+        module: RegisterModule(), transition: TransitionType.fadeIn),
+    ModuleRoute(ConstantsRoutes.STOREROUTE,
+        module: StoreModule(), transition: TransitionType.fadeIn),
+    ModuleRoute(ConstantsRoutes.CLIENTROUTE,
+        module: ClientModule(), transition: TransitionType.fadeIn),
   ];
-
 }

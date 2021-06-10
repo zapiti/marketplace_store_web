@@ -2,6 +2,7 @@ import 'package:marketplace_store_web/app/modules/client/client_page.dart';
 import 'package:marketplace_store_web/app/modules/client/client_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/order/order_module.dart';
 
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 
@@ -28,20 +29,30 @@ class ClientModule extends Module {
     ChildRoute(Modular.initialRoute,
         child: (_, args) => ClientPage(),
         children: [
-
           //region <!home>
           ModuleRoute(ConstantsRoutes.HOME_CLIENT_PAGE,
               module: HomeModule(), transition: TransitionType.fadeIn),
-          ChildRoute(ConstantsRoutes.HOME_SHOP_CLIENT_PAGE+ ":id",
-              child: (_, args) => DetailStorePage(args.params['id'],args.data), transition: TransitionType.fadeIn),
+          ChildRoute(ConstantsRoutes.HOME_SHOP_CLIENT_PAGE + ":id",
+              child: (_, args) => DetailStorePage(args.params['id'], args.data),
+              transition: TransitionType.fadeIn),
           //endregion
 
+          //region <!Pedidos>
+          ModuleRoute(ConstantsRoutes.ORDER_CLIENT_PAGE,
+              module: OrderModule(), transition: TransitionType.fadeIn),
+
+          //endregion
+
+          //region <!Conta>
           ModuleRoute(ConstantsRoutes.ACCOUNTCLIENTPAGE,
               module: AccountModule(), transition: TransitionType.fadeIn),
           ChildRoute(ConstantsRoutes.ALTERPASSCLIENT,
-              child: (_, args) => AccountAlterPassPage(), transition: TransitionType.fadeIn),
+              child: (_, args) => AccountAlterPassPage(),
+              transition: TransitionType.fadeIn),
           ChildRoute(ConstantsRoutes.HELPCLIENT,
-              child: (_, args) => AccountHelpPage(), transition: TransitionType.fadeIn),
+              child: (_, args) => AccountHelpPage(),
+              transition: TransitionType.fadeIn),
+          //endregion
         ])
   ];
 }

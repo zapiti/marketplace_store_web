@@ -27,6 +27,9 @@ dependencies:
   timelines:
   image_picker:
   localstore:
+  location:
+  geolocator:
+  geocode:
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +46,6 @@ flutter:
 scripts:
   mobx: flutter pub get & flutter pub run build_runner watch --delete-conflicting-outputs
 
-  #slidy g m modules/client/modules/cart  & slidy g mbx modules/client/modules/cart/cart  & slidy g p modules/client/modules/cart/cart
+  #slidy g m modules/client/modules/order  & slidy g mbx modules/client/modules/order/order  & slidy g p modules/client/modules/order/order
 
   #slidy g m modules/client  & slidy g mbx modules/client/client  & slidy g p modules/client/client

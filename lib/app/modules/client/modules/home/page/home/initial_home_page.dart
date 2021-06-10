@@ -27,6 +27,7 @@ class _InitialHomePageState extends ModularState<InitialHomePage, HomeStore> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: PageWeb(
           child: Column(
@@ -99,26 +100,40 @@ class _InitialHomePageState extends ModularState<InitialHomePage, HomeStore> {
                                     borderRadius:
                                     BorderRadius.all(Radius.circular(40.0))),
                                 child: Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 10),
+                                    margin: EdgeInsets.symmetric(horizontal: 0),
                                     child: Row(children: [
                                       Expanded(
                                           child: Container(
-                                            child: CustomDropMenuWidget(
-                                              sized: 50,
-                                              controller: TextEditingController(),
-                                              isExpanded: true,
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: AppThemeUtils.black),
-                                                  borderRadius: BorderRadius.only(
-                                                      topRight: Radius.circular(0.0),
-                                                      bottomRight: Radius.circular(0.0),
-                                                      topLeft: Radius.circular(40.0),
-                                                      bottomLeft:
-                                                      Radius.circular(40.0))),
-                                              title: "Local",
-                                              listElements: [],
-                                            ),
+                                            height: 50,
+                                            child: TextField(
+                                                textAlign: TextAlign.start,controller:controller. controllerAddressCurrent,
+                                                textAlignVertical:
+                                                TextAlignVertical.center,enabled: false,
+                                                onChanged: (text) {},
+                                                onSubmitted: (term) {},
+                                                decoration: InputDecoration(
+                                                    labelText: "Endereço",
+                                                    suffixIcon:
+                                                    Icon(Icons.location_on_rounded),
+                                                    border:
+                                                    const OutlineInputBorder(
+                                                      borderRadius: BorderRadius
+                                                          .only(
+                                                          topRight: Radius
+                                                              .circular(0.0),
+                                                          bottomRight: Radius
+                                                              .circular(0.0),
+                                                          topLeft:
+                                                          Radius.circular(
+                                                              40.0),
+                                                          bottomLeft:
+                                                          Radius.circular(
+                                                              40.0)),
+                                                      borderSide: BorderSide(
+                                                          color:
+                                                          Colors.transparent,
+                                                          width: 0.0),
+                                                    ))),
                                           )),
                                       Expanded(
                                           child: Container(

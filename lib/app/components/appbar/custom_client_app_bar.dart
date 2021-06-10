@@ -70,6 +70,8 @@ class CustomClientAppBar extends PreferredSize {
                                             child: ElevatedButton(
                                               onPressed: () {
                                                 controller.addCurrentIndex(1);
+                                                Modular.to.navigate(
+                                                    ConstantsRoutes.CALL_ORDER_CLIENT_PAGE);
                                               },
                                               child: Text(
                                                 "Pedidos",

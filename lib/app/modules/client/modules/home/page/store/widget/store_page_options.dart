@@ -35,6 +35,7 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
     // TODO: implement initState
     super.initState();
     widget.controller.getBanner();
+    widget.controller.getCurrentAddress();
     widget.controller.getListShops();
     widget.controller.getListCategory();
     widget.controller.getListProduct();

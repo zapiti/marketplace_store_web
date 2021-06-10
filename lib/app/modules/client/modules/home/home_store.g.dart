@@ -114,6 +114,14 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  final _$getCurrentAddressAsyncAction =
+      AsyncAction('_HomeStoreBase.getCurrentAddress');
+
+  @override
+  Future getCurrentAddress() {
+    return _$getCurrentAddressAsyncAction.run(() => super.getCurrentAddress());
+  }
+
   final _$getListShopsAsyncAction = AsyncAction('_HomeStoreBase.getListShops');
 
   @override

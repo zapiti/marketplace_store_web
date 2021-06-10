@@ -60,6 +60,8 @@ class CustomClientDrawer extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pop(context);
                                       controller.addCurrentIndex(1);
+                                      Modular.to.navigate(
+                                          ConstantsRoutes.CALL_ORDER_CLIENT_PAGE);
                                     }),
                                 DrawerButton(
                                     active: controller.currentIndex == 2,

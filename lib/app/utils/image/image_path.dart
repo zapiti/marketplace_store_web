@@ -21,5 +21,5 @@ class ImagePath {
 
   static final String ic_barcode  = "assets/images/ic_barcode.svg";
   static final String bg_barcode  = "assets/images/bg_barcode.svg";
-  // static final String icupload = "assets/images/ic_logo.svg";
+  static final String mapdefault = "assets/images/map_default.png";
 }

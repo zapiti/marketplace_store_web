@@ -25,11 +25,19 @@ dependencies:
   auto_size_text:
   grouped_list:
   timelines:
-  image_picker:
-  localstore:
+  image_picker: 0.8.0+3
+  jwt_decode:
+  shared_preferences: 2.0.6
   location:
   geolocator:
   geocode:
+  rxdart:
+  timeline:
+
+
+
+dependency_overrides:
+
 
 dev_dependencies:
   flutter_test:

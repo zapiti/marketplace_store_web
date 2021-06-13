@@ -29,7 +29,7 @@ class MyDateUtils {
     }
   }
 
-  static DateTime convertStringToDateTime(String date) {
+  static DateTime convertStringToDateTime(String date, {String format}) {
     if (date == null || !date.contains("/")) {
       return null;
     }

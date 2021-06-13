@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
-import 'package:marketplace_store_web/app/utils/object/object_utils.dart';
 import 'package:marketplace_store_web/app/utils/preferences/local_storage.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
@@ -15,9 +14,9 @@ abstract class _CartStoreBase with Store {
   List<Product> listProductCart = [];
 
   @action
-  getTempList() {
+  getTempList() async{
     if (listProductCart.isEmpty) {
-      var list = LocalDataStore.getList<Product>(
+      var list =await LocalDataStore.getList<Product>(
           key: CART_LIST, fromMap: Product.fromMap);
       if (list.isNotEmpty) {
         listProductCart = list;

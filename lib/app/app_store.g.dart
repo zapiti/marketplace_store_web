@@ -12,67 +12,33 @@ mixin _$AppStore on _AppStoreBase, Store {
   final _$currentUserAtom = Atom(name: '_AppStoreBase.currentUser');
 
   @override
-  LocalUser get currentUser {
+  CurrentUser get currentUser {
     _$currentUserAtom.reportRead();
     return super.currentUser;
   }
 
   @override
-  set currentUser(LocalUser value) {
+  set currentUser(CurrentUser value) {
     _$currentUserAtom.reportWrite(value, super.currentUser, () {
       super.currentUser = value;
     });
   }
 
-  final _$dateSelectedAtom = Atom(name: '_AppStoreBase.dateSelected');
-
   @override
-  DateTime get dateSelected {
-    _$dateSelectedAtom.reportRead();
-    return super.dateSelected;
-  }
-
-  @override
-  set dateSelected(DateTime value) {
-    _$dateSelectedAtom.reportWrite(value, super.dateSelected, () {
-      super.dateSelected = value;
-    });
-  }
-
-  final _$setCurrentUserAsyncAction =
-      AsyncAction('_AppStoreBase.setCurrentUser');
-
-  @override
-  Future<ResponsePaginated<dynamic>> setCurrentUser(LocalUser _currentUser) {
-    return _$setCurrentUserAsyncAction
-        .run(() => super.setCurrentUser(_currentUser));
-  }
-
-  final _$getCurrentUserFutureValueAsyncAction =
-      AsyncAction('_AppStoreBase.getCurrentUserFutureValue');
-
-  @override
-  Future<LocalUser> getCurrentUserFutureValue() {
-    return _$getCurrentUserFutureValueAsyncAction
-        .run(() => super.getCurrentUserFutureValue());
-  }
-
-  final _$getLogoutAsyncAction = AsyncAction('_AppStoreBase.getLogout');
-
-  @override
-  Future getLogout() {
-    return _$getLogoutAsyncAction.run(() => super.getLogout());
+  ObservableFuture<CurrentUser> getCurrentUserFutureValue() {
+    final _$future = super.getCurrentUserFutureValue();
+    return ObservableFuture<CurrentUser>(_$future);
   }
 
   final _$_AppStoreBaseActionController =
       ActionController(name: '_AppStoreBase');
 
   @override
-  dynamic setSelectedDate(DateTime dateTime) {
+  void setCurrentUser(CurrentUser _currentUser) {
     final _$actionInfo = _$_AppStoreBaseActionController.startAction(
-        name: '_AppStoreBase.setSelectedDate');
+        name: '_AppStoreBase.setCurrentUser');
     try {
-      return super.setSelectedDate(dateTime);
+      return super.setCurrentUser(_currentUser);
     } finally {
       _$_AppStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -81,8 +47,7 @@ mixin _$AppStore on _AppStoreBase, Store {
   @override
   String toString() {
     return '''
-currentUser: ${currentUser},
-dateSelected: ${dateSelected}
+currentUser: ${currentUser}
     ''';
   }
 }

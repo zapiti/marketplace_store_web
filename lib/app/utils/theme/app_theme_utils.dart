@@ -39,6 +39,8 @@ class AppThemeUtils {
 
   static var successColor = HexColor("#479934");
 
+  static var yellow = Colors.yellow[800];
+
   //static var grey = Colors.grey;
 
   static TextStyle bigBoldSize({Color color}) => GoogleFonts.quicksand(

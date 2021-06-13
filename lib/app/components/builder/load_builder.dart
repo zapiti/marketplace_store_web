@@ -16,7 +16,7 @@ class LoadBuilder extends StatelessWidget {
     return item == null
         ? loadElements(size: 50)
         : !(item is List) ? child:item.isEmpty
-            ? EmptyView(emptyImage, message)
+            ? EmptyViewMobile(emptyMessage: message)
             : child;
   }
 }

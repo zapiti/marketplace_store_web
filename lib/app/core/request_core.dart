@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:marketplace_store_web/app/components/load/dialog_loading.dart';
 import 'package:marketplace_store_web/app/models/code_response.dart';
 import 'package:marketplace_store_web/app/models/page/response_paginated.dart';
 import 'package:marketplace_store_web/app/utils/response/request_utils.dart';
@@ -15,7 +16,6 @@ class RequestCore {
   static const TYPE_POST = "POST";
   static const TYPE_PUT = "PUT";
   static const showBody = true;
-
 
   ///@serviceName e o nome do servico chamado
   ///@funcFromMap e conversao da sua funcao para algo que voce quer
@@ -31,48 +31,64 @@ class RequestCore {
       @required TYPEREQUEST typeRequest,
       String namedResponse,
       bool isImage = false,
-      bool isJsonResponse = true, bool isObject = true}) async {
+      bool isJsonResponse = true,
+      bool isLoad = false,
+      bool isObject = true,
+      String url,
+      String app = "backoffice-api"}) async {
+    var api = await ApiClient().getApiClient();
     try {
       debugPrint(
-          "SERVICOCHAMADO = $serviceName body = ${jsonEncode(body ?? {})}");
+          "SERVICOCHAMADO (${typeRequest.toString()})= $serviceName body = ${jsonEncode(body ?? {})}");
     } catch (e) {}
 
-        var api = await ApiClient().getApiClient();
-
-        try {
-          return await requestMyApp(typeRequest, api, serviceName, isJsonResponse, isImage, body, funcFromMap, namedResponse, isObject);
-        } on DioError catch (e) {
-          print(
-              "***RETORNO-SERVICO (Erro)(${typeRequest.toString()}) = $serviceName body = ${showBody ? e : {}}");
-
-          if(e.response?.statusCode == 403){
-            var msg =
-            ResponseUtils.getErrorBody( e.response?.data);
-            return ResponseUtils.getResponsePaginatedObject(
-                CodeResponse(error: msg), funcFromMap,
-                status: e?.response?.statusCode);
-          }else{
-            var msg =
-            ResponseUtils.getErrorBody( e.response?.data);
-            return ResponseUtils.getResponsePaginatedObject(
-                CodeResponse(error: msg), funcFromMap,
-                status: e?.response?.statusCode);
-          }
-
-        } on Exception catch (e) {
-          var msg =
-              ResponseUtils.getErrorBody( e?.toString()) ??
-                  "Sem descrição de erro";
-          return ResponseUtils.getResponsePaginatedObject(
-              CodeResponse(error: msg), funcFromMap,
-              status: 500);
-        }
+    try {
+      if (isLoad) {
+        showLoading(true);
       }
 
+      final result = await requestMyApp(typeRequest, api, serviceName,
+          isJsonResponse, isImage, body, funcFromMap, namedResponse, isObject);
+      if (isLoad) {
+        showLoading(false);
+      }
+      return result;
+    } on DioError catch (e) {
+      if (isLoad) {
+        showLoading(false);
+      }
+      print(
+          "***RETORNO-SERVICO (Erro)(${typeRequest.toString()}) = $serviceName body = ${showBody ? e?.response ?? e : {}}");
+
+      if (e.response?.statusCode == 403) {}
+      var msg = ResponseUtils.getErrorBody(e.response?.data);
+      return ResponseUtils.getResponsePaginatedObject(
+          CodeResponse(error: msg), funcFromMap,
+          status: e?.response?.statusCode);
+    } on Exception catch (e) {
+      if (isLoad) {
+        showLoading(false);
+      }
+      var msg =
+          ResponseUtils.getErrorBody(e?.toString()) ?? "Sem descrição de erro";
+      return ResponseUtils.getResponsePaginatedObject(
+          CodeResponse(error: msg), funcFromMap,
+          status: 500);
+    }
   }
 
-  Future<ResponsePaginated> requestMyApp(TYPEREQUEST typeRequest, Dio api, serviceName, bool isJsonResponse, bool isImage, body, funcFromMap, String namedResponse, bool isObject) async {
-        Response response;
+  Future<ResponsePaginated> requestMyApp(
+      TYPEREQUEST typeRequest,
+      Dio api,
+      serviceName,
+      bool isJsonResponse,
+      bool isImage,
+      body,
+      funcFromMap,
+      String namedResponse,
+      bool isObject) async {
+    Response response;
+
     switch (typeRequest) {
       case TYPEREQUEST.GET:
         response = await api.get(
@@ -165,19 +181,19 @@ class RequestCore {
     print("Current status code: $statusCode");
 
     print(
-        "##RETORNO-SERVICO(${typeRequest.toString()}) = $serviceName body = ${ response?.data }");
-    if (statusCode == 200 || statusCode == 201 || statusCode == 202) {
-
-
-        return ResponseUtils.getResponsePaginatedObject(
-            CodeResponse(
-                sucess:  response?.data),
-            funcFromMap,
-            namedResponse: namedResponse,isObject: isObject,
-            status: response?.statusCode);
+        "##RETORNO-SERVICO(${typeRequest.toString()}) = $serviceName body = ${showBody ? response : {}}");
+    if (statusCode == 200 ||
+        statusCode == 201 ||
+        statusCode == 202 ||
+        statusCode == 203 ||
+        statusCode == 204) {
+      return ResponseUtils.getResponsePaginatedObject(
+          CodeResponse(sucess: response?.data), funcFromMap,
+          namedResponse: namedResponse,
+          isObject: isObject,
+          status: response?.statusCode);
 
       // return tryAgainElement(typeRequest, api, serviceName, isJsonResponse, isImage, body, funcFromMap, namedResponse, isObject);
-
 
     } else {
       return ResponseUtils.getResponsePaginatedObject(
@@ -185,5 +201,4 @@ class RequestCore {
           status: response?.statusCode);
     }
   }
-
-
+}

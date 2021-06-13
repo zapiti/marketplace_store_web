@@ -31,7 +31,7 @@ class _OptionsRegisterPageState
                         ? RegisterEntregadorPage()
                         : controller.actualPage == controller.PRODUTO
                             ? RegisterProdutoPage()
-                            : EmptyView(ImagePath.icEmptyLogin,
+                            : EmptyViewMobile(emptyMessage:
                                 "Selecione o que deseja para iniciar!"))));
   }
 }

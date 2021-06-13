@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:marketplace_store_web/app/models/local_user.dart';
+import 'package:marketplace_store_web/app/models/current_user.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 
 
@@ -14,7 +14,7 @@ class Menu {
 
   Menu({this.title, this.icon, this.route, this.menuTitle, this.hide});
 
-  static List<Menu> getListWithPermission(LocalUser currentUser) {
+  static List<Menu> getListWithPermission(CurrentUser currentUser) {
     return _meusMenus.toList();
   }
 }

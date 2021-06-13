@@ -21,7 +21,7 @@ class MyListBuilder extends StatelessWidget {
     return list == null
         ? loadElements()
         : list.isEmpty
-            ? EmptyView(emptyImage, message)
+            ? EmptyViewMobile(emptyMessage: message)
             : ListView.builder(
                 scrollDirection: scrollDirection,
                 itemCount: list.length,

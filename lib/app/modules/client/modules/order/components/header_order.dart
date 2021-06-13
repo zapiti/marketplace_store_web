@@ -1,37 +1,25 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/order/model/order.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/order_store.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
 
-class ItemOrder extends StatelessWidget {
+import '../order_store.dart';
+
+class HeaderOrder extends StatelessWidget {
   final Order order;
   final OrderStore controller;
 
-  ItemOrder(this.order, this.controller);
+  HeaderOrder(this.order, this.controller);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 500,
-      color:
-          controller.currentOrder == order ? Colors.transparent : Colors.white,
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-      child: InkWell(
-          onTap: () {
-            controller.setCurrentOrder(order);
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
+      child: Row(
+        children: [
+          Expanded(
+              child: Container(
                   padding: EdgeInsets.all(10),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,48 +52,48 @@ class ItemOrder extends StatelessWidget {
                                       maxLines: 1,
                                       minFontSize: 8,
                                       textAlign: TextAlign.start,
-                                      style: AppThemeUtils.normalBoldSize(
-                                          color:
-                                              controller.currentOrder == order
-                                                  ? AppThemeUtils.colorPrimary
-                                                  : null),
+                                      style: AppThemeUtils.normalBoldSize(),
                                     ),
                                   ),
-                                  Row(
-                                    children: [
-                                      Container(
+                                  InkWell(
+                                      onTap: () {
+                                        controller.showDetailsOrder(context,order);
+                                      },
+                                      child: Container(
                                         margin: EdgeInsets.symmetric(
                                             horizontal: 0, vertical: 0),
                                         child: AutoSizeText(
-                                          Utils.moneyMasked(
-                                              order.shops.valueDelivery),
+                                          "Ver detalhes do pedido",
                                           maxLines: 1,
                                           minFontSize: 8,
-                                          style: AppThemeUtils.normalSize(),
+                                          style: AppThemeUtils.normalSize(
+                                              color:
+                                                  AppThemeUtils.colorPrimary),
                                         ),
-                                      ),
-                                    ],
-                                  )
+                                      ))
                                 ],
                               ))),
-                      Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                        child: AutoSizeText(
-                          order.status,
-                          maxLines: 1,
-                          minFontSize: 8,
-                          textAlign: TextAlign.start,
-                          style: AppThemeUtils.normalSize(color:      controller.currentOrder == order
-                              ? AppThemeUtils.colorPrimary
-                              : null),
-                        ),
-                      ),
                     ],
-                  )),
-              lineViewWidget()
-            ],
-          )),
+                  ))),
+          Container(
+            height: 45,
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: ElevatedButton(
+              child: Text(
+                "ATUALIZAR PEDIDO",
+                style:
+                    AppThemeUtils.normalSize(color: AppThemeUtils.colorPrimary),
+              ),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                  primary: AppThemeUtils.whiteColor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(4.0),
+                      side: BorderSide(color: AppThemeUtils.colorPrimary))),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

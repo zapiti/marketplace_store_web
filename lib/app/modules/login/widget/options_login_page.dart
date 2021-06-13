@@ -29,7 +29,7 @@ class _OptionsLoginPageState extends  ModularState<OptionsLoginPage, LoginStore>
                     ? LoginEntregadorPage()
                     : controller.actualPage == controller.PRODUTO
                     ? LoginProdutoPage()
-                    : EmptyView(ImagePath.icEmptyLogin,
+                    : EmptyViewMobile(emptyMessage:
                     "Selecione o que deseja para iniciar!"))));
   }
 }

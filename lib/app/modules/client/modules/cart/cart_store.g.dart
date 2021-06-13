@@ -24,19 +24,15 @@ mixin _$CartStore on _CartStoreBase, Store {
     });
   }
 
-  final _$_CartStoreBaseActionController =
-      ActionController(name: '_CartStoreBase');
+  final _$getTempListAsyncAction = AsyncAction('_CartStoreBase.getTempList');
 
   @override
-  dynamic getTempList() {
-    final _$actionInfo = _$_CartStoreBaseActionController.startAction(
-        name: '_CartStoreBase.getTempList');
-    try {
-      return super.getTempList();
-    } finally {
-      _$_CartStoreBaseActionController.endAction(_$actionInfo);
-    }
+  Future getTempList() {
+    return _$getTempListAsyncAction.run(() => super.getTempList());
   }
+
+  final _$_CartStoreBaseActionController =
+      ActionController(name: '_CartStoreBase');
 
   @override
   dynamic updateCart(Product product) {

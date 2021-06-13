@@ -24,6 +24,21 @@ mixin _$OrderStore on _OrderStoreBase, Store {
     });
   }
 
+  final _$currentOrderAtom = Atom(name: '_OrderStoreBase.currentOrder');
+
+  @override
+  Order get currentOrder {
+    _$currentOrderAtom.reportRead();
+    return super.currentOrder;
+  }
+
+  @override
+  set currentOrder(Order value) {
+    _$currentOrderAtom.reportWrite(value, super.currentOrder, () {
+      super.currentOrder = value;
+    });
+  }
+
   final _$getListOrderAsyncAction = AsyncAction('_OrderStoreBase.getListOrder');
 
   @override
@@ -48,7 +63,8 @@ mixin _$OrderStore on _OrderStoreBase, Store {
   @override
   String toString() {
     return '''
-listOrder: ${listOrder}
+listOrder: ${listOrder},
+currentOrder: ${currentOrder}
     ''';
   }
 }

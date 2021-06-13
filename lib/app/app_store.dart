@@ -1,45 +1,49 @@
 
 import 'package:flutter_modular/flutter_modular.dart';
-
-import 'package:marketplace_store_web/app/models/page/response_paginated.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:jwt_decode/jwt_decode.dart';
 import 'package:mobx/mobx.dart';
-
-import 'models/local_user.dart';
-
+import 'package:rxdart/rxdart.dart';
+import 'models/current_user.dart';
+import 'modules/login/repository/auth_repository.dart';
 
 part 'app_store.g.dart';
 
 class AppStore = _AppStoreBase with _$AppStore;
 
-abstract class _AppStoreBase with Store {
+abstract class _AppStoreBase extends Disposable with Store {
+  var _authToken = Modular.get<AuthRepository>();
   @observable
-  LocalUser currentUser;
+  CurrentUser currentUser;
+
+  @override
+  dispose() {
+    hide.drain();
+    loadElement.drain();
+  }
+
+  BehaviorSubject<bool> hide = BehaviorSubject<bool>.seeded(false);
+
+  BehaviorSubject<bool> loadElement = BehaviorSubject<bool>.seeded(false);
+
+  @action
+  void setCurrentUser(CurrentUser _currentUser) {
+    currentUser = _currentUser;
+  }
 
   @observable
-  DateTime dateSelected;
-  @action
-  Future<ResponsePaginated> setCurrentUser(LocalUser _currentUser) async {
-
-    return null;
+  Future<CurrentUser> getCurrentUserFutureValue() async {
+    var user = currentUser;
+    if (user == null) {
+      var localUser = await _authToken.getToken();
+      if (localUser != null) {
+        user = CurrentUser.fromMap(Jwt.parseJwt(localUser));
+        currentUser = user;
+      }
+    }
+    return user;
   }
 
-  @action
-  setSelectedDate(DateTime dateTime) {
-    dateSelected = dateTime;
-  }
-
-  @action
-  Future<LocalUser> getCurrentUserFutureValue() async {
-
-    return null;
-  }
-
-
-
-  @action
-  getLogout() async {
-    currentUser = null;
-    Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
+  setHideBar(bool hideBar) {
+    hide.sink.add(hideBar);
   }
 }

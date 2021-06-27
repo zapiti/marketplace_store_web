@@ -12,22 +12,22 @@ mixin _$AppStore on _AppStoreBase, Store {
   final _$currentUserAtom = Atom(name: '_AppStoreBase.currentUser');
 
   @override
-  CurrentUser get currentUser {
+  CurrentUser? get currentUser {
     _$currentUserAtom.reportRead();
     return super.currentUser;
   }
 
   @override
-  set currentUser(CurrentUser value) {
+  set currentUser(CurrentUser? value) {
     _$currentUserAtom.reportWrite(value, super.currentUser, () {
       super.currentUser = value;
     });
   }
 
   @override
-  ObservableFuture<CurrentUser> getCurrentUserFutureValue() {
+  ObservableFuture<CurrentUser?> getCurrentUserFutureValue() {
     final _$future = super.getCurrentUserFutureValue();
-    return ObservableFuture<CurrentUser>(_$future);
+    return ObservableFuture<CurrentUser?>(_$future);
   }
 
   final _$_AppStoreBaseActionController =

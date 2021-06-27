@@ -1,17 +1,15 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalDataStore {
-  static setData({@required String key, @required String value}) async {
+  static setData({required String key, required String value}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     prefs.setString(key, value);
   }
 
-  static removeData({@required String key}) async {
+  static removeData({required String key}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove(key);
   }
@@ -21,7 +19,7 @@ class LocalDataStore {
     return prefs.clear();
   }
 
-  static Future<String> getValue({@required String key}) async {
+  static Future<String?> getValue({required String key}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       return prefs.getString(key);
@@ -30,7 +28,7 @@ class LocalDataStore {
     }
   }
 
-  static setListData({String key, List<Map> value}) async {
+  static setListData({required String key, required List<Map> value}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       return prefs.setStringList(
@@ -41,14 +39,14 @@ class LocalDataStore {
   }
 
   static Future<List<T>> getList<T>(
-      {String key, T Function(Map) fromMap}) async {
+      {required String key, required T Function(Map) fromMap}) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       final listString = prefs.getStringList(key);
       List<T> tempList =
-          listString?.map<T>((e) => fromMap(jsonDecode(e)))?.toList() ?? <T>[];
+          listString?.map<T>((e) => fromMap(jsonDecode(e))).toList() ?? <T>[];
 
-      return tempList ?? <T>[];
+      return tempList;
     } on Exception catch (_) {
       return <T>[];
     }

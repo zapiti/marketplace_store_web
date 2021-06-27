@@ -11,7 +11,7 @@ class CartStore = _CartStoreBase with _$CartStore;
 abstract class _CartStoreBase with Store {
   static const CART_LIST = "CART_LIST";
   @observable
-  List<Product> listProductCart = [];
+  List<Product?> listProductCart = [];
 
   @action
   getTempList() async{
@@ -24,10 +24,10 @@ abstract class _CartStoreBase with Store {
     }
   }
 
-  _setTempList(List<Product> listProduct) {
+  _setTempList(List<Product?> listProduct) {
     LocalDataStore.setListData(
         key: CART_LIST,
-        value: listProduct.map<Map>((e) => e.toMap()).toList());
+        value: listProduct.map<Map>((e) => e!.toMap()).toList());
   }
 
   Product getProductByShopping(Product product) {
@@ -41,8 +41,8 @@ abstract class _CartStoreBase with Store {
     return (temp ?? product).qtd ?? 0;
   }
 
-  Product _getTempProduct(Product product) {
-    return listProductCart.firstWhere((element) => product.name == element.name,
+  Product? _getTempProduct(Product product) {
+    return (listProductCart).firstWhere((element) => product.name == element!.name,
         orElse: () => null);
   }
 
@@ -54,7 +54,7 @@ abstract class _CartStoreBase with Store {
     return Utils.moneyMasked(listProductCart.fold(
         0,
         (previousValue, element) =>
-            (element.valor * element.qtd) + previousValue));
+            (element!.valor! * element.qtd!) + previousValue!));
   }
 
   @action
@@ -62,13 +62,13 @@ abstract class _CartStoreBase with Store {
     final tempList = listProductCart;
     final temp = _getTempProduct(product);
     if (temp == null) {
-      if (product.qtd > 0) {
+      if (product.qtd! > 0) {
         tempList.add(product);
         debugPrint("Add cart ${product.name}");
       }
     } else {
       final index = _getIndexTempProduct(temp);
-      if (product.qtd > 0) {
+      if (product.qtd! > 0) {
         tempList[index] = product;
         debugPrint("Update cart ${product.name}");
       } else {

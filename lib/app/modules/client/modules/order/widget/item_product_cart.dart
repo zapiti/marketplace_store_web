@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
@@ -21,7 +21,7 @@ class ItemProductCart extends StatelessWidget {
             Container(
                 margin: EdgeInsets.all(10),
                 child: Image.network(
-                  product.imageUrl,
+                  product.imageUrl ?? '',
                   width: 80,
                   height: 80,
                 )),
@@ -33,7 +33,7 @@ class ItemProductCart extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: AutoSizeText(
-                    product.name,
+                    product.name ?? '',
                     maxLines: 2,
                     minFontSize: 12,
                     style: AppThemeUtils.normalBoldSize(fontSize: 14),
@@ -42,7 +42,7 @@ class ItemProductCart extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: AutoSizeText(
-                    product.descricao,
+                    product.descricao ?? '',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     minFontSize: 12,

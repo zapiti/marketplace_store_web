@@ -7,7 +7,7 @@ import 'image_path.dart';
 
 class ImageUtils {
   static Image imageFromBase64String(String base64String,
-      {double height, fit}) {
+      {double? height, fit}) {
     return Image.memory(
       base64Decode(base64String),
       height: height,
@@ -23,21 +23,21 @@ class ImageUtils {
     return base64Encode(data);
   }
 
-  static Widget getImageWithType({String tipo, String image}) {
+  static Widget getImageWithType({String? tipo, String? image}) {
     var noContainsImage = image == null;
 
-    return Container(
+    return noContainsImage
+        ? SizedBox()
+        :  Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: noContainsImage
-                  ? null
-                  : tipo == "I"
-                      ? ImageUtils.imageFromBase64String(image,
+              image: tipo == "I"
+                      ? ImageUtils.imageFromBase64String(image!,
                               fit: BoxFit.cover)
                           .image
                       : FadeInImage.assetNetwork(
                           placeholder: ImagePath.imageEmpty,
-                          image: image,
+                          image: image!,
                           fit: BoxFit.cover,
                         ).image)),
     );

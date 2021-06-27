@@ -8,17 +8,17 @@ import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 /// */
 class CustomDropMenuWidget extends StatefulWidget {
   final TextEditingController controller;
-  final List<Pairs> listElements;
+  final List<Pairs?> listElements;
   final String title;
-  final bool isExpanded;
-  final Function listen;
-  final double sized;
-  final BoxDecoration decoration;
+  final bool? isExpanded;
+  final Function? listen;
+  final double? sized;
+  final BoxDecoration? decoration;
 
   CustomDropMenuWidget(
-      {@required this.title,
-      @required this.controller,
-      @required this.listElements,
+      {required this.title,
+        required this.controller,
+        required  this.listElements,
       this.isExpanded,
       this.listen,
       this.sized,this.decoration});
@@ -43,10 +43,10 @@ class _CustomDropMenuWidgetState extends State<CustomDropMenuWidget> {
             underline: SizedBox(),
             onChanged: (string) {
               setState(() {
-                widget.controller.text = string;
+                widget.controller.text = string ?? '';
               });
               if (widget.listen != null) {
-                widget.listen(string);
+                widget.listen?.call(string);
               }
             },
             hint: Center(
@@ -57,7 +57,7 @@ class _CustomDropMenuWidgetState extends State<CustomDropMenuWidget> {
               maxLines: 1,
             )),
             selectedItemBuilder: (BuildContext context) {
-              return (widget.listElements ?? []).map<Widget>((item) {
+              return (widget.listElements).map<Widget>((item) {
                 return Center(
                     child: Text(
                   item?.second ?? "",
@@ -65,7 +65,7 @@ class _CustomDropMenuWidgetState extends State<CustomDropMenuWidget> {
                 ));
               }).toList();
             },
-            items: (widget.listElements ?? []).map((item) {
+            items: (widget.listElements).map((item) {
               return DropdownMenuItem<String>(
                 child: Center(
                     child: new Text(

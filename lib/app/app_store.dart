@@ -13,7 +13,7 @@ class AppStore = _AppStoreBase with _$AppStore;
 abstract class _AppStoreBase extends Disposable with Store {
   var _authToken = Modular.get<AuthRepository>();
   @observable
-  CurrentUser currentUser;
+  CurrentUser? currentUser;
 
   @override
   dispose() {
@@ -31,7 +31,7 @@ abstract class _AppStoreBase extends Disposable with Store {
   }
 
   @observable
-  Future<CurrentUser> getCurrentUserFutureValue() async {
+  Future<CurrentUser?> getCurrentUserFutureValue() async {
     var user = currentUser;
     if (user == null) {
       var localUser = await _authToken.getToken();

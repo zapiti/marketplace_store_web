@@ -5,12 +5,12 @@ import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 class TitleDescriptionWebWidget extends StatelessWidget {
   final String title;
-  final String description;
-  final GestureTapCallback action;
-  final IconData iconData;
+  final String? description;
+  final GestureTapCallback? action;
+  final IconData? iconData;
 
-  TitleDescriptionWebWidget({this.title,
-    this.description,
+  TitleDescriptionWebWidget({required this.title,
+     this.description,
     this.action,
     this.iconData});
 
@@ -40,7 +40,7 @@ class TitleDescriptionWebWidget extends StatelessWidget {
                               .of(context)
                               .size
                               .width,
-                          child: Text(title ?? "",
+                          child: Text(title ,
                               style: AppThemeUtils.normalBoldSize(
                                   fontSize: 14))),
                     ],
@@ -48,7 +48,7 @@ class TitleDescriptionWebWidget extends StatelessWidget {
               description == null ? SizedBox() : Container(
                   margin: EdgeInsets.only(left: 10),
                   child: Text(
-                    description,
+                    description!,
                     style: AppThemeUtils.normalSize(fontSize: 14),
                   )),
             ],

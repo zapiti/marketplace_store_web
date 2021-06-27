@@ -11,10 +11,10 @@ class PlusLessComponent extends StatefulWidget {
   final bool containsValue;
 
   PlusLessComponent(
-      {this.controller,
-      this.actionAdd,
-      this.actionRemove,
-      this.changedValue,
+      {required this.controller,
+        required this.actionAdd,
+        required  this.actionRemove,
+        required   this.changedValue,
       this.containsValue = false});
 
   @override
@@ -167,10 +167,10 @@ class _PlusLessComponentState extends State<PlusLessComponent> {
 }
 
 Widget plusLessSimpleComponent(BuildContext context,
-    {TextEditingController controller,
-    Function actionAdd,
-    Function actionRemove,
-    ValueChanged<String> changedValue}) {
+    {required TextEditingController controller,
+    required Function() actionAdd,
+    required Function() actionRemove,
+    required ValueChanged<String> changedValue}) {
   return Container(
       height: 50,
       width: 100,

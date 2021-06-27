@@ -3,13 +3,13 @@ import 'package:marketplace_store_web/app/models/current_user.dart';
 class Conversation {
   static const identificador = "<div><br></div>";
 
-  String id;
-  String body;
+  String? id;
+  String? body;
 
-  CurrentUser sender;
-  String sendAt;
-  String readAt;
-  String sendHr;
+  CurrentUser? sender;
+  String? sendAt;
+  String? readAt;
+  String? sendHr;
   bool isMe;
 
   Conversation(
@@ -18,7 +18,7 @@ class Conversation {
       this.sender,
       this.sendAt,
       this.readAt,
-      this.isMe,
+      this.isMe =  false,
       this.sendHr});
 
   Map<String, dynamic> toMap() {
@@ -34,7 +34,6 @@ class Conversation {
   }
 
   factory Conversation.fromMap(dynamic map) {
-    if (null == map) return null;
 
     return Conversation(
       id: map['id']?.toString() ?? "",

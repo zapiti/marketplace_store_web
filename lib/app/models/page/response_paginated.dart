@@ -3,18 +3,18 @@ import '../../utils/object/object_utils.dart';
 import '../code_response.dart';
 
 class ResponsePaginated<T> {
-  T content;
-  bool last;
-  int totalpages;
-  int totalElements;
-  int size;
-  int number;
-  String sort;
-  bool first;
-  int numberOfElements;
+  T? content;
+  bool? last;
+  int? totalpages;
+  int? totalElements;
+  int? size;
+  int? number;
+  String? sort;
+  bool? first;
+  int? numberOfElements;
   dynamic error;
   dynamic others;
-  List auxList;
+  List? auxList;
 
   ResponsePaginated(
       {this.content,
@@ -29,11 +29,11 @@ class ResponsePaginated<T> {
       this.numberOfElements,
       this.others, this.auxList});
 
-  factory ResponsePaginated.fromMap(dynamic result, T content) {
+  factory ResponsePaginated.fromMap(dynamic result, T? content) {
     final map = ObjectUtils.parseToMap(result, defaultValue: {});
 
     return ResponsePaginated(
-      content: content ?? [],
+      content: content ,
       last: map['last'] as bool,
       totalpages:
           (int.parse(map['totalPages']?.toString() ?? 0.toString())) + 1,
@@ -49,7 +49,7 @@ class ResponsePaginated<T> {
   }
 
   factory ResponsePaginated.fromMapSimple(T content, {dynamic others}) {
-    return ResponsePaginated(content: content ?? [], others: others);
+    return ResponsePaginated(content: content , others: others);
   }
 
   static ResponsePaginated fromSimpleResponse(CodeResponse response) {

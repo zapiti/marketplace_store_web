@@ -17,10 +17,10 @@ abstract class _HomeStoreBase with Store {
   final _repository = Modular.get<HomeRepository>();
 
   @observable
-  List<Order> orders;
+  List<Order>? orders;
 
   @observable
-  String actualPage;
+  String? actualPage;
 
 
 

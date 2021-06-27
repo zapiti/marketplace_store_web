@@ -4,8 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
 import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_add_product_page.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_alter_page.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_main_page.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 import '../my_store_store.dart';
@@ -21,7 +19,7 @@ class _AddProductStorePageState
   void initState() {
     // TODO: implement initState
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
+    SchedulerBinding.instance?.addPostFrameCallback((_) {
       controller.getListStore();
     });
   }

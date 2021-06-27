@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PageWeb extends StatelessWidget {
   final Widget child;
 
-  PageWeb({this.child});
+  PageWeb({required this.child});
 
   @override
   Widget build(BuildContext context) {

@@ -43,7 +43,7 @@ class _LoginProdutoPageState
                             text: "Insira seu ",
                             style: AppThemeUtils.normalSize(
                                 color:
-                                    Theme.of(context).textTheme.bodyText1.color,
+                                    Theme.of(context).textTheme.bodyText1!.color,
                                 fontSize: 20),
                             children: <TextSpan>[
                               TextSpan(

@@ -4,10 +4,10 @@
 import 'package:flutter/material.dart';
 
 class BaseListTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final Widget leading;
-  final Widget trailing;
+  final String? title;
+  final String? subtitle;
+  final Widget? leading;
+  final Widget? trailing;
 
   BaseListTile({
     this.title,
@@ -35,7 +35,7 @@ class BaseListTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    title,
+                    title ?? '',
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 12,
@@ -45,7 +45,7 @@ class BaseListTile extends StatelessWidget {
                     padding: EdgeInsets.all(2),
                   ),
                   Text(
-                    subtitle,
+                    subtitle ?? '',
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.bold,

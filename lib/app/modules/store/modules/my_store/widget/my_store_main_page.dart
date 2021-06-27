@@ -3,8 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:marketplace_store_web/app/components/builder/load_builder.dart';
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
-import 'package:marketplace_store_web/app/components/load/load_elements.dart';
+import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/item/item_product_edit.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
@@ -50,7 +49,7 @@ class MyStoreMainPage extends StatelessWidget {
                                 style: AppThemeUtils.normalSize(
                                     color: Theme.of(context)
                                         .textTheme
-                                        .bodyText1
+                                        .bodyText1!
                                         .color,
                                     fontSize: 14),
                                 children: <TextSpan>[
@@ -85,7 +84,7 @@ class MyStoreMainPage extends StatelessWidget {
                                 style: AppThemeUtils.normalSize(
                                     color: Theme.of(context)
                                         .textTheme
-                                        .bodyText1
+                                        .bodyText1!
                                         .color,
                                     fontSize: 14),
                                 children: <TextSpan>[
@@ -152,7 +151,7 @@ class MyStoreMainPage extends StatelessWidget {
                         item: controller.listProducts,
                         emptyImage:
                             "Seu estabelecimento ainda não possui produtos para vendas",
-                        child: GroupedListView(
+                        child: GroupedListView<Product, String?>(
                           elements: (((controller.listProducts)) ?? []),
                           groupBy: (element) => element.categoria,
                           padding: EdgeInsets.only(bottom: 200),

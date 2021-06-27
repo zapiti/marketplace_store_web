@@ -4,24 +4,23 @@ import 'package:marketplace_store_web/app/components/drawer/semi_circle.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 class DrawerButton extends StatelessWidget {
-  const DrawerButton({
-    Key key,
-    @required this.active,
-    @required this.context,
-    @required this.title,
-    @required this.iconData,
-    @required this.onPressed,
+   DrawerButton({
+    required this.active,
+    required this.context,
+    required this.title,
+    required this.iconData,
+    required this.onPressed,
     this.color,
     this.menutitle,
-  }) : super(key: key);
+  });
 
   final bool active;
   final BuildContext context;
   final VoidCallback onPressed;
   final String title;
   final IconData iconData;
-  final Color color;
-  final String menutitle;
+  final Color? color;
+  final String? menutitle;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class DrawerButton extends StatelessWidget {
             : Container(
                 margin: EdgeInsets.only(top: 15, right: 15, left: 15),
                 child: Text(
-                  menutitle,
+                  menutitle ?? '',
                   maxLines: 1,
                   style: AppThemeUtils.normalSize(),
                 ),

@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:marketplace_store_web/app/components/builder/load_builder.dart';
@@ -46,12 +46,12 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                 child: Observer(
                     builder: (_) => MyListBuilder(
                         scrollDirection: Axis.horizontal,
-                        list: widget.controller.listCategory,
+                        list: widget.controller.listCategory ?? [],
                         itemBuilder: (context, index) => ItemCategory(
-                            widget.controller.listCategory[index])))),
+                            widget.controller.listCategory![index])))),
             LoadBuilder(
                 item: widget.controller.banner,
-                child: ItemBanner(widget.controller.banner)),
+                child: ItemBanner(widget.controller.banner!)),
             Flex(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,9 +89,8 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                     style: AppThemeUtils.normalSize(fontSize: 20),
                   ),
                 ),
-                ...widget.controller?.listShops
-                    ?.map<Widget>((e) => ItemShops(e, widget.controller))
-                    ?.toList() ?? [loadElements(width: 500)],
+                ...widget.controller.listShops
+                    ?.map<Widget>((e) => ItemShops(e, widget.controller)).toList() ?? [loadElements(width: 500)],
               ],
             ));
   }
@@ -129,8 +128,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: widget.controller.listProduct
-                      ?.map<Widget>((e) => ItemProduct(e, widget.controller))
-                      ?.toList() ?? [loadElements(width: 500)],
+                      ?.map<Widget>((e) => ItemProduct(e, widget.controller)).toList() ?? [loadElements(width: 500)],
                 ))),
         Row(children: [
           Expanded(
@@ -161,8 +159,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: widget.controller.listPromo
-                      ?.map<Widget>((e) => ItemProduct(e, widget.controller))
-                      ?.toList()??[loadElements(width: 500)],
+                      ?.map<Widget>((e) => ItemProduct(e, widget.controller)).toList()??[loadElements(width: 500)],
                 ))),
       ],
     );

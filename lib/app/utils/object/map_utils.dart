@@ -12,7 +12,7 @@ import 'object_utils.dart';
 
 class MapUtils {
   static List<Pairs> convertObjectToListPairs(Map<String, dynamic> decoded) {
-    var listPairs = List<Pairs>();
+    List<Pairs> listPairs = [];
     for (var colour in decoded.keys) {
       listPairs.add(Pairs(colour.toString(), decoded[colour]));
     }
@@ -34,10 +34,10 @@ class MapUtils {
 
   static List<Map<String, dynamic>> convertArrayToListMap(content) {
     if (content == null) {
-      return List<Map<String, dynamic>>();
+      return [];
     }
     if (content.isEmpty) {
-      return List<Map<String, dynamic>>();
+      return [];
     }
     var listTemp = ObjectUtils.parseToObjectList<Map<String, dynamic>>(content);
 

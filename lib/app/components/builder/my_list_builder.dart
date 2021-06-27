@@ -3,16 +3,16 @@ import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
 import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 
 class MyListBuilder extends StatelessWidget {
-  final Axis scrollDirection;
-  final List list;
-  final Function(BuildContext, int) itemBuilder;
-  final String emptyImage;
-  final String message;
+  final Axis? scrollDirection;
+  final List? list;
+  final Function(BuildContext, int)itemBuilder;
+  final String? emptyImage;
+  final String? message;
 
   MyListBuilder(
       {this.scrollDirection,
       this.list,
-      this.itemBuilder,
+      required this.itemBuilder,
       this.emptyImage,
       this.message});
 
@@ -20,11 +20,11 @@ class MyListBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return list == null
         ? loadElements()
-        : list.isEmpty
+        : list!.isEmpty
             ? EmptyViewMobile(emptyMessage: message)
             : ListView.builder(
-                scrollDirection: scrollDirection,
-                itemCount: list.length,
+                scrollDirection: scrollDirection ?? Axis.vertical,
+                itemCount: list!.length,
                 itemBuilder: (context, index) => itemBuilder(context, index));
   }
 }

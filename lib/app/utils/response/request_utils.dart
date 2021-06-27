@@ -6,7 +6,7 @@ import 'package:marketplace_store_web/app/utils/object/object_utils.dart';
 class ResponseUtils {
   ///***@response e a resposta do servidor e @funcFromMap converte a resposta do servidor em algo @namedResponse e caso o servidor tenha um nome na resposta
   static List<T> getResponseList<T>(
-      CodeResponse response, Function funcFromMap) {
+      CodeResponse? response, Function funcFromMap) {
     if (response?.sucess == null) {
       return [];
     }
@@ -22,19 +22,19 @@ class ResponseUtils {
 
   ///***@response e a resposta do servidor e @funcFromMap converte a resposta do servidor em algo @namedResponse e caso o servidor tenha um nome na resposta
   static ResponsePaginated getResponsePaginated<T>(
-      CodeResponse response, Function funcFromMap,
-      {String namedResponse, int status}) {
-    if (response?.sucess == null || response.error != null) {
+      CodeResponse? response, Function funcFromMap,
+      {String? namedResponse, int? status}) {
+    if (response?.sucess == null || response?.error != null) {
       return ResponsePaginated(
-          error: response.error ?? "Sem resposta do servidor!");
+          error: response?.error ?? "Sem resposta do servidor!");
     }
-    if (response.sucess.length == 0) {
-      return ResponsePaginated.fromMapSimple(List<T>());
+    if (response?.sucess.length == 0) {
+      return ResponsePaginated.fromMapSimple([]);
     }
     var tempResp = namedResponse != null
         ? response?.sucess[namedResponse]
         : response?.sucess;
-    List<T> listElementGeneric = List<T>();
+    List<T> listElementGeneric = [];
     List listElement = ObjectUtils.parseToObjectList<T>(tempResp,
         defaultValue: tempResp, isContent: true);
 
@@ -49,15 +49,15 @@ class ResponseUtils {
 
   ///***@response e a resposta do servidor e @funcFromMap converte a resposta do servidor em algo
   static ResponsePaginated getResponsePaginatedObject<T>(
-      CodeResponse response, Function funcFromMap,
-      {bool isObject = true, String namedResponse, int status}) {
+      CodeResponse? response, Function funcFromMap,
+      {bool isObject = true, String? namedResponse, int? status}) {
     if (!isObject) {
       return getResponsePaginated(response, funcFromMap,
           namedResponse: namedResponse, status: status);
     } else {
-      if (response?.sucess == null || response.error != null) {
+      if (response?.sucess == null || response?.error != null) {
         return ResponsePaginated(
-            error: response.error ?? "Sem resposta do servidor!");
+            error: response?.error ?? "Sem resposta do servidor!");
       }
       var tempResp = namedResponse != null
           ? response?.sucess[namedResponse]
@@ -70,10 +70,10 @@ class ResponseUtils {
   }
 
   ///***@service e o nome do servico  @body e o body passado na requisicao  @result e o resultado do servidor
-  static String getErrorBody( dynamic result) {
+  static String? getErrorBody( dynamic result) {
     var error = ObjectUtils.parseToMap(result, defaultValue: result) ?? result;
 
-    if (error is Map && error != null) {
+    if (error is Map) {
       return error["message"]?.toString() ??
           error["message"]?.toString() ??
           error["titulo"]?.toString() ??
@@ -81,8 +81,8 @@ class ResponseUtils {
           error["error_description"]?.toString() ??
           error["error"]?.toString();
     }
-    if (error?.toString()?.contains("html") ?? false) {
-      return (error?.toString()?.contains("Cannot") ?? false)
+    if (error?.toString().contains("html") ?? false) {
+      return (error?.toString().contains("Cannot") ?? false)
           ? "Serviço não existe"
           : "Servidor indisponível";
     } else {

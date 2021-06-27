@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/category.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';

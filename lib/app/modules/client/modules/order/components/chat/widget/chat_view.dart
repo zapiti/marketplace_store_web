@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
@@ -12,7 +12,7 @@ import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'chat_ballon.dart';
 
 class ChatView extends StatefulWidget {
-  final CurrentUser currentUser;
+  final CurrentUser? currentUser;
 
   ChatView(this.currentUser);
 
@@ -46,13 +46,12 @@ class _ChatViewState extends State<ChatView> {
                   child: StreamBuilder<List<Conversation>>(
                       stream: chatAttendanceBloc.conversation,
                       initialData: [],
-                      builder: (context, snapshot) => GroupedListView(
+                      builder: (context, snapshot) => GroupedListView<Conversation , DateTime?>(
                             elements: (snapshot.data ?? []),
                             groupBy: (element) =>
                                 MyDateUtils.convertStringToDateTime(
                                     element.sendAt,
-                                    format: "dd/MM/yyyy HH") ??
-                                "",
+                                    format: "dd/MM/yyyy HH"),
                             controller: chatAttendanceBloc.scrollController,
                             padding: EdgeInsets.only(bottom: 10),
                             groupSeparatorBuilder: _buildGroupSeparator,
@@ -64,7 +63,7 @@ class _ChatViewState extends State<ChatView> {
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(color: Colors.white, boxShadow: [
               BoxShadow(
-                color: Colors.grey[300],
+                color: Colors.grey[300]!,
                 offset: Offset(-2, 0),
                 blurRadius: 5,
               ),

@@ -6,13 +6,13 @@ import 'package:marketplace_store_web/app/utils/image/image_path.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 class EmptyViewMobile extends StatelessWidget {
-  final String emptyMessage;
-  final VoidCallback tentarNovamente;
+  final String? emptyMessage;
+  final VoidCallback? tentarNovamente;
   final bool isError;
   final double height;
   final double heightImage;
-  final double size;
-  final String buttomText;
+  final double? size;
+  final String? buttomText;
 
   EmptyViewMobile(
       {this.emptyMessage,
@@ -52,7 +52,7 @@ class EmptyViewMobile extends StatelessWidget {
                     style: AppThemeUtils.normalSize(
                         color: isError
                             ? AppThemeUtils.colorError
-                            : Theme.of(context).textTheme.bodyText1.color),
+                            : Theme.of(context).textTheme.bodyText1!.color),
                   ),
                 ),
                 SizedBox(

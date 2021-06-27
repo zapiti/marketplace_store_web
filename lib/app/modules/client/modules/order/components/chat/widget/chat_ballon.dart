@@ -16,7 +16,7 @@ class BubbleClient extends StatelessWidget {
   final Conversation conversation;
 
   BubbleClient({
-    this.conversation,
+    required this.conversation,
   });
 
   Widget build(BuildContext context) {
@@ -98,7 +98,7 @@ class BubbleClient extends StatelessWidget {
                         text: TextSpan(
                       text: "",
                       style: AppThemeUtils.normalSize(
-                          color: Theme.of(context).textTheme.bodyText2.color,
+                          color: Theme.of(context).textTheme.bodyText2!.color,
                           fontSize: MediaQuery.of(context).size.height < 600
                               ? 16
                               : 18),

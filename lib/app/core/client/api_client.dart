@@ -35,7 +35,7 @@ class ApiClient {
     return _dio;
   }
 
-  static Map<String, String> getHeaderToken({String token}) {
+  static Map<String, String> getHeaderToken({String? token}) {
     if (token == null) {
       return <String, String>{
         'content-Type': 'application/json',

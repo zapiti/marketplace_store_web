@@ -3,36 +3,36 @@ description: marketplace web
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 dependencies:
   flutter_localizations:
     sdk: flutter
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_modular: ^3.2.1
-  mobx: ^2.0.1
-  flutter_mobx: ^2.0.0
+  flutter_modular:
+  mobx:
+  flutter_mobx:
   flutter_svg:
   intl:
   another_flushbar:
   google_fonts:
   localstorage:
   dio:
-  responsive:
-  flutter_icons:
-  flutter_masked_text:
-  auto_size_text:
+  font_awesome_flutter:
+  flutter_masked_text2:
+  auto_size_text_pk:
   grouped_list:
   timelines:
-  image_picker: 0.8.0+3
+  image_picker:
   jwt_decode:
-  shared_preferences: 2.0.6
+  shared_preferences:
   location:
   geolocator:
   geocode:
   rxdart:
   timeline:
+  responsive: 0.3.9+9
 
 
 
@@ -50,10 +50,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+analyzer:
+  enable-experiment:
+    - non-nullable
 
 scripts:
   mobx: flutter pub get & flutter pub run build_runner watch --delete-conflicting-outputs
 
-  #slidy g m modules/client/modules/order  & slidy g mbx modules/client/modules/order/order  & slidy g p modules/client/modules/order/order
+  #slidy g m modules/delivery/modules/delivery  & slidy g mbx modules/client/modules/delivery/delivery  & slidy g p modules/client/modules/delivery/delivery
 
   #slidy g m modules/client  & slidy g mbx modules/client/client  & slidy g p modules/client/client

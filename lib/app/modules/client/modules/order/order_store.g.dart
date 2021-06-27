@@ -12,13 +12,13 @@ mixin _$OrderStore on _OrderStoreBase, Store {
   final _$listOrderAtom = Atom(name: '_OrderStoreBase.listOrder');
 
   @override
-  List<Order> get listOrder {
+  List<Order>? get listOrder {
     _$listOrderAtom.reportRead();
     return super.listOrder;
   }
 
   @override
-  set listOrder(List<Order> value) {
+  set listOrder(List<Order>? value) {
     _$listOrderAtom.reportWrite(value, super.listOrder, () {
       super.listOrder = value;
     });
@@ -27,13 +27,13 @@ mixin _$OrderStore on _OrderStoreBase, Store {
   final _$currentOrderAtom = Atom(name: '_OrderStoreBase.currentOrder');
 
   @override
-  Order get currentOrder {
+  Order? get currentOrder {
     _$currentOrderAtom.reportRead();
     return super.currentOrder;
   }
 
   @override
-  set currentOrder(Order value) {
+  set currentOrder(Order? value) {
     _$currentOrderAtom.reportWrite(value, super.currentOrder, () {
       super.currentOrder = value;
     });

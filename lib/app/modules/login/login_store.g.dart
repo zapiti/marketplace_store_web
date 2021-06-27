@@ -42,13 +42,13 @@ mixin _$LoginStore on _LoginStoreBase, Store {
   final _$actualPageAtom = Atom(name: '_LoginStoreBase.actualPage');
 
   @override
-  String get actualPage {
+  String? get actualPage {
     _$actualPageAtom.reportRead();
     return super.actualPage;
   }
 
   @override
-  set actualPage(String value) {
+  set actualPage(String? value) {
     _$actualPageAtom.reportWrite(value, super.actualPage, () {
       super.actualPage = value;
     });

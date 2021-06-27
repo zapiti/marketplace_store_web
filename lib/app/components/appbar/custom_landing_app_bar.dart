@@ -11,7 +11,7 @@ import 'package:marketplace_store_web/app/utils/utils.dart';
 class CustomLandingAppBar extends PreferredSize {
   final double height;
 
-  CustomLandingAppBar({this.height = kToolbarHeight});
+  CustomLandingAppBar({this.height = kToolbarHeight}) : super(child:SizedBox(),preferredSize:Size.fromHeight(height));
 
   @override
   Size get preferredSize => Size.fromHeight(height);

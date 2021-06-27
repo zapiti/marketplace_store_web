@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,17 +42,17 @@ class AppThemeUtils {
 
   //static var grey = Colors.grey;
 
-  static TextStyle bigBoldSize({Color color}) => GoogleFonts.quicksand(
+  static TextStyle bigBoldSize({Color? color}) => GoogleFonts.quicksand(
       decoration: TextDecoration.none,
       fontSize: 22,
       fontWeight: FontWeight.bold,
       color: color);
 
-  static TextStyle bigSize({Color color, double fontSise = 22}) =>
+  static TextStyle bigSize({Color? color, double fontSise = 22}) =>
       GoogleFonts.quicksand(
           decoration: TextDecoration.none, fontSize: fontSise, color: color);
 
-  static TextStyle normalBoldSize({Color color, double fontSize = 16}) =>
+  static TextStyle normalBoldSize({Color? color, double fontSize = 16}) =>
       GoogleFonts.quicksand(
           decoration: TextDecoration.none,
           fontSize: fontSize,
@@ -61,7 +60,7 @@ class AppThemeUtils {
           color: color);
 
   static TextStyle normalSize({
-    Color color,
+    Color? color,
     double fontSize = 14,
     TextDecoration decoration = TextDecoration.none,
     FontWeight fontWeight = FontWeight.normal,
@@ -72,7 +71,7 @@ class AppThemeUtils {
           fontWeight: fontWeight,
           color: color);
 
-  static TextStyle smallSize({Color color, double fontSize = 14}) =>
+  static TextStyle smallSize({Color? color, double fontSize = 14}) =>
       GoogleFonts.quicksand(
           decoration: TextDecoration.none, fontSize: fontSize, color: color);
 
@@ -85,6 +84,9 @@ class AppThemeUtils {
   static Color colorError = HexColor("CA3838");
   // static Color colorTextLight = HexColor("8A7776");
 
+  static Color completeColor = Color(0xff5e6172);
+  static Color inProgressColor = colorPrimary;
+  static Color todoColor = Color(0xffd1d2d7);
 
 }
 

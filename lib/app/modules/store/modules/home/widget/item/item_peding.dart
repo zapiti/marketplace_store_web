@@ -9,8 +9,9 @@ import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'body/body_pending.dart';
 
 class ItemPending extends StatefulWidget {
-  final HomeStore controller;
   final Order orders;
+  final HomeStore controller;
+
 
   ItemPending(this.orders, this.controller);
 

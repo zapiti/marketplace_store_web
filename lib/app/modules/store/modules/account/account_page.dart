@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/components/mobile/title_descritption_web_widget.dart';
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
@@ -33,7 +34,7 @@ class AccountPageState extends State<AccountPage> {
                         action: () {
                           Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_ALTERPASS);
                         },
-                        iconData: MaterialCommunityIcons.lock_outline,
+                        iconData: FontAwesomeIcons.lock,
                       ),
                       lineViewWidget(),
                       TitleDescriptionWebWidget(
@@ -41,7 +42,7 @@ class AccountPageState extends State<AccountPage> {
                         action: () {
                           Modular.to.pushNamed(ConstantsRoutes.CALL_WALLET);
                         },
-                        iconData: MaterialCommunityIcons.cash_usd,
+                        iconData: FontAwesomeIcons.wallet,
                       ),
                       lineViewWidget(),
                       TitleDescriptionWebWidget(
@@ -49,7 +50,7 @@ class AccountPageState extends State<AccountPage> {
                         action: () {
                           Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_HELP);
                         },
-                        iconData: MaterialCommunityIcons.information_outline,
+                        iconData: FontAwesomeIcons.question,
                       ),
                       lineViewWidget(),
                       TitleDescriptionWebWidget(
@@ -58,7 +59,7 @@ class AccountPageState extends State<AccountPage> {
                           
                           Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
                         },
-                        iconData: MaterialCommunityIcons.exit_to_app,
+                        iconData: Icons.exit_to_app,
                       ),
                       lineViewWidget(),
                     ],

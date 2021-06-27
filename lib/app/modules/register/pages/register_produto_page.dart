@@ -43,7 +43,7 @@ class _RegisterProdutoPageState   extends ModularState<RegisterProdutoPage, Regi
                                     text: "Preencha os dados abaixo para a avaliação:",
                                     style: AppThemeUtils.normalSize(
                                         color:
-                                        Theme.of(context).textTheme.bodyText1.color,
+                                        Theme.of(context).textTheme.bodyText1!.color,
                                         fontSize: 20),
                                     children: <TextSpan>[
 

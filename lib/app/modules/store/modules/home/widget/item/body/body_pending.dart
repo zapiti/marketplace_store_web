@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/home_store.dart';
@@ -61,14 +61,14 @@ class BodyPending extends StatelessWidget {
                                         children: [
                                           Container(
                                             child: Text(
-                                              e.name,
+                                              e.name ?? '',
                                               style: AppThemeUtils
                                                   .normalBoldSize(),
                                             ),
                                           ),
                                           Container(
                                             child: Text(
-                                              e.descricao,
+                                              e.descricao ?? '',
                                               style: AppThemeUtils.normalSize(
                                                   fontSize: 12),
                                               maxLines: 3,
@@ -77,7 +77,7 @@ class BodyPending extends StatelessWidget {
                                           ),
                                           Container(
                                             child: Text(
-                                              e.quantidade,
+                                              e.quantidade ?? '',
                                               style:
                                                   AppThemeUtils.normalBoldSize(
                                                       color:
@@ -89,7 +89,7 @@ class BodyPending extends StatelessWidget {
                                       Container(
                                         margin: EdgeInsets.only(left: 10),
                                         child: Image.network(
-                                          e.imageUrl,
+                                          e.imageUrl ?? '',
                                           width: MediaQuery.of(context).size.width < 500 ? 50: 150,
                                         ),
                                       )

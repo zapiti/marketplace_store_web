@@ -151,13 +151,13 @@ mixin _$MyStoreStore on _MyStoreStoreBase, Store {
   final _$listProductsAtom = Atom(name: '_MyStoreStoreBase.listProducts');
 
   @override
-  List<Product> get listProducts {
+  List<Product>? get listProducts {
     _$listProductsAtom.reportRead();
     return super.listProducts;
   }
 
   @override
-  set listProducts(List<Product> value) {
+  set listProducts(List<Product>? value) {
     _$listProductsAtom.reportWrite(value, super.listProducts, () {
       super.listProducts = value;
     });

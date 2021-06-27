@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:marketplace_store_web/app/models/pairs.dart';
@@ -11,15 +11,15 @@ class SelectButton extends StatefulWidget {
   final Function(Pairs) tapIndex;
   final int initialItem;
   final bool everyEnable;
-  final Key key;
-  final Key keys1;
-  final Key keys2;
+  final Key? key;
+  final Key? keys1;
+  final Key? keys2;
   SelectButton({
-    this.key,
-    this.title,
-    this.keys1,this.keys2,
-    this.initialItem,
-    this.tapIndex,
+     this.key,
+    required this.title,
+     this.keys1, this.keys2,
+     this.initialItem = 0,
+    required this.tapIndex,
     this.everyEnable = false,
   });
 

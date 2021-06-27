@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -54,9 +54,9 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
                 child: Observer(
                     builder: (_) => MyListBuilder(
                         scrollDirection: Axis.horizontal,
-                        list: widget.controller.listCategory,
+                        list: widget.controller.listCategory ?? [],
                         itemBuilder: (context, index) => ItemCategory(
-                            widget.controller.listCategory[index],
+                            widget.controller.listCategory![index],
                             hideImage: true)))),
             Flex(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -120,7 +120,7 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
   Widget _listProducts() {
     return Observer(
         builder: (_) => widget.controller.selectedProduct != null
-            ? ItemProductCompleteBuy(widget.controller.selectedProduct,
+            ? ItemProductCompleteBuy(widget.controller.selectedProduct ,
                 widget.controller, controller)
             : Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -154,9 +154,9 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
                   ...widget.controller.listProduct == null
                       ? [loadElements()]
                       : widget.controller.listProduct
-                          .map<Widget>(
+                          ?.map<Widget>(
                               (e) => ItemProductComplete(e, widget.controller))
-                          .toList(),
+                          .toList() ?? [],
                 ],
               ));
   }

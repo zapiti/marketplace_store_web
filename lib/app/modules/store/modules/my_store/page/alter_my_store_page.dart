@@ -19,7 +19,7 @@ class _AlterMyStorePageState
   void initState() {
     // TODO: implement initState
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
+    SchedulerBinding.instance?.addPostFrameCallback((_) {
       controller.getListStore();
     });
   }

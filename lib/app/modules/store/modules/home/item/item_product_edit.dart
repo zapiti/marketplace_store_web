@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
@@ -30,13 +30,13 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                 children: [
                   Container(
                     child: Text(
-                      widget.product.name,
+                      widget.product.name ?? '',
                       style: AppThemeUtils.normalBoldSize(),
                     ),
                   ),
                   Container(
                     child: Text(
-                      widget.product.descricao,
+                      widget.product.descricao ?? '',
                       style: AppThemeUtils.normalSize(fontSize: 12),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -49,7 +49,7 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                               decimalSeparator: '.',
                               thousandSeparator: ',',
                               leftSymbol: "R\$ ",
-                              initialValue: widget.product.valor)
+                              initialValue: widget.product.valor ?? 0.0)
                           .text,
                       style: AppThemeUtils.normalBoldSize(
                           color: AppThemeUtils.successColor, fontSize: 18),
@@ -65,7 +65,7 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                         margin: EdgeInsets.only(left: 10, top: 20),
                         child: Center(
                             child: Image.network(
-                          widget.product.imageUrl,
+                          widget.product.imageUrl ?? '',
                           height: 180,
                           fit: BoxFit.cover,
                           width: 150,

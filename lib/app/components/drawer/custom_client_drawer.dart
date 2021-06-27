@@ -72,6 +72,8 @@ class CustomClientDrawer extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pop(context);
                                       controller.addCurrentIndex(2);
+                                      Modular.to.navigate(
+                                          ConstantsRoutes.CALL_DELIVERY_CLIENT_PAGE);
                                     }),
                                 DrawerButton(
                                     active: controller.currentIndex == 3,
@@ -82,6 +84,8 @@ class CustomClientDrawer extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pop(context);
                                       controller.addCurrentIndex(3);
+                                      Modular.to.navigate(
+                                          ConstantsRoutes.CALL_BAG_CLIENT_PAGE);
                                     }),
                                 DrawerButton(
                                     active: controller.currentIndex == 4,

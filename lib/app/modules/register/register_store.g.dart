@@ -73,13 +73,13 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
   final _$actualPageAtom = Atom(name: '_RegisterStoreBase.actualPage');
 
   @override
-  String get actualPage {
+  String? get actualPage {
     _$actualPageAtom.reportRead();
     return super.actualPage;
   }
 
   @override
-  set actualPage(String value) {
+  set actualPage(String? value) {
     _$actualPageAtom.reportWrite(value, super.actualPage, () {
       super.actualPage = value;
     });

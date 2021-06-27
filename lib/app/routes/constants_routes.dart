@@ -67,6 +67,16 @@ class ConstantsRoutes {
   static const String CALL_ORDER_CLIENT_PAGE = CLIENTROUTE + ORDER_CLIENT_PAGE;
   //endregion
 
+  //region <!pedidos!>
+  static const String  DELIVERY_CLIENT_PAGE = '/entragas';
+  static const String CALL_DELIVERY_CLIENT_PAGE = CLIENTROUTE + DELIVERY_CLIENT_PAGE;
+  //endregion
+
+  //region <!Sacola!>
+  static const String BAG_CLIENT_PAGE  = '/sacola';
+  static const String CALL_BAG_CLIENT_PAGE = CLIENTROUTE + BAG_CLIENT_PAGE;
+  //endregion
+
   //region <!conta!>
   static const String ALTERPASSCLIENT = '/alterar_senha';
   static const String CALL_CLIENT_ALTERPASS = CLIENTROUTE + ALTERPASSCLIENT;
@@ -76,6 +86,8 @@ class ConstantsRoutes {
 
   static const String ACCOUNTCLIENTPAGE = '/conta';
   static const String CALL_ACCOUNT_CLIENT_PAGE = CLIENTROUTE + ACCOUNTCLIENTPAGE;
+
+
   //endregion
 
   //endregion

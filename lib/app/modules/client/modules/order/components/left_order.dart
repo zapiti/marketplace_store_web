@@ -1,15 +1,15 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
 import 'package:marketplace_store_web/app/components/load/load_elements.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/model/order.dart';
+
 import 'package:marketplace_store_web/app/modules/client/modules/order/widget/item_order.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import '../order_store.dart';
 
 class LeftOrder extends StatelessWidget {
-  final Order order;
+  final Order? order;
   final OrderStore controller;
 
   LeftOrder(this.order, this.controller);
@@ -30,9 +30,8 @@ class LeftOrder extends StatelessWidget {
                   style: AppThemeUtils.normalSize(fontSize: 20),
                 ),
               ),
-              ...controller?.listOrder
-                      ?.map<Widget>((e) => ItemOrder(e, controller))
-                      ?.toList() ??
+              ...controller.listOrder
+                      ?.map<Widget>((e) => ItemOrder(e, controller)).toList() ??
                   [loadElements(width: 500)],
             ],
           );

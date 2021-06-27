@@ -1,17 +1,15 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/components/plus_less/build_plus_less_button.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/home_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/model/category.dart';
+
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 
 class ItemProductCompleteBuy extends StatelessWidget {
-  final Product product;
+  final Product? product;
   final HomeStore controller;
   final CartStore cartController;
 
@@ -27,7 +25,7 @@ class ItemProductCompleteBuy extends StatelessWidget {
           Container(
               margin: EdgeInsets.all(10),
               child: Image.network(
-                product.imageUrl,
+                product?.imageUrl ?? '',
                 width: double.infinity,
                 height: 200,
               )),
@@ -41,7 +39,7 @@ class ItemProductCompleteBuy extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: AutoSizeText(
-                    product.name,
+                    product?.name ?? '',
                     maxLines: 2,
                     minFontSize: 8,
                     style: AppThemeUtils.normalBoldSize(),
@@ -50,7 +48,7 @@ class ItemProductCompleteBuy extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: AutoSizeText(
-                    product.descricao,
+                    product?.descricao ?? '',
                     minFontSize: 8,
                     style: AppThemeUtils.normalSize(),
                   ),
@@ -58,14 +56,14 @@ class ItemProductCompleteBuy extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: AutoSizeText(
-                    Utils.moneyMasked( product.valor),
+                    Utils.moneyMasked( product?.valor),
                     maxLines: 1,
                     minFontSize: 8,
                     style: AppThemeUtils.normalBoldSize(
                         color: AppThemeUtils.successColor),
                   ),
                 ),
-                buildPlusLessButton(context, product,cartController),
+                buildPlusLessButton(context, product!,cartController),
                 Container(
                     height: 50,
                     margin: EdgeInsets.symmetric(horizontal: 5),

@@ -1,23 +1,22 @@
 import 'package:another_flushbar/flushbar.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:geocode/geocode.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:location/location.dart';
 import 'package:marketplace_store_web/app/models/pairs.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 class Utils {
   static showSnackBar(String message, BuildContext context,
-      {SnackBarAction action,
+      {SnackBarAction? action,
       int duration = 4,
       IconData icon = Icons.info_outline}) {
     Flushbar(
       flushbarStyle: FlushbarStyle.GROUNDED,
       flushbarPosition: FlushbarPosition.TOP,
       backgroundColor: AppThemeUtils.colorPrimary,
-      message: message ?? "",
+      message: message,
       icon: Icon(
         icon,
         size: 28.0,
@@ -37,13 +36,12 @@ class Utils {
     return constraints.maxWidth >= 800;
   }
 
-  static String moneyMasked(double fold) {
+  static String moneyMasked(double? fold) {
     return MoneyMaskedTextController(initialValue: fold ?? 0, leftSymbol: "R\$")
         .text;
   }
 
-  static Future<Pairs<Address,Position>> getLocation() async {
-
+  static Future<Pairs<Address, Position>?> getLocation() async {
     try {
       debugPrint("Entro ======");
 
@@ -52,19 +50,19 @@ class Utils {
 
       serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
-        return Future.error('Location services are disabled.');
+        debugPrint('Location services are disabled.');
       }
 
       permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
         if (permission == LocationPermission.denied) {
-          return Future.error('Location permissions are denied');
+          debugPrint('Location permissions are denied');
         }
       }
 
       if (permission == LocationPermission.deniedForever) {
-        return Future.error(
+        debugPrint(
             'Location permissions are permanently denied, we cannot request permissions.');
       }
 
@@ -87,10 +85,8 @@ class Utils {
       debugPrint(geoLocation.longitude.toString());
 
       return Pairs(address, geoLocation);
-    }catch(e){
-      return Pairs(null, null);
+    } catch (e) {
+      return null;
     }
   }
-
-
 }

@@ -17,7 +17,7 @@ class ClientPageState extends ModularState<ClientPage, ClientStore> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
+    SchedulerBinding.instance?.addPostFrameCallback((_) {
       Modular.to.navigate(ConstantsRoutes.CALL_CLIENT_HOMEPAGE);
     });
   }

@@ -1,19 +1,19 @@
 class Product {
-  String name;
+  String? name;
 
-  String quantidade;
+  String? quantidade;
 
-  String categoria;
+  String? categoria;
 
-  String imageUrl;
+  String? imageUrl;
 
-  double valor;
+  double? valor;
 
-  String descricao;
+  String? descricao;
 
-  int idShops;
+  int? idShops;
 
-  int qtd;
+  int? qtd;
 
   Product(
       {this.name = "Tutu de feijão com bacon e cebolinha",
@@ -41,7 +41,7 @@ class Product {
   }
 
   static Product fromMap(dynamic map) {
-    if (null == map) return null;
+
     var temp;
     return Product(
       name: map['name']?.toString(),

@@ -35,7 +35,7 @@ class ChatAttendanceBloc extends Disposable {
   ScrollController scrollController =
       new ScrollController(initialScrollOffset: 0);
   var focusNode = new FocusNode();
-  Timer timer;
+  Timer? timer;
 
   clearChat() {}
 

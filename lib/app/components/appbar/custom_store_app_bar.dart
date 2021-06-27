@@ -14,8 +14,7 @@ class CustomStoreAppBar extends PreferredSize {
   final StoreStore controller;
   final double height;
 
-  CustomStoreAppBar(this.controller, {this.height = kToolbarHeight});
-
+  CustomStoreAppBar(this.controller, {this.height = kToolbarHeight}): super(child:SizedBox(),preferredSize:Size.fromHeight(height));
   @override
   Size get preferredSize => Size.fromHeight(height);
 

@@ -1,3 +1,6 @@
+import 'package:marketplace_store_web/app/modules/client/modules/bag/bag_module.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/delivery/delivery_module.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/delivery/delivery_store.dart';
 import 'package:marketplace_store_web/app/modules/client/client_page.dart';
 import 'package:marketplace_store_web/app/modules/client/client_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -9,6 +12,8 @@ import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'modules/account/account_module.dart';
 import 'modules/account/page/account_alter_pass_page.dart';
 import 'modules/account/page/account_help_page.dart';
+import 'modules/bag/bag_store.dart';
+import 'modules/bag/repository/bag_repository.dart';
 import 'modules/home/home_module.dart';
 import 'modules/home/home_store.dart';
 import 'modules/home/page/home/initial_home_page.dart';
@@ -18,10 +23,12 @@ import 'modules/home/repository/home_repository.dart';
 class ClientModule extends Module {
   @override
   final List<Bind> binds = [
+    Bind.lazySingleton((i) => DeliveryStore()),
     Bind.lazySingleton((i) => ClientStore()),
     Bind.lazySingleton((i) => HomeRepository()),
     Bind.lazySingleton((i) => HomeStore()),
-
+    Bind.lazySingleton((i) => BagStore()),
+    Bind.lazySingleton((i) => BagRepository()),
   ];
 
   @override
@@ -40,6 +47,16 @@ class ClientModule extends Module {
           //region <!Pedidos>
           ModuleRoute(ConstantsRoutes.ORDER_CLIENT_PAGE,
               module: OrderModule(), transition: TransitionType.fadeIn),
+          //endregion
+
+          //region <!Pedidos>
+          ModuleRoute(ConstantsRoutes.BAG_CLIENT_PAGE,
+              module: BagModule(), transition: TransitionType.fadeIn),
+          //endregion
+
+          //region <!Entrega>
+          ModuleRoute(ConstantsRoutes.DELIVERY_CLIENT_PAGE,
+              module: DeliveryModule(), transition: TransitionType.fadeIn),
 
           //endregion
 

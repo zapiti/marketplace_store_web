@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:grouped_list/grouped_list.dart';
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
-import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
 import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/item/item_product_edit.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_main_page.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
@@ -23,7 +19,7 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
+    SchedulerBinding.instance?.addPostFrameCallback((_) {
       controller.getListStore();
     });
   }

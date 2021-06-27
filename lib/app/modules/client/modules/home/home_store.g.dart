@@ -12,13 +12,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$listCategoryAtom = Atom(name: '_HomeStoreBase.listCategory');
 
   @override
-  List<Category> get listCategory {
+  List<Category>? get listCategory {
     _$listCategoryAtom.reportRead();
     return super.listCategory;
   }
 
   @override
-  set listCategory(List<Category> value) {
+  set listCategory(List<Category>? value) {
     _$listCategoryAtom.reportWrite(value, super.listCategory, () {
       super.listCategory = value;
     });
@@ -27,13 +27,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$listProductAtom = Atom(name: '_HomeStoreBase.listProduct');
 
   @override
-  List<Product> get listProduct {
+  List<Product>? get listProduct {
     _$listProductAtom.reportRead();
     return super.listProduct;
   }
 
   @override
-  set listProduct(List<Product> value) {
+  set listProduct(List<Product>? value) {
     _$listProductAtom.reportWrite(value, super.listProduct, () {
       super.listProduct = value;
     });
@@ -42,13 +42,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$listPromoAtom = Atom(name: '_HomeStoreBase.listPromo');
 
   @override
-  List<Product> get listPromo {
+  List<Product>? get listPromo {
     _$listPromoAtom.reportRead();
     return super.listPromo;
   }
 
   @override
-  set listPromo(List<Product> value) {
+  set listPromo(List<Product>? value) {
     _$listPromoAtom.reportWrite(value, super.listPromo, () {
       super.listPromo = value;
     });
@@ -57,13 +57,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$listShopsAtom = Atom(name: '_HomeStoreBase.listShops');
 
   @override
-  List<Shops> get listShops {
+  List<Shops>? get listShops {
     _$listShopsAtom.reportRead();
     return super.listShops;
   }
 
   @override
-  set listShops(List<Shops> value) {
+  set listShops(List<Shops>? value) {
     _$listShopsAtom.reportWrite(value, super.listShops, () {
       super.listShops = value;
     });
@@ -72,13 +72,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$bannerAtom = Atom(name: '_HomeStoreBase.banner');
 
   @override
-  MyBanner get banner {
+  MyBanner? get banner {
     _$bannerAtom.reportRead();
     return super.banner;
   }
 
   @override
-  set banner(MyBanner value) {
+  set banner(MyBanner? value) {
     _$bannerAtom.reportWrite(value, super.banner, () {
       super.banner = value;
     });
@@ -87,13 +87,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$currentShopsAtom = Atom(name: '_HomeStoreBase.currentShops');
 
   @override
-  Shops get currentShops {
+  Shops? get currentShops {
     _$currentShopsAtom.reportRead();
     return super.currentShops;
   }
 
   @override
-  set currentShops(Shops value) {
+  set currentShops(Shops? value) {
     _$currentShopsAtom.reportWrite(value, super.currentShops, () {
       super.currentShops = value;
     });
@@ -102,13 +102,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$selectedProductAtom = Atom(name: '_HomeStoreBase.selectedProduct');
 
   @override
-  Product get selectedProduct {
+  Product? get selectedProduct {
     _$selectedProductAtom.reportRead();
     return super.selectedProduct;
   }
 
   @override
-  set selectedProduct(Product value) {
+  set selectedProduct(Product? value) {
     _$selectedProductAtom.reportWrite(value, super.selectedProduct, () {
       super.selectedProduct = value;
     });
@@ -149,7 +149,7 @@ mixin _$HomeStore on _HomeStoreBase, Store {
       AsyncAction('_HomeStoreBase.setCurrentShops');
 
   @override
-  Future setCurrentShops(Shops myCurrentShop) {
+  Future setCurrentShops(Shops? myCurrentShop) {
     return _$setCurrentShopsAsyncAction
         .run(() => super.setCurrentShops(myCurrentShop));
   }
@@ -167,7 +167,7 @@ mixin _$HomeStore on _HomeStoreBase, Store {
       AsyncAction('_HomeStoreBase.setCurrentProduct');
 
   @override
-  Future setCurrentProduct(Product myCurrentProduct) {
+  Future setCurrentProduct(Product? myCurrentProduct) {
     return _$setCurrentProductAsyncAction
         .run(() => super.setCurrentProduct(myCurrentProduct));
   }

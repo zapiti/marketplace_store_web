@@ -1,17 +1,18 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/order/model/order.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/utils/image/image_path.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
-import '../order_store.dart';
+import '../../order_store.dart';
 import 'entregador_widget.dart';
 
 class BottomOrder extends StatelessWidget {
-  final Order order;
+  final Order? order;
   final OrderStore controller;
 
   BottomOrder(this.order, this.controller);

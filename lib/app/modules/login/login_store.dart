@@ -22,7 +22,7 @@ abstract class _LoginStoreBase with Store {
   bool isLoadLogin = false;
 
   @observable
-  String actualPage;
+  String? actualPage;
 
   @action
   void showHideIcon() {

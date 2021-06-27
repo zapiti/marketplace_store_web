@@ -25,16 +25,16 @@ class RequestCore {
   ///@isImage e caso o enviado seja multpartFile
   ///isJsonResponse e caso nao precise dar parce no body pra json
   Future<ResponsePaginated> requestWithTokenToForm(
-      {@required serviceName,
-      @required funcFromMap,
+      {required serviceName,
+      required funcFromMap,
       dynamic body,
-      @required TYPEREQUEST typeRequest,
-      String namedResponse,
+      required TYPEREQUEST typeRequest,
+       String? namedResponse,
       bool isImage = false,
       bool isJsonResponse = true,
       bool isLoad = false,
       bool isObject = true,
-      String url,
+      String? url,
       String app = "backoffice-api"}) async {
     var api = await ApiClient().getApiClient();
     try {
@@ -85,7 +85,7 @@ class RequestCore {
       bool isImage,
       body,
       funcFromMap,
-      String namedResponse,
+      namedResponse,
       bool isObject) async {
     Response response;
 

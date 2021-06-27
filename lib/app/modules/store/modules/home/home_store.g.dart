@@ -12,13 +12,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$ordersAtom = Atom(name: '_HomeStoreBase.orders');
 
   @override
-  List<Order> get orders {
+  List<Order>? get orders {
     _$ordersAtom.reportRead();
     return super.orders;
   }
 
   @override
-  set orders(List<Order> value) {
+  set orders(List<Order>? value) {
     _$ordersAtom.reportWrite(value, super.orders, () {
       super.orders = value;
     });
@@ -27,13 +27,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$actualPageAtom = Atom(name: '_HomeStoreBase.actualPage');
 
   @override
-  String get actualPage {
+  String? get actualPage {
     _$actualPageAtom.reportRead();
     return super.actualPage;
   }
 
   @override
-  set actualPage(String value) {
+  set actualPage(String? value) {
     _$actualPageAtom.reportWrite(value, super.actualPage, () {
       super.actualPage = value;
     });

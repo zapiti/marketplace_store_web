@@ -1,10 +1,10 @@
 class CurrentUser {
-  String sub;
-  String username;
-  String profile;
-  Establishment establishment;
-  String iat;
-  String exp;
+  String? sub;
+  String? username;
+  String? profile;
+  Establishment? establishment;
+  String? iat;
+  String? exp;
   static var USERLOG = "USERLOG";
   CurrentUser(
       {this.sub,
@@ -26,8 +26,7 @@ class CurrentUser {
   }
 
   factory CurrentUser.fromMap(dynamic map) {
-    if (null == map) return null;
-    var temp;
+
     return CurrentUser(
       sub: map['sub']?.toString(),
       username: map['username']?.toString(),
@@ -40,23 +39,23 @@ class CurrentUser {
 }
 
 class Establishment {
-  String id;
-  String cnpj;
-  String companyName;
-  double wallet;
-  String email;
-  String phone;
-  String responsible;
-  String description;
-  String status;
-  String type;
-  String preparationTime;
-  double deliveryValue;
-  String rank;
-  String image;
-  String coverImage;
-  String createdAt;
-  String updatedAt;
+  String? id;
+  String? cnpj;
+  String? companyName;
+  double? wallet;
+  String? email;
+  String? phone;
+  String? responsible;
+  String? description;
+  String? status;
+  String? type;
+  String? preparationTime;
+  double? deliveryValue;
+  String? rank;
+  String? image;
+  String? coverImage;
+  String? createdAt;
+  String? updatedAt;
 
   Establishment(
       {this.id,
@@ -78,7 +77,7 @@ class Establishment {
       this.coverImage});
 
   factory Establishment.fromMap(dynamic map) {
-    if (null == map) return null;
+
     var temp;
     return Establishment(
       id: map['id']?.toString(),

@@ -3,8 +3,8 @@ import 'package:marketplace_store_web/app/components/divider/line_view_widget.da
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 void showWidgetDialog({
-  Widget customWidget,
-  BuildContext context,
+  required Widget customWidget,
+  required BuildContext context,
 }) {
   showDialog(
       context: context,
@@ -19,7 +19,7 @@ class _DialogGeneric extends StatelessWidget {
   final _scrollController = ScrollController();
 
   _DialogGeneric({
-    this.customWidget,
+    required this.customWidget,
   });
 
   @override

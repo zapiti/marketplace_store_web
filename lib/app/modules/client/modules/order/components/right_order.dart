@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/bottom_order.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/header_order.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/model/order.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/bottom_order.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/header_order.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
+
 import 'package:timeline/model/timeline_model.dart';
 import 'package:timeline/timeline.dart';
+
 
 import '../order_store.dart';
 
 class RightOrder extends StatelessWidget {
-  final Order order;
+  final Order? order;
   final OrderStore controller;
 
   RightOrder(this.order, this.controller);
@@ -24,7 +26,7 @@ class RightOrder extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                HeaderOrder(order, controller),
+                HeaderOrder(order!, controller),
                 lineViewWidget(),
                 Container(
                     height: 250,

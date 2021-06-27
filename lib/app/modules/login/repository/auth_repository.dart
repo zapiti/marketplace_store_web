@@ -15,7 +15,7 @@ class AuthRepository {
   static const SERVICELOGIN = "/api/adm/auth/login";
   var _requestManager = Modular.get<RequestCore>();
 
-  Future<ResponsePaginated> getLogin({String username, String password}) async {
+  Future<ResponsePaginated> getLogin({required String username, required String password}) async {
     var result = await _requestManager.requestWithTokenToForm(
       serviceName: SERVICELOGIN,
       body: {"username": username, "password": password},
@@ -40,7 +40,7 @@ class AuthRepository {
   }
 
 
-  Future<String> getToken() async {
+  Future<String?> getToken() async {
     var user = await LocalDataStore.getValue(key: CurrentUser.USERLOG);
     if (user == null) {
       return null;
@@ -56,7 +56,7 @@ class AuthRepository {
   }
 
   Future<void> setToken(CurrentUser currentUser) async {
-    var user = currentUser?.toMap();
+    var user = currentUser.toMap();
     return await LocalDataStore.setData(
         key: CurrentUser.USERLOG, value: jsonEncode(user));
   }

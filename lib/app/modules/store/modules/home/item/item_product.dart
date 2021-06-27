@@ -28,13 +28,13 @@ class _ItemProductState extends State<ItemProduct> {
                 children: [
                   Container(
                     child: Text(
-                      widget.product.name,
+                      widget.product.name ?? '',
                       style: AppThemeUtils.normalBoldSize(),
                     ),
                   ),
                   Container(
                     child: Text(
-                      widget.product.descricao,
+                      widget.product.descricao ?? '',
                       style: AppThemeUtils.normalSize(fontSize: 12),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -42,7 +42,7 @@ class _ItemProductState extends State<ItemProduct> {
                   ),
                   Container(
                     child: Text(
-                      widget.product.quantidade,
+                      widget.product.quantidade ?? '',
                       style: AppThemeUtils.normalBoldSize(
                           color: AppThemeUtils.black),
                     ),
@@ -52,7 +52,7 @@ class _ItemProductState extends State<ItemProduct> {
               Container(
                 margin: EdgeInsets.only(left: 10),
                 child: Image.network(
-                  widget.product.imageUrl,
+                  widget.product.imageUrl ?? '',
                   width: 150,
                 ),
               )

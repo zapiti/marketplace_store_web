@@ -29,7 +29,7 @@ class MyDateUtils {
     }
   }
 
-  static DateTime convertStringToDateTime(String date, {String format}) {
+  static DateTime? convertStringToDateTime(String? date, {String? format}) {
     if (date == null || !date.contains("/")) {
       return null;
     }
@@ -39,7 +39,7 @@ class MyDateUtils {
   }
 
   static int compareDateNow(String dateInit,
-      {String dateEnd, bool isHours = false}) {
+      {String? dateEnd, bool isHours = false}) {
     final dateInitial = dateInit == "" || dateInit == null
         ? DateTime.now()
         : DateTime.parse(dateInit);
@@ -51,14 +51,14 @@ class MyDateUtils {
   }
 
   static int compareDateNowDatime(DateTime dateInit,
-      {DateTime dateEnd, bool isDays = false}) {
+      {DateTime? dateEnd, bool isDays = false}) {
     final dateInitial = dateInit;
 
     final date2 = dateEnd;
     final difference = isDays
-        ? date2.difference(dateInitial).inDays
-        : date2.difference(dateInitial).inMinutes;
-    return difference;
+        ? date2?.difference(dateInitial).inDays
+        : date2?.difference(dateInitial).inMinutes;
+    return difference ?? 0;
   }
 
   static String getDateFormatGen(String text2) {

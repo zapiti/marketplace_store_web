@@ -31,7 +31,7 @@ abstract class _RegisterStoreBase with Store {
   bool term = false;
 
   @observable
-  String actualPage;
+  String? actualPage;
 
   @action
   changeTerm() {

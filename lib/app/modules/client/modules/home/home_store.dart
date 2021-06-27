@@ -18,33 +18,33 @@ abstract class _HomeStoreBase with Store {
   final controllerAddressCurrent = TextEditingController();
 
   @observable
-  List<Category> listCategory;
+  List<Category>? listCategory;
 
   @observable
-  List<Product> listProduct;
+  List<Product>? listProduct;
 
   @observable
-  List<Product> listPromo;
+  List<Product>? listPromo;
 
   @observable
-  List<Shops> listShops;
+  List<Shops>? listShops;
 
   @observable
-  MyBanner banner;
+  MyBanner? banner;
 
   @observable
-  Shops currentShops;
+  Shops? currentShops;
 
   @observable
-  Product selectedProduct;
+  Product? selectedProduct;
 
   final _repository = Modular.get<HomeRepository>();
 
   @action
   getCurrentAddress() async {
     Utils.getLocation().then((value) {
-      if(value.first != null)
-      controllerAddressCurrent.text = "${value.first.region}";
+      if(value?.first != null)
+      controllerAddressCurrent.text = "${value!.first.region}";
     });
   }
 
@@ -71,7 +71,7 @@ abstract class _HomeStoreBase with Store {
   }
 
   @action
-  setCurrentShops(Shops myCurrentShop) async {
+  setCurrentShops(Shops? myCurrentShop) async {
     currentShops = myCurrentShop;
   }
 
@@ -81,7 +81,7 @@ abstract class _HomeStoreBase with Store {
   }
 
   @action
-  setCurrentProduct(Product myCurrentProduct) async {
+  setCurrentProduct(Product? myCurrentProduct) async {
     selectedProduct = myCurrentProduct;
   }
 }

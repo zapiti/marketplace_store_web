@@ -15,7 +15,7 @@ class ProductQuantity extends StatefulWidget {
 }
 
 class _ProductQuantityState extends State<ProductQuantity> {
-  Pairs newStoreUnity;
+  Pairs? newStoreUnity;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _ProductQuantityState extends State<ProductQuantity> {
                 )),
             newStoreUnity == null
                 ? SizedBox()
-                : newStoreUnity.first == "Unidade"
+                : newStoreUnity?.first == "Unidade"
                     ? Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 5),

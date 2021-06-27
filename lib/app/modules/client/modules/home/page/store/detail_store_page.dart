@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -30,7 +30,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
+    SchedulerBinding.instance?.addPostFrameCallback((_) {
       controller.getListCurrentStore(widget.idShops);
       controller.setCurrentProduct(widget.product);
     });
@@ -55,7 +55,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                   height: 160,
                                   isRounded: false,
                                   userImage:
-                                      controller.currentShops?.imageBackground,
+                                      controller.currentShops?.imageBackground ?? '',
                                 ),
                               )),
                           LoadBuilder(
@@ -71,8 +71,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                           changeImage: (txt) {},
                                           enable: false,
                                           userImage:
-                                              controller.currentShops?.image ??
-                                                  "",
+                                              controller.currentShops?.image  ?? '',
                                         ),
                                       ),
                                       Expanded(
@@ -86,8 +85,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                             margin: EdgeInsets.only(
                                                 top: 140, right: 0, left: 0),
                                             child: Text(
-                                              controller.currentShops?.name ??
-                                                  "teste",
+                                              controller.currentShops?.name  ?? '',
                                               style:
                                                   AppThemeUtils.normalBoldSize(
                                                       fontSize: 18),
@@ -98,7 +96,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                             margin: EdgeInsets.symmetric(
                                                 horizontal: 0, vertical: 0),
                                             child: AutoSizeText(
-                                              "Loja - ${controller.currentShops?.distanceKm}km",
+                                              "Loja - ${controller.currentShops?.distanceKm  ?? ''}km",
                                               maxLines: 1,
                                               minFontSize: 8,
                                               style: AppThemeUtils.normalSize(),
@@ -112,7 +110,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                                 child: AutoSizeText(
                                                   Utils.moneyMasked(controller
                                                       .currentShops
-                                                      ?.valueDelivery),
+                                                      ?.valueDelivery ),
                                                   maxLines: 1,
                                                   minFontSize: 8,
                                                   style: AppThemeUtils

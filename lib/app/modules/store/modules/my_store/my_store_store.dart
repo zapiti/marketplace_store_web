@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/dialog/dialog_generic.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
@@ -67,7 +67,7 @@ abstract class _MyStoreStoreBase with Store {
   String actualProductPage = "SOBRE";
 
   @observable
-  List<Product> listProducts;
+  List<Product>? listProducts;
 
   @action
   void selectedPage(String myPage) {

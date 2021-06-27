@@ -19,7 +19,7 @@ class ObjectUtils {
   static int parseToInt(dynamic data, {dynamic defaultValue = 0}) {
     if (data == null) return defaultValue;
     try {
-      return int.tryParse(data.toString() ?? "0");
+      return int.tryParse(data?.toString() ?? "0") ?? 0;
     } on Exception catch (exe) {
       debugPrint("Parse error(toInt) $exe $data");
       return 0;
@@ -32,7 +32,7 @@ class ObjectUtils {
       if (data is double) {
         return data;
       } else {
-        return double.tryParse(data);
+        return double.tryParse(data) ?? 0.0;
       }
     } on Exception catch (exe) {
       debugPrint("Parse error(toDouble) $exe $data");
@@ -112,7 +112,7 @@ class ObjectUtils {
     }
   }
 
-  static dynamic getElementByArray(List list, {String nameField, String idField}) {
+  static dynamic getElementByArray(List? list, {String? nameField, String? idField}) {
     var valueResult = list?.firstWhere((
         element) => element[nameField.toString()]?.toString() == idField,orElse: () => null);
     if(valueResult != null){
@@ -121,14 +121,6 @@ class ObjectUtils {
     return valueResult;
   }
 
-  static int getSaldo(Map<String,dynamic > map) {
-    // Estoque => userSetQuantityStorageLastCounted
-    // Ent. Hoje => userSetDeltaZeroQuantityStorageIn
-    // Saída => deltaZeroQuantityStorageOut
-    //Estoque + Ent. Hoje - Saída  = saldo
-   // userSetQuantityStorageLastCounted + userSetDeltaZeroQuantityStorageIn - deltaZeroQuantityStorageOut = saldo
-    return (int.tryParse(map['quantityStorageBalance']?.toString()) ?? 0); //((int.tryParse(map['quantityStorageLastCounted']?.toString()) ?? 0) + int.tryParse(map['deltaZeroQuantityStorageIn']?.toString()) ?? 0) - (int.tryParse(map['deltaZeroQuantityStorageOut']?.toString()) ?? 0);
-  }
 
   static bool parseToBool(dynamic string) {
     return string.toString().toLowerCase() == 'true';

@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 
 class SemiCircle extends StatelessWidget {
   final double diameter;
-  final Color color;
+  final Color? color;
 
-  const SemiCircle({Key key, this.diameter = 200, this.color})
-      : super(key: key);
+   SemiCircle({ this.diameter = 200, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +19,11 @@ class SemiCircle extends StatelessWidget {
 
 // This is the Painter class
 class _MyPainter extends CustomPainter {
-  final Color color;
+  final Color? color;
   _MyPainter(this.color);
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = color;
+    Paint paint = Paint()..color = color ?? Colors.white;
     canvas.drawArc(
       Rect.fromCenter(
         center: Offset(size.height / 2, size.width / 2),
@@ -42,7 +41,7 @@ class _MyPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-Widget semiCircleWidget(double height, Color color, {Widget child}) {
+Widget semiCircleWidget(double height, Color color, {Widget? child}) {
   return Container(
       child: Stack(children: <Widget>[
     Container(

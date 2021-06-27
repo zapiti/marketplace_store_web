@@ -5,9 +5,9 @@ import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 Widget loadElements(
     {double size = 80,
     double width = 80,
-    Color color,
+    Color? color,
     bool isSimple = false,
-    EdgeInsets margin}) {
+    EdgeInsets? margin}) {
   return Container(
     width: width,
     height: size,

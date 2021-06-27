@@ -13,7 +13,7 @@ class CustomClientAppBar extends PreferredSize {
   final ClientStore controller;
   final double height;
 
-  CustomClientAppBar(this.controller, {this.height = kToolbarHeight});
+  CustomClientAppBar(this.controller, {this.height = kToolbarHeight}): super(child:SizedBox(),preferredSize:Size.fromHeight(height));
 
   @override
   Size get preferredSize => Size.fromHeight(height);
@@ -95,6 +95,8 @@ class CustomClientAppBar extends PreferredSize {
                                             child: ElevatedButton(
                                               onPressed: () {
                                                 controller.addCurrentIndex(2);
+                                                Modular.to.navigate(
+                                                    ConstantsRoutes.CALL_DELIVERY_CLIENT_PAGE);
                                               },
                                               child: Text(
                                                 "Entregas",
@@ -119,6 +121,8 @@ class CustomClientAppBar extends PreferredSize {
                                             child: ElevatedButton(
                                               onPressed: () {
                                                 controller.addCurrentIndex(3);
+                                                Modular.to.navigate(
+                                                    ConstantsRoutes.CALL_BAG_CLIENT_PAGE);
                                               },
                                               child: Text(
                                                 "Sacola",

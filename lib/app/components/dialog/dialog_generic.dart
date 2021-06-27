@@ -1,28 +1,28 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 
 void showGenericDialog(
-    {IconData iconData,
-    BuildContext context,
-    String title,
-    String description,
-    String subtitle,
-    VoidCallback positiveCallback,
-    VoidCallback negativeCallback,
-    String positiveText,
-    String negativeText,
-    Color color,
+    {IconData? iconData,
+    required BuildContext context,
+    String? title,
+    String? description,
+    String? subtitle,
+    VoidCallback? positiveCallback,
+    VoidCallback? negativeCallback,
+    String? positiveText,
+    String? negativeText,
+    Color? color,
     bool hideSubTitle = true,
-    Widget customWidget,
+    Widget? customWidget,
     bool isLight = false,
     bool containsPop = true,
-    String imagePath,
-    Stream streamLoad,
-    Color topColor,
-    int multLineButton}) {
+    String? imagePath,
+    Stream<bool>? streamLoad,
+    Color? topColor,
+    int? multLineButton}) {
   // FocusScope.of(context).requestFocus(FocusNode());
   showDialog(
       context: context,
@@ -47,23 +47,23 @@ void showGenericDialog(
 }
 
 class _DialogGeneric extends StatelessWidget {
-  final IconData iconData;
-  final String title;
-  final String description;
-  final VoidCallback positiveCallback;
-  final VoidCallback negativeCallback;
-  final String positiveText;
-  final String negativeText;
-  final Color color;
-  final Color topColor;
-  final String subtitle;
+  final IconData? iconData;
+  final String? title;
+  final String? description;
+  final VoidCallback? positiveCallback;
+  final VoidCallback? negativeCallback;
+  final String? positiveText;
+  final String? negativeText;
+  final Color? color;
+  final Color? topColor;
+  final String? subtitle;
   final bool hideSubTitle;
   final bool isLight;
   final bool containsPop;
-  final String imagePath;
-  final int multLineButton;
-  final Widget customWidget;
-  final Stream streamLoad;
+  final String? imagePath;
+  final int? multLineButton;
+  final Widget? customWidget;
+  final Stream<bool>? streamLoad;
 
   _DialogGeneric(
       {this.iconData,
@@ -114,7 +114,7 @@ class _DialogGeneric extends StatelessWidget {
                                     child:  StreamBuilder<bool>(
                                         stream: streamLoad,
                                         initialData: false,
-                                        builder: (context, snapshot) => snapshot.data
+                                        builder: (context, snapshot) => snapshot.data!
                                             ? Column(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           crossAxisAlignment:
@@ -158,7 +158,7 @@ class _DialogGeneric extends StatelessWidget {
                                                       left: 10),
                                                   child: imagePath != null
                                                       ? Image.asset(
-                                                          imagePath,
+                                                          imagePath!,
                                                           height: 60,
                                                           width: 60,
                                                         )
@@ -178,7 +178,7 @@ class _DialogGeneric extends StatelessWidget {
                                                             bottom: 10,
                                                             right: 10),
                                                         child: AutoSizeText(
-                                                          title,
+                                                          title ?? '',
                                                           minFontSize: 10,
                                                           maxLines: 1,
                                                           style: AppThemeUtils
@@ -226,7 +226,7 @@ class _DialogGeneric extends StatelessWidget {
                                                                 Padding(
                                                                   padding: EdgeInsets.all(10),
                                                                   child: Text(
-                                                                    description,
+                                                                    description ?? '',
                                                                     textAlign:
                                                                     TextAlign
                                                                         .center,
@@ -274,7 +274,7 @@ class _DialogGeneric extends StatelessWidget {
                                                                   elevation: 0,
                                                                   onPressed:
                                                                       () {
-                                                                    negativeCallback();
+                                                                    negativeCallback!();
                                                                     if (containsPop) {
                                                                       Navigator.of(
                                                                               context)
@@ -332,7 +332,7 @@ class _DialogGeneric extends StatelessWidget {
                                                                   onPressed:
                                                                       () {
                                                                     if(positiveCallback != null){
-                                                                      positiveCallback();
+                                                                      positiveCallback!();
                                                                     }
 
                                                                     if (containsPop) {
@@ -380,20 +380,20 @@ class _DialogGeneric extends StatelessWidget {
 }
 
 class WidgetDialogGeneric extends StatelessWidget {
-  final IconData iconData;
-  final String title;
-  final Widget description;
-  final VoidCallback positiveCallback;
-  final VoidCallback negativeCallback;
-  final String positiveText;
-  final String negativeText;
-  final Color color;
-  final Color topColor;
-  final String subtitle;
+  final IconData? iconData;
+  final String? title;
+  final Widget? description;
+  final VoidCallback? positiveCallback;
+  final VoidCallback? negativeCallback;
+  final String? positiveText;
+  final String? negativeText;
+  final Color? color;
+  final Color? topColor;
+  final String? subtitle;
   final bool hideSubTitle;
   final bool isLight;
   final bool containsPop;
-  final String imagePath;
+  final String? imagePath;
 
   WidgetDialogGeneric(
       {this.iconData,
@@ -460,7 +460,7 @@ class WidgetDialogGeneric extends StatelessWidget {
                                               top: 5, bottom: 5, left: 20),
                                           child: imagePath != null
                                               ? Image.asset(
-                                                  imagePath,
+                                                  imagePath!,
                                                   height: 60,
                                                   width: 60,
                                                 )
@@ -480,7 +480,7 @@ class WidgetDialogGeneric extends StatelessWidget {
                                                     bottom: 10,
                                                     right: 10),
                                                 child: AutoSizeText(
-                                                  title,
+                                                  title ?? '',
                                                   minFontSize: 10,
                                                   maxLines: 1,
                                                   style:
@@ -517,7 +517,7 @@ class WidgetDialogGeneric extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: <Widget>[
-                                              Flexible(child: description),
+                                              Flexible(child: description ?? SizedBox()),
                                             ],
                                           ),
                                         ),
@@ -549,7 +549,7 @@ class WidgetDialogGeneric extends StatelessWidget {
                                                                   .colorError,
                                                           elevation: 0,
                                                           onPressed: () {
-                                                            negativeCallback();
+                                                            negativeCallback!();
                                                             if (containsPop) {
                                                               Navigator.of(
                                                                       context)
@@ -602,7 +602,7 @@ class WidgetDialogGeneric extends StatelessWidget {
                                                               .colorPrimary,
                                                           elevation: 0,
                                                           onPressed: () {
-                                                            positiveCallback();
+                                                            positiveCallback!();
                                                             if (containsPop) {
                                                               Navigator.of(
                                                                       context)

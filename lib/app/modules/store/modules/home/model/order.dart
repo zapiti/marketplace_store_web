@@ -1,5 +1,6 @@
 
 
+import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 
 class Order {
@@ -16,7 +17,10 @@ class Order {
   List<Product> products = [ Product(),Product(),Product()];
 
   double value = 500.0;
+  String id;
 
-  Order({this.status = CONCLUIDO})  ;
+  Order({this.status = CONCLUIDO, this. id = '1'})  ;
+
+  Shops shops =  Shops();
 
 }

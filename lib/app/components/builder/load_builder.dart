@@ -5,11 +5,11 @@ import 'package:marketplace_store_web/app/components/load/load_elements.dart';
 class LoadBuilder extends StatelessWidget {
   final dynamic item;
 
-  final String emptyImage;
-  final String message;
+  final String? emptyImage;
+  final String? message;
   final Widget child;
 
-  LoadBuilder({this.item, this.child, this.emptyImage, this.message});
+  LoadBuilder({this.item, required this.child,  this.emptyImage,  this.message});
 
   @override
   Widget build(BuildContext context) {

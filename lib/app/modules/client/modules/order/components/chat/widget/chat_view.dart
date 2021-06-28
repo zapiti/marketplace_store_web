@@ -46,12 +46,12 @@ class _ChatViewState extends State<ChatView> {
                   child: StreamBuilder<List<Conversation>>(
                       stream: chatAttendanceBloc.conversation,
                       initialData: [],
-                      builder: (context, snapshot) => GroupedListView<Conversation , DateTime?>(
+                      builder: (context, snapshot) => GroupedListView<Conversation , DateTime>(
                             elements: (snapshot.data ?? []),
                             groupBy: (element) =>
                                 MyDateUtils.convertStringToDateTime(
                                     element.sendAt,
-                                    format: "dd/MM/yyyy HH"),
+                                    format: "dd/MM/yyyy HH") ?? DateTime.now(),
                             controller: chatAttendanceBloc.scrollController,
                             padding: EdgeInsets.only(bottom: 10),
                             groupSeparatorBuilder: _buildGroupSeparator,

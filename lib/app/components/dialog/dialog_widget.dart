@@ -6,11 +6,18 @@ void showWidgetDialog({
   required Widget customWidget,
   required BuildContext context,
 }) {
-  showDialog(
-      context: context,
-      builder: (ctx) => _DialogGeneric(
+  Navigator.of(context).push(PageRouteBuilder( opaque: false,
+      pageBuilder: (___, _, __) => Container(
+      color: Colors.black.withOpacity(0.55),
+      child: Center(
+      child: Container(
+      width: 600,
+      height: 1000,
+      child: Material(
+      color: Colors.transparent,
+      child: _DialogGeneric(
             customWidget: customWidget,
-          ));
+          )))))));
 }
 
 class _DialogGeneric extends StatelessWidget {
@@ -70,7 +77,7 @@ class _DialogGeneric extends StatelessWidget {
                                         ),
                                         onPressed: () {
                                           Navigator.of(context)
-                                              .popUntil((route) => route.isFirst);
+                                              .pop();
                                         },
                                         style: ElevatedButton.styleFrom(
                                             primary: AppThemeUtils.colorPrimary,

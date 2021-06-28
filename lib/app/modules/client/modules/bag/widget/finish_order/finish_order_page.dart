@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/bag/bag_store.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/address_order.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/initial_order.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/payment_order.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:timelines/timelines.dart';
 
@@ -12,7 +15,6 @@ class FinishOrder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       return Scaffold(
-        backgroundColor: Colors.white,
         body: Column(
           children: [
             Container(
@@ -21,12 +23,7 @@ class FinishOrder extends StatelessWidget {
                     controller.processIndex, controller.getColor, (index) {
                   controller.goNextProgress(index);
                 })),
-            Expanded(
-                child: Container(
-              color: Colors.orange,
-              width: double.infinity,
-              height: 800,
-            ))
+            Expanded(child: _getActualStage(controller.processIndex))
           ],
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -40,6 +37,21 @@ class FinishOrder extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+_getActualStage(int processIndex) {
+  switch (processIndex) {
+    case 0:
+      return InitialOrder();
+    case 1:
+      return AddressOrder();
+    case 2:
+      return PaymentOrder();
+    case 3:
+      return FinishOrder();
+    default:
+      return SizedBox();
   }
 }
 

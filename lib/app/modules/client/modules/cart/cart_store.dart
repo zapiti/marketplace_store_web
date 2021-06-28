@@ -11,7 +11,7 @@ class CartStore = _CartStoreBase with _$CartStore;
 abstract class _CartStoreBase with Store {
   static const CART_LIST = "CART_LIST";
   @observable
-  List<Product?> listProductCart = [];
+  List<Product?> listProductCart = [Product()];
 
   @action
   getTempList() async{

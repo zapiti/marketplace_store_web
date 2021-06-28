@@ -89,4 +89,8 @@ class Utils {
       return null;
     }
   }
+
+  static double smallSize() {
+    return 800;
+  }
 }

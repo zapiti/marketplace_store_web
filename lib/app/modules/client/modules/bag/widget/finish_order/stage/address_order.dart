@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/cart/current/address_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/cart/current/cart_widget.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
@@ -60,12 +62,14 @@ class AddressOrder extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 40,vertical: 10),
+              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               child: Text(
-                'Quase lá! Preencha os dados de pagamento para garantir seu pedido',textAlign: TextAlign.center,
+                'Quase lá! Preencha os dados de pagamento para garantir seu pedido',
+                textAlign: TextAlign.center,
                 style: AppThemeUtils.normalSize(fontSize: 18),
               ),
             ),
+    AddressWidget()
           ],
         ));
   }

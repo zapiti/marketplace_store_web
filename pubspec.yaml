@@ -33,6 +33,7 @@ dependencies:
   rxdart:
   timeline:
   responsive: 0.3.9+9
+  flutter_rating_bar:
 
 
 

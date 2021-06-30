@@ -20,8 +20,9 @@ class Order {
   String id;
 
   String? deliveryTime = '30-40 min';
+  bool hasEvaluation ;//todo trocar por getter do estabelecimento e driver
 
-  Order({this.status = CONCLUIDO, this. id = '1'})  ;
+  Order({this.status = CONCLUIDO, this. id = '1',this.hasEvaluation = false})  ;
 
   Shops shops =  Shops();
 
@@ -30,6 +31,10 @@ class Order {
     return Order(
     );
   }
+
+  Delivery delivery = Delivery();
+
+
 
   Map<String, dynamic> toMap() {
     return {
@@ -42,4 +47,9 @@ class Order {
       'shops': shops.toMap(),
     };
   }
+}
+
+class Delivery {
+  final String name = 'Joao pedro';
+  final String image = "https://1.bp.blogspot.com/-mydoVANMRDw/Xw3aQXrDjaI/AAAAAAAAEk0/tSUMBTRX-60owDFmOtFaYjMOktKAVpFMQCLcBGAsYHQ/s1600/produtos%252Bflorestais%252Bn%25C3%25A3o%252Bmadeireiros%252Bcentral%252Bflorestal.png";
 }

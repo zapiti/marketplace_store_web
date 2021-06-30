@@ -28,11 +28,11 @@ Column getDataBodyCart(Order order) {
         children: [
           Expanded(
               child:
-                  _buttonSelected(true, "Entrega", order.deliveryTime, () {})),
+              buttonSelected(true, "Entrega", order.deliveryTime, () {})),
           SizedBox(
             width: 10,
           ),
-          Expanded(child: _buttonSelected(false, 'Agendar', null, () {}))
+          Expanded(child: buttonSelected(false, 'Agendar', null, () {}))
         ],
       ),
       Container(
@@ -119,14 +119,14 @@ Column getDataBodyCart(Order order) {
   );
 }
 
-Container _buttonSelected(
-    bool isSelected, String title, String? subTitle, Function() onTap) {
+Container buttonSelected(
+    bool isSelected, String title, String? subTitle, Function() onTap,{Color? color}) {
   return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       height: 50,
       decoration: BoxDecoration(
           color: isSelected
-              ? AppThemeUtils.successColor
+              ? color ?? AppThemeUtils.successColor
               : AppThemeUtils.whiteColor,
           border: Border.all(
               color: isSelected

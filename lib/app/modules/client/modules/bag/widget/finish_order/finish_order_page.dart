@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/bag/bag_store.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/address_order.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/finish_cash_order.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/initial_order.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/payment_order.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
@@ -26,7 +27,7 @@ class FinishOrder extends StatelessWidget {
             Expanded(child: _getActualStage(controller.processIndex))
           ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
+        floatingActionButton:  controller.processIndex == 3 ? null : FloatingActionButton.extended(
           label: Row(
             children: [Text('CONTINUAR'), Icon(Icons.arrow_forward)],
           ),
@@ -49,7 +50,7 @@ _getActualStage(int processIndex) {
     case 2:
       return PaymentOrder();
     case 3:
-      return FinishOrder();
+      return FinishCashOrder();
     default:
       return SizedBox();
   }

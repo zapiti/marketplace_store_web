@@ -4,11 +4,11 @@ import 'package:marketplace_store_web/app/modules/store/modules/home/model/order
 class OrderRepository {
   Future<List<Order>> getListOrder() async {
     return [
-      Order(id: "1"),
-      Order(id: "2"),
-      Order(id: "4"),
-      Order(id: "5"),
-      Order(id: "6")
+      Order(id: "1",status: Order.ANDAMENTO),
+      Order(id: "2",hasEvaluation: true),
+      Order(id: "4",hasEvaluation: false),
+      Order(id: "5",hasEvaluation: false),
+      Order(id: "6",hasEvaluation: false)
     ];
   }
 }

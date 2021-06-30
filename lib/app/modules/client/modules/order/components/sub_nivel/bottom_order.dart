@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/cart/current/evaluation_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/order/model/order.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/utils/image/image_path.dart';
@@ -20,7 +21,8 @@ class BottomOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Column(
+
+        child: order!.status == Order.CONCLUIDO ? EvaluationWidget(order!): Column(
       children: [
         entregadorWidget(order),
         Image.asset(
@@ -69,6 +71,7 @@ class BottomOrder extends StatelessWidget {
       ],
     ));
   }
+
 
 
 }

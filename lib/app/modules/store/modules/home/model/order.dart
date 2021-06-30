@@ -14,13 +14,32 @@ class Order {
   int numPedido = 80045;
   String status;
 
-  List<Product> products = [ Product(),Product(),Product()];
+  List<Product?> products = [ Product(),Product(),Product()];
 
   double value = 500.0;
   String id;
+
+  String? deliveryTime = '30-40 min';
 
   Order({this.status = CONCLUIDO, this. id = '1'})  ;
 
   Shops shops =  Shops();
 
+  factory Order.fromMap(dynamic map) {
+
+    return Order(
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'dtCreate': dtCreate.toString(),
+      'numPedido': numPedido,
+      'status': status,
+      'products': products.map((map) => map?.toMap()).toList() ,
+      'value': value,
+      'id': id,
+      'shops': shops.toMap(),
+    };
+  }
 }

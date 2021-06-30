@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/utils/preferences/local_storage.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
@@ -11,23 +14,18 @@ class CartStore = _CartStoreBase with _$CartStore;
 abstract class _CartStoreBase with Store {
   static const CART_LIST = "CART_LIST";
   @observable
-  List<Product?> listProductCart = [Product()];
+  Order order = Order();
 
   @action
-  getTempList() async{
-    if (listProductCart.isEmpty) {
-      var list =await LocalDataStore.getList<Product>(
-          key: CART_LIST, fromMap: Product.fromMap);
-      if (list.isNotEmpty) {
-        listProductCart = list;
-      }
+  getTempList() async {
+    var _order = await LocalDataStore.getValue(key: CART_LIST);
+    if (_order != null) {
+      order = Order.fromMap(jsonDecode(_order));
     }
   }
 
-  _setTempList(List<Product?> listProduct) {
-    LocalDataStore.setListData(
-        key: CART_LIST,
-        value: listProduct.map<Map>((e) => e!.toMap()).toList());
+  _setTempList(Order order) {
+    LocalDataStore.setData(key: CART_LIST, value: jsonEncode(order.toMap()));
   }
 
   Product getProductByShopping(Product product) {
@@ -42,16 +40,17 @@ abstract class _CartStoreBase with Store {
   }
 
   Product? _getTempProduct(Product product) {
-    return (listProductCart).firstWhere((element) => product.name == element!.name,
+    return order.products.firstWhere(
+        (element) => product.name == element!.name,
         orElse: () => null);
   }
 
   int _getIndexTempProduct(Product product) {
-    return listProductCart.indexOf(product);
+    return order.products.indexOf(product);
   }
 
   String getMoneyValue() {
-    return Utils.moneyMasked(listProductCart.fold(
+    return Utils.moneyMasked(order.products.fold(
         0,
         (previousValue, element) =>
             (element!.valor! * element.qtd!) + previousValue!));
@@ -59,7 +58,7 @@ abstract class _CartStoreBase with Store {
 
   @action
   updateCart(Product product) {
-    final tempList = listProductCart;
+    final tempList = order.products;
     final temp = _getTempProduct(product);
     if (temp == null) {
       if (product.qtd! > 0) {
@@ -76,7 +75,7 @@ abstract class _CartStoreBase with Store {
         debugPrint("Remove cart ${product.name}");
       }
     }
-    listProductCart = tempList;
-    _setTempList(tempList);
+    order.products = tempList;
+    _setTempList(order);
   }
 }

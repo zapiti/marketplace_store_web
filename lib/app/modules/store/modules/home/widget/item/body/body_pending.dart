@@ -61,7 +61,7 @@ class BodyPending extends StatelessWidget {
                                         children: [
                                           Container(
                                             child: Text(
-                                              e.name ?? '',
+                                              e!.name ?? '',
                                               style: AppThemeUtils
                                                   .normalBoldSize(),
                                             ),

@@ -16,13 +16,13 @@ class AddressWidget extends StatelessWidget {
           children: [
             Expanded(
                 child: buttonSelected(true, "Cadastrar endereço",
-                    'Pague com o seu cartão', () {},color:AppThemeUtils.colorPrimary)),
+                    'Coloque o endereço de entrega', () {},color:AppThemeUtils.colorPrimary)),
             SizedBox(
               width: 10,
             ),
             Expanded(
                 child: buttonSelected(false, 'Endereços cadastrados',
-                    'Pague com o seu saldo', () {},color:AppThemeUtils.colorPrimary))
+                    'Selecione endereço cadastrado', () {},color:AppThemeUtils.colorPrimary))
           ],
         ),
         Container(

@@ -3,14 +3,20 @@ class CurrentUser {
   String? username;
   String? profile;
   Establishment? establishment;
+  Client? client;
+
   String? iat;
   String? exp;
   static var USERLOG = "USERLOG";
+
+
+
+
   CurrentUser(
       {this.sub,
       this.username,
       this.profile,
-      this.establishment,
+      this.establishment,this.client,
       this.iat,
       this.exp});
 
@@ -20,21 +26,87 @@ class CurrentUser {
       'username': username,
       'profile': profile,
       'establishment': establishment?.toMap(),
+      'client' : client?.toMap(),
       'iat': iat,
       'exp': exp,
     };
   }
 
   factory CurrentUser.fromMap(dynamic map) {
-
     return CurrentUser(
       sub: map['sub']?.toString(),
       username: map['username']?.toString(),
       profile: map['profile']?.toString(),
       establishment: Establishment.fromMap(map['establishment']),
+      client: Client.fromMap(map['client']),
       iat: map['iat']?.toString(),
       exp: map['exp']?.toString(),
     );
+  }
+}
+
+class Client {
+  String? id;
+  String? name;
+  String? cpf;
+  String? wallet;
+  String? email;
+  String? phone;
+  String? firstAccess;
+  String? image;
+  dynamic user;
+  dynamic addresses;
+  String? createdAt;
+  String? updatedAt;
+
+
+  Client({
+      this.id,
+      this.name,
+      this.cpf,
+      this.wallet,
+      this.email,
+      this.phone,
+      this.firstAccess,
+      this.image,
+      this.user,
+      this.addresses,
+      this.createdAt,
+      this.updatedAt});
+
+  factory Client.fromMap(dynamic map) {
+    var temp;
+    return Client(
+      id: map['id']?.toString(),
+      name: map['name']?.toString(),
+      cpf: map['cpf']?.toString(),
+      wallet: map['wallet']?.toString(),
+      email: map['email']?.toString(),
+      phone: map['phone']?.toString(),
+      firstAccess: map['firstAccess']?.toString(),
+      image: map['image']?.toString(),
+      user: map['user'],
+      addresses: map['addresses'],
+      createdAt: map['createdAt']?.toString(),
+      updatedAt: map['updatedAt']?.toString(),
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'cpf': cpf,
+      'wallet': wallet,
+      'email': email,
+      'phone': phone,
+      'firstAccess': firstAccess,
+      'image': image,
+      'user': user?.toMap(),
+      'addresses': addresses?.toMap(),
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
+    };
   }
 }
 
@@ -77,7 +149,6 @@ class Establishment {
       this.coverImage});
 
   factory Establishment.fromMap(dynamic map) {
-
     var temp;
     return Establishment(
       id: map['id']?.toString(),

@@ -58,19 +58,19 @@ class RequestCore {
         showLoading(false);
       }
       print(
-          "***RETORNO-SERVICO (Erro)(${typeRequest.toString()}) = $serviceName body = ${showBody ? e?.response ?? e : {}}");
+          "***RETORNO-SERVICO (Erro)(${typeRequest.toString()}) = $serviceName body = ${showBody ? e.response ?? e : {}}");
 
       if (e.response?.statusCode == 403) {}
       var msg = ResponseUtils.getErrorBody(e.response?.data);
       return ResponseUtils.getResponsePaginatedObject(
           CodeResponse(error: msg), funcFromMap,
-          status: e?.response?.statusCode);
+          status: e.response?.statusCode);
     } on Exception catch (e) {
       if (isLoad) {
         showLoading(false);
       }
       var msg =
-          ResponseUtils.getErrorBody(e?.toString()) ?? "Sem descrição de erro";
+          ResponseUtils.getErrorBody(e.toString()) ?? "Sem descrição de erro";
       return ResponseUtils.getResponsePaginatedObject(
           CodeResponse(error: msg), funcFromMap,
           status: 500);
@@ -177,7 +177,7 @@ class RequestCore {
         break;
     }
 
-    var statusCode = response?.statusCode;
+    var statusCode = response.statusCode;
     print("Current status code: $statusCode");
 
     print(
@@ -188,17 +188,17 @@ class RequestCore {
         statusCode == 203 ||
         statusCode == 204) {
       return ResponseUtils.getResponsePaginatedObject(
-          CodeResponse(sucess: response?.data), funcFromMap,
+          CodeResponse(sucess: response.data), funcFromMap,
           namedResponse: namedResponse,
           isObject: isObject,
-          status: response?.statusCode);
+          status: response.statusCode);
 
       // return tryAgainElement(typeRequest, api, serviceName, isJsonResponse, isImage, body, funcFromMap, namedResponse, isObject);
 
     } else {
       return ResponseUtils.getResponsePaginatedObject(
           CodeResponse(error: response), funcFromMap,
-          status: response?.statusCode);
+          status: response.statusCode);
     }
   }
 }

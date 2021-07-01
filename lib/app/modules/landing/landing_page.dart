@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:marketplace_store_web/app/app_store.dart';
 import 'package:marketplace_store_web/app/components/appbar/custom_landing_app_bar.dart';
 import 'package:marketplace_store_web/app/components/drawer/custom_landing_drawer.dart';
+import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/image/image_path.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
@@ -12,6 +16,25 @@ class LandingPage extends StatefulWidget {
 }
 
 class LandingPageState extends State<LandingPage> {
+  @override
+  void initState() {
+    super.initState();
+    SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
+      final _appStore = Modular.get<AppStore>();
+      _appStore.getCurrentUserFutureValue().then((value) {
+        if (value != null) {
+          if (value.client != null) {
+            Modular.to
+                .pushReplacementNamed(ConstantsRoutes.CALL_CLIENT_HOMEPAGE);
+          } else if (value.establishment != null) {
+            Modular.to
+                .pushReplacementNamed(ConstantsRoutes.CALL_STORE_HOMEPAGE);
+          }
+        }
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +50,10 @@ class LandingPageState extends State<LandingPage> {
             height: MediaQuery.of(context).size.height,
             fit: BoxFit.cover,
           ),
-          Image.asset(
-            ImagePath.bgTopLanding,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            fit: BoxFit.cover
-          ),
+          Image.asset(ImagePath.bgTopLanding,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              fit: BoxFit.cover),
           Align(
               alignment: Alignment.bottomRight,
               child: Image.asset(
@@ -49,8 +70,9 @@ class LandingPageState extends State<LandingPage> {
                 width: 500,
                 height: MediaQuery.of(context).size.height,
                 margin: EdgeInsets.only(top: 0, left: 20, right: 20),
-                child: Center(child: SingleChildScrollView(
-                    child: Column(
+                child: Center(
+                    child: SingleChildScrollView(
+                        child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

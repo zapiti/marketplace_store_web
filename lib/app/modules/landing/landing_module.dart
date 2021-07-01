@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LandingModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => LandingStore()),
+
   ];
 
   @override

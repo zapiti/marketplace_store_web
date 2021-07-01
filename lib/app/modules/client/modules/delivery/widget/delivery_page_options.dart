@@ -28,7 +28,7 @@ class DeliveryPageOptions extends StatelessWidget {
               width: 500,
               margin: EdgeInsets.only(top: 20,bottom: 0),
               child: Text(
-                'Seus endereços',
+                'Seus endereços de entrega',
                 style: AppThemeUtils.normalBoldSize(fontSize: 20),
               ),
             ),

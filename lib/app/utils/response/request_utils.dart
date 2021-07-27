@@ -1,4 +1,3 @@
-
 import 'package:marketplace_store_web/app/models/code_response.dart';
 import 'package:marketplace_store_web/app/models/page/response_paginated.dart';
 import 'package:marketplace_store_web/app/utils/object/object_utils.dart';
@@ -70,16 +69,25 @@ class ResponseUtils {
   }
 
   ///***@service e o nome do servico  @body e o body passado na requisicao  @result e o resultado do servidor
-  static String? getErrorBody( dynamic result) {
+  static String? getErrorBody(dynamic result) {
     var error = ObjectUtils.parseToMap(result, defaultValue: result) ?? result;
 
+    if(error == null){
+      return null;
+    }
     if (error is Map) {
-      return error["message"]?.toString() ??
-          error["message"]?.toString() ??
-          error["titulo"]?.toString() ??
-          error["message"]?.toString() ??
-          error["error_description"]?.toString() ??
-          error["error"]?.toString();
+      return ((error.containsKey('data')
+                  ? error['data']["error"]?.toString() ??
+                      error['data']["message"]?.toString()
+                  : error["message"]?.toString() ??
+                      error["message"]?.toString() ??
+                      error["titulo"]?.toString() ??
+                      error["message"]?.toString() ??
+                      error["error_description"]?.toString() ??
+                      error["error"]?.toString()) ??
+              "Servidor indisponível")
+          .replaceAll('[', '')
+          .replaceAll(']', '');
     }
     if (error?.toString().contains("html") ?? false) {
       return (error?.toString().contains("Cannot") ?? false)

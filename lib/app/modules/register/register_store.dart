@@ -1,4 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marketplace_store_web/app/components/dialog/dialog_generic.dart';
+import 'package:marketplace_store_web/app/modules/register/repository/register_repository.dart';
+import 'package:marketplace_store_web/app/modules/store/model/mystore.dart';
+import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
 
 part 'register_store.g.dart';
@@ -17,6 +23,8 @@ abstract class _RegisterStoreBase with Store {
   final passController = TextEditingController();
   final nameUserController = TextEditingController();
   final emailController = TextEditingController();
+
+  final _repository = Modular.get<RegisterRepository>();
 
   @observable
   bool isLoadLogin = false;
@@ -57,5 +65,22 @@ abstract class _RegisterStoreBase with Store {
   void getRegister(BuildContext context) {}
 
   @action
-  getRegisterProduct(BuildContext context) {}
+  getRegisterProduct(BuildContext context, MyStore myStore) async {
+    isLoadLogin = true;
+    final response = await _repository.createNewStore(myStore);
+    isLoadLogin = false;
+    if (response.error != null) {
+      Utils.showSnackBar(response.error, context);
+    } else {
+      showGenericDialog(
+          context: context,
+          title: 'Salvo com sucesso',
+          description:
+              "Tudo pronto agora so aguardar a aprovacao no seu e-mail para ativação da sua conta",
+          positiveText: 'OK',
+          positiveCallback: () {
+            Modular.to.pushReplacementNamed(ConstantsRoutes.LANDING);
+          });
+    }
+  }
 }

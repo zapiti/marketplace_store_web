@@ -10,9 +10,8 @@ class AppConfiguration {
   static final pushApi = "e0c60413-361f-4f24-aa2e-eb01ad67c193";
 
   static String baseUrl()  {
-    return "";
+    return "https://market-place-4ntpn.ondigitalocean.app";
   }
-  static final mockCurrentUserEstablishment = CurrentUser(establishment: Establishment());
-  static final mockCurrentUserClient = CurrentUser(client: Client());
+
   static final isMockDevTest = false;
 }

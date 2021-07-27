@@ -8,16 +8,19 @@ import 'package:marketplace_store_web/app/models/page/response_paginated.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/preferences/local_storage.dart';
 
-
 import '../../../app_store.dart';
 
 class AuthRepository {
-  static const SERVICELOGIN = "/api/adm/auth/login";
+  static const SERVICELOGINSTAB = "/api/estab/auth/login";
+  static const SERVICELOGINCLIENT = "/api/client/auth/login";
   var _requestManager = Modular.get<RequestCore>();
 
-  Future<ResponsePaginated> getLogin({required String username, required String password}) async {
+  Future<ResponsePaginated> getLogin(
+      {required String username,
+      required String password,
+      required bool isClient}) async {
     var result = await _requestManager.requestWithTokenToForm(
-      serviceName: SERVICELOGIN,
+      serviceName: isClient ? SERVICELOGINCLIENT : SERVICELOGINSTAB,
       body: {"username": username, "password": password},
       funcFromMap: (data) => data,
       typeRequest: TYPEREQUEST.POST,
@@ -39,7 +42,6 @@ class AuthRepository {
     return await LocalDataStore.setData(key: CurrentUser.USERLOG, value: token);
   }
 
-
   Future<String?> getToken() async {
     var user = await LocalDataStore.getValue(key: CurrentUser.USERLOG);
     if (user == null) {
@@ -51,7 +53,7 @@ class AuthRepository {
 
   Future<ResponsePaginated> getLogout() async {
     LocalDataStore.deleteAll();
-      Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
+    Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
     return ResponsePaginated();
   }
 

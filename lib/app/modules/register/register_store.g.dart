@@ -85,6 +85,15 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
+  final _$getRegisterProductAsyncAction =
+      AsyncAction('_RegisterStoreBase.getRegisterProduct');
+
+  @override
+  Future getRegisterProduct(BuildContext context, MyStore myStore) {
+    return _$getRegisterProductAsyncAction
+        .run(() => super.getRegisterProduct(context, myStore));
+  }
+
   final _$_RegisterStoreBaseActionController =
       ActionController(name: '_RegisterStoreBase');
 
@@ -138,17 +147,6 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
         name: '_RegisterStoreBase.getRegister');
     try {
       return super.getRegister(context);
-    } finally {
-      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic getRegisterProduct(BuildContext context) {
-    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
-        name: '_RegisterStoreBase.getRegisterProduct');
-    try {
-      return super.getRegisterProduct(context);
     } finally {
       _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
     }

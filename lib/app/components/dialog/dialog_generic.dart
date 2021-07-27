@@ -25,7 +25,7 @@ void showGenericDialog(
     int? multLineButton}) {
   // FocusScope.of(context).requestFocus(FocusNode());
   showDialog(
-      context: context,
+      context: context,barrierDismissible: false,
       builder: (ctx) => _DialogGeneric(
           iconData: iconData,
           title: title,

@@ -22,13 +22,14 @@ class LandingPageState extends State<LandingPage> {
     SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
       final _appStore = Modular.get<AppStore>();
       _appStore.getCurrentUserFutureValue().then((value) {
+
         if (value != null) {
           if (value.client != null) {
             Modular.to
-                .pushReplacementNamed(ConstantsRoutes.CALL_CLIENT_HOMEPAGE);
+                .pushReplacementNamed(ConstantsRoutes.CLIENTROUTE);
           } else if (value.establishment != null) {
             Modular.to
-                .pushReplacementNamed(ConstantsRoutes.CALL_STORE_HOMEPAGE);
+                .pushReplacementNamed(ConstantsRoutes.STOREROUTE);
           }
         }
       });

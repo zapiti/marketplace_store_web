@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/app_store.dart';
 import 'package:marketplace_store_web/app/configuration/app_configuration.dart';
+import 'package:marketplace_store_web/app/modules/login/repository/auth_repository.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
 
 part 'login_store.g.dart';
@@ -16,6 +18,7 @@ abstract class _LoginStoreBase with Store {
 
   final passController = TextEditingController();
   final userController = TextEditingController();
+  final authRepository = Modular.get<AuthRepository>();
 
   @observable
   bool showHidePass = true;
@@ -48,23 +51,34 @@ abstract class _LoginStoreBase with Store {
 
   getLoginClient(BuildContext context) async {
     showLoad();
-    final appBloc = Modular.get<AppStore>();
-
-    appBloc.setCurrentUser(AppConfiguration.mockCurrentUserClient);
-
-    await Future.delayed(Duration(seconds: 1));
+    final resultLogin = await authRepository.getLogin(
+        username: userController.text,
+        password: passController.text,
+        isClient: true);
     hideLoad();
-    Modular.to.pushReplacementNamed(ConstantsRoutes.CLIENTROUTE);
+    if (resultLogin.error == null) {
+      await Future.delayed(Duration(seconds: 1));
+
+      Modular.to.pushReplacementNamed(ConstantsRoutes.CLIENTROUTE);
+    } else {
+      Utils.showSnackBar(resultLogin.error, context);
+    }
   }
 
   getLoginStore(BuildContext context) async {
     showLoad();
-    final appBloc = Modular.get<AppStore>();
 
-    appBloc.setCurrentUser(AppConfiguration.mockCurrentUserEstablishment);
-
-    await Future.delayed(Duration(seconds: 1));
+    final resultLogin = await authRepository.getLogin(
+        username: userController.text,
+        password: passController.text,
+        isClient: false);
     hideLoad();
-    Modular.to.pushReplacementNamed(ConstantsRoutes.STOREROUTE);
+    if (resultLogin.error == null) {
+      await Future.delayed(Duration(seconds: 1));
+
+      Modular.to.pushReplacementNamed(ConstantsRoutes.STOREROUTE);
+    } else {
+      Utils.showSnackBar(resultLogin.error, context);
+    }
   }
 }

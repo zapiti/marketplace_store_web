@@ -37,8 +37,8 @@ class CurrentUser {
       sub: map['sub']?.toString(),
       username: map['username']?.toString(),
       profile: map['profile']?.toString(),
-      establishment: Establishment.fromMap(map['establishment']),
-      client: Client.fromMap(map['client']),
+      establishment:map['establishment'] == null ? null : Establishment.fromMap(map['establishment']),
+      client:map['client'] == null ? null :  Client.fromMap(map['client']),
       iat: map['iat']?.toString(),
       exp: map['exp']?.toString(),
     );

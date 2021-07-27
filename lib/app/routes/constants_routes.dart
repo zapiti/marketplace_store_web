@@ -87,6 +87,8 @@ class ConstantsRoutes {
   static const String ACCOUNTCLIENTPAGE = '/conta';
   static const String CALL_ACCOUNT_CLIENT_PAGE = CLIENTROUTE + ACCOUNTCLIENTPAGE;
 
+  static const String LANDING = '/inicio';
+
 
   //endregion
 

@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalDataStore {
-  static setData({required String key, required String value}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
 
+
+
+
+ static setData({required String key, required String value}) async {
+   SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(key, value);
   }
 
@@ -20,8 +23,8 @@ class LocalDataStore {
   }
 
   static Future<String?> getValue({required String key}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
       return prefs.getString(key);
     } on Exception catch (_) {
       return null;
@@ -29,8 +32,8 @@ class LocalDataStore {
   }
 
   static setListData({required String key, required List<Map> value}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
       return prefs.setStringList(
           key, value.map<String>((e) => jsonEncode(e)).toList());
     } on Exception catch (_) {
@@ -38,10 +41,9 @@ class LocalDataStore {
     }
   }
 
-  static Future<List<T>> getList<T>(
-      {required String key, required T Function(Map) fromMap}) async {
+  static Future<List<T>> getList<T>({required String key, required T Function(Map) fromMap}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
       final listString = prefs.getStringList(key);
       List<T> tempList =
           listString?.map<T>((e) => fromMap(jsonDecode(e))).toList() ?? <T>[];

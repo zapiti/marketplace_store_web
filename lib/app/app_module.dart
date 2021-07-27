@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/app_store.dart';
@@ -18,6 +19,7 @@ import 'modules/register/register_module.dart';
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
+    Bind.lazySingleton((i) => Dio()),
     Bind.lazySingleton((i) => CartStore()),
     Bind.lazySingleton((i) => AppStore()),
     Bind.lazySingleton((i) => AuthRepository()),
@@ -28,6 +30,8 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ModuleRoute(Modular.initialRoute,
+        module: LandingModule(), transition: TransitionType.fadeIn),
+    ModuleRoute(ConstantsRoutes.LANDING,
         module: LandingModule(), transition: TransitionType.fadeIn),
     ModuleRoute(ConstantsRoutes.LOGIN,
         module: LoginModule(), transition: TransitionType.fadeIn),

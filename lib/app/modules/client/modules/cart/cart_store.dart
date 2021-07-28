@@ -40,17 +40,17 @@ abstract class _CartStoreBase with Store {
   }
 
   Product? _getTempProduct(Product product) {
-    return order.products.firstWhere(
+    return order.items.firstWhere(
         (element) => product.name == element!.name,
         orElse: () => null);
   }
 
   int _getIndexTempProduct(Product product) {
-    return order.products.indexOf(product);
+    return order.items.indexOf(product);
   }
 
   String getMoneyValue() {
-    return Utils.moneyMasked(order.products.fold(
+    return Utils.moneyMasked(order.items.fold(
         0,
         (previousValue, element) =>
             (element!.value! * element.quantity!) + previousValue!));
@@ -58,7 +58,7 @@ abstract class _CartStoreBase with Store {
 
   @action
   updateCart(Product product) {
-    final tempList = order.products;
+    final tempList = order.items;
     final temp = _getTempProduct(product);
     if (temp == null) {
       if (product.quantity! > 0) {
@@ -75,7 +75,7 @@ abstract class _CartStoreBase with Store {
         debugPrint("Remove cart ${product.name}");
       }
     }
-    order.products = tempList;
+    order.items = tempList;
     _setTempList(order);
   }
 }

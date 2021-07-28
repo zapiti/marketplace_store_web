@@ -20,6 +20,7 @@ class MyStoreRepository {
   }
 
   Future<ResponsePaginated> createOrUpdateProduct(Product product) async {
+
     var result = await _requestManager.requestWithTokenToForm(
       serviceName: '/api/product',
       body: product.toMap(),

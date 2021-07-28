@@ -40,7 +40,7 @@ class Utils {
   }
 
   static String moneyMasked(double? fold) {
-    return MoneyMaskedTextController(initialValue: fold ?? 0, leftSymbol: "R\$")
+    return MoneyMaskedTextController(initialValue: fold ?? 0, leftSymbol: "R\$ ")
         .text;
   }
 
@@ -110,7 +110,6 @@ class Utils {
   static isBase64(String userImage) {
     final RegExp _base64 = RegExp(
         r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$');
-
     return _base64.hasMatch(userImage);
   }
 

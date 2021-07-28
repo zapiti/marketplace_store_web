@@ -25,7 +25,8 @@ class Product {
     this.sector,
     this.description,
     this.quantityType,
-    this.stock,this.quantity,
+    this.stock,
+    this.quantity,
     this.specification,
     this.qtdMin,
     this.qtdMax,
@@ -65,21 +66,43 @@ class Product {
   }
 
   Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'value': value,
-      'promotionalValue': promotionalValue,
-      'category': category,
-      'sector': sector,
-      'description': description,
-      'quantityType': quantityType ?? 'UNIDADE',
-      'stock': stock,
-      'specification': specification,
-      'qtdMin': qtdMin ,
-      'qtdMax': qtdMax,
-      'barCode': barCode,
-      'image': image,
-    };
+    return id == null
+        ? {
+            'name': name,
+            'value': value,
+            'promotionalValue': promotionalValue,
+            'category': category,
+            'sector': sector,
+            'description': description,
+            'quantityType': quantityType ?? 'UNIDADE',
+            'stock': stock,
+            'specification': specification,
+            'qtdMin': qtdMin,
+            'qtdMax': qtdMax,
+            'barCode': barCode,
+            'image': image,
+          }
+        : {
+            'id': id,
+            'status': 'ATIVO',
+            'name': name,
+            'value': value,
+            'promotionalValue': promotionalValue,
+            'category': category,
+            'sector': sector,
+            'description': description,
+            'quantityType': quantityType ?? 'UNIDADE',
+            'stock': stock,
+            'specification': specification,
+            'qtdMin': qtdMin,
+            'qtdMax': qtdMax,
+            'barCode': barCode,
+            'image': image,
+          };
   }
 
+  @override
+  String toString() {
+    return 'Product{id: $id, name: $name, value: $value, promotionalValue: $promotionalValue, category: $category, sector: $sector, description: $description, quantityType: $quantityType, stock: $stock, specification: $specification, qtdMin: $qtdMin, qtdMax: $qtdMax, barCode: $barCode, image: $image, quantity: $quantity}';
+  }
 }

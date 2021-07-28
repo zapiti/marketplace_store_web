@@ -8,7 +8,7 @@ import 'account_store.dart';
 class AccountModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => AccountStore()),
+
   ];
 
   @override

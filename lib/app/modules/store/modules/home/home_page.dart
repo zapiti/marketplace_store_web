@@ -9,18 +9,22 @@ import 'package:marketplace_store_web/app/modules/store/modules/home/widget/home
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 
+import '../../store_store.dart';
+
 class HomePage extends StatefulWidget {
   @override
   HomePageState createState() => HomePageState();
 }
 
 class HomePageState extends ModularState<HomePage, HomeStore> {
+  final storeControl = Modular.get<StoreStore>();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     SchedulerBinding.instance?.addPostFrameCallback((_) {
       controller.selectPage(controller.ANDAMENTO);
+      storeControl.getCurrentEstablishment();
     });
   }
 
@@ -78,7 +82,7 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                                       horizontal: 10),
                                                   child: AutoSizeText(
                                                     Utils.moneyMasked(
-                                                                controller.walletMoney),
+                                                        storeControl.establishment?.wallet ?? 0.0),
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,

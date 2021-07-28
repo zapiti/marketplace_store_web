@@ -40,7 +40,7 @@ Column getDataBodyCart(Order order) {
         child: AddressWidget(),
       ),
       lineViewWidget(),
-      ...order.products.map((e) => ItemProductCart(e!)),
+      ...order.items.map((e) => ItemProductCart(e!)),
       InkWell(
         onTap: () {},
         child: Container(

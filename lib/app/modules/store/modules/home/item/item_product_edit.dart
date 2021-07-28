@@ -71,7 +71,7 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                         margin: EdgeInsets.only(left: 10, top: 20),
                         child: Center(
                             child: ImageWidgetComponent(
-                          widget.product.image ?? '',
+                          widget.product.image,
                           height: 180,
                           fit: BoxFit.cover,
                           width: 150,

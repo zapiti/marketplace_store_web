@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/mobile/title_descritption_web_widget.dart';
+
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+
+import '../account_store.dart';
 
 class AccountHelpPage extends StatefulWidget {
   @override
@@ -14,6 +15,8 @@ class AccountHelpPage extends StatefulWidget {
 }
 
 class AccountHelpPageState extends State<AccountHelpPage> {
+  var _accountStore = Modular.get<AccountStore>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +46,7 @@ class AccountHelpPageState extends State<AccountHelpPage> {
                   ],
                   textAlign: TextAlign.start,
                   maxLines: 5,
+                  controller: _accountStore.controllerHelp,
                   textAlignVertical: TextAlignVertical.center,
                   onSubmitted: (term) {},
                   decoration: InputDecoration(
@@ -63,7 +67,9 @@ class AccountHelpPageState extends State<AccountHelpPage> {
                   style:
                       AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  _accountStore.sendHelp(context);
+                },
               ),
             ),
           )

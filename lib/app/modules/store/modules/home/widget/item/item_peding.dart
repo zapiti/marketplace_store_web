@@ -85,7 +85,7 @@ class _ItemPendingState extends State<ItemPending> {
                                     ),
                                     Container(
                                       child: Text(
-                                          "${widget.orders.products.length} itens",
+                                          "${widget.orders.items.length} itens",
                                           style: AppThemeUtils.normalSize()),
                                     )
                                   ],

@@ -16,10 +16,10 @@ class ProductSobre extends StatelessWidget {
   Widget build(BuildContext context) {
     final moneyController = MoneyMaskedTextController(
         initialValue: controller.currentProduct.value ?? 0.0,
-        leftSymbol: 'R\$');
+        leftSymbol: 'R\$ ');
     final promotionController = MoneyMaskedTextController(
         initialValue: controller.currentProduct.promotionalValue ?? 0.0,
-        leftSymbol: 'R\$');
+        leftSymbol: 'R\$ ');
     return SingleChildScrollView(
         child: Column(
       children: [

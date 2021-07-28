@@ -14,6 +14,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 
 import 'modules/account/account_module.dart';
+import 'modules/account/account_store.dart';
+import 'modules/account/repository/account_repository.dart';
 import 'modules/my_store/page/add_product_store_page.dart';
 import 'modules/my_store/page/alter_my_store_page.dart';
 import 'modules/my_store/repository/my_store_repository.dart';
@@ -25,7 +27,8 @@ class StoreModule extends Module {
     Bind.lazySingleton((i) => MyStoreStore()),
     Bind.lazySingleton((i) => StoreStore()),
     Bind.lazySingleton((i) => StoreRepository()),
-
+    Bind.lazySingleton((i) => AccountStore()),
+    Bind.lazySingleton((i) => AccountRepository()),
 
   ];
 

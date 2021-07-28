@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/mobile/title_descritption_web_widget.dart';
+
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/account/account_store.dart';
+
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:timelines/timelines.dart';
+
 
 class AccountAlterMyWalletPage extends StatefulWidget {
   @override
-  AccountAlterMyWalletPageState createState() => AccountAlterMyWalletPageState();
+  AccountAlterMyWalletPageState createState() =>
+      AccountAlterMyWalletPageState();
 }
 
 class AccountAlterMyWalletPageState extends State<AccountAlterMyWalletPage> {
   var enableWallet = false;
+  final accountControl = Modular.get<AccountStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +45,18 @@ class AccountAlterMyWalletPageState extends State<AccountAlterMyWalletPage> {
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(24),
                 ],
-
                 textAlign: TextAlign.start,
                 textAlignVertical: TextAlignVertical.center,
-                onChanged: (text) {},
+                onChanged: (text) {
+                  accountControl.accountInfo.cpfCnpj = text;
+                },
                 onSubmitted: (term) {},
+                controller: TextEditingController(
+                    text: accountControl.accountInfo.cpfCnpj),
                 decoration: InputDecoration(
                     labelText: "CPF/CNPJ",
                     border: const OutlineInputBorder(
-                      borderSide:
-                      BorderSide(color: Colors.grey, width: 0.3),
+                      borderSide: BorderSide(color: Colors.grey, width: 0.3),
                     )))),
         Container(
             margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -61,68 +64,74 @@ class AccountAlterMyWalletPageState extends State<AccountAlterMyWalletPage> {
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(24),
                 ],
-
                 textAlign: TextAlign.start,
+                controller: TextEditingController(
+                    text: accountControl.accountInfo.bank),
                 textAlignVertical: TextAlignVertical.center,
-                onChanged: (text) {},
+                onChanged: (text) {
+                  accountControl.accountInfo.bank = text;
+                },
                 onSubmitted: (term) {},
                 decoration: InputDecoration(
                     labelText: "Banco",
                     border: const OutlineInputBorder(
-                      borderSide:
-                      BorderSide(color: Colors.grey, width: 0.3),
+                      borderSide: BorderSide(color: Colors.grey, width: 0.3),
                     )))),
-
         Container(
             margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
             child: TextField(
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(24),
                 ],
-
                 textAlign: TextAlign.start,
+                controller: TextEditingController(
+                    text: accountControl.accountInfo.account),
                 textAlignVertical: TextAlignVertical.center,
-                onChanged: (text) {},
+                onChanged: (text) {
+                  accountControl.accountInfo.account = text;
+                },
                 onSubmitted: (term) {},
                 decoration: InputDecoration(
                     labelText: "Conta",
                     border: const OutlineInputBorder(
-                      borderSide:
-                      BorderSide(color: Colors.grey, width: 0.3),
+                      borderSide: BorderSide(color: Colors.grey, width: 0.3),
                     )))),
-
         Container(
             margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
             child: TextField(
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(24),
                 ],
-
                 textAlign: TextAlign.start,
                 textAlignVertical: TextAlignVertical.center,
-                onChanged: (text) {},
+                onChanged: (text) {
+                  accountControl.accountInfo.agency = text;
+                },
+                controller: TextEditingController(
+                    text: accountControl.accountInfo.agency),
                 onSubmitted: (term) {},
                 decoration: InputDecoration(
                     labelText: "Agência",
                     border: const OutlineInputBorder(
-                      borderSide:
-                      BorderSide(color: Colors.grey, width: 0.3),
+                      borderSide: BorderSide(color: Colors.grey, width: 0.3),
                     )))),
-
         Container(
           margin: EdgeInsets.only(top: 20, left: 5, right: 5),
           child: SizedBox(
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: AppThemeUtils.colorPrimary),
+              style:
+                  ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
               child: Text(
                 "ADICIONAR CONTA",
-                style: AppThemeUtils.normalSize(
-                    color: AppThemeUtils.whiteColor),
+                style:
+                    AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor),
               ),
-              onPressed: () {},
+              onPressed: () {
+                accountControl.updateAccount(
+                    context, accountControl.accountInfo);
+              },
             ),
           ),
         ),

@@ -21,14 +21,14 @@ class MyStorePage extends StatefulWidget {
 class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
   final storeControl = Modular.get<StoreStore>();
 
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     SchedulerBinding.instance?.addPostFrameCallback((_) {
       controller.getListStore();
-      storeControl.getCurrentEstablishment();
+      if (storeControl.establishment == null)
+        storeControl.getCurrentEstablishment();
     });
   }
 
@@ -82,9 +82,11 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        controller.selectedPage(controller.TELEFONE);
+                                        controller
+                                            .selectedPage(controller.TELEFONE);
                                         Modular.to.pushReplacementNamed(
-                                            ConstantsRoutes.CALL_ALTER_STORE_PAGE);
+                                            ConstantsRoutes
+                                                .CALL_ALTER_STORE_PAGE);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(
@@ -131,14 +133,13 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                     ))),
     );
   }
-
-
-
 }
+
 Container buildText(StoreStore storeControl) {
   return Container(
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           storeControl.establishment?.companyName ?? '',
@@ -146,7 +147,8 @@ Container buildText(StoreStore storeControl) {
         ),
         Text(
           " (${storeControl.establishment?.description ?? ''})",
-          style: AppThemeUtils.normalBoldSize(fontSize: 12,color: AppThemeUtils.colorPrimary),
+          style: AppThemeUtils.normalBoldSize(
+              fontSize: 12, color: AppThemeUtils.colorPrimary),
         )
       ],
     ),

@@ -45,7 +45,7 @@ class CartPageState extends ModularState<CartPage, CartStore> {
                           color: Colors.black38,
                           padding: EdgeInsets.all(10),
                           child: Text(
-                            controller.order.products.length.toString(),
+                            controller.order.items.length.toString(),
                             style: AppThemeUtils.normalBoldSize(
                                 color: AppThemeUtils.whiteColor),
                           ),

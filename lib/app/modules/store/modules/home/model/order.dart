@@ -14,7 +14,7 @@ class Order {
   int numPedido = 80045;
   String status;
 
-  List<Product?> products = [ Product(),Product(),Product()];
+  List<Product?> items = [ Product(),Product(),Product()];
 
   double value = 500.0;
   String id;
@@ -41,7 +41,7 @@ class Order {
       'dtCreate': dtCreate.toString(),
       'numPedido': numPedido,
       'status': status,
-      'products': products.map((map) => map?.toMap()).toList() ,
+      'products': items.map((map) => map?.toMap()).toList() ,
       'value': value,
       'id': id,
       'shops': shops.toMap(),

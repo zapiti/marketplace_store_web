@@ -46,7 +46,7 @@ class BodyPending extends StatelessWidget {
               Expanded(
                 child: Container(
                   child: Column(
-                    children: order.products
+                    children: order.items
                         .map((e) => Column(
                               children: [
                                 Container(

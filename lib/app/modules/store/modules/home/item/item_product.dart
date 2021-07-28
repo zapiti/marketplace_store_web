@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
@@ -34,7 +35,7 @@ class _ItemProductState extends State<ItemProduct> {
                   ),
                   Container(
                     child: Text(
-                      widget.product.descricao ?? '',
+                      widget.product.description ?? '',
                       style: AppThemeUtils.normalSize(fontSize: 12),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -42,7 +43,7 @@ class _ItemProductState extends State<ItemProduct> {
                   ),
                   Container(
                     child: Text(
-                      widget.product.quantidade ?? '',
+                      widget.product.quantityType ?? '',
                       style: AppThemeUtils.normalBoldSize(
                           color: AppThemeUtils.black),
                     ),
@@ -51,8 +52,8 @@ class _ItemProductState extends State<ItemProduct> {
               )),
               Container(
                 margin: EdgeInsets.only(left: 10),
-                child: Image.network(
-                  widget.product.imageUrl ?? '',
+                child: ImageWidgetComponent(
+                  widget.product.image ?? '',
                   width: 150,
                 ),
               )

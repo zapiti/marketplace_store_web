@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/home_store.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
@@ -36,7 +37,7 @@ class ItemShops extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
+              ImageWidgetComponent(
                 shops.image,
                 width: 100,
                 height: 100,

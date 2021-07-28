@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
 class UserImageWidget extends StatefulWidget {
   final double? height;
@@ -23,7 +24,8 @@ class UserImageWidget extends StatefulWidget {
     this.isRounded = true,
     this.changeImage,
     this.userImage,
-    this.addButtom, this.enable = true,
+    this.addButtom,
+    this.enable = true,
   });
 
   @override
@@ -41,7 +43,7 @@ class _UserImageWidgetState extends State<UserImageWidget> {
     PickedFile? photo2;
     try {
       pickedFile = await ImagePicker()
-          .getImage(source: source, maxWidth: 300, maxHeight: 300);
+          .getImage(source: source, maxWidth: 200, maxHeight: 200);
 
       photo2 = pickedFile;
     } catch (e) {
@@ -49,12 +51,10 @@ class _UserImageWidgetState extends State<UserImageWidget> {
     }
 
     if (photo2 != null) {
+      final bytes = await photo2.readAsBytes();
 
-        final bytes = await photo2.readAsBytes();
-
-        String img64 = base64Encode(bytes);
-        salvarImage(img64);
-
+      String img64 = base64Encode(bytes);
+      salvarImage(img64);
     }
     if (_base64 != null) {
       salvarImage(_base64!);
@@ -62,7 +62,7 @@ class _UserImageWidgetState extends State<UserImageWidget> {
   }
 
   void salvarImage(String img64) {
-    debugPrint(img64);
+
     widget.changeImage?.call(img64);
   }
 
@@ -115,11 +115,12 @@ class _UserImageWidgetState extends State<UserImageWidget> {
             child: Container(
                 color: Colors.grey[200],
                 child: InkWell(
-                    onTap: !widget.enable ? null: () {
-                      _onImageButtonPressed(ImageSource.camera);
+                    onTap: !widget.enable
+                        ? null
+                        : () {
+                            _onImageButtonPressed(ImageSource.camera);
                           },
                     child: Stack(children: <Widget>[
-
                       _images == null
                           ? Center(
                               child: widget.userImage == null
@@ -128,24 +129,9 @@ class _UserImageWidgetState extends State<UserImageWidget> {
                                       Icons.person,
                                       size: 60,
                                     ))
-                                  : (widget.userImage ?? "").isEmpty
-                                      ? SizedBox()
-                                      : Image.network(
-                                          (widget.userImage ?? ""),
-                                          fit: BoxFit.cover,
-
-                                          width: widget.width ?? 120,
-                                          height: widget.height ?? 120,
-                                          //
-                                          // placeholder: (context, url) =>
-                                          //     new CircularProgressIndicator(),
-                                          // errorWidget:
-                                          //     (context, url, error) =>
-                                          //         new Icon(
-                                          //   Icons.person,
-                                          //   size: 60,
-                                          // ),
-                                        ))
+                                  : ImageWidgetComponent(widget.userImage,
+                                      width: widget.width,
+                                      height: widget.height))
                           : _images == null
                               ? SizedBox()
                               : Image.file(
@@ -167,23 +153,46 @@ class _UserImageWidgetState extends State<UserImageWidget> {
                                       Icons.camera_alt,
                                       color: Colors.black,
                                     ),
-                                  ))),     widget.addButtom == null
+                                  ))),
+                      widget.addButtom == null
                           ? SizedBox()
                           : Center(
-                          child: Opacity(
-                              opacity: 0.6,
-                              child: ElevatedButton(
-                                child: Text(
-                                  widget.addButtom ?? '',
-                                  style: AppThemeUtils.normalSize(
-                                      color: Colors.white),
-                                ),
-                                onPressed:!widget.enable ? null: () {
-                                  _onImageButtonPressed(ImageSource.camera);
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    primary: Colors.grey, elevation: 0),
-                              ))),
+                              child: Opacity(
+                                  opacity: 0.6,
+                                  child: ElevatedButton(
+                                    child: Text(
+                                      widget.addButtom ?? '',
+                                      style: AppThemeUtils.normalSize(
+                                          color: Colors.white),
+                                    ),
+                                    onPressed: !widget.enable
+                                        ? null
+                                        : () {
+                                            _onImageButtonPressed(
+                                                ImageSource.camera);
+                                          },
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Colors.grey, elevation: 0),
+                                  ))),
                     ])))));
   }
+}
+
+Widget ImageWidgetComponent(String? userImage,
+    {double? width, double? height, BoxFit? fit}) {
+  return (userImage ?? "").isEmpty
+      ? SizedBox()
+      : Utils.isBase64(userImage!)
+          ? Image.memory(
+              base64Decode(userImage),
+              fit: fit ?? BoxFit.cover,
+              width: width ?? 120,
+              height: height ?? 120,
+            )
+          : Image.network(
+              userImage,
+              fit: fit ?? BoxFit.cover,
+              width: width ?? 120,
+              height: height ?? 120,
+            );
 }

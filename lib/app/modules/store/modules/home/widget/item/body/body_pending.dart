@@ -1,6 +1,7 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/home_store.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
@@ -68,7 +69,7 @@ class BodyPending extends StatelessWidget {
                                           ),
                                           Container(
                                             child: Text(
-                                              e.descricao ?? '',
+                                              e.description ?? '',
                                               style: AppThemeUtils.normalSize(
                                                   fontSize: 12),
                                               maxLines: 3,
@@ -77,7 +78,7 @@ class BodyPending extends StatelessWidget {
                                           ),
                                           Container(
                                             child: Text(
-                                              e.quantidade ?? '',
+                                              e.quantityType ?? '',
                                               style:
                                                   AppThemeUtils.normalBoldSize(
                                                       color:
@@ -88,8 +89,8 @@ class BodyPending extends StatelessWidget {
                                       )),
                                       Container(
                                         margin: EdgeInsets.only(left: 10),
-                                        child: Image.network(
-                                          e.imageUrl ?? '',
+                                        child: ImageWidgetComponent(
+                                          e.image ?? '',
                                           width: MediaQuery.of(context).size.width < 500 ? 50: 150,
                                         ),
                                       )

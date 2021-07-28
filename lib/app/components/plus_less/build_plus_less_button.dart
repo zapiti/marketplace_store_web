@@ -31,7 +31,7 @@ buildPlusLessButton(BuildContext context, Product _product, CartStore controller
         var number = qtd < 10 ? "0$qtd" : "$qtd";
         controllerTextField.text = "$number";
 
-        _product.qtd = qtd;
+        _product.quantity = qtd;
         controller.updateCart(_product);
         // NewOrderedBloc()
         //     .updateValue(_product, qtd, _scaffoldKey, desableMessage: true);
@@ -44,12 +44,12 @@ buildPlusLessButton(BuildContext context, Product _product, CartStore controller
           var number = qtd < 10 ? "0$qtd" : "$qtd";
           controllerTextField.text = "$number";
         }
-        _product.qtd = qtd;
+        _product.quantity = qtd;
         controller.updateCart(_product);
       },
       changedValue: (valueChange) {
         int value2 = valueChange.isEmpty ? 0 : int.parse(valueChange);
-        _product.qtd = value2;
+        _product.quantity = value2;
         controller.updateCart(_product);
         Future.delayed(Duration(milliseconds: 150), () {
           // NewOrderedBloc().updateValue(_product, value2, _scaffoldKey,

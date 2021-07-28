@@ -1,8 +1,9 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/model/category.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
+
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
@@ -26,14 +27,14 @@ class ItemProduct extends StatelessWidget {
               child: InkWell(
                   onTap: () {
                     Modular.to.navigate(
-                      ConstantsRoutes.CALL_HOME_SHOP_CLIENT_PAGE + product.idShops.toString(),arguments: product);
+                      ConstantsRoutes.CALL_HOME_SHOP_CLIENT_PAGE + product.id.toString(),arguments: product);
                   },
                   child: Container(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.network(product.imageUrl ?? '',),
+                      ImageWidgetComponent(product.image ?? '',),
                       Container(
                         margin:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -48,7 +49,7 @@ class ItemProduct extends StatelessWidget {
                         margin:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                         child: AutoSizeText(
-                          Utils.moneyMasked( product.valor),
+                          Utils.moneyMasked( product.value),
                           maxLines: 1,
                           minFontSize: 8,
                           style: AppThemeUtils.normalBoldSize(

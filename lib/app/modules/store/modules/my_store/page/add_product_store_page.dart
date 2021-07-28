@@ -6,6 +6,7 @@ import 'package:marketplace_store_web/app/components/picker/user_image_widget.da
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_add_product_page.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
+import '../../../store_store.dart';
 import '../my_store_store.dart';
 
 class AddProductStorePage extends StatefulWidget {
@@ -15,6 +16,9 @@ class AddProductStorePage extends StatefulWidget {
 
 class _AddProductStorePageState
     extends ModularState<AddProductStorePage, MyStoreStore> {
+
+  final storeControl = Modular.get<StoreStore>();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -34,12 +38,16 @@ class _AddProductStorePageState
             children: [
               Container(
                 child: UserImageWidget(
-                  changeImage: (txt) {},
+                  changeImage: (txt) {
+                    storeControl.establishment?.coverImage = txt;
+                    storeControl.updateEstablishment(
+                        context, storeControl.establishment!);
+                  },
                   width: MediaQuery.of(context).size.width,
                   height: 160,
                   addButtom: "Alterar capa",
                   isRounded: false,
-                  userImage: controller.imageBackground,
+                  userImage: storeControl.establishment?.coverImage,
                 ),
               ),
               Row(
@@ -47,8 +55,12 @@ class _AddProductStorePageState
                   Container(
                     margin: EdgeInsets.only(top: 100, right: 20, left: 20),
                     child: UserImageWidget(
-                      changeImage: (txt) {},
-                      userImage: controller.imageUser,
+                      changeImage: (txt) {
+                        storeControl.establishment?.image = txt;
+                        storeControl.updateEstablishment(
+                            context, storeControl.establishment!);
+                      },
+                      userImage: storeControl.establishment?.image,
                     ),
                   ),
                   Column(
@@ -56,7 +68,7 @@ class _AddProductStorePageState
                       Container(
                         margin: EdgeInsets.only(top: 130, right: 0, left: 0),
                         child: Text(
-                          controller.nomeLocal,
+                          storeControl.establishment?.companyName ?? '',
                           style: AppThemeUtils.normalBoldSize(fontSize: 18),
                         ),
                       ),

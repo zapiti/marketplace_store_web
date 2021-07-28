@@ -5,6 +5,7 @@ import 'package:marketplace_store_web/app/modules/store/modules/account/page/acc
 import 'package:marketplace_store_web/app/modules/store/modules/home/home_module.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_module.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
+import 'package:marketplace_store_web/app/modules/store/repository/store_repository.dart';
 
 import 'package:marketplace_store_web/app/modules/store/store_page.dart';
 import 'package:marketplace_store_web/app/modules/store/store_store.dart';
@@ -23,6 +24,8 @@ class StoreModule extends Module {
     Bind.lazySingleton((i) => MyStoreRepository()),
     Bind.lazySingleton((i) => MyStoreStore()),
     Bind.lazySingleton((i) => StoreStore()),
+    Bind.lazySingleton((i) => StoreRepository()),
+
 
   ];
 

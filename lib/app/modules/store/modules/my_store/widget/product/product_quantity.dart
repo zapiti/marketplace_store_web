@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:marketplace_store_web/app/components/select/custom_drop_menu.dart';
 import 'package:marketplace_store_web/app/components/select/select_button.dart';
 import 'package:marketplace_store_web/app/models/pairs.dart';
@@ -15,7 +16,7 @@ class ProductQuantity extends StatefulWidget {
 }
 
 class _ProductQuantityState extends State<ProductQuantity> {
-  Pairs? newStoreUnity;
+  Pairs newStoreUnity = Pairs("UNIDADE", "UNIDADE");
 
   @override
   Widget build(BuildContext context) {
@@ -26,27 +27,34 @@ class _ProductQuantityState extends State<ProductQuantity> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
                 child: SelectButton(
-                  title: [Pairs("Unidade", "Unidade"), Pairs("Peso", "Peso")],
+                  title: [Pairs("UNIDADE", "UNIDADE"), Pairs("PESO", "PESO")],
                   tapIndex: (myPairs) {
                     setState(() {
                       newStoreUnity = myPairs;
                     });
+                    widget.controller.currentProduct.quantityType = myPairs.first;
                   },
                 )),
-            newStoreUnity == null
-                ? SizedBox()
-                : newStoreUnity?.first == "Unidade"
+            newStoreUnity.first == "UNIDADE"
                     ? Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                         child: TextField(
-                          controller:
-                              widget.controller.quantityProductController,
-                          onChanged: (text) {},
+                          controller: MaskedTextController(
+                              text: widget.controller.currentProduct.stock
+                                  ?.toString(),
+                              mask: '0000000'),
+                          onChanged: (text) {
+                            if (text.isNotEmpty) {
+                              widget.controller.currentProduct.stock =
+                                  double.tryParse(text);
+                            } else {
+                              widget.controller.currentProduct.stock = 0.0;
+                            }
+                          },
                           decoration: InputDecoration(
                               border:
                                   OutlineInputBorder(borderSide: BorderSide()),
@@ -58,9 +66,15 @@ class _ProductQuantityState extends State<ProductQuantity> {
                         child: Column(
                           children: [
                             CustomDropMenuWidget(
-                              controller: widget.controller.categoryController,
+                              controller: TextEditingController(
+                                  text: widget
+                                      .controller.currentProduct.quantityType),
                               isExpanded: true,
                               title: "Espeficações*",
+                              listen: (text) {
+                                widget.controller.currentProduct.specification =
+                                    text;
+                              },
                               listElements: [
                                 Pairs("Gramas", "Gramas"),
                                 Pairs("Kilos", "Kilos"),
@@ -70,9 +84,20 @@ class _ProductQuantityState extends State<ProductQuantity> {
                               children: [
                                 Expanded(
                                     child: TextField(
-                                  controller: widget
-                                      .controller.quantityProductController,
-                                  onChanged: (text) {},
+                                  controller: MaskedTextController(
+                                      text: widget
+                                          .controller.currentProduct.qtdMin
+                                          .toString(),
+                                      mask: '0000000'),
+                                  onChanged: (text) {
+                                    if (text.isNotEmpty) {
+                                      widget.controller.currentProduct.qtdMin =
+                                          double.tryParse(text);
+                                    } else {
+                                      widget.controller.currentProduct.qtdMin =
+                                          0.0;
+                                    }
+                                  },
                                   decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                           borderSide: BorderSide()),
@@ -83,9 +108,20 @@ class _ProductQuantityState extends State<ProductQuantity> {
                                 ),
                                 Expanded(
                                     child: TextField(
-                                  controller: widget
-                                      .controller.quantityProductController,
-                                  onChanged: (text) {},
+                                  controller: MaskedTextController(
+                                      text: widget
+                                          .controller.currentProduct.qtdMax
+                                          .toString(),
+                                      mask: '0000000'),
+                                  onChanged: (text) {
+                                    if (text.isNotEmpty) {
+                                      widget.controller.currentProduct.qtdMax =
+                                          double.tryParse(text);
+                                    } else {
+                                      widget.controller.currentProduct.qtdMax =
+                                          0.0;
+                                    }
+                                  },
                                   decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                           borderSide: BorderSide()),
@@ -108,6 +144,8 @@ class _ProductQuantityState extends State<ProductQuantity> {
                 onPressed: newStoreUnity == null
                     ? null
                     : () {
+                        widget.controller.updateCurrentProduct(
+                            widget.controller.currentProduct);
                         widget.controller.nextToQrcode(context);
                       },
                 style: ElevatedButton.styleFrom(

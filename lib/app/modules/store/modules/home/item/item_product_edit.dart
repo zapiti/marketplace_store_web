@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
+import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 
@@ -15,6 +19,8 @@ class ItemProductEdit extends StatefulWidget {
 }
 
 class _ItemProductEditState extends State<ItemProductEdit> {
+  final MyStoreStore controller = Modular.get<MyStoreStore>();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,7 +42,7 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                   ),
                   Container(
                     child: Text(
-                      widget.product.descricao ?? '',
+                      widget.product.description ?? '',
                       style: AppThemeUtils.normalSize(fontSize: 12),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -49,7 +55,7 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                               decimalSeparator: '.',
                               thousandSeparator: ',',
                               leftSymbol: "R\$ ",
-                              initialValue: widget.product.valor ?? 0.0)
+                              initialValue: widget.product.value ?? 0.0)
                           .text,
                       style: AppThemeUtils.normalBoldSize(
                           color: AppThemeUtils.successColor, fontSize: 18),
@@ -64,8 +70,8 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                       Container(
                         margin: EdgeInsets.only(left: 10, top: 20),
                         child: Center(
-                            child: Image.network(
-                          widget.product.imageUrl ?? '',
+                            child: ImageWidgetComponent(
+                          widget.product.image ?? '',
                           height: 180,
                           fit: BoxFit.cover,
                           width: 150,
@@ -88,7 +94,11 @@ class _ItemProductEditState extends State<ItemProductEdit> {
                                       Icons.edit_outlined,
                                       color: AppThemeUtils.whiteColor,
                                     ),
-                                    onPressed: () {})),
+                                    onPressed: () {
+                                      controller.updateCurrentProduct(widget.product);
+                                      Modular.to.pushNamed(ConstantsRoutes
+                                          .CALL_ALTER_PRODUCT_STORE_PAGE);
+                                    })),
                           ))
                     ],
                   ))

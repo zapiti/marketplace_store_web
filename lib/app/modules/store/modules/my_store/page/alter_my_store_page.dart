@@ -6,6 +6,8 @@ import 'package:marketplace_store_web/app/components/picker/user_image_widget.da
 import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_alter_page.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
+import '../../../store_store.dart';
+import '../my_store_page.dart';
 import '../my_store_store.dart';
 
 class AlterMyStorePage extends StatefulWidget {
@@ -15,13 +17,13 @@ class AlterMyStorePage extends StatefulWidget {
 
 class _AlterMyStorePageState
     extends ModularState<AlterMyStorePage, MyStoreStore> {
+
+  final storeControl = Modular.get<StoreStore>();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    SchedulerBinding.instance?.addPostFrameCallback((_) {
-      controller.getListStore();
-    });
   }
 
   @override
@@ -39,7 +41,7 @@ class _AlterMyStorePageState
                   height: 160,
                   addButtom: "Alterar capa",
                   isRounded: false,
-                  userImage: controller.imageBackground,
+                  userImage: storeControl.establishment?.coverImage,
                 ),
               ),
               Row(
@@ -48,17 +50,14 @@ class _AlterMyStorePageState
                     margin: EdgeInsets.only(top: 100, right: 20, left: 20),
                     child: UserImageWidget(
                       changeImage: (txt) {},
-                      userImage: controller.imageUser,
+                      userImage: storeControl.establishment?.image,
                     ),
                   ),
                   Column(
                     children: [
                       Container(
                         margin: EdgeInsets.only(top: 130, right: 0, left: 0),
-                        child: Text(
-                          controller.nomeLocal,
-                          style: AppThemeUtils.normalBoldSize(fontSize: 18),
-                        ),
+                        child:  buildText(storeControl),
                       ),
                     ],
                   )

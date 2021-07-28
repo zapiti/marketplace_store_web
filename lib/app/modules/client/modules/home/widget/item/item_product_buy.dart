@@ -1,5 +1,6 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
@@ -26,7 +27,7 @@ class ItemProductBuy extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.network(product.imageUrl?? '',),
+                          ImageWidgetComponent(product.image?? '',),
                           Container(
                             margin:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -41,7 +42,7 @@ class ItemProductBuy extends StatelessWidget {
                             margin:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                             child: AutoSizeText(
-                              Utils.moneyMasked( product.valor),
+                              Utils.moneyMasked( product.value),
                               maxLines: 1,
                               minFontSize: 8,
                               style: AppThemeUtils.normalBoldSize(

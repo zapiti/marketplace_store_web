@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -9,10 +12,12 @@ import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 
+import '../../../store_store.dart';
 import '../my_store_store.dart';
 
 class MyStoreMainPage extends StatelessWidget {
-  MyStoreStore controller;
+  final storeControl = Modular.get<StoreStore>();
+  final MyStoreStore controller;
 
   MyStoreMainPage(this.controller);
 
@@ -38,27 +43,34 @@ class MyStoreMainPage extends StatelessWidget {
               children: [
                 Flexible(
                     child: Container(
-                        height: 60,
+
+                        width: 250,
                         margin:
                             EdgeInsets.symmetric(horizontal: 5, vertical: 20),
                         child: ElevatedButton(
-                          child: RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(
-                                text: "Funcionamento: ",
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Funcionamento: ",
                                 style: AppThemeUtils.normalSize(
                                     color: Theme.of(context)
                                         .textTheme
                                         .bodyText1!
                                         .color,
                                     fontSize: 14),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text: controller.horarioFuncionamento,
-                                      style: AppThemeUtils.normalBoldSize(
-                                          fontSize: 14)),
-                                ],
-                              )),
+                              ),
+                              AutoSizeText(
+                                Utils.getOperationHours(
+                                    storeControl.establishment?.operationHours),
+                                style: AppThemeUtils.normalBoldSize(
+                                    fontSize: 8, color: Colors.black),
+
+                                minFontSize: 8,
+                              ),
+                            ],
+                          ),
                           style: ElevatedButton.styleFrom(
                               primary: AppThemeUtils.whiteColor,
                               shape: RoundedRectangleBorder(
@@ -74,6 +86,7 @@ class MyStoreMainPage extends StatelessWidget {
                 Flexible(
                     child: Container(
                         height: 60,
+                        width: 250,
                         margin:
                             EdgeInsets.symmetric(horizontal: 5, vertical: 20),
                         child: ElevatedButton(
@@ -89,7 +102,8 @@ class MyStoreMainPage extends StatelessWidget {
                                     fontSize: 14),
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: controller.tempoPreparo,
+                                      text: storeControl
+                                          .establishment?.preparationTime,
                                       style: AppThemeUtils.normalBoldSize(
                                           fontSize: 14)),
                                 ],
@@ -109,6 +123,7 @@ class MyStoreMainPage extends StatelessWidget {
                 Flexible(
                     child: Container(
                         height: 60,
+                        width: 250,
                         margin:
                             EdgeInsets.symmetric(horizontal: 2, vertical: 20),
                         child: ElevatedButton(
@@ -119,7 +134,7 @@ class MyStoreMainPage extends StatelessWidget {
                                 style: AppThemeUtils.normalSize(fontSize: 14),
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: controller.telefone,
+                                      text: storeControl.establishment?.phone,
                                       style: AppThemeUtils.normalBoldSize(
                                           fontSize: 14)),
                                 ],
@@ -153,7 +168,7 @@ class MyStoreMainPage extends StatelessWidget {
                             "Seu estabelecimento ainda não possui produtos para vendas",
                         child: GroupedListView<Product, String?>(
                           elements: (((controller.listProducts)) ?? []),
-                          groupBy: (element) => element.categoria,
+                          groupBy: (element) => element.category,
                           padding: EdgeInsets.only(bottom: 200),
                           groupSeparatorBuilder: _buildGroupSeparator,
                           itemBuilder: (context, element) =>
@@ -168,6 +183,7 @@ class MyStoreMainPage extends StatelessWidget {
 Widget _buildGroupSeparator(dynamic groupByValue) {
   return Container(
       padding: EdgeInsets.all(15),
+      color: Colors.grey[200],
       child: Text(
         groupByValue,
         maxLines: 1,

@@ -11,9 +11,10 @@ class CustomDropMenuWidget extends StatefulWidget {
   final List<Pairs?> listElements;
   final String title;
   final bool? isExpanded;
-  final Function? listen;
+  final Function(String)? listen;
   final double? sized;
   final BoxDecoration? decoration;
+
 
   CustomDropMenuWidget(
       {required this.title,
@@ -46,7 +47,7 @@ class _CustomDropMenuWidgetState extends State<CustomDropMenuWidget> {
                 widget.controller.text = string ?? '';
               });
               if (widget.listen != null) {
-                widget.listen?.call(string);
+                widget.listen?.call(string ?? '');
               }
             },
             hint: Center(

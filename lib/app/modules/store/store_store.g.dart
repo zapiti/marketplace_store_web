@@ -24,8 +24,53 @@ mixin _$StoreStore on _StoreStoreBase, Store {
     });
   }
 
+  final _$establishmentAtom = Atom(name: '_StoreStoreBase.establishment');
+
+  @override
+  Establishment? get establishment {
+    _$establishmentAtom.reportRead();
+    return super.establishment;
+  }
+
+  @override
+  set establishment(Establishment? value) {
+    _$establishmentAtom.reportWrite(value, super.establishment, () {
+      super.establishment = value;
+    });
+  }
+
+  final _$getCurrentEstablishmentAsyncAction =
+      AsyncAction('_StoreStoreBase.getCurrentEstablishment');
+
+  @override
+  Future getCurrentEstablishment() {
+    return _$getCurrentEstablishmentAsyncAction
+        .run(() => super.getCurrentEstablishment());
+  }
+
+  final _$updateEstablishmentAsyncAction =
+      AsyncAction('_StoreStoreBase.updateEstablishment');
+
+  @override
+  Future updateEstablishment(
+      BuildContext context, Establishment _establishment) {
+    return _$updateEstablishmentAsyncAction
+        .run(() => super.updateEstablishment(context, _establishment));
+  }
+
   final _$_StoreStoreBaseActionController =
       ActionController(name: '_StoreStoreBase');
+
+  @override
+  dynamic updateEstablishmentLocal(Establishment _establishment) {
+    final _$actionInfo = _$_StoreStoreBaseActionController.startAction(
+        name: '_StoreStoreBase.updateEstablishmentLocal');
+    try {
+      return super.updateEstablishmentLocal(_establishment);
+    } finally {
+      _$_StoreStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   dynamic addCurrentIndex(int index) {
@@ -41,7 +86,8 @@ mixin _$StoreStore on _StoreStoreBase, Store {
   @override
   String toString() {
     return '''
-currentIndex: ${currentIndex}
+currentIndex: ${currentIndex},
+establishment: ${establishment}
     ''';
   }
 }

@@ -1,6 +1,7 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/home_store.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
@@ -41,7 +42,7 @@ class ItemProductComplete extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       child: AutoSizeText(
-                        product.descricao ?? '',
+                        product.description ?? '',
                         minFontSize: 8,
                         style: AppThemeUtils.normalSize(),
                       ),
@@ -50,7 +51,7 @@ class ItemProductComplete extends StatelessWidget {
                       margin:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       child: AutoSizeText(
-                        Utils.moneyMasked( product.valor, )
+                        Utils.moneyMasked( product.value, )
                             ,
                         maxLines: 1,
                         minFontSize: 8,
@@ -62,8 +63,8 @@ class ItemProductComplete extends StatelessWidget {
                 )),
                 Container(
                     margin: EdgeInsets.all(10),
-                    child: Image.network(
-                      product.imageUrl ?? '',
+                    child: ImageWidgetComponent(
+                      product.image ?? '',
                       width: 100,
                       height: 100,
                     )),

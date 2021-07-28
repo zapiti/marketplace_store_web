@@ -36,7 +36,7 @@ abstract class _CartStoreBase with Store {
   int getQtdItemToCart(Product product) {
     final temp = _getTempProduct(product);
 
-    return (temp ?? product).qtd ?? 0;
+    return (temp ?? product).quantity ?? 0;
   }
 
   Product? _getTempProduct(Product product) {
@@ -53,7 +53,7 @@ abstract class _CartStoreBase with Store {
     return Utils.moneyMasked(order.products.fold(
         0,
         (previousValue, element) =>
-            (element!.valor! * element.qtd!) + previousValue!));
+            (element!.value! * element.quantity!) + previousValue!));
   }
 
   @action
@@ -61,13 +61,13 @@ abstract class _CartStoreBase with Store {
     final tempList = order.products;
     final temp = _getTempProduct(product);
     if (temp == null) {
-      if (product.qtd! > 0) {
+      if (product.quantity! > 0) {
         tempList.add(product);
         debugPrint("Add cart ${product.name}");
       }
     } else {
       final index = _getIndexTempProduct(temp);
-      if (product.qtd! > 0) {
+      if (product.quantity! > 0) {
         tempList[index] = product;
         debugPrint("Update cart ${product.name}");
       } else {

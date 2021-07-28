@@ -16,7 +16,7 @@ class OptionsMyStore extends StatelessWidget {
     return  Observer(
         builder: (_) => Container(
       child: controller.actualPage == controller.HORARIO
-          ? StoreHours(controller)
+          ? StoreHours()
           : controller.actualPage == controller.MYTEMPO
               ? StorePreparTime(controller)
               : StorePhone(controller),

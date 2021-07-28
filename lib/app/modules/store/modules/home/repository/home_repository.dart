@@ -10,11 +10,11 @@ class HomeRepository {
  Future<List<Order>> getListOrderPending() async{
 
   await Future.delayed(Duration(seconds: 1),(){});
-   return [Order(status: Order.PEDENTE),Order(status: Order.ANDAMENTO)];
+   return [];
   }
 
  Future<List<Order>> getListOrderHistory() async{
    await Future.delayed(Duration(seconds: 1),(){});
-   return [Order(),Order(),Order(),Order(),Order(),Order(),Order(),Order()];
+   return [];
  }
 }

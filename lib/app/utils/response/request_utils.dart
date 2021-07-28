@@ -21,7 +21,7 @@ class ResponseUtils {
 
   ///***@response e a resposta do servidor e @funcFromMap converte a resposta do servidor em algo @namedResponse e caso o servidor tenha um nome na resposta
   static ResponsePaginated getResponsePaginated<T>(
-      CodeResponse? response, Function funcFromMap,
+      CodeResponse? response, Function(Map) funcFromMap,
       {String? namedResponse, int? status}) {
     if (response?.sucess == null || response?.error != null) {
       return ResponsePaginated(
@@ -30,12 +30,14 @@ class ResponseUtils {
     if (response?.sucess.length == 0) {
       return ResponsePaginated.fromMapSimple([]);
     }
-    var tempResp = namedResponse != null
+    final responsed = (((namedResponse != null
         ? response?.sucess[namedResponse]
-        : response?.sucess;
+        : response?.sucess) as Map?) ??
+        {});
+    var tempResp =
+    responsed.containsKey('data') ? responsed['data'] : responsed;
     List<T> listElementGeneric = [];
-    List listElement = ObjectUtils.parseToObjectList<T>(tempResp,
-        defaultValue: tempResp, isContent: true);
+    List listElement = tempResp is List ? tempResp : [];
 
     if (listElement.isNotEmpty) {
       for (var columns in listElement) {
@@ -48,7 +50,7 @@ class ResponseUtils {
 
   ///***@response e a resposta do servidor e @funcFromMap converte a resposta do servidor em algo
   static ResponsePaginated getResponsePaginatedObject<T>(
-      CodeResponse? response, Function funcFromMap,
+      CodeResponse? response, Function(Map) funcFromMap,
       {bool isObject = true, String? namedResponse, int? status}) {
     if (!isObject) {
       return getResponsePaginated(response, funcFromMap,
@@ -58,11 +60,14 @@ class ResponseUtils {
         return ResponsePaginated(
             error: response?.error ?? "Sem resposta do servidor!");
       }
-      var tempResp = namedResponse != null
-          ? response?.sucess[namedResponse]
-          : response?.sucess;
-      var object = ObjectUtils.parseToMap(response?.sucess,
-          defaultValue: response?.sucess);
+      final responsed = (((namedResponse != null
+              ? response?.sucess[namedResponse]
+              : response?.sucess) as Map?) ??
+          {});
+      var tempResp =
+          responsed.containsKey('data') ? responsed['data'] : responsed;
+      var object =
+          ObjectUtils.parseToMap(tempResp, defaultValue: response?.sucess);
 
       return ResponsePaginated.fromMapSimple(funcFromMap(object));
     }
@@ -72,7 +77,7 @@ class ResponseUtils {
   static String? getErrorBody(dynamic result) {
     var error = ObjectUtils.parseToMap(result, defaultValue: result) ?? result;
 
-    if(error == null){
+    if (error == null) {
       return null;
     }
     if (error is Map) {

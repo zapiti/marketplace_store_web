@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/my_banner.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
@@ -13,7 +14,7 @@ class ItemBanner extends StatelessWidget {
       height: 150,width: double.infinity,
       child: Stack(
         children: [
-          Image.network(banner.image,width: double.infinity,fit: BoxFit.fill,),
+          ImageWidgetComponent(banner.image,width: double.infinity,fit: BoxFit.fill,),
           Container(width: double.infinity,height: double.infinity,color: Colors.black45,),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,crossAxisAlignment: CrossAxisAlignment.end,

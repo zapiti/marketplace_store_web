@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
+import '../../../../store_store.dart';
 import '../../my_store_store.dart';
 
 class StorePreparTime extends StatelessWidget {
   final MyStoreStore controller;
+  final storeControl = Modular.get<StoreStore>();
 
   StorePreparTime(this.controller);
 
@@ -30,9 +34,15 @@ class StorePreparTime extends StatelessWidget {
                   LengthLimitingTextInputFormatter(24),
                 ],
                 textAlign: TextAlign.start,
+                controller: MaskedTextController(
+                    mask: "00:00",
+                    text: storeControl.establishment?.preparationTime),
                 maxLines: 1,
                 textAlignVertical: TextAlignVertical.center,
                 onSubmitted: (term) {},
+                onChanged: (text) {
+                  storeControl.establishment?.preparationTime = text;
+                },
                 decoration: InputDecoration(
                     labelText: "Digite aqui o tempo médio",
                     border: const OutlineInputBorder(
@@ -51,7 +61,10 @@ class StorePreparTime extends StatelessWidget {
                 style:
                     AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor),
               ),
-              onPressed: () {},
+              onPressed: () {
+                storeControl.updateEstablishment(
+                    context, storeControl.establishment!);
+              },
             ),
           ),
         )

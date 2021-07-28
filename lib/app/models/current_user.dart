@@ -9,24 +9,22 @@ class CurrentUser {
   String? exp;
   static var USERLOG = "USERLOG";
 
-
-
-
   CurrentUser(
       {this.sub,
       this.username,
       this.profile,
-      this.establishment,this.client,
+      this.establishment,
+      this.client,
       this.iat,
       this.exp});
 
-  Map<String, dynamic> toMap() {
+  Map<String,dynamic> toMap() {
     return {
       'sub': sub,
       'username': username,
       'profile': profile,
       'establishment': establishment?.toMap(),
-      'client' : client?.toMap(),
+      'client': client?.toMap(),
       'iat': iat,
       'exp': exp,
     };
@@ -37,8 +35,10 @@ class CurrentUser {
       sub: map['sub']?.toString(),
       username: map['username']?.toString(),
       profile: map['profile']?.toString(),
-      establishment:map['establishment'] == null ? null : Establishment.fromMap(map['establishment']),
-      client:map['client'] == null ? null :  Client.fromMap(map['client']),
+      establishment: map['establishment'] == null
+          ? null
+          : Establishment.fromMap(map['establishment']),
+      client: map['client'] == null ? null : Client.fromMap(map['client']),
       iat: map['iat']?.toString(),
       exp: map['exp']?.toString(),
     );
@@ -59,9 +59,8 @@ class Client {
   String? createdAt;
   String? updatedAt;
 
-
-  Client({
-      this.id,
+  Client(
+      {this.id,
       this.name,
       this.cpf,
       this.wallet,
@@ -92,7 +91,7 @@ class Client {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String,dynamic> toMap() {
     return {
       'id': id,
       'name': name,
@@ -128,6 +127,7 @@ class Establishment {
   String? coverImage;
   String? createdAt;
   String? updatedAt;
+  List<OperationHours>? operationHours;
 
   Establishment(
       {this.id,
@@ -145,8 +145,32 @@ class Establishment {
       this.rank,
       this.image,
       this.createdAt,
+      this.operationHours,
       this.updatedAt,
       this.coverImage});
+
+  Map<String,dynamic> toMap() {
+    return {
+      'id': id,
+      'cnpj': cnpj,
+      'companyName': companyName,
+      'wallet': wallet,
+      'email': email,
+      'phone': phone,
+      'responsible': responsible,
+      'description': description,
+      'status': status,
+      'type': type,
+      'preparationTime': preparationTime,
+      'deliveryValue': deliveryValue,
+      'rank': rank,
+      'image': image,
+      'coverImage': coverImage,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
+      'operationHours': operationHours?.map((e) => e.toMap()).toList(),
+    };
+  }
 
   factory Establishment.fromMap(dynamic map) {
     var temp;
@@ -169,31 +193,68 @@ class Establishment {
           : (temp is num ? temp.toDouble() : double.tryParse(temp)),
       rank: map['rank']?.toString(),
       image: map['image']?.toString(),
-      coverImage: map['image']?.toString(),
+      coverImage: map['coverImage']?.toString(),
       createdAt: map['createdAt']?.toString(),
       updatedAt: map['updatedAt']?.toString(),
+      operationHours: null == (temp = map['operationHours'])
+          ? []
+          : (temp is List
+              ? temp.map((map) => OperationHours.fromMap(map)!).toList()
+              : []),
     );
   }
 
-  Map<String, dynamic> toMap() {
+  @override
+  String toString() {
+    return 'Establishment{id: $id\n,cnpj: $cnpj\n,companyName: $companyName\n,wallet: $wallet\n,email: $email\n,phone: $phone\n,responsible: $responsible\n,description: $description\n,status: $status\n,type: $type\n,preparationTime: $preparationTime\n,deliveryValue: $deliveryValue\n,rank: $rank\n,image: ${image != null ? 'existe' : null}\n,coverImage:  ${coverImage != null ? 'existe' : null},\n,createdAt: $createdAt\n,updatedAt: $updatedAt\n,operationHours: $operationHours}';
+  }
+}
+
+class OperationHours {
+  String? id;
+  String? day;
+  String? start;
+  String? end;
+  bool? isClosed;
+
+  OperationHours(
+      {required this.id,
+      required this.day,
+      required this.start,
+      required this.end,
+      required this.isClosed});
+
+  static OperationHours? fromMap(dynamic map) {
+    if (null == map) return null;
+    var temp;
+    return OperationHours(
+      id: map['id']?.toString(),
+      day: map['day']?.toString(),
+      start: map['start']?.toString(),
+      end: map['end']?.toString(),
+      isClosed: null == (temp = map['isClosed'])
+          ? null
+          : (temp is bool
+              ? temp
+              : (temp is num
+                  ? 0 != temp.toInt()
+                  : ('true' == temp.toString()))),
+    );
+
+  }
+
+  @override
+  String toString() {
+    return 'OperationHours{id: $id, day: $day, start: $start, end: $end, isClosed: $isClosed}';
+  }
+
+  Map<String,dynamic> toMap() {
     return {
       'id': id,
-      'cnpj': cnpj,
-      'companyName': companyName,
-      'wallet': wallet,
-      'email': email,
-      'phone': phone,
-      'responsible': responsible,
-      'description': description,
-      'status': status,
-      'type': type,
-      'preparationTime': preparationTime,
-      'deliveryValue': deliveryValue,
-      'rank': rank,
-      'image': image,
-      'coverImage': coverImage,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
+      'day': day,
+      'start': start,
+      'end': end,
+      'isClosed': isClosed,
     };
   }
 }

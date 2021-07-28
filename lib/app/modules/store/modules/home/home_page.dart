@@ -78,7 +78,7 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                                       horizontal: 10),
                                                   child: AutoSizeText(
                                                     Utils.moneyMasked(
-                                                                500000),
+                                                                controller.walletMoney),
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,

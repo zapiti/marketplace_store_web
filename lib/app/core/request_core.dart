@@ -29,14 +29,18 @@ class RequestCore {
       required funcFromMap,
       dynamic body,
       required TYPEREQUEST typeRequest,
-       String? namedResponse,
+      String? namedResponse,
       bool isImage = false,
       bool isJsonResponse = true,
-      bool isLoad = false,
+      bool printObject = true,
       bool isObject = true,
       String? url,
       String app = "backoffice-api"}) async {
     var api = await ApiClient().getApiClient();
+    var isLoad = false;
+    if (typeRequest != TYPEREQUEST.GET) {
+      isLoad = true;
+    }
     try {
       debugPrint(
           "SERVICOCHAMADO (${typeRequest.toString()})= $serviceName body = ${jsonEncode(body ?? {})}");
@@ -47,11 +51,24 @@ class RequestCore {
         showLoading(true);
       }
 
-      final result = await requestMyApp(typeRequest, api, serviceName,
-          isJsonResponse, isImage, body, funcFromMap, namedResponse, isObject);
+      final result = await requestMyApp(
+          typeRequest,
+          api,
+          serviceName,
+          isJsonResponse,
+          isImage,
+          body,
+          funcFromMap,
+          namedResponse,
+          isObject,
+          printObject);
       if (isLoad) {
         showLoading(false);
       }
+      if (printObject) {
+        print(result.content);
+      }
+
       return result;
     } on DioError catch (e) {
       if (isLoad) {
@@ -86,7 +103,8 @@ class RequestCore {
       body,
       funcFromMap,
       namedResponse,
-      bool isObject) async {
+      bool isObject,
+      printObject) async {
     Response response;
 
     switch (typeRequest) {
@@ -179,9 +197,10 @@ class RequestCore {
 
     var statusCode = response.statusCode;
     print("Current status code: $statusCode");
-
-    print(
-        "##RETORNO-SERVICO(${typeRequest.toString()}) = $serviceName body = ${showBody ? response : {}}");
+    if (!printObject) {
+      print(
+          "##RETORNO-SERVICO(${typeRequest.toString()}) = $serviceName body = ${showBody ? response : {}}");
+    }
     if (statusCode == 200 ||
         statusCode == 201 ||
         statusCode == 202 ||

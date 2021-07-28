@@ -13,7 +13,6 @@ class RegisterRepository {
       "/api/establishment",
       body: store.toMap(),
       isObject: true,
-      isLoad: true,
       funcFromMap: (data) => data,
       typeRequest: TYPEREQUEST.POST,
     );

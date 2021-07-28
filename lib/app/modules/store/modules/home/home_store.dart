@@ -15,6 +15,7 @@ abstract class _HomeStoreBase with Store {
   final passController = TextEditingController();
   final userController = TextEditingController();
   final _repository = Modular.get<HomeRepository>();
+  final walletMoney = 0.0;
 
   @observable
   List<Order>? orders;

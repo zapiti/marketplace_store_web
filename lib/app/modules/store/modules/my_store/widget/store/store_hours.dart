@@ -1,20 +1,29 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/select/custom_drop_menu.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
+import '../../../../store_store.dart';
 import '../../my_store_store.dart';
 
-class StoreHours extends StatelessWidget {
-  final MyStoreStore controller;
+class StoreHours extends StatefulWidget {
 
-  StoreHours(this.controller);
+
+  @override
+  _StoreHoursState createState() => _StoreHoursState();
+}
+
+class _StoreHoursState extends State<StoreHours> {
+
+  final storeControl = Modular.get<StoreStore>();
+
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 0,top: 0),
+      padding: EdgeInsets.only(bottom: 0, top: 0),
       child: SingleChildScrollView(
           child: Column(
         children: [
@@ -25,266 +34,64 @@ class StoreHours extends StatelessWidget {
               style: AppThemeUtils.normalSize(fontSize: 18),
             ),
           ),
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 45,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  child: Text(
-                    "Segunda-feira",
-                    style: AppThemeUtils.normalSize(
-                        color: AppThemeUtils.whiteColor),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: AppThemeUtils.successColor),
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                margin: EdgeInsets.all(10),
-                child: CustomDropMenuWidget(
-                  controller: TextEditingController(),
-                  isExpanded: true,
-                  title: "00:00",
-                  listElements: [],
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 45,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  child: Text(
-                    "Terça-feira",
-                    style: AppThemeUtils.normalSize(
-                        color: AppThemeUtils.whiteColor),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: AppThemeUtils.successColor),
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 45,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  child: Text(
-                    "Quarta-feira",
-                    style: AppThemeUtils.normalSize(
-                        color: AppThemeUtils.whiteColor),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: AppThemeUtils.successColor),
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 45,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  child: Text(
-                    "Quinta-feira",
-                    style: AppThemeUtils.normalSize(
-                        color: AppThemeUtils.whiteColor),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: AppThemeUtils.successColor),
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 45,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  child: Text(
-                    "Sexta-feira",
-                    style: AppThemeUtils.normalSize(
-                        color: AppThemeUtils.whiteColor),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: AppThemeUtils.successColor),
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 45,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  child: Text(
-                    "Sabádo",
-                    style: AppThemeUtils.normalSize(
-                        color: AppThemeUtils.whiteColor),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: AppThemeUtils.successColor),
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: Container(
-                height: 45,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  child: Text(
-                    "Domingo",
-                    style: AppThemeUtils.normalSize(
-                        color: AppThemeUtils.whiteColor),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      primary: AppThemeUtils.successColor),
-                ),
-              )),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(10),
-                      child: CustomDropMenuWidget(
-                        controller: TextEditingController(),
-                        isExpanded: true,
-                        title: "00:00",
-                        listElements: [],
-                      ))),
-            ],
-          ),
+          ...(storeControl.establishment?.operationHours ?? [])
+              .asMap()
+              .map((index, e) => MapEntry(
+                    index,
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Container(
+                          height: 45,
+                          margin: EdgeInsets.all(10),
+                          child: ElevatedButton(
+                            child: Text(
+                             e.day.toString(),
+                              style: AppThemeUtils.normalSize(
+                                  color: AppThemeUtils.whiteColor),
+                            ),
+                            onPressed: () {
+
+                              setState(() {
+                                e.isClosed =  !(e.isClosed  ?? true);
+                                storeControl.establishment?.operationHours![index] = e;
+                              });
+
+                            },
+                            style: ElevatedButton.styleFrom(
+                                primary:  (e.isClosed  ?? true)? AppThemeUtils.colorGrayLight: AppThemeUtils.successColor),
+                          ),
+                        )),
+                        Expanded(
+                            child: Container(
+                          margin: EdgeInsets.all(10),
+                          child: CustomDropMenuWidget(
+                            controller: TextEditingController(text: e.start ?? '00:00'),
+                            isExpanded: true,listen: (text){
+                            e.start = text;
+                            storeControl.establishment?.operationHours![index] = e;
+                          },
+                            title: "00:00",
+                            listElements: Utils.getHours(),
+                          ),
+                        )),
+                        Expanded(
+                            child: Container(
+                                margin: EdgeInsets.all(10),
+                                child: CustomDropMenuWidget(
+                                  controller: TextEditingController(text: e.end ?? '00:00'),
+                                  isExpanded: true,
+                                  title: "00:00",listen: (text){
+                                  e.end = text;
+                                  storeControl.establishment?.operationHours![index] = e;
+                                },
+                                  listElements: Utils.getHours(),
+                                ))),
+                      ],
+                    ),
+                  ))
+              .values
+              .toList(),
           Container(
             height: 45,
             width: 200,
@@ -295,11 +102,16 @@ class StoreHours extends StatelessWidget {
                 style:
                     AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor),
               ),
-              onPressed: () {},
+              onPressed: () {
+                storeControl.updateEstablishment(context, storeControl.establishment!);
+              },
               style:
                   ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
             ),
-          ),SizedBox(height: 50,)
+          ),
+          SizedBox(
+            height: 50,
+          )
         ],
       )),
     );

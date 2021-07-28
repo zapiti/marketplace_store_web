@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:geocode/geocode.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:marketplace_store_web/app/models/current_user.dart';
 import 'package:marketplace_store_web/app/models/pairs.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+
+import 'data_mock.dart';
 
 class Utils {
   static showSnackBar(String message, BuildContext context,
@@ -92,5 +95,26 @@ class Utils {
 
   static double smallSize() {
     return 800;
+  }
+
+  static String getOperationHours(List<OperationHours>? operationHours) {
+    final tempList =
+        (operationHours ?? []).where((element) => element.isClosed == false);
+    if (tempList.isEmpty) {
+      return 'Sem horario cadastrado';
+    } else {
+      return tempList.map((e) => "${e.day} (${e.start}-${e.end})").join('\n');
+    }
+  }
+
+  static isBase64(String userImage) {
+    final RegExp _base64 = RegExp(
+        r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$');
+
+    return _base64.hasMatch(userImage);
+  }
+
+  static List<Pairs> getHours() {
+    return DataMock.listHours;
   }
 }

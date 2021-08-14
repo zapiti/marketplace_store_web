@@ -52,10 +52,10 @@ mixin _$StoreStore on _StoreStoreBase, Store {
       AsyncAction('_StoreStoreBase.updateEstablishment');
 
   @override
-  Future updateEstablishment(
-      BuildContext context, Establishment _establishment) {
-    return _$updateEstablishmentAsyncAction
-        .run(() => super.updateEstablishment(context, _establishment));
+  Future updateEstablishment(BuildContext context, Establishment _establishment,
+      {bool onlyStab = false}) {
+    return _$updateEstablishmentAsyncAction.run(() =>
+        super.updateEstablishment(context, _establishment, onlyStab: onlyStab));
   }
 
   final _$_StoreStoreBaseActionController =

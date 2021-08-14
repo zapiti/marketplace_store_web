@@ -29,8 +29,12 @@ abstract class _StoreStoreBase with Store {
   }
 
   @action
-  updateEstablishment(BuildContext context, Establishment _establishment) async {
-    final response = await _repositoryStory.updateEstablishment(_establishment);
+  updateEstablishment(BuildContext context, Establishment _establishment,
+      {bool onlyStab = false}) async {
+    var response = await _repositoryStory.updateEstablishment(_establishment);
+    if (!onlyStab) {
+      response = await _repositoryStory.updateOpeningHours(_establishment);
+    }
 
     if (response.error != null) {
       Utils.showSnackBar(response.error, context);

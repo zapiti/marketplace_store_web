@@ -23,7 +23,7 @@ class ItemCategory extends StatelessWidget {
         children: [
           Column(
             children: [
-              hideImage ? SizedBox() : ImageWidgetComponent(category.image),
+            Expanded(child:   hideImage ? SizedBox() : ImageWidgetComponent(category.image)),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: AutoSizeText(

@@ -42,7 +42,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-                height: 120,
+                height: 100,
                 child: Observer(
                     builder: (_) => MyListBuilder(
                         scrollDirection: Axis.horizontal,

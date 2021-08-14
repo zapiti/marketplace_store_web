@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/dialog/dialog_generic.dart';
+import 'package:marketplace_store_web/app/models/current_user.dart';
+import 'package:marketplace_store_web/app/modules/login/login_store.dart';
 import 'package:marketplace_store_web/app/modules/register/repository/register_repository.dart';
 import 'package:marketplace_store_web/app/modules/store/model/mystore.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
@@ -30,10 +32,10 @@ abstract class _RegisterStoreBase with Store {
   bool isLoadLogin = false;
 
   @observable
-  bool showHidePassConfirm = false;
+  bool showHidePassConfirm = true;
 
   @observable
-  bool showHidePass = false;
+  bool showHidePass = true;
 
   @observable
   bool term = false;
@@ -62,7 +64,29 @@ abstract class _RegisterStoreBase with Store {
   }
 
   @action
-  void getRegister(BuildContext context) {}
+ Future<void> getRegister(BuildContext context) async {
+    isLoadLogin = true;
+    final response = await _repository.createClient(
+        name: nameUserController.text,
+        email: emailController.text,
+        password: passControllerConfirm.text);
+    isLoadLogin = false;
+    if (response.error != null) {
+      Utils.showSnackBar(response.error, context);
+    } else {
+      showGenericDialog(
+          context: context,
+          title: 'Salvo com sucesso',
+          description: "Tudo pronto agora voce ja pode fazer seu pedido",
+          positiveText: 'OK',
+          positiveCallback: () {
+            final loginController = Modular.get<LoginStore>();
+            loginController.userController.text = emailController.text;
+            loginController.passController.text = passController.text;
+            loginController.getLoginClient(context);
+          });
+    }
+  }
 
   @action
   getRegisterProduct(BuildContext context, MyStore myStore) async {

@@ -9,9 +9,11 @@ import 'package:marketplace_store_web/app/modules/client/modules/order/order_mod
 
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 
+import 'modules/account/account_client_store.dart';
 import 'modules/account/account_module.dart';
 import 'modules/account/page/account_alter_pass_page.dart';
 import 'modules/account/page/account_help_page.dart';
+import 'modules/account/repository/account_client_repository.dart';
 import 'modules/bag/bag_store.dart';
 import 'modules/bag/repository/bag_repository.dart';
 import 'modules/home/home_module.dart';
@@ -29,6 +31,8 @@ class ClientModule extends Module {
     Bind.lazySingleton((i) => HomeStore()),
     Bind.lazySingleton((i) => BagStore()),
     Bind.lazySingleton((i) => BagRepository()),
+    Bind.lazySingleton((i) => AccountClientRepository()),
+    Bind.lazySingleton((i) => AccountClientStore()),
   ];
 
   @override

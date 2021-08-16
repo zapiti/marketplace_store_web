@@ -1,20 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/dialog/dialog_generic.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/account/repository/account_repository.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/account/repository/account_client_repository.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
 
-import 'model/account_info.dart';
-import 'model/wallet_data.dart';
+part 'account_client_store.g.dart';
 
-part 'account_store.g.dart';
+class AccountClientStore = _AccountClientStoreBase with _$AccountClientStore;
+abstract class _AccountClientStoreBase with Store {
 
-class AccountStore = _AccountStoreBase with _$AccountStore;
-
-abstract class _AccountStoreBase with Store {
-  final _repository = Modular.get<AccountRepository>();
+  final _repository = Modular.get<AccountClientRepository>();
 
   final controllerHelp = TextEditingController();
 
@@ -25,30 +22,13 @@ abstract class _AccountStoreBase with Store {
   final controllerPassConfirm = TextEditingController();
 
   @observable
-  WalletData? walletData;
+  bool showPassActual = true;
 
   @observable
-  bool showPassActual = false;
+  bool showPass = true;
 
   @observable
-  bool showPass = false;
-
-  @observable
-  bool showPassConfirm = false;
-
-  @observable
-  AccountInfo accountInfo = AccountInfo();
-
-  @action
-  Future<void> getListWalletTransition() async {
-    walletData = await _repository.getWalletInfo();
-  }
-
-  @action
-  Future<void> getAccountInfo() async {
-    final result = await _repository.getAccountInfo();
-    accountInfo = result ?? AccountInfo();
-  }
+  bool showPassConfirm = true;
 
   @action
   hideActualPass() {
@@ -83,21 +63,7 @@ abstract class _AccountStoreBase with Store {
         Utils.showSnackBar('Senha alterada com sucesso', context);
       }
     }
-  }
-
-  @action
-  Future<void> updateAccount(
-      BuildContext context, AccountInfo _accountInfo) async {
-    final response = await _repository.createOrUpdateAccount(_accountInfo);
-
-    if (response.error != null) {
-      Utils.showSnackBar(response.error, context);
-    } else {
-      accountInfo = _accountInfo;
-      Utils.showSnackBar('Salvo com sucesso', context);
     }
-  }
-
   Future<void> sendHelp(BuildContext context) async {
     final response = await _repository.sendHelp(controllerHelp.text);
 
@@ -109,10 +75,10 @@ abstract class _AccountStoreBase with Store {
           context: context,
           title: 'Salvo com sucesso',
           description:
-              "Sua duvida foi enviada com sucesso logo retornaremos com sua responsta por email",
+          "Sua duvida foi enviada com sucesso logo retornaremos com sua responsta por email",
           positiveText: 'OK',
           positiveCallback: () {
-            Modular.to.navigate(ConstantsRoutes.CALL_ACCOUNT_STORE_PAGE);
+            Modular.to.navigate(ConstantsRoutes.CALL_ACCOUNT_CLIENT_PAGE);
           });
     }
   }

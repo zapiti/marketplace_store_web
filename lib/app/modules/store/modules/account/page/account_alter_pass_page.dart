@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/mobile/title_descritption_web_widget.dart';
+
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:marketplace_store_web/app/modules/store/modules/account/account_store.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 class AccountAlterPassPage extends StatefulWidget {
@@ -13,7 +11,8 @@ class AccountAlterPassPage extends StatefulWidget {
   AccountAlterPassPageState createState() => AccountAlterPassPageState();
 }
 
-class AccountAlterPassPageState extends State<AccountAlterPassPage> {
+class AccountAlterPassPageState
+    extends ModularState<AccountAlterPassPage, AccountStore> {
   @override
   Widget build(BuildContext context) {
     return PageWeb(
@@ -40,8 +39,8 @@ class AccountAlterPassPageState extends State<AccountAlterPassPage> {
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(24),
                   ],
-                  // obscureText: snapshotHide.data,
-                  // controller: controller.controllerPassActualPass,
+                  obscureText: controller.showPassActual,
+                  controller: controller.controllerPassActualPass,
                   textAlign: TextAlign.start,
                   textAlignVertical: TextAlignVertical.center,
                   onChanged: (text) {},
@@ -50,12 +49,13 @@ class AccountAlterPassPageState extends State<AccountAlterPassPage> {
                       labelText: "Senha atual",
                       suffixIcon: IconButton(
                         icon: Icon(
-                          true ? Icons.visibility : Icons.visibility_off,
+                          controller.showPassActual
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                           color: AppThemeUtils.colorPrimary,
                         ),
                         onPressed: () {
-                          // controller.showPassActual.sink
-                          //     .add(!snapshotHide.data);
+                          controller.hideActualPass();
                         },
                       ),
                       border: const OutlineInputBorder(
@@ -70,8 +70,8 @@ class AccountAlterPassPageState extends State<AccountAlterPassPage> {
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(24),
                   ],
-                  //    obscureText: snapshotHide.data,
-                  //    controller: controller.controllerPass,
+                  obscureText: controller.showPass,
+                  controller: controller.controllerPass,
                   textAlign: TextAlign.start,
                   textAlignVertical: TextAlignVertical.center,
                   onChanged: (text) {
@@ -82,12 +82,13 @@ class AccountAlterPassPageState extends State<AccountAlterPassPage> {
                       labelText: "Nova senha",
                       suffixIcon: IconButton(
                         icon: Icon(
-                          true ? Icons.visibility : Icons.visibility_off,
+                          controller.showPass
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                           color: AppThemeUtils.colorPrimary,
                         ),
                         onPressed: () {
-                          // controller.showPass.sink
-                          //     .add(!snapshotHide.data);
+                          controller.hidePass();
                         },
                       ),
                       border: const OutlineInputBorder(
@@ -102,8 +103,8 @@ class AccountAlterPassPageState extends State<AccountAlterPassPage> {
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(24),
                   ],
-                  // obscureText: snapshotShowHide2.data ?? true,
-                  // controller: controller.controllerConfirmPass,
+                  obscureText: controller.showPassConfirm,
+                  controller: controller.controllerPassConfirm,
                   textAlign: TextAlign.start,
                   textAlignVertical: TextAlignVertical.center,
                   onSubmitted: (term) {},
@@ -115,8 +116,7 @@ class AccountAlterPassPageState extends State<AccountAlterPassPage> {
                           color: AppThemeUtils.colorPrimary,
                         ),
                         onPressed: () {
-                          // controller.showPassConfirm.sink
-                          //     .add(!snapshotShowHide2.data);
+                          controller.hidePassConfirm();
                         },
                       ),
                       border: const OutlineInputBorder(
@@ -135,7 +135,9 @@ class AccountAlterPassPageState extends State<AccountAlterPassPage> {
                   style:
                       AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  controller.changePass(context);
+                },
               ),
             ),
           ),

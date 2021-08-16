@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
 
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/account/account_store.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/account/account_client_store.dart';
 import 'package:marketplace_store_web/app/modules/store/modules/account/model/transaction.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';

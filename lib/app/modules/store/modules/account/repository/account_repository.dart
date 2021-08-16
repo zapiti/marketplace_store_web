@@ -49,4 +49,15 @@ class AccountRepository {
     );
     return result;
   }
+
+  updatePass(String text) async {
+    final result = await _requestManager.requestWithTokenToForm(
+      serviceName: "/api/establishment/user/changePassword?password=$text",
+      isObject: true,
+      body: {},
+      funcFromMap: (data) => data,
+      typeRequest:  TYPEREQUEST.PUT ,
+    );
+    return result;
+  }
 }

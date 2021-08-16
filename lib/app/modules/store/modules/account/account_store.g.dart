@@ -24,6 +24,51 @@ mixin _$AccountStore on _AccountStoreBase, Store {
     });
   }
 
+  final _$showPassActualAtom = Atom(name: '_AccountStoreBase.showPassActual');
+
+  @override
+  bool get showPassActual {
+    _$showPassActualAtom.reportRead();
+    return super.showPassActual;
+  }
+
+  @override
+  set showPassActual(bool value) {
+    _$showPassActualAtom.reportWrite(value, super.showPassActual, () {
+      super.showPassActual = value;
+    });
+  }
+
+  final _$showPassAtom = Atom(name: '_AccountStoreBase.showPass');
+
+  @override
+  bool get showPass {
+    _$showPassAtom.reportRead();
+    return super.showPass;
+  }
+
+  @override
+  set showPass(bool value) {
+    _$showPassAtom.reportWrite(value, super.showPass, () {
+      super.showPass = value;
+    });
+  }
+
+  final _$showPassConfirmAtom = Atom(name: '_AccountStoreBase.showPassConfirm');
+
+  @override
+  bool get showPassConfirm {
+    _$showPassConfirmAtom.reportRead();
+    return super.showPassConfirm;
+  }
+
+  @override
+  set showPassConfirm(bool value) {
+    _$showPassConfirmAtom.reportWrite(value, super.showPassConfirm, () {
+      super.showPassConfirm = value;
+    });
+  }
+
   final _$accountInfoAtom = Atom(name: '_AccountStoreBase.accountInfo');
 
   @override
@@ -56,6 +101,13 @@ mixin _$AccountStore on _AccountStoreBase, Store {
     return _$getAccountInfoAsyncAction.run(() => super.getAccountInfo());
   }
 
+  final _$changePassAsyncAction = AsyncAction('_AccountStoreBase.changePass');
+
+  @override
+  Future<void> changePass(BuildContext context) {
+    return _$changePassAsyncAction.run(() => super.changePass(context));
+  }
+
   final _$updateAccountAsyncAction =
       AsyncAction('_AccountStoreBase.updateAccount');
 
@@ -65,10 +117,49 @@ mixin _$AccountStore on _AccountStoreBase, Store {
         .run(() => super.updateAccount(context, _accountInfo));
   }
 
+  final _$_AccountStoreBaseActionController =
+      ActionController(name: '_AccountStoreBase');
+
+  @override
+  dynamic hideActualPass() {
+    final _$actionInfo = _$_AccountStoreBaseActionController.startAction(
+        name: '_AccountStoreBase.hideActualPass');
+    try {
+      return super.hideActualPass();
+    } finally {
+      _$_AccountStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic hidePass() {
+    final _$actionInfo = _$_AccountStoreBaseActionController.startAction(
+        name: '_AccountStoreBase.hidePass');
+    try {
+      return super.hidePass();
+    } finally {
+      _$_AccountStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic hidePassConfirm() {
+    final _$actionInfo = _$_AccountStoreBaseActionController.startAction(
+        name: '_AccountStoreBase.hidePassConfirm');
+    try {
+      return super.hidePassConfirm();
+    } finally {
+      _$_AccountStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
 walletData: ${walletData},
+showPassActual: ${showPassActual},
+showPass: ${showPass},
+showPassConfirm: ${showPassConfirm},
 accountInfo: ${accountInfo}
     ''';
   }

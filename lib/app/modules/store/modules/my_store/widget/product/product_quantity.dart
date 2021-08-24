@@ -76,8 +76,8 @@ class _ProductQuantityState extends State<ProductQuantity> {
                                     text;
                               },
                               listElements: [
-                                Pairs("Gramas", "Gramas"),
-                                Pairs("Kilos", "Kilos"),
+                                Pairs("GRAMAS", "GRAMAS"),
+                                Pairs("KILOS", "KILOS"),
                               ],
                             ),
                             Row(

@@ -87007,7 +87007,7 @@ m=m.x.y
 m=new T.c5(new V.i(20,5,20,5),Z.bN(!0,p,!1,p,L.aj6(o,m==null?p:C.e.j(m)),p,p,p,2,L.bg(p,new F.bP(4,C.a1,new Y.aA(C.F,1,C.v)),p,p,p,p,p,p,!0,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,!1,p,p,p,"Quantidade em estoque*",p,p,p,p,p,p,p,p,p,p,p),C.B,!0,!0,!0,p,!1,p,p,p,p,p,!0,p,1,p,p,!1,"\u2022",p,new S.aBE(q),p,p,p,!1,p,p,C.N,p,p,C.K,C.H,p,p,p,p,p,C.z,p,C.M,p,p,p),p)}else{k=j.c
 j=k.dj$
 j.a.t(j)
-m=L.aaZ(D.cs(k.x.x),!0,H.a([new M.dq("Gramas","Gramas",m),new M.dq("Kilos","Kilos",m)],t.hn),new S.aBF(q),"Espefica\xe7\xf5es*")
+m=L.aaZ(D.cs(k.x.x),!0,H.a([new M.dq("GRAMAS","GRAMAS",m),new M.dq("KILOS","KILOS",m)],t.hn),new S.aBF(q),"Espefica\xe7\xf5es*")
 k=q.a.c
 j=k.dj$
 j.a.t(j)

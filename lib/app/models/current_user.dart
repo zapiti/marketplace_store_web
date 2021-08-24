@@ -3,7 +3,7 @@ class CurrentUser {
   String? username;
   String? profile;
   Establishment? establishment;
-  Client? client;
+  ClientUser? client;
 
   String? iat;
   String? exp;
@@ -38,14 +38,14 @@ class CurrentUser {
       establishment: map['establishment'] == null
           ? null
           : Establishment.fromMap(map['establishment']),
-      client: map['client'] == null ? null : Client.fromMap(map['client']),
+      client: map['client'] == null ? null : ClientUser.fromMap(map['client']),
       iat: map['iat']?.toString(),
       exp: map['exp']?.toString(),
     );
   }
 }
 
-class Client {
+class ClientUser {
   String? id;
   String? name;
   String? cpf;
@@ -59,7 +59,7 @@ class Client {
   String? createdAt;
   String? updatedAt;
 
-  Client(
+  ClientUser(
       {this.id,
       this.name,
       this.cpf,
@@ -73,9 +73,9 @@ class Client {
       this.createdAt,
       this.updatedAt});
 
-  factory Client.fromMap(dynamic map) {
+  factory ClientUser.fromMap(dynamic map) {
     var temp;
-    return Client(
+    return ClientUser(
       id: map['id']?.toString(),
       name: map['name']?.toString(),
       cpf: map['cpf']?.toString(),
@@ -166,8 +166,6 @@ class Establishment {
       'rank': rank,
       'image': image,
       'coverImage': coverImage,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
       'operationHours': operationHours?.map((e) => e.toMap()).toList(),
     };
   }
@@ -203,11 +201,36 @@ class Establishment {
               : []),
     );
   }
+  toCreate() {
+    return {
+      'id': id,
+      'cnpj': cnpj,
+      'companyName': companyName,
+      'wallet': wallet,
+      'email': email,
+      'phone': phone,
+      'responsible': responsible,
+      'description': description,
+      'status': status,
+      'type': type,
+      'preparationTime': preparationTime,
+      'deliveryValue': deliveryValue,
+      'rank': rank,
+      'image': image,
+      'coverImage': coverImage,
+    };
+  }
+   toOppeningHours(){
+     return  operationHours?.map((e) => e.toMap()).toList();
+   }
+
 
   @override
   String toString() {
     return 'Establishment{id: $id\n,cnpj: $cnpj\n,companyName: $companyName\n,wallet: $wallet\n,email: $email\n,phone: $phone\n,responsible: $responsible\n,description: $description\n,status: $status\n,type: $type\n,preparationTime: $preparationTime\n,deliveryValue: $deliveryValue\n,rank: $rank\n,image: ${image != null ? 'existe' : null}\n,coverImage:  ${coverImage != null ? 'existe' : null},\n,createdAt: $createdAt\n,updatedAt: $updatedAt\n,operationHours: $operationHours}';
   }
+
+
 }
 
 class OperationHours {

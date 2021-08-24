@@ -103,6 +103,6 @@ class Product {
 
   @override
   String toString() {
-    return 'Product{id: $id, name: $name, value: $value, promotionalValue: $promotionalValue, category: $category, sector: $sector, description: $description, quantityType: $quantityType, stock: $stock, specification: $specification, qtdMin: $qtdMin, qtdMax: $qtdMax, barCode: $barCode, image: $image, quantity: $quantity}';
+    return 'Product{id: $id, name: $name, value: $value, promotionalValue: $promotionalValue, category: $category, sector: $sector, description: $description, quantityType: $quantityType, stock: $stock, specification: $specification, qtdMin: $qtdMin, qtdMax: $qtdMax, barCode: $barCode, image: ${image?.isEmpty}======\n, quantity: $quantity}';
   }
 }

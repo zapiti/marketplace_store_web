@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/mobile/title_descritption_web_widget.dart';
 import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:marketplace_store_web/app/modules/client/modules/account/account_client_store.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 
 class AccountHelpPage extends StatefulWidget {
@@ -13,7 +10,7 @@ class AccountHelpPage extends StatefulWidget {
   AccountHelpPageState createState() => AccountHelpPageState();
 }
 
-class AccountHelpPageState extends State<AccountHelpPage> {
+class AccountHelpPageState extends ModularState<AccountHelpPage,AccountClientStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +35,7 @@ class AccountHelpPageState extends State<AccountHelpPage> {
           Container(
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: TextField(
+                controller: controller.controllerHelp,
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(24),
                   ],
@@ -63,7 +61,9 @@ class AccountHelpPageState extends State<AccountHelpPage> {
                   style:
                       AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  controller.sendHelp(context);
+                },
               ),
             ),
           )

@@ -8,6 +8,7 @@ import 'package:marketplace_store_web/app/modules/register/register_store.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:marketplace_store_web/app/utils/utils.dart';
 
 class RegisterPedidoPage extends StatefulWidget {
   @override
@@ -210,7 +211,17 @@ class _RegisterPedidoPageState
                                   style: ElevatedButton.styleFrom(
                                       primary: AppThemeUtils.colorPrimary),
                                   onPressed: () {
-                                    controller.getRegister(context);
+                                    if(controller.passController.text != controller.passControllerConfirm.text){
+                                      Utils.showSnackBar('Senhas incompativeis', context);
+                                    }else{
+                                      if(controller.term){
+                                        controller.getRegister(context);
+                                      }else{
+                                        Utils.showSnackBar('Aceite os termos', context);
+                                      }
+
+                                    }
+
                                   },
                                   child: Text(
                                     "Cadastrar",

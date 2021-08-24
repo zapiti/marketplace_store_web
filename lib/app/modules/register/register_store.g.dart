@@ -85,6 +85,14 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
+  final _$getRegisterAsyncAction =
+      AsyncAction('_RegisterStoreBase.getRegister');
+
+  @override
+  Future<void> getRegister(BuildContext context) {
+    return _$getRegisterAsyncAction.run(() => super.getRegister(context));
+  }
+
   final _$getRegisterProductAsyncAction =
       AsyncAction('_RegisterStoreBase.getRegisterProduct');
 
@@ -136,17 +144,6 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
         name: '_RegisterStoreBase.selectPage');
     try {
       return super.selectPage(page);
-    } finally {
-      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void getRegister(BuildContext context) {
-    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
-        name: '_RegisterStoreBase.getRegister');
-    try {
-      return super.getRegister(context);
     } finally {
       _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
     }

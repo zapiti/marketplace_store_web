@@ -40,8 +40,7 @@ abstract class _CartStoreBase with Store {
   }
 
   Product? _getTempProduct(Product product) {
-    return order.items.firstWhere(
-        (element) => product.name == element!.name,
+    return order.items.firstWhere((element) => product.name == element!.name,
         orElse: () => null);
   }
 
@@ -53,7 +52,8 @@ abstract class _CartStoreBase with Store {
     return Utils.moneyMasked(order.items.fold(
         0,
         (previousValue, element) =>
-            (element!.value! * element.quantity!) + previousValue!));
+            ((element?.value ?? 0.0) * (element?.quantity ?? 0.0)) +
+            (previousValue ?? 0.0)));
   }
 
   @action

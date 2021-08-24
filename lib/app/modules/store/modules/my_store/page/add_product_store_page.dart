@@ -41,7 +41,7 @@ class _AddProductStorePageState
                   changeImage: (txt) {
                     storeControl.establishment?.coverImage = txt;
                     storeControl.updateEstablishment(
-                        context, storeControl.establishment!);
+                        context, storeControl.establishment!,onlyStab: true);
                   },
                   width: MediaQuery.of(context).size.width,
                   height: 160,
@@ -58,7 +58,7 @@ class _AddProductStorePageState
                       changeImage: (txt) {
                         storeControl.establishment?.image = txt;
                         storeControl.updateEstablishment(
-                            context, storeControl.establishment!);
+                            context, storeControl.establishment!,onlyStab: true);
                       },
                       userImage: storeControl.establishment?.image,
                     ),

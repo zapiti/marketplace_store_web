@@ -16,10 +16,21 @@ class StoreRepository {
     return result.content;
   }
 
-  updateEstablishment(Establishment establishment) async {
+  Future updateEstablishment(Establishment establishment) async {
     var result = await _requestManager.requestWithTokenToForm(
       serviceName: '/api/establishment',
-      body: establishment.toMap(),
+      body: establishment.toCreate(),
+      funcFromMap: (data) => data,
+      isObject: true,
+      typeRequest: TYPEREQUEST.PUT,
+    );
+    return result;
+  }
+
+ Future updateOpeningHours(Establishment establishment) async {
+    var result = await _requestManager.requestWithTokenToForm(
+      serviceName: '/api/establishment/operation/manage',
+      body: establishment.toOppeningHours(),
       funcFromMap: (data) => data,
       isObject: true,
       typeRequest: TYPEREQUEST.PUT,

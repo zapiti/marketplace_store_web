@@ -1,18 +1,17 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
 import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
+import 'package:marketplace_store_web/app/models/current_user.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/home_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
 import 'package:marketplace_store_web/app/routes/constants_routes.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 
 class ItemShops extends StatelessWidget {
-  final Shops shops;
+  final Establishment shops;
   final HomeStore controller;
 
   ItemShops(this.shops,this.controller);
@@ -25,6 +24,7 @@ class ItemShops extends StatelessWidget {
       child:InkWell(
           onTap: (){
             controller.setCurrentShops(shops);
+
             Modular.to.navigate(
                 ConstantsRoutes.CALL_HOME_SHOP_CLIENT_PAGE + shops.id.toString(),);
 
@@ -40,7 +40,7 @@ class ItemShops extends StatelessWidget {
               ImageWidgetComponent(
                 shops.image,
                 width: 100,
-                height: 100,
+                height: 100,padding: EdgeInsets.all(5)
               ),
               Expanded(
                   child: Container(
@@ -54,7 +54,7 @@ class ItemShops extends StatelessWidget {
                     width: double.infinity,
                     margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                     child: AutoSizeText(
-                      shops.name,
+                      shops.companyName ?? '',
                       maxLines: 1,
                       minFontSize: 8,textAlign: TextAlign.start,
                       style: AppThemeUtils.normalBoldSize(),
@@ -64,7 +64,7 @@ class ItemShops extends StatelessWidget {
                     width: double.infinity,
                     margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
                     child: AutoSizeText(
-                      "Loja - ${shops.distanceKm}km",
+                      "Loja - ${controller.currentShops?.distanceKm  ?? '0'} KM",
                       maxLines: 1,
                       minFontSize: 8,
                       style: AppThemeUtils.normalSize(),
@@ -76,7 +76,7 @@ class ItemShops extends StatelessWidget {
                         margin:
                             EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                         child: AutoSizeText(
-                          Utils.moneyMasked( shops.valueDelivery),
+                          Utils.moneyMasked(shops.deliveryValue),
                           maxLines: 1,
                           minFontSize: 8,
                           style: AppThemeUtils.normalSize(
@@ -88,7 +88,7 @@ class ItemShops extends StatelessWidget {
                         margin:
                             EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                         child: AutoSizeText(
-                          "  30-40min",
+                         "- ${shops.preparationTime ?? 0} min",
                           maxLines: 1,
                           minFontSize: 8,
                           style: AppThemeUtils.normalSize(),

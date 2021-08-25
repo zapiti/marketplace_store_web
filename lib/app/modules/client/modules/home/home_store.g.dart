@@ -24,6 +24,21 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  final _$listTypeAtom = Atom(name: '_HomeStoreBase.listType');
+
+  @override
+  List<Category>? get listType {
+    _$listTypeAtom.reportRead();
+    return super.listType;
+  }
+
+  @override
+  set listType(List<Category>? value) {
+    _$listTypeAtom.reportWrite(value, super.listType, () {
+      super.listType = value;
+    });
+  }
+
   final _$listProductAtom = Atom(name: '_HomeStoreBase.listProduct');
 
   @override
@@ -57,13 +72,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$listShopsAtom = Atom(name: '_HomeStoreBase.listShops');
 
   @override
-  List<Shops>? get listShops {
+  List<Establishment>? get listShops {
     _$listShopsAtom.reportRead();
     return super.listShops;
   }
 
   @override
-  set listShops(List<Shops>? value) {
+  set listShops(List<Establishment>? value) {
     _$listShopsAtom.reportWrite(value, super.listShops, () {
       super.listShops = value;
     });
@@ -87,13 +102,13 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   final _$currentShopsAtom = Atom(name: '_HomeStoreBase.currentShops');
 
   @override
-  Shops? get currentShops {
+  Establishment? get currentShops {
     _$currentShopsAtom.reportRead();
     return super.currentShops;
   }
 
   @override
-  set currentShops(Shops? value) {
+  set currentShops(Establishment? value) {
     _$currentShopsAtom.reportWrite(value, super.currentShops, () {
       super.currentShops = value;
     });
@@ -137,30 +152,38 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     return _$getListCategoryAsyncAction.run(() => super.getListCategory());
   }
 
+  final _$getListTypeAsyncAction = AsyncAction('_HomeStoreBase.getListType');
+
+  @override
+  Future getListType() {
+    return _$getListTypeAsyncAction.run(() => super.getListType());
+  }
+
   final _$getListProductAsyncAction =
       AsyncAction('_HomeStoreBase.getListProduct');
 
   @override
-  Future getListProduct() {
-    return _$getListProductAsyncAction.run(() => super.getListProduct());
+  Future getListProduct(String? idShopping) {
+    return _$getListProductAsyncAction
+        .run(() => super.getListProduct(idShopping));
+  }
+
+  final _$getCurrentShopByIDAsyncAction =
+      AsyncAction('_HomeStoreBase.getCurrentShopByID');
+
+  @override
+  Future getCurrentShopByID(String? idShopping) {
+    return _$getCurrentShopByIDAsyncAction
+        .run(() => super.getCurrentShopByID(idShopping));
   }
 
   final _$setCurrentShopsAsyncAction =
       AsyncAction('_HomeStoreBase.setCurrentShops');
 
   @override
-  Future setCurrentShops(Shops? myCurrentShop) {
+  Future setCurrentShops(Establishment? myCurrentShop) {
     return _$setCurrentShopsAsyncAction
         .run(() => super.setCurrentShops(myCurrentShop));
-  }
-
-  final _$getListCurrentStoreAsyncAction =
-      AsyncAction('_HomeStoreBase.getListCurrentStore');
-
-  @override
-  Future getListCurrentStore(String idShops) {
-    return _$getListCurrentStoreAsyncAction
-        .run(() => super.getListCurrentStore(idShops));
   }
 
   final _$setCurrentProductAsyncAction =
@@ -190,6 +213,7 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   String toString() {
     return '''
 listCategory: ${listCategory},
+listType: ${listType},
 listProduct: ${listProduct},
 listPromo: ${listPromo},
 listShops: ${listShops},

@@ -47,12 +47,26 @@ class ItemProductComplete extends StatelessWidget {
                         style: AppThemeUtils.normalSize(),
                       ),
                     ),
-                    Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    (product.promotionalValue ?? 0.0) == 0.0
+                        ? SizedBox()
+                        : Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                       child: AutoSizeText(
-                        Utils.moneyMasked( product.value, )
-                            ,
+                        Utils.moneyMasked(product.value),
+                        maxLines: 1,
+                        minFontSize: 8,
+                        style: AppThemeUtils.normalSize(
+                            fontSize: 14,
+                            decoration: TextDecoration.lineThrough,
+                            color: Colors.grey),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                      child: AutoSizeText(
+                        Utils.moneyMasked((product.promotionalValue ?? 0.0) == 0.0
+                            ? product.value
+                            : (product.promotionalValue ?? 0.0)),
                         maxLines: 1,
                         minFontSize: 8,
                         style: AppThemeUtils.normalBoldSize(

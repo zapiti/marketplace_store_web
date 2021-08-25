@@ -75,7 +75,7 @@ abstract class _AccountClientStoreBase with Store {
           context: context,
           title: 'Salvo com sucesso',
           description:
-          "Sua duvida foi enviada com sucesso logo retornaremos com sua responsta por email",
+          "Sua dúvida foi enviada com sucesso logo retornaremos com sua resposta por email",
           positiveText: 'OK',
           positiveCallback: () {
             Modular.to.navigate(ConstantsRoutes.CALL_ACCOUNT_CLIENT_PAGE);

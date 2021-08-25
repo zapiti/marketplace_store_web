@@ -72,7 +72,7 @@ class _InitialHomePageState extends ModularState<InitialHomePage, HomeStore> {
                                               margin: EdgeInsets.symmetric(
                                                   horizontal: 10),
                                               child: AutoSizeText(
-                                                Utils.moneyMasked( 500000),
+                                                Utils.moneyMasked( 0),
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
                                                 minFontSize: 6,

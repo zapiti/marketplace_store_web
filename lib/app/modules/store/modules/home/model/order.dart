@@ -1,5 +1,6 @@
 
 
+import 'package:marketplace_store_web/app/models/current_user.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
 import 'package:marketplace_store_web/app/modules/store/model/product.dart';
 
@@ -24,7 +25,7 @@ class Order {
 
   Order({this.status = CONCLUIDO, this. id = '1',this.hasEvaluation = false})  ;
 
-  Shops shops =  Shops();
+  Establishment? shops;
 
   factory Order.fromMap(dynamic map) {
 
@@ -44,7 +45,7 @@ class Order {
       'products': items.map((map) => map?.toMap()).toList() ,
       'value': value,
       'id': id,
-      'shops': shops.toMap(),
+      'shops': shops?.toMap(),
     };
   }
 }

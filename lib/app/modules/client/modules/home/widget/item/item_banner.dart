@@ -11,13 +11,23 @@ class ItemBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,width: double.infinity,
+      height: 150,
+      width: double.infinity,
       child: Stack(
         children: [
-          ImageWidgetComponent(banner.image,width: double.infinity,fit: BoxFit.fill,),
-          Container(width: double.infinity,height: double.infinity,color: Colors.black45,),
+          ImageWidgetComponent(banner.image,
+              width: double.infinity, fit: BoxFit.cover, height: 150),
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+
+            decoration: BoxDecoration(
+                color: Colors.black45,
+                borderRadius: BorderRadius.all(Radius.circular(8.0))),
+          ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.end,crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
                 width: double.infinity,
@@ -25,22 +35,20 @@ class ItemBanner extends StatelessWidget {
                 child: Text(
                   banner.title,
                   style: AppThemeUtils.normalBoldSize(
-                      color: AppThemeUtils.whiteColor,fontSize: 22),
+                      color: AppThemeUtils.whiteColor, fontSize: 22),
                 ),
               ),
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(left: 20, right: 20,bottom: 20),
+                margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                 child: Text(
-                  banner.title,
-                  style:
-                      AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor,fontSize: 18),
+                  banner.description,
+                  style: AppThemeUtils.normalSize(
+                      color: AppThemeUtils.whiteColor, fontSize: 18),
                 ),
               ),
             ],
           ),
-
-
         ],
       ),
     );

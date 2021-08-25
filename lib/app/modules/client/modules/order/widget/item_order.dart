@@ -45,7 +45,7 @@ class ItemOrder extends StatelessWidget {
                           width: 80,
                           height: 80,
                           isRounded: true,
-                          userImage: order.shops.image,
+                          userImage: order.shops?.image ?? '',
                         ),
                       ),
                       Expanded(
@@ -61,7 +61,7 @@ class ItemOrder extends StatelessWidget {
                                     margin: EdgeInsets.symmetric(
                                         horizontal: 0, vertical: 0),
                                     child: AutoSizeText(
-                                      order.shops.name,
+                                      order.shops?.companyName ?? '',
                                       maxLines: 1,
                                       minFontSize: 8,
                                       textAlign: TextAlign.start,
@@ -79,7 +79,7 @@ class ItemOrder extends StatelessWidget {
                                             horizontal: 0, vertical: 0),
                                         child: AutoSizeText(
                                           Utils.moneyMasked(
-                                              order.shops.valueDelivery),
+                                              order.shops?.deliveryValue ?? 0.0),
                                           maxLines: 1,
                                           minFontSize: 8,
                                           style: AppThemeUtils.normalSize(),

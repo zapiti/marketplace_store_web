@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marketplace_store_web/app/models/current_user.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/category.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
 import 'package:marketplace_store_web/app/modules/client/modules/home/repository/home_repository.dart';
@@ -21,19 +22,22 @@ abstract class _HomeStoreBase with Store {
   List<Category>? listCategory;
 
   @observable
+  List<Category>? listType;
+
+  @observable
   List<Product>? listProduct;
 
   @observable
   List<Product>? listPromo;
 
   @observable
-  List<Shops>? listShops;
+  List<Establishment>? listShops;
 
   @observable
   MyBanner? banner;
 
   @observable
-  Shops? currentShops;
+  Establishment? currentShops;
 
   @observable
   Product? selectedProduct;
@@ -58,6 +62,10 @@ abstract class _HomeStoreBase with Store {
   getListCategory() async {
     listCategory = await _repository.getListCategory();
   }
+  @action
+  getListType() async {
+    listType = await _repository.getListType();
+  }
 
   @action
   getBanner() {
@@ -65,20 +73,27 @@ abstract class _HomeStoreBase with Store {
   }
 
   @action
-  getListProduct() async {
-    listProduct = await _repository.getListProduct();
+  getListProduct(String? idShopping) async {
+    listProduct = await _repository.getListProduct(idShopping ?? '');
     listPromo = listProduct;
   }
 
   @action
-  setCurrentShops(Shops? myCurrentShop) async {
+  getCurrentShopByID(String? idShopping) async {
+    currentShops = await _repository.getCurrentShopByID(idShopping ?? '');
+
+  }
+
+
+  @action
+  setCurrentShops(Establishment? myCurrentShop) async {
     currentShops = myCurrentShop;
   }
 
-  @action
-  getListCurrentStore(String idShops) async {
-    currentShops = await _repository.getListCurrentStore(idShops);
-  }
+  // @action
+  // getListCurrentStore(String idShops) async {
+  //   currentShops = await _repository.getListCurrentStore(idShops);
+  // }
 
   @action
   setCurrentProduct(Product? myCurrentProduct) async {

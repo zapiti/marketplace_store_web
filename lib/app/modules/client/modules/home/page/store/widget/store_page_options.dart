@@ -15,8 +15,6 @@ import 'package:marketplace_store_web/app/utils/utils.dart';
 
 import '../../../home_store.dart';
 
-
-
 class StorePageOptions extends StatefulWidget {
   final HomeStore controller;
 
@@ -26,8 +24,7 @@ class StorePageOptions extends StatefulWidget {
   _StorePageOptionsState createState() => _StorePageOptionsState();
 }
 
-class _StorePageOptionsState extends State<StorePageOptions>  {
-
+class _StorePageOptionsState extends State<StorePageOptions> {
   final controller = Modular.get<CartStore>();
 
   @override
@@ -38,7 +35,6 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
     widget.controller.getCurrentAddress();
     widget.controller.getListShops();
     widget.controller.getListCategory();
-    widget.controller.getListProduct();
   }
 
   @override
@@ -56,8 +52,8 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
                         scrollDirection: Axis.horizontal,
                         list: widget.controller.listCategory ?? [],
                         itemBuilder: (context, index) => ItemCategory(
-                            widget.controller.listCategory![index],
-                            hideImage: true)))),
+                              widget.controller.listCategory![index],
+                            )))),
             Flex(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +90,7 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-         CartPage(),
+            CartPage(),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: AutoSizeText(
@@ -109,9 +105,12 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: widget.controller.listProduct
-                          ?.map<Widget>(
-                              (e) => ItemProductBuy(e, widget.controller))
-                          ?.toList() ?? [loadElements(width: 500)],
+                              ?.where((element) =>
+                                  (element.promotionalValue ?? 0.0) != 0.0)
+                              .map<Widget>(
+                                  (e) => ItemProductBuy(e, widget.controller))
+                              .toList() ??
+                          [loadElements(width: 500)],
                     ))),
           ],
         ));
@@ -120,7 +119,7 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
   Widget _listProducts() {
     return Observer(
         builder: (_) => widget.controller.selectedProduct != null
-            ? ItemProductCompleteBuy(widget.controller.selectedProduct ,
+            ? ItemProductCompleteBuy(widget.controller.selectedProduct,
                 widget.controller, controller)
             : Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -154,9 +153,10 @@ class _StorePageOptionsState extends State<StorePageOptions>  {
                   ...widget.controller.listProduct == null
                       ? [loadElements()]
                       : widget.controller.listProduct
-                          ?.map<Widget>(
-                              (e) => ItemProductComplete(e, widget.controller))
-                          .toList() ?? [],
+                              ?.map<Widget>((e) =>
+                                  ItemProductComplete(e, widget.controller))
+                              .toList() ??
+                          [],
                 ],
               ));
   }

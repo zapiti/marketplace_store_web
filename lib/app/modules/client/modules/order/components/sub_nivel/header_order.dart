@@ -33,7 +33,7 @@ class HeaderOrder extends StatelessWidget {
                           width: 80,
                           height: 80,
                           isRounded: true,
-                          userImage: order.shops.image,
+                          userImage: order.shops?.image,
                         ),
                       ),
                       Expanded(
@@ -49,7 +49,7 @@ class HeaderOrder extends StatelessWidget {
                                     margin: EdgeInsets.symmetric(
                                         horizontal: 0, vertical: 0),
                                     child: AutoSizeText(
-                                      order.shops.name,
+                                      order.shops?.companyName ?? '',
                                       maxLines: 1,
                                       minFontSize: 8,
                                       textAlign: TextAlign.start,

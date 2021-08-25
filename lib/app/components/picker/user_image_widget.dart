@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:marketplace_store_web/app/utils/image/image_path.dart';
 import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
 import 'package:marketplace_store_web/app/utils/utils.dart';
 
@@ -62,7 +63,6 @@ class _UserImageWidgetState extends State<UserImageWidget> {
   }
 
   void salvarImage(String img64) {
-
     widget.changeImage?.call(img64);
   }
 
@@ -179,20 +179,33 @@ class _UserImageWidgetState extends State<UserImageWidget> {
 }
 
 Widget ImageWidgetComponent(String? userImage,
-    {double? width, double? height, BoxFit? fit}) {
-  return (userImage ?? "").isEmpty
-      ? SizedBox()
-      : Utils.isBase64(userImage!)
-          ? Image.memory(
-              base64Decode(userImage),
-              fit: fit ?? BoxFit.cover,
-              width: width ?? 120,
-              height: height ?? 120,
-            )
-          : Image.network(
-              userImage,
-              fit: fit ?? BoxFit.cover,
-              width: width ?? 120,
-              height: height ?? 120,
-            );
+    {double? width, double? height, BoxFit? fit, EdgeInsets? padding}) {
+  return Container(
+      padding: padding ??  EdgeInsets.zero,
+      child: (userImage ?? "").isEmpty
+          ? ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                ImagePath.icEmptyLogin,
+                fit: fit ?? BoxFit.contain,
+                width: width ?? 120,
+                height: height ?? 120,
+              ))
+          : Utils.isBase64(userImage!)
+              ? ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.memory(
+                    base64Decode(userImage),
+                    fit: fit ?? BoxFit.cover,
+                    width: width ?? 120,
+                    height: height ?? 120,
+                  ))
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(
+                    userImage,
+                    fit: fit ?? BoxFit.cover,
+                    width: width ?? 120,
+                    height: height ?? 120,
+                  )));
 }

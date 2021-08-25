@@ -77,7 +77,7 @@ abstract class _RegisterStoreBase with Store {
       showGenericDialog(
           context: context,
           title: 'Salvo com sucesso',
-          description: "Tudo pronto agora voce ja pode fazer seu pedido",
+          description: "Tudo pronto agora você já pode fazer seu pedido",
           positiveText: 'OK',
           positiveCallback: () {
             final loginController = Modular.get<LoginStore>();
@@ -100,7 +100,7 @@ abstract class _RegisterStoreBase with Store {
           context: context,
           title: 'Salvo com sucesso',
           description:
-              "Tudo pronto agora so aguardar a aprovacao no seu e-mail para ativação da sua conta",
+              "Tudo pronto agora só aguardar a aprovação no seu e-mail para ativação da sua conta",
           positiveText: 'OK',
           positiveCallback: () {
             Modular.to.pushReplacementNamed(ConstantsRoutes.LANDING);

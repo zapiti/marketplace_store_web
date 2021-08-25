@@ -29,8 +29,7 @@ class _HomePageOptionsState extends State<HomePageOptions> {
     super.initState();
     widget.controller.getBanner();
     widget.controller.getListShops();
-    widget.controller.getListCategory();
-    widget.controller.getListProduct();
+    widget.controller.getListType();
   }
 
   @override
@@ -40,15 +39,16 @@ class _HomePageOptionsState extends State<HomePageOptions> {
         child: SingleChildScrollView(
             child: Column(
           mainAxisSize: MainAxisSize.max,
+
           children: [
             Container(
                 height: 100,
                 child: Observer(
                     builder: (_) => MyListBuilder(
                         scrollDirection: Axis.horizontal,
-                        list: widget.controller.listCategory ?? [],
+                        list: widget.controller.listType ?? [],
                         itemBuilder: (context, index) => ItemCategory(
-                            widget.controller.listCategory![index])))),
+                            widget.controller.listType![index])))),
             LoadBuilder(
                 item: widget.controller.banner,
                 child: ItemBanner(widget.controller.banner!)),

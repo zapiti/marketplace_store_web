@@ -129,7 +129,7 @@ Widget marketWidget(Order? order, {Function(double)? starChange}) {
                         width: 80,
                         height: 80,
                         isRounded: true,
-                        userImage: order?.shops.image,
+                        userImage: order?.shops?.image,
                       ),
                     ),
                     Expanded(
@@ -145,7 +145,7 @@ Widget marketWidget(Order? order, {Function(double)? starChange}) {
                                   margin: EdgeInsets.symmetric(
                                       horizontal: 0, vertical: 0),
                                   child: AutoSizeText(
-                                    order?.shops.name ?? '',
+                                    order?.shops?.companyName ?? '',
                                     maxLines: 1,
                                     minFontSize: 8,
                                     textAlign: TextAlign.start,

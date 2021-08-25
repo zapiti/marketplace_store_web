@@ -13,7 +13,6 @@ class ItemProductBuy extends StatelessWidget {
 
   ItemProductBuy(this.product, this.controller);
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,56 +22,67 @@ class ItemProductBuy extends StatelessWidget {
         children: [
           Card(
               child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ImageWidgetComponent(product.image?? '',),
-                          Container(
-                            margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                            child: AutoSizeText(
-                              product.name?? '',
-                              maxLines: 2,
-                              minFontSize: 8,
-                              style: AppThemeUtils.normalBoldSize(),
-                            ),
-                          ),
-                          Container(
-                            margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                            child: AutoSizeText(
-                              Utils.moneyMasked( product.value),
-                              maxLines: 1,
-                              minFontSize: 8,
-                              style: AppThemeUtils.normalBoldSize(
-                                  color: AppThemeUtils.successColor),
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                            child: ElevatedButton(
-                              child: Text(
-                                "ADICIONAR",
-                                style:
-                                AppThemeUtils.normalSize(
-                                    color: AppThemeUtils.colorPrimary),
-                              ),
-                              onPressed: () {
-
-                              },
-                              style: ElevatedButton.styleFrom(
-                                  primary: AppThemeUtils.whiteColor,
-                                  shape: RoundedRectangleBorder(borderRadius:
-                                  new BorderRadius.circular(4.0),
-                                      side: BorderSide(
-                                          color: AppThemeUtils.colorPrimary))),
-                            ),
-                          )
-                        ],
-                      ))),
+                  child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ImageWidgetComponent(
+                product.image ?? '',
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: AutoSizeText(
+                  product.name ?? '',
+                  maxLines: 2,
+                  minFontSize: 8,
+                  style: AppThemeUtils.normalBoldSize(),
+                ),
+              ),
+              (product.promotionalValue ?? 0.0) == 0.0
+                  ? SizedBox()
+                  : Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                      child: AutoSizeText(
+                        Utils.moneyMasked(product.value),
+                        maxLines: 1,
+                        minFontSize: 8,
+                        style: AppThemeUtils.normalSize(
+                            fontSize: 14,
+                            decoration: TextDecoration.lineThrough,
+                            color: Colors.grey),
+                      ),
+                    ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                child: AutoSizeText(
+                  Utils.moneyMasked((product.promotionalValue ?? 0.0) == 0.0
+                      ? product.value
+                      : (product.promotionalValue ?? 0.0)),
+                  maxLines: 1,
+                  minFontSize: 8,
+                  style: AppThemeUtils.normalBoldSize(
+                      color: AppThemeUtils.successColor),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: ElevatedButton(
+                  child: Text(
+                    "ADICIONAR",
+                    style: AppThemeUtils.normalSize(
+                        color: AppThemeUtils.colorPrimary),
+                  ),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      primary: AppThemeUtils.whiteColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(4.0),
+                          side: BorderSide(color: AppThemeUtils.colorPrimary))),
+                ),
+              )
+            ],
+          ))),
         ],
       ),
     );

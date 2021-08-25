@@ -31,8 +31,8 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
     // TODO: implement initState
     super.initState();
     SchedulerBinding.instance?.addPostFrameCallback((_) {
-      controller.getListCurrentStore(widget.idShops);
-      controller.setCurrentProduct(widget.product);
+      controller.getCurrentShopByID(widget.idShops);
+      controller.getListProduct(widget.idShops);
     });
   }
 
@@ -55,7 +55,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                   height: 160,
                                   isRounded: false,
                                   userImage:
-                                      controller.currentShops?.imageBackground ?? '',
+                                      controller.currentShops?.coverImage ?? '',
                                 ),
                               )),
                           LoadBuilder(
@@ -85,7 +85,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                             margin: EdgeInsets.only(
                                                 top: 140, right: 0, left: 0),
                                             child: Text(
-                                              controller.currentShops?.name  ?? '',
+                                              controller.currentShops?.companyName  ?? '',
                                               style:
                                                   AppThemeUtils.normalBoldSize(
                                                       fontSize: 18),
@@ -96,7 +96,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                             margin: EdgeInsets.symmetric(
                                                 horizontal: 0, vertical: 0),
                                             child: AutoSizeText(
-                                              "Loja - ${controller.currentShops?.distanceKm  ?? ''}km",
+                                              "Loja - ${controller.currentShops?.distanceKm  ?? ''} km",
                                               maxLines: 1,
                                               minFontSize: 8,
                                               style: AppThemeUtils.normalSize(),
@@ -110,7 +110,7 @@ class _DetailStorePageState extends ModularState<DetailStorePage, HomeStore> {
                                                 child: AutoSizeText(
                                                   Utils.moneyMasked(controller
                                                       .currentShops
-                                                      ?.valueDelivery ),
+                                                      ?.deliveryValue ),
                                                   maxLines: 1,
                                                   minFontSize: 8,
                                                   style: AppThemeUtils

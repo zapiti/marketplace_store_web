@@ -22,4 +22,26 @@ class ImagePath {
   static final String ic_barcode  = "assets/images/ic_barcode.svg";
   static final String bg_barcode  = "assets/images/bg_barcode.svg";
   static final String mapdefault = "assets/images/map_default.png";
+
+  static const food = "assets/images/i_food.png";
+
+  static const drink = "assets/images/i_drinks.png";
+
+  static const candies = "assets/images/i_candies.png";
+
+  static const meats = "assets/images/i_meats.png";
+
+  static const bakery = "assets/images/i_bakery.png";
+
+  static const freezes = "assets/images/i_freezes.png";
+
+  static var pharmacy = "assets/images/i_pharmacy.png";
+
+  static var restaurant = "assets/images/i_restaurant.png";
+
+  static var lanch = "assets/images/i_lanch.png";
+
+  static var supermarket = "assets/images/i_supermarket.png";
+
+  static var market = "assets/images/i_market.png";
 }

@@ -114,6 +114,7 @@ class Establishment {
   String? cnpj;
   String? companyName;
   double? wallet;
+  double distanceKm = 0;
   String? email;
   String? phone;
   String? responsible;
@@ -147,12 +148,13 @@ class Establishment {
       this.createdAt,
       this.operationHours,
       this.updatedAt,
-      this.coverImage});
+      this.coverImage,this.distanceKm = 0.0});
 
   Map<String,dynamic> toMap() {
     return {
       'id': id,
       'cnpj': cnpj,
+      'distanceKm': distanceKm,
       'companyName': companyName,
       'wallet': wallet,
       'email': email,
@@ -183,6 +185,9 @@ class Establishment {
       phone: map['phone']?.toString(),
       responsible: map['responsible']?.toString(),
       description: map['description']?.toString(),
+        distanceKm: null == (temp = map['distanceKm'])
+            ? 0.0
+            : (temp is num ? temp.toDouble() : double.tryParse(temp)) ?? 0.0,
       status: map['status']?.toString(),
       type: map['type']?.toString(),
       preparationTime: map['preparationTime']?.toString(),

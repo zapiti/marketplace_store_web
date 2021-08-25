@@ -14,29 +14,44 @@ class ItemCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: (){},
+        onTap: () {},
         child: Container(
-      height: hideImage ? null : 120,
-      width: hideImage ? null : 150,
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      child: Stack(
-        children: [
-          Column(
+          height: hideImage ? null : 120,
+          width: hideImage ? null : 150,  padding: EdgeInsets.all(5),
+          child: Stack(
             children: [
-            Expanded(child:   hideImage ? SizedBox() : ImageWidgetComponent(category.image)),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: AutoSizeText(
-                  category.description,
-                  maxLines: 1,
-                  minFontSize: 8,
-                  style: AppThemeUtils.normalSize(),
-                ),
-              )
+              hideImage
+                  ? SizedBox()
+                  : category.image == null
+                      ? SizedBox()
+                      : Container(
+
+                  child:  ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            category.image!,
+                            height: hideImage ? null : 110,
+                            width: hideImage ? null : 150,
+                            fit: BoxFit.cover,
+                          ))),
+              Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+
+                    width: hideImage ? null : 150,decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    child: AutoSizeText(
+                      category.description,
+                      textAlign: TextAlign.center,
+                      maxLines: 1,
+                      minFontSize: 8,
+                      style: AppThemeUtils.normalBoldSize(color: Colors.white),
+                    ),
+                  ))
             ],
           ),
-        ],
-      ),
-    ));
+        ));
   }
 }

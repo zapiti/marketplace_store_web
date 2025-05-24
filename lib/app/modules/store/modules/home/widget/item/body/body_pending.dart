@@ -1,10 +1,10 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/home_store.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/divider/line_view_widget.dart';
+import 'package:new_marketplace_web/app/components/picker/user_image_widget.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/home_store.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/model/order.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class BodyPending extends StatelessWidget {
   final HomeStore controller;

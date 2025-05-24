@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/appbar/custom_client_app_bar.dart';
-import 'package:marketplace_store_web/app/components/drawer/custom_client_drawer.dart';
-import 'package:marketplace_store_web/app/modules/client/client_store.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/components/appbar/custom_client_app_bar.dart';
+import 'package:new_marketplace_web/app/components/drawer/custom_client_drawer.dart';
+import 'package:new_marketplace_web/app/modules/client/client_store.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 
 class ClientPage extends StatefulWidget {
   @override

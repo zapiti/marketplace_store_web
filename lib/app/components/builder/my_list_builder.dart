@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
-import 'package:marketplace_store_web/app/components/load/load_elements.dart';
+import 'package:new_marketplace_web/app/components/empty/empty_view.dart';
+import 'package:new_marketplace_web/app/components/load/load_elements.dart';
 
 class MyListBuilder extends StatelessWidget {
   final Axis? scrollDirection;

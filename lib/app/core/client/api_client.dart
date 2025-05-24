@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/configuration/app_configuration.dart';
-import 'package:marketplace_store_web/app/modules/login/repository/auth_repository.dart';
+import 'package:new_marketplace_web/app/configuration/app_configuration.dart';
+import 'package:new_marketplace_web/app/modules/login/repository/auth_repository.dart';
 
 import '../../app_store.dart';
 

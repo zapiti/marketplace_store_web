@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/modules/store/repository/store_repository.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/modules/store/repository/store_repository.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
 
 part 'store_store.g.dart';

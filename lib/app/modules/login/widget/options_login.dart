@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:marketplace_store_web/app/modules/login/login_store.dart';
-import 'package:marketplace_store_web/app/utils/image/image_path.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/modules/login/login_store.dart';
+import 'package:new_marketplace_web/app/utils/image/image_path.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class OptionsLogin extends StatefulWidget {
   final ScrollController scrollController;

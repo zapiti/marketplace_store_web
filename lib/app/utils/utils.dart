@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:geocode/geocode.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/models/pairs.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/models/pairs.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 import 'data_mock.dart';
 

@@ -1,13 +1,13 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:grouped_list/grouped_list.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/chat/bloc/chat_attendance_bloc.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/chat/model/conversation.dart';
-import 'package:marketplace_store_web/app/utils/date_utils.dart';
+import 'package:new_marketplace_web/app/components/divider/line_view_widget.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/chat/bloc/chat_attendance_bloc.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/chat/model/conversation.dart';
+import 'package:new_marketplace_web/app/utils/date_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 import 'chat_ballon.dart';
 

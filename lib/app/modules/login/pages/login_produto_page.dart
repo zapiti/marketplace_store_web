@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/load/load_elements.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/load/load_elements.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 import '../login_store.dart';
 

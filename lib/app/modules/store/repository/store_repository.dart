@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/core/request_core.dart';
-import 'package:marketplace_store_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/core/request_core.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
 
 class StoreRepository {
   final _requestManager = Modular.get<RequestCore>();

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
-import 'package:marketplace_store_web/app/modules/login/login_store.dart';
-import 'package:marketplace_store_web/app/modules/login/pages/login_entregador_page.dart';
-import 'package:marketplace_store_web/app/modules/login/pages/login_pedido_page.dart';
-import 'package:marketplace_store_web/app/modules/login/pages/login_produto_page.dart';
-import 'package:marketplace_store_web/app/utils/image/image_path.dart';
+import 'package:new_marketplace_web/app/components/empty/empty_view.dart';
+import 'package:new_marketplace_web/app/modules/login/login_store.dart';
+import 'package:new_marketplace_web/app/modules/login/pages/login_entregador_page.dart';
+import 'package:new_marketplace_web/app/modules/login/pages/login_pedido_page.dart';
+import 'package:new_marketplace_web/app/modules/login/pages/login_produto_page.dart';
+import 'package:new_marketplace_web/app/utils/image/image_path.dart';
 
 
 class OptionsLoginPage extends StatefulWidget {

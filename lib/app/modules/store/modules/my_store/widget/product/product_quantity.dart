@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-import 'package:marketplace_store_web/app/components/select/custom_drop_menu.dart';
-import 'package:marketplace_store_web/app/components/select/select_button.dart';
-import 'package:marketplace_store_web/app/models/pairs.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/select/custom_drop_menu.dart';
+import 'package:new_marketplace_web/app/components/select/select_button.dart';
+import 'package:new_marketplace_web/app/models/pairs.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/my_store_store.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class ProductQuantity extends StatefulWidget {
   final MyStoreStore controller;

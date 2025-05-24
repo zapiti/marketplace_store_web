@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_alter_page.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/page/page_web.dart';
+import 'package:new_marketplace_web/app/components/picker/user_image_widget.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/widget/my_store_alter_page.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 import '../../../store_store.dart';
 import '../my_store_page.dart';

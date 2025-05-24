@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
 
 
 class Menu {

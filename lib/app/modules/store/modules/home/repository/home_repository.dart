@@ -2,10 +2,10 @@
 
 
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/core/request_core.dart';
-import 'package:marketplace_store_web/app/models/page/response_paginated.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
-import 'package:marketplace_store_web/app/utils/object/object_utils.dart';
+import 'package:new_marketplace_web/app/core/request_core.dart';
+import 'package:new_marketplace_web/app/models/page/response_paginated.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/model/order.dart';
+import 'package:new_marketplace_web/app/utils/object/object_utils.dart';
 
 class HomeRepository {
 

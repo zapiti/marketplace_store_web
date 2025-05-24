@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/show_details_order_widget.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/sub_nivel/show_details_order_widget.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class PaymentWidget extends StatelessWidget {
   @override

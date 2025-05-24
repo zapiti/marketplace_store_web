@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/dialog/dialog_generic.dart';
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/modules/login/login_store.dart';
-import 'package:marketplace_store_web/app/modules/register/repository/register_repository.dart';
-import 'package:marketplace_store_web/app/modules/store/model/mystore.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/components/dialog/dialog_generic.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/modules/login/login_store.dart';
+import 'package:new_marketplace_web/app/modules/register/repository/register_repository.dart';
+import 'package:new_marketplace_web/app/modules/store/model/mystore.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
 
 part 'register_store.g.dart';

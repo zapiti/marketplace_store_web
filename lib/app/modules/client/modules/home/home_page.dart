@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/page/home/initial_home_page.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/page/home/initial_home_page.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
 
 
 import 'home_store.dart';

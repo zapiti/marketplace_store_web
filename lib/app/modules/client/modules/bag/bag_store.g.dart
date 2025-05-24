@@ -6,7 +6,7 @@ part of 'bag_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$BagStore on _BagStoreBase, Store {
   Computed<int>? _$processIndexComputed;
@@ -17,7 +17,8 @@ mixin _$BagStore on _BagStoreBase, Store {
               name: '_BagStoreBase.processIndex'))
           .value;
 
-  final _$_processIndexAtom = Atom(name: '_BagStoreBase._processIndex');
+  late final _$_processIndexAtom =
+      Atom(name: '_BagStoreBase._processIndex', context: context);
 
   @override
   int get _processIndex {
@@ -32,7 +33,8 @@ mixin _$BagStore on _BagStoreBase, Store {
     });
   }
 
-  final _$actualPageBagAtom = Atom(name: '_BagStoreBase.actualPageBag');
+  late final _$actualPageBagAtom =
+      Atom(name: '_BagStoreBase.actualPageBag', context: context);
 
   @override
   String get actualPageBag {
@@ -47,8 +49,8 @@ mixin _$BagStore on _BagStoreBase, Store {
     });
   }
 
-  final _$_BagStoreBaseActionController =
-      ActionController(name: '_BagStoreBase');
+  late final _$_BagStoreBaseActionController =
+      ActionController(name: '_BagStoreBase', context: context);
 
   @override
   void goNextProgress(int? index) {

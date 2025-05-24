@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:marketplace_store_web/app/app_store.dart';
-import 'package:marketplace_store_web/app/components/appbar/custom_landing_app_bar.dart';
-import 'package:marketplace_store_web/app/components/drawer/custom_landing_drawer.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/image/image_path.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/app_store.dart';
+import 'package:new_marketplace_web/app/components/appbar/custom_landing_app_bar.dart';
+import 'package:new_marketplace_web/app/components/drawer/custom_landing_drawer.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/image/image_path.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 
 class LandingPage extends StatefulWidget {
   @override

@@ -6,10 +6,11 @@ part of 'account_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AccountStore on _AccountStoreBase, Store {
-  final _$walletDataAtom = Atom(name: '_AccountStoreBase.walletData');
+  late final _$walletDataAtom =
+      Atom(name: '_AccountStoreBase.walletData', context: context);
 
   @override
   WalletData? get walletData {
@@ -24,7 +25,8 @@ mixin _$AccountStore on _AccountStoreBase, Store {
     });
   }
 
-  final _$showPassActualAtom = Atom(name: '_AccountStoreBase.showPassActual');
+  late final _$showPassActualAtom =
+      Atom(name: '_AccountStoreBase.showPassActual', context: context);
 
   @override
   bool get showPassActual {
@@ -39,7 +41,8 @@ mixin _$AccountStore on _AccountStoreBase, Store {
     });
   }
 
-  final _$showPassAtom = Atom(name: '_AccountStoreBase.showPass');
+  late final _$showPassAtom =
+      Atom(name: '_AccountStoreBase.showPass', context: context);
 
   @override
   bool get showPass {
@@ -54,7 +57,8 @@ mixin _$AccountStore on _AccountStoreBase, Store {
     });
   }
 
-  final _$showPassConfirmAtom = Atom(name: '_AccountStoreBase.showPassConfirm');
+  late final _$showPassConfirmAtom =
+      Atom(name: '_AccountStoreBase.showPassConfirm', context: context);
 
   @override
   bool get showPassConfirm {
@@ -69,7 +73,8 @@ mixin _$AccountStore on _AccountStoreBase, Store {
     });
   }
 
-  final _$accountInfoAtom = Atom(name: '_AccountStoreBase.accountInfo');
+  late final _$accountInfoAtom =
+      Atom(name: '_AccountStoreBase.accountInfo', context: context);
 
   @override
   AccountInfo get accountInfo {
@@ -84,8 +89,9 @@ mixin _$AccountStore on _AccountStoreBase, Store {
     });
   }
 
-  final _$getListWalletTransitionAsyncAction =
-      AsyncAction('_AccountStoreBase.getListWalletTransition');
+  late final _$getListWalletTransitionAsyncAction = AsyncAction(
+      '_AccountStoreBase.getListWalletTransition',
+      context: context);
 
   @override
   Future<void> getListWalletTransition() {
@@ -93,23 +99,24 @@ mixin _$AccountStore on _AccountStoreBase, Store {
         .run(() => super.getListWalletTransition());
   }
 
-  final _$getAccountInfoAsyncAction =
-      AsyncAction('_AccountStoreBase.getAccountInfo');
+  late final _$getAccountInfoAsyncAction =
+      AsyncAction('_AccountStoreBase.getAccountInfo', context: context);
 
   @override
   Future<void> getAccountInfo() {
     return _$getAccountInfoAsyncAction.run(() => super.getAccountInfo());
   }
 
-  final _$changePassAsyncAction = AsyncAction('_AccountStoreBase.changePass');
+  late final _$changePassAsyncAction =
+      AsyncAction('_AccountStoreBase.changePass', context: context);
 
   @override
   Future<void> changePass(BuildContext context) {
     return _$changePassAsyncAction.run(() => super.changePass(context));
   }
 
-  final _$updateAccountAsyncAction =
-      AsyncAction('_AccountStoreBase.updateAccount');
+  late final _$updateAccountAsyncAction =
+      AsyncAction('_AccountStoreBase.updateAccount', context: context);
 
   @override
   Future<void> updateAccount(BuildContext context, AccountInfo _accountInfo) {
@@ -117,8 +124,8 @@ mixin _$AccountStore on _AccountStoreBase, Store {
         .run(() => super.updateAccount(context, _accountInfo));
   }
 
-  final _$_AccountStoreBaseActionController =
-      ActionController(name: '_AccountStoreBase');
+  late final _$_AccountStoreBaseActionController =
+      ActionController(name: '_AccountStoreBase', context: context);
 
   @override
   dynamic hideActualPass() {

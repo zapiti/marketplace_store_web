@@ -1,11 +1,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/bag/bag_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/cart/current/address_widget.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/delivery/delivery_store.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/empty/empty_view.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/bag/bag_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/current/address_widget.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/delivery/delivery_store.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 
 

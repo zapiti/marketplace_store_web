@@ -1,13 +1,13 @@
-import 'package:marketplace_store_web/app/modules/client/modules/bag/bag_module.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/delivery/delivery_module.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/delivery/delivery_store.dart';
-import 'package:marketplace_store_web/app/modules/client/client_page.dart';
-import 'package:marketplace_store_web/app/modules/client/client_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/bag/bag_module.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/delivery/delivery_module.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/delivery/delivery_store.dart';
+import 'package:new_marketplace_web/app/modules/client/client_page.dart';
+import 'package:new_marketplace_web/app/modules/client/client_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/order_module.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/cart_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/order_module.dart';
 
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
 
 import 'modules/account/account_client_store.dart';
 import 'modules/account/account_module.dart';

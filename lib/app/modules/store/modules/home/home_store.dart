@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/repository/home_repository.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/model/order.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/repository/home_repository.dart';
 import 'package:mobx/mobx.dart';
 
 part 'home_store.g.dart';

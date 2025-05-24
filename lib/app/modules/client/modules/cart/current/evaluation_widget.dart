@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/entregador_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/divider/line_view_widget.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/sub_nivel/entregador_widget.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/model/order.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class EvaluationWidget extends StatelessWidget {
   Order order;

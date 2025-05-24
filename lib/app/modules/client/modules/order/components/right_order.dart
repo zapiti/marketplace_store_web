@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/bottom_order.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/header_order.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
+import 'package:new_marketplace_web/app/components/divider/line_view_widget.dart';
+import 'package:new_marketplace_web/app/components/empty/empty_view.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/sub_nivel/bottom_order.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/sub_nivel/header_order.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/model/order.dart';
 
 import 'package:timeline/model/timeline_model.dart';
 import 'package:timeline/timeline.dart';

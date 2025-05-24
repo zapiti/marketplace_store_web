@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/modules/login/widget/options_login.dart';
-import 'package:marketplace_store_web/app/modules/register/widget/options_register.dart';
-import 'package:marketplace_store_web/app/modules/register/widget/options_register_page.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/modules/login/widget/options_login.dart';
+import 'package:new_marketplace_web/app/modules/register/widget/options_register.dart';
+import 'package:new_marketplace_web/app/modules/register/widget/options_register_page.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 import 'package:responsive/flex_widget.dart';
 import 'package:responsive/responsive_row.dart';
 

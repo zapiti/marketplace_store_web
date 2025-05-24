@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:grouped_list/grouped_list.dart';
-import 'package:marketplace_store_web/app/components/builder/load_builder.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/item/item_product_edit.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/components/builder/load_builder.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/item/item_product_edit.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 
 import '../../../store_store.dart';
 import '../my_store_store.dart';

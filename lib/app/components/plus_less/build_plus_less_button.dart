@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/plus_less/plus_less_component.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/components/plus_less/plus_less_component.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/cart_store.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
 
 
 buildPlusLessButton(BuildContext context, Product _product, CartStore controller) {

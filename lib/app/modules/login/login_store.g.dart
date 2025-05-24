@@ -6,10 +6,11 @@ part of 'login_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$LoginStore on _LoginStoreBase, Store {
-  final _$showHidePassAtom = Atom(name: '_LoginStoreBase.showHidePass');
+  late final _$showHidePassAtom =
+      Atom(name: '_LoginStoreBase.showHidePass', context: context);
 
   @override
   bool get showHidePass {
@@ -24,7 +25,8 @@ mixin _$LoginStore on _LoginStoreBase, Store {
     });
   }
 
-  final _$isLoadLoginAtom = Atom(name: '_LoginStoreBase.isLoadLogin');
+  late final _$isLoadLoginAtom =
+      Atom(name: '_LoginStoreBase.isLoadLogin', context: context);
 
   @override
   bool get isLoadLogin {
@@ -39,7 +41,8 @@ mixin _$LoginStore on _LoginStoreBase, Store {
     });
   }
 
-  final _$actualPageAtom = Atom(name: '_LoginStoreBase.actualPage');
+  late final _$actualPageAtom =
+      Atom(name: '_LoginStoreBase.actualPage', context: context);
 
   @override
   String? get actualPage {
@@ -54,8 +57,8 @@ mixin _$LoginStore on _LoginStoreBase, Store {
     });
   }
 
-  final _$_LoginStoreBaseActionController =
-      ActionController(name: '_LoginStoreBase');
+  late final _$_LoginStoreBaseActionController =
+      ActionController(name: '_LoginStoreBase', context: context);
 
   @override
   void showHideIcon() {

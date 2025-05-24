@@ -1,15 +1,15 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:marketplace_store_web/app/components/builder/load_builder.dart';
-import 'package:marketplace_store_web/app/components/builder/my_list_builder.dart';
-import 'package:marketplace_store_web/app/components/load/load_elements.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_page.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_category.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_product.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/widget/item/item_shops.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/components/builder/load_builder.dart';
+import 'package:new_marketplace_web/app/components/builder/my_list_builder.dart';
+import 'package:new_marketplace_web/app/components/load/load_elements.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/cart_page.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/widget/item/item_category.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/widget/item/item_product.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/widget/item/item_shops.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 import '../home_store.dart';
 import 'item/item_banner.dart';
 

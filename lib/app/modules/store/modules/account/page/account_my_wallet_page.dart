@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/empty/empty_view.dart';
+import 'package:new_marketplace_web/app/components/empty/empty_view.dart';
 
-import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/account/account_client_store.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/account/model/transaction.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/components/page/page_web.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/account/account_client_store.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/account/model/transaction.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 import 'package:simple_timeline/entity/timeline_entity.dart';
 import 'package:simple_timeline/simple_timeline.dart';
 import 'package:timelines/timelines.dart';

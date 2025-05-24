@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/cart/current/cart_widget.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/cart/current/payment_widget.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/current/cart_widget.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/current/payment_widget.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 
 class PaymentOrder extends StatelessWidget {
   @override

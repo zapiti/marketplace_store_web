@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:marketplace_store_web/app/models/pairs.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/models/pairs.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 /// O first é PK
 /// O second e o que vai exibir

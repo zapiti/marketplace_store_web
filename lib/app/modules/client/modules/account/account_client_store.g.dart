@@ -6,11 +6,11 @@ part of 'account_client_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AccountClientStore on _AccountClientStoreBase, Store {
-  final _$showPassActualAtom =
-      Atom(name: '_AccountClientStoreBase.showPassActual');
+  late final _$showPassActualAtom =
+      Atom(name: '_AccountClientStoreBase.showPassActual', context: context);
 
   @override
   bool get showPassActual {
@@ -25,7 +25,8 @@ mixin _$AccountClientStore on _AccountClientStoreBase, Store {
     });
   }
 
-  final _$showPassAtom = Atom(name: '_AccountClientStoreBase.showPass');
+  late final _$showPassAtom =
+      Atom(name: '_AccountClientStoreBase.showPass', context: context);
 
   @override
   bool get showPass {
@@ -40,8 +41,8 @@ mixin _$AccountClientStore on _AccountClientStoreBase, Store {
     });
   }
 
-  final _$showPassConfirmAtom =
-      Atom(name: '_AccountClientStoreBase.showPassConfirm');
+  late final _$showPassConfirmAtom =
+      Atom(name: '_AccountClientStoreBase.showPassConfirm', context: context);
 
   @override
   bool get showPassConfirm {
@@ -56,16 +57,16 @@ mixin _$AccountClientStore on _AccountClientStoreBase, Store {
     });
   }
 
-  final _$changePassAsyncAction =
-      AsyncAction('_AccountClientStoreBase.changePass');
+  late final _$changePassAsyncAction =
+      AsyncAction('_AccountClientStoreBase.changePass', context: context);
 
   @override
   Future<void> changePass(BuildContext context) {
     return _$changePassAsyncAction.run(() => super.changePass(context));
   }
 
-  final _$_AccountClientStoreBaseActionController =
-      ActionController(name: '_AccountClientStoreBase');
+  late final _$_AccountClientStoreBaseActionController =
+      ActionController(name: '_AccountClientStoreBase', context: context);
 
   @override
   dynamic hideActualPass() {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/divider/line_view_widget.dart';
+import 'package:new_marketplace_web/app/components/picker/user_image_widget.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/my_store_store.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 
 class ItemProductEdit extends StatefulWidget {

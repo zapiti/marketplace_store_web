@@ -1,8 +1,8 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:marketplace_store_web/app/models/pairs.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/models/pairs.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 
 

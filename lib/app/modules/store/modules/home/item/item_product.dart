@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/divider/line_view_widget.dart';
+import 'package:new_marketplace_web/app/components/picker/user_image_widget.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class ItemProduct extends StatefulWidget {
   final Product product;

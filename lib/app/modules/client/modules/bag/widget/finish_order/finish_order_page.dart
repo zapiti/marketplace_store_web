@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/bag/bag_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/address_order.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/finish_cash_order.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/initial_order.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/bag/widget/finish_order/stage/payment_order.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/bag/bag_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/bag/widget/finish_order/stage/address_order.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/bag/widget/finish_order/stage/finish_cash_order.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/bag/widget/finish_order/stage/initial_order.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/bag/widget/finish_order/stage/payment_order.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 import 'package:timelines/timelines.dart';
 
 class FinishOrder extends StatelessWidget {

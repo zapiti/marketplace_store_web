@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/tile/base_tile.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/tile/base_tile.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class AddressWidget extends StatelessWidget {
   @override

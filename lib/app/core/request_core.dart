@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:marketplace_store_web/app/components/load/dialog_loading.dart';
-import 'package:marketplace_store_web/app/models/code_response.dart';
-import 'package:marketplace_store_web/app/models/page/response_paginated.dart';
-import 'package:marketplace_store_web/app/utils/response/request_utils.dart';
+import 'package:new_marketplace_web/app/components/load/dialog_loading.dart';
+import 'package:new_marketplace_web/app/models/code_response.dart';
+import 'package:new_marketplace_web/app/models/page/response_paginated.dart';
+import 'package:new_marketplace_web/app/utils/response/request_utils.dart';
 
 import 'client/api_client.dart';
 

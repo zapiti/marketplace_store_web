@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/show_details_order_widget.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/cart_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/sub_nivel/show_details_order_widget.dart';
 
 class CartWidget extends StatelessWidget {
   final controller = Modular.get<CartStore>();

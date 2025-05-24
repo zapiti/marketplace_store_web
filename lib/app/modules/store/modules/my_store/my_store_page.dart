@@ -4,14 +4,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/page/load_my_story.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/widget/my_store_main_page.dart';
-import 'package:marketplace_store_web/app/modules/store/store_store.dart';
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/page/page_web.dart';
+import 'package:new_marketplace_web/app/components/picker/user_image_widget.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/my_store_store.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/page/load_my_story.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/widget/my_store_main_page.dart';
+import 'package:new_marketplace_web/app/modules/store/store_store.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class MyStorePage extends StatefulWidget {
   @override

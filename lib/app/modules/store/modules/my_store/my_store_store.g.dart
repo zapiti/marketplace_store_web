@@ -6,10 +6,11 @@ part of 'my_store_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$MyStoreStore on _MyStoreStoreBase, Store {
-  final _$currentProductAtom = Atom(name: '_MyStoreStoreBase.currentProduct');
+  late final _$currentProductAtom =
+      Atom(name: '_MyStoreStoreBase.currentProduct', context: context);
 
   @override
   Product get currentProduct {
@@ -24,7 +25,8 @@ mixin _$MyStoreStore on _MyStoreStoreBase, Store {
     });
   }
 
-  final _$actualPageAtom = Atom(name: '_MyStoreStoreBase.actualPage');
+  late final _$actualPageAtom =
+      Atom(name: '_MyStoreStoreBase.actualPage', context: context);
 
   @override
   String get actualPage {
@@ -39,8 +41,8 @@ mixin _$MyStoreStore on _MyStoreStoreBase, Store {
     });
   }
 
-  final _$actualProductPageAtom =
-      Atom(name: '_MyStoreStoreBase.actualProductPage');
+  late final _$actualProductPageAtom =
+      Atom(name: '_MyStoreStoreBase.actualProductPage', context: context);
 
   @override
   String get actualProductPage {
@@ -55,7 +57,8 @@ mixin _$MyStoreStore on _MyStoreStoreBase, Store {
     });
   }
 
-  final _$listProductsAtom = Atom(name: '_MyStoreStoreBase.listProducts');
+  late final _$listProductsAtom =
+      Atom(name: '_MyStoreStoreBase.listProducts', context: context);
 
   @override
   List<Product>? get listProducts {
@@ -70,15 +73,16 @@ mixin _$MyStoreStore on _MyStoreStoreBase, Store {
     });
   }
 
-  final _$saveProductAsyncAction = AsyncAction('_MyStoreStoreBase.saveProduct');
+  late final _$saveProductAsyncAction =
+      AsyncAction('_MyStoreStoreBase.saveProduct', context: context);
 
   @override
   Future<void> saveProduct(BuildContext context) {
     return _$saveProductAsyncAction.run(() => super.saveProduct(context));
   }
 
-  final _$_MyStoreStoreBaseActionController =
-      ActionController(name: '_MyStoreStoreBase');
+  late final _$_MyStoreStoreBaseActionController =
+      ActionController(name: '_MyStoreStoreBase', context: context);
 
   @override
   void updateCurrentProduct(Product product) {

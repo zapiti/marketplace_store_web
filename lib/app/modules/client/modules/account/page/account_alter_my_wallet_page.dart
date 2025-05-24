@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/page/page_web.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 
 class AccountAlterMyWalletPage extends StatefulWidget {

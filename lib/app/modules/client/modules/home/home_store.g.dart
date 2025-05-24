@@ -6,10 +6,11 @@ part of 'home_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$HomeStore on _HomeStoreBase, Store {
-  final _$listCategoryAtom = Atom(name: '_HomeStoreBase.listCategory');
+  late final _$listCategoryAtom =
+      Atom(name: '_HomeStoreBase.listCategory', context: context);
 
   @override
   List<Category>? get listCategory {
@@ -24,7 +25,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$listTypeAtom = Atom(name: '_HomeStoreBase.listType');
+  late final _$listTypeAtom =
+      Atom(name: '_HomeStoreBase.listType', context: context);
 
   @override
   List<Category>? get listType {
@@ -39,7 +41,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$listProductAtom = Atom(name: '_HomeStoreBase.listProduct');
+  late final _$listProductAtom =
+      Atom(name: '_HomeStoreBase.listProduct', context: context);
 
   @override
   List<Product>? get listProduct {
@@ -54,7 +57,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$listPromoAtom = Atom(name: '_HomeStoreBase.listPromo');
+  late final _$listPromoAtom =
+      Atom(name: '_HomeStoreBase.listPromo', context: context);
 
   @override
   List<Product>? get listPromo {
@@ -69,7 +73,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$listShopsAtom = Atom(name: '_HomeStoreBase.listShops');
+  late final _$listShopsAtom =
+      Atom(name: '_HomeStoreBase.listShops', context: context);
 
   @override
   List<Establishment>? get listShops {
@@ -84,7 +89,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$bannerAtom = Atom(name: '_HomeStoreBase.banner');
+  late final _$bannerAtom =
+      Atom(name: '_HomeStoreBase.banner', context: context);
 
   @override
   MyBanner? get banner {
@@ -99,7 +105,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$currentShopsAtom = Atom(name: '_HomeStoreBase.currentShops');
+  late final _$currentShopsAtom =
+      Atom(name: '_HomeStoreBase.currentShops', context: context);
 
   @override
   Establishment? get currentShops {
@@ -114,7 +121,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$selectedProductAtom = Atom(name: '_HomeStoreBase.selectedProduct');
+  late final _$selectedProductAtom =
+      Atom(name: '_HomeStoreBase.selectedProduct', context: context);
 
   @override
   Product? get selectedProduct {
@@ -129,38 +137,40 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
-  final _$getCurrentAddressAsyncAction =
-      AsyncAction('_HomeStoreBase.getCurrentAddress');
+  late final _$getCurrentAddressAsyncAction =
+      AsyncAction('_HomeStoreBase.getCurrentAddress', context: context);
 
   @override
   Future getCurrentAddress() {
     return _$getCurrentAddressAsyncAction.run(() => super.getCurrentAddress());
   }
 
-  final _$getListShopsAsyncAction = AsyncAction('_HomeStoreBase.getListShops');
+  late final _$getListShopsAsyncAction =
+      AsyncAction('_HomeStoreBase.getListShops', context: context);
 
   @override
   Future getListShops() {
     return _$getListShopsAsyncAction.run(() => super.getListShops());
   }
 
-  final _$getListCategoryAsyncAction =
-      AsyncAction('_HomeStoreBase.getListCategory');
+  late final _$getListCategoryAsyncAction =
+      AsyncAction('_HomeStoreBase.getListCategory', context: context);
 
   @override
   Future getListCategory() {
     return _$getListCategoryAsyncAction.run(() => super.getListCategory());
   }
 
-  final _$getListTypeAsyncAction = AsyncAction('_HomeStoreBase.getListType');
+  late final _$getListTypeAsyncAction =
+      AsyncAction('_HomeStoreBase.getListType', context: context);
 
   @override
   Future getListType() {
     return _$getListTypeAsyncAction.run(() => super.getListType());
   }
 
-  final _$getListProductAsyncAction =
-      AsyncAction('_HomeStoreBase.getListProduct');
+  late final _$getListProductAsyncAction =
+      AsyncAction('_HomeStoreBase.getListProduct', context: context);
 
   @override
   Future getListProduct(String? idShopping) {
@@ -168,8 +178,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
         .run(() => super.getListProduct(idShopping));
   }
 
-  final _$getCurrentShopByIDAsyncAction =
-      AsyncAction('_HomeStoreBase.getCurrentShopByID');
+  late final _$getCurrentShopByIDAsyncAction =
+      AsyncAction('_HomeStoreBase.getCurrentShopByID', context: context);
 
   @override
   Future getCurrentShopByID(String? idShopping) {
@@ -177,8 +187,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
         .run(() => super.getCurrentShopByID(idShopping));
   }
 
-  final _$setCurrentShopsAsyncAction =
-      AsyncAction('_HomeStoreBase.setCurrentShops');
+  late final _$setCurrentShopsAsyncAction =
+      AsyncAction('_HomeStoreBase.setCurrentShops', context: context);
 
   @override
   Future setCurrentShops(Establishment? myCurrentShop) {
@@ -186,8 +196,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
         .run(() => super.setCurrentShops(myCurrentShop));
   }
 
-  final _$setCurrentProductAsyncAction =
-      AsyncAction('_HomeStoreBase.setCurrentProduct');
+  late final _$setCurrentProductAsyncAction =
+      AsyncAction('_HomeStoreBase.setCurrentProduct', context: context);
 
   @override
   Future setCurrentProduct(Product? myCurrentProduct) {
@@ -195,8 +205,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
         .run(() => super.setCurrentProduct(myCurrentProduct));
   }
 
-  final _$_HomeStoreBaseActionController =
-      ActionController(name: '_HomeStoreBase');
+  late final _$_HomeStoreBaseActionController =
+      ActionController(name: '_HomeStoreBase', context: context);
 
   @override
   dynamic getBanner() {

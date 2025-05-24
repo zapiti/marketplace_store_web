@@ -1,4 +1,4 @@
-import 'package:marketplace_store_web/app/modules/store/modules/account/model/transaction.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/account/model/transaction.dart';
 
 class WalletData {
   final int wallet;

@@ -6,10 +6,11 @@ part of 'order_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$OrderStore on _OrderStoreBase, Store {
-  final _$listOrderAtom = Atom(name: '_OrderStoreBase.listOrder');
+  late final _$listOrderAtom =
+      Atom(name: '_OrderStoreBase.listOrder', context: context);
 
   @override
   List<Order>? get listOrder {
@@ -24,7 +25,8 @@ mixin _$OrderStore on _OrderStoreBase, Store {
     });
   }
 
-  final _$currentOrderAtom = Atom(name: '_OrderStoreBase.currentOrder');
+  late final _$currentOrderAtom =
+      Atom(name: '_OrderStoreBase.currentOrder', context: context);
 
   @override
   Order? get currentOrder {
@@ -39,15 +41,16 @@ mixin _$OrderStore on _OrderStoreBase, Store {
     });
   }
 
-  final _$getListOrderAsyncAction = AsyncAction('_OrderStoreBase.getListOrder');
+  late final _$getListOrderAsyncAction =
+      AsyncAction('_OrderStoreBase.getListOrder', context: context);
 
   @override
   Future getListOrder() {
     return _$getListOrderAsyncAction.run(() => super.getListOrder());
   }
 
-  final _$_OrderStoreBaseActionController =
-      ActionController(name: '_OrderStoreBase');
+  late final _$_OrderStoreBaseActionController =
+      ActionController(name: '_OrderStoreBase', context: context);
 
   @override
   void setCurrentOrder(Order order) {

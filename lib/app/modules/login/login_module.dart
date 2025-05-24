@@ -1,5 +1,5 @@
-import 'package:marketplace_store_web/app/modules/login/login_page.dart';
-import 'package:marketplace_store_web/app/modules/login/login_store.dart';
+import 'package:new_marketplace_web/app/modules/login/login_page.dart';
+import 'package:new_marketplace_web/app/modules/login/login_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 

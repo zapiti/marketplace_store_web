@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/chat/model/conversation.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/chat/model/conversation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/chat/bloc/chat_attendance_bloc.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/chat/model/conversation.dart';
-import 'package:marketplace_store_web/app/utils/date_utils.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/chat/bloc/chat_attendance_bloc.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/chat/model/conversation.dart';
+import 'package:new_marketplace_web/app/utils/date_utils.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 String removeAllHtmlTags(String htmlText) {
   RegExp exp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);

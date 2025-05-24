@@ -1,17 +1,17 @@
-import 'package:marketplace_store_web/app/modules/store/modules/account/page/account_alter_my_wallet_page.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/account/page/account_alter_pass_page.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/account/page/account_help_page.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/account/page/account_my_wallet_page.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/home_module.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_module.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/my_store/my_store_store.dart';
-import 'package:marketplace_store_web/app/modules/store/repository/store_repository.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/account/page/account_alter_my_wallet_page.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/account/page/account_alter_pass_page.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/account/page/account_help_page.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/account/page/account_my_wallet_page.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/home_module.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/my_store_module.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/my_store/my_store_store.dart';
+import 'package:new_marketplace_web/app/modules/store/repository/store_repository.dart';
 
-import 'package:marketplace_store_web/app/modules/store/store_page.dart';
-import 'package:marketplace_store_web/app/modules/store/store_store.dart';
+import 'package:new_marketplace_web/app/modules/store/store_page.dart';
+import 'package:new_marketplace_web/app/modules/store/store_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:marketplace_store_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
 
 import 'modules/account/account_module.dart';
 import 'modules/account/account_store.dart';

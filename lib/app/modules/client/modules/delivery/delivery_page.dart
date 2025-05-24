@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/delivery/delivery_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/delivery/widget/delivery_page_options.dart';
+import 'package:new_marketplace_web/app/components/page/page_web.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/delivery/delivery_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/delivery/widget/delivery_page_options.dart';
 
 class DeliveryPage extends StatefulWidget {
 

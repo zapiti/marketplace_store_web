@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
-import 'package:marketplace_store_web/app/utils/preferences/local_storage.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/model/order.dart';
+import 'package:new_marketplace_web/app/utils/preferences/local_storage.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 import 'package:mobx/mobx.dart';
 
 part 'cart_store.g.dart';

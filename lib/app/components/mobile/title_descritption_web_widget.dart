@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 
 class TitleDescriptionWebWidget extends StatelessWidget {

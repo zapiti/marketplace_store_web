@@ -1,7 +1,7 @@
-import 'package:marketplace_store_web/app/modules/client/modules/cart/cart_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/cart/cart_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/delivery/repository/delivery_repository.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/delivery/repository/delivery_repository.dart';
 
 import 'delivery_page.dart';
 import 'delivery_store.dart';

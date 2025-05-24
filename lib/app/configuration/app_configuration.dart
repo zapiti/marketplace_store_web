@@ -1,7 +1,7 @@
 
 
 
-import 'package:marketplace_store_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
 
 class AppConfiguration {
   static const CORE = "KEEPUP";

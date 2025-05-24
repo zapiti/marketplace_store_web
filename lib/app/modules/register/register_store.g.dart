@@ -6,10 +6,11 @@ part of 'register_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$RegisterStore on _RegisterStoreBase, Store {
-  final _$isLoadLoginAtom = Atom(name: '_RegisterStoreBase.isLoadLogin');
+  late final _$isLoadLoginAtom =
+      Atom(name: '_RegisterStoreBase.isLoadLogin', context: context);
 
   @override
   bool get isLoadLogin {
@@ -24,8 +25,8 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  final _$showHidePassConfirmAtom =
-      Atom(name: '_RegisterStoreBase.showHidePassConfirm');
+  late final _$showHidePassConfirmAtom =
+      Atom(name: '_RegisterStoreBase.showHidePassConfirm', context: context);
 
   @override
   bool get showHidePassConfirm {
@@ -40,7 +41,8 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  final _$showHidePassAtom = Atom(name: '_RegisterStoreBase.showHidePass');
+  late final _$showHidePassAtom =
+      Atom(name: '_RegisterStoreBase.showHidePass', context: context);
 
   @override
   bool get showHidePass {
@@ -55,7 +57,8 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  final _$termAtom = Atom(name: '_RegisterStoreBase.term');
+  late final _$termAtom =
+      Atom(name: '_RegisterStoreBase.term', context: context);
 
   @override
   bool get term {
@@ -70,7 +73,8 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  final _$actualPageAtom = Atom(name: '_RegisterStoreBase.actualPage');
+  late final _$actualPageAtom =
+      Atom(name: '_RegisterStoreBase.actualPage', context: context);
 
   @override
   String? get actualPage {
@@ -85,16 +89,16 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  final _$getRegisterAsyncAction =
-      AsyncAction('_RegisterStoreBase.getRegister');
+  late final _$getRegisterAsyncAction =
+      AsyncAction('_RegisterStoreBase.getRegister', context: context);
 
   @override
   Future<void> getRegister(BuildContext context) {
     return _$getRegisterAsyncAction.run(() => super.getRegister(context));
   }
 
-  final _$getRegisterProductAsyncAction =
-      AsyncAction('_RegisterStoreBase.getRegisterProduct');
+  late final _$getRegisterProductAsyncAction =
+      AsyncAction('_RegisterStoreBase.getRegisterProduct', context: context);
 
   @override
   Future getRegisterProduct(BuildContext context, MyStore myStore) {
@@ -102,8 +106,8 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
         .run(() => super.getRegisterProduct(context, myStore));
   }
 
-  final _$_RegisterStoreBaseActionController =
-      ActionController(name: '_RegisterStoreBase');
+  late final _$_RegisterStoreBaseActionController =
+      ActionController(name: '_RegisterStoreBase', context: context);
 
   @override
   dynamic changeTerm() {

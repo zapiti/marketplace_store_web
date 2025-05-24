@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_store_web/app/components/divider/line_view_widget.dart';
-import 'package:marketplace_store_web/app/components/drawer/semi_circle.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/divider/line_view_widget.dart';
+import 'package:new_marketplace_web/app/components/drawer/semi_circle.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class DrawerButton extends StatelessWidget {
    DrawerButton({

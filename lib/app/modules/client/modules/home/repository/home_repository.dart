@@ -1,11 +1,11 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/core/request_core.dart';
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/model/category.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
-import 'package:marketplace_store_web/app/utils/image/image_path.dart';
-import 'package:marketplace_store_web/app/utils/object/object_utils.dart';
+import 'package:new_marketplace_web/app/core/request_core.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/model/category.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/model/shops.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/utils/image/image_path.dart';
+import 'package:new_marketplace_web/app/utils/object/object_utils.dart';
 
 class HomeRepository {
   var _requestManager = Modular.get<RequestCore>();

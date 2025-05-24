@@ -4,16 +4,16 @@ import 'package:flutter/scheduler.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/components/builder/load_builder.dart';
+import 'package:new_marketplace_web/app/components/builder/load_builder.dart';
 
-import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/components/picker/user_image_widget.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/home_store.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/page/store/widget/store_page_options.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/components/page/page_web.dart';
+import 'package:new_marketplace_web/app/components/picker/user_image_widget.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/home_store.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/page/store/widget/store_page_options.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
 
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
-import 'package:marketplace_store_web/app/utils/utils.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/utils/utils.dart';
 
 class DetailStorePage extends StatefulWidget {
   final String idShops;

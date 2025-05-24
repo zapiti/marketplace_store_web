@@ -6,10 +6,11 @@ part of 'store_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$StoreStore on _StoreStoreBase, Store {
-  final _$currentIndexAtom = Atom(name: '_StoreStoreBase.currentIndex');
+  late final _$currentIndexAtom =
+      Atom(name: '_StoreStoreBase.currentIndex', context: context);
 
   @override
   int get currentIndex {
@@ -24,7 +25,8 @@ mixin _$StoreStore on _StoreStoreBase, Store {
     });
   }
 
-  final _$establishmentAtom = Atom(name: '_StoreStoreBase.establishment');
+  late final _$establishmentAtom =
+      Atom(name: '_StoreStoreBase.establishment', context: context);
 
   @override
   Establishment? get establishment {
@@ -39,8 +41,8 @@ mixin _$StoreStore on _StoreStoreBase, Store {
     });
   }
 
-  final _$getCurrentEstablishmentAsyncAction =
-      AsyncAction('_StoreStoreBase.getCurrentEstablishment');
+  late final _$getCurrentEstablishmentAsyncAction =
+      AsyncAction('_StoreStoreBase.getCurrentEstablishment', context: context);
 
   @override
   Future getCurrentEstablishment() {
@@ -48,8 +50,8 @@ mixin _$StoreStore on _StoreStoreBase, Store {
         .run(() => super.getCurrentEstablishment());
   }
 
-  final _$updateEstablishmentAsyncAction =
-      AsyncAction('_StoreStoreBase.updateEstablishment');
+  late final _$updateEstablishmentAsyncAction =
+      AsyncAction('_StoreStoreBase.updateEstablishment', context: context);
 
   @override
   Future updateEstablishment(BuildContext context, Establishment _establishment,
@@ -58,8 +60,8 @@ mixin _$StoreStore on _StoreStoreBase, Store {
         super.updateEstablishment(context, _establishment, onlyStab: onlyStab));
   }
 
-  final _$_StoreStoreBaseActionController =
-      ActionController(name: '_StoreStoreBase');
+  late final _$_StoreStoreBaseActionController =
+      ActionController(name: '_StoreStoreBase', context: context);
 
   @override
   dynamic updateEstablishmentLocal(Establishment _establishment) {

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:marketplace_store_web/app/components/page/page_web.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/account/account_store.dart';
-import 'package:marketplace_store_web/app/utils/theme/app_theme_utils.dart';
+import 'package:new_marketplace_web/app/components/page/page_web.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/account/account_store.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class AccountAlterPassPage extends StatefulWidget {
   @override

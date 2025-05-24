@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/components/sub_nivel/show_details_order_widget.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/order/repository/order_repository.dart';
-import 'package:marketplace_store_web/app/modules/store/modules/home/model/order.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/components/sub_nivel/show_details_order_widget.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/order/repository/order_repository.dart';
+import 'package:new_marketplace_web/app/modules/store/modules/home/model/order.dart';
 import 'package:mobx/mobx.dart';
 import 'components/sub_nivel/show_chat_order_widget.dart';
 import 'model/order.dart';

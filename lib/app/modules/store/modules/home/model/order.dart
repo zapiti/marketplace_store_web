@@ -1,8 +1,8 @@
 
 
-import 'package:marketplace_store_web/app/models/current_user.dart';
-import 'package:marketplace_store_web/app/modules/client/modules/home/model/shops.dart';
-import 'package:marketplace_store_web/app/modules/store/model/product.dart';
+import 'package:new_marketplace_web/app/models/current_user.dart';
+import 'package:new_marketplace_web/app/modules/client/modules/home/model/shops.dart';
+import 'package:new_marketplace_web/app/modules/store/model/product.dart';
 
 class Order {
 

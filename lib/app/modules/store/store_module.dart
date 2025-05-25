@@ -29,7 +29,6 @@ class StoreModule extends Module {
     Bind.lazySingleton((i) => StoreRepository()),
     Bind.lazySingleton((i) => AccountStore()),
     Bind.lazySingleton((i) => AccountRepository()),
-
   ];
 
   @override
@@ -42,24 +41,26 @@ class StoreModule extends Module {
             module: HomeModule(), transition: TransitionType.fadeIn),
         ModuleRoute(ConstantsRoutes.MY_STORE_PAGE,
             module: MyStoreModule(), transition: TransitionType.fadeIn),
-
         ModuleRoute(ConstantsRoutes.ACCOUNTSTOREPAGE,
             module: AccountModule(), transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.ALTERPASSSTORE,
-            child: (_, args) => AccountAlterPassPage(), transition: TransitionType.fadeIn),
+            child: (_, args) => AccountAlterPassPage(),
+            transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.HELPSTORE,
-            child: (_, args) => AccountHelpPage(), transition: TransitionType.fadeIn),
-        
+            child: (_, args) => AccountHelpPage(),
+            transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.ALTER_STORE_PAGE,
-            child: (_, args) => AlterMyStorePage(), transition: TransitionType.fadeIn),
+            child: (_, args) => AlterMyStorePage(),
+            transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.ALTER_PRODUCT_STORE_PAGE,
-            child: (_, args) => AddProductStorePage(), transition: TransitionType.fadeIn),
-     
-      
+            child: (_, args) => AddProductStorePage(),
+            transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.WALLET,
-            child: (_, args) => AccountMyWalletPage(), transition: TransitionType.fadeIn),
+            child: (_, args) => AccountMyWalletPage(),
+            transition: TransitionType.fadeIn),
         ChildRoute(ConstantsRoutes.ALTERWALLET,
-            child: (_, args) => AccountAlterMyWalletPage(), transition: TransitionType.fadeIn)
+            child: (_, args) => AccountAlterMyWalletPage(),
+            transition: TransitionType.fadeIn)
       ],
     ),
   ];

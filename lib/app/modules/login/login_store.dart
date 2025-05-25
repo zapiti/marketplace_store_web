@@ -16,7 +16,6 @@ abstract class _LoginStoreBase with Store {
   final PRODUTO = "PRODUTO";
   final ENTREGADOR = "ENTREGADOR";
 
-  final emailController = TextEditingController();
   final userController = TextEditingController();
   final passController = TextEditingController();
   final authRepository = Modular.get<AuthRepository>();
@@ -66,14 +65,13 @@ abstract class _LoginStoreBase with Store {
   getLoginClient(BuildContext context) async {
     showLoad();
     final resultLogin = await authRepository.getLogin(
-      username: emailController.text,
+      username: userController.text,
       password: passController.text,
       isClient: true,
     );
     hideLoad();
     if (resultLogin.error == null) {
       await Future.delayed(Duration(seconds: 1));
-
       Modular.to.pushReplacementNamed(ConstantsRoutes.CLIENTROUTE);
     } else {
       Utils.showSnackBar(resultLogin.error, context);
@@ -82,16 +80,14 @@ abstract class _LoginStoreBase with Store {
 
   getLoginStore(BuildContext context) async {
     showLoad();
-
     final resultLogin = await authRepository.getLogin(
-      username: emailController.text,
+      username: userController.text,
       password: passController.text,
       isClient: false,
     );
     hideLoad();
     if (resultLogin.error == null) {
       await Future.delayed(Duration(seconds: 1));
-
       Modular.to.pushReplacementNamed(ConstantsRoutes.STOREROUTE);
     } else {
       Utils.showSnackBar(resultLogin.error, context);
@@ -100,7 +96,6 @@ abstract class _LoginStoreBase with Store {
 
   @override
   void dispose() {
-    emailController.dispose();
     userController.dispose();
     passController.dispose();
   }

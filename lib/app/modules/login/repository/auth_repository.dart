@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:new_marketplace_web/app/core/request_core.dart';
 import 'package:new_marketplace_web/app/models/current_user.dart';
@@ -25,41 +24,41 @@ class AuthRepository {
       funcFromMap: (data) => data,
       typeRequest: TYPEREQUEST.POST,
     );
+
     if (result.error == null) {
       if (result.content.toString().contains("access_token")) {
-        var token = result.content["access_token"];
-        var current = CurrentUser.fromMap(JwtDecoder.decode(token));
+        var userData = result.content["user"];
+        var current = CurrentUser.fromMap(userData);
         var appStore = Modular.get<AppStore>();
         appStore.setCurrentUser(current);
-        _setToken(token);
+        await _setToken(result.content["access_token"]);
       }
     }
 
     return result;
   }
 
-  Future<String> _setToken(String token) async {
-    return await LocalDataStore.setData(key: CurrentUser.USERLOG, value: token);
+  Future<void> _setToken(String token) async {
+    await LocalDataStore.setData(key: CurrentUser.USERLOG, value: token);
   }
 
   Future<String?> getToken() async {
-    var user = await LocalDataStore.getValue(key: CurrentUser.USERLOG);
-    if (user == null) {
+    try {
+      return await LocalDataStore.getValue(key: CurrentUser.USERLOG);
+    } catch (e) {
       return null;
-    } else {
-      return user;
     }
   }
 
   Future<ResponsePaginated> getLogout() async {
-    LocalDataStore.deleteAll();
+    await LocalDataStore.deleteAll();
     Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
     return ResponsePaginated();
   }
 
   Future<void> setToken(CurrentUser currentUser) async {
     var user = currentUser.toMap();
-    return await LocalDataStore.setData(
+    await LocalDataStore.setData(
         key: CurrentUser.USERLOG, value: jsonEncode(user));
   }
 }

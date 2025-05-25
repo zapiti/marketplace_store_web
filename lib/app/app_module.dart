@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:new_marketplace_web/app/core/request_core.dart';
+import 'package:new_marketplace_web/app/app_store.dart';
+import 'package:new_marketplace_web/app/core/mock_request_core.dart';
+import 'package:new_marketplace_web/app/modules/client/client_module.dart';
 import 'package:new_marketplace_web/app/modules/login/login_module.dart';
 import 'package:new_marketplace_web/app/modules/register/register_module.dart';
+import 'package:new_marketplace_web/app/modules/store/store_module.dart';
 import 'package:new_marketplace_web/app/routes/constants_routes.dart';
 import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => RequestCore()),
+    Bind.lazySingleton((i) => MockRequestCore()),
+    Bind.lazySingleton((i) => AppStore()),
   ];
 
   @override
   final List<ModularRoute> routes = [
     ModuleRoute(Modular.initialRoute, module: LoginModule()),
     ModuleRoute(ConstantsRoutes.REGISTER, module: RegisterModule()),
+    ModuleRoute(ConstantsRoutes.CLIENTROUTE, module: ClientModule()),
+    ModuleRoute(ConstantsRoutes.STOREROUTE, module: StoreModule()),
   ];
 }
 

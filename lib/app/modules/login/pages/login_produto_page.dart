@@ -48,26 +48,24 @@ class _LoginProdutoPageState
                     color: AppThemeUtils.colorGrayBg,
                     margin: EdgeInsets.symmetric(horizontal: 30),
                     child: Observer(
-                      builder:
-                          (context) => TextField(
-                            enabled: !controller.isLoadLogin,
-                            controller: controller.emailController,
-                            textAlign: TextAlign.start,
-                            textAlignVertical: TextAlignVertical.top,
-                            decoration: InputDecoration(
-                              labelText: "E-mail",
-                              prefixIcon: Icon(
-                                Icons.email,
-                                color: AppThemeUtils.colorPrimary,
-                              ),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: AppThemeUtils.colorGrayBg,
-                                  width: 0.0,
-                                ),
-                              ),
+                      builder: (context) => TextField(
+                        enabled: !controller.isLoadLogin,
+                        textAlign: TextAlign.start,
+                        textAlignVertical: TextAlignVertical.top,
+                        decoration: InputDecoration(
+                          labelText: "E-mail",
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: AppThemeUtils.colorPrimary,
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppThemeUtils.colorGrayBg,
+                              width: 0.0,
                             ),
                           ),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 30),
@@ -76,38 +74,37 @@ class _LoginProdutoPageState
                     color: AppThemeUtils.colorGrayBg,
                     margin: EdgeInsets.symmetric(horizontal: 30),
                     child: Observer(
-                      builder:
-                          (context) => TextField(
-                            enabled: !controller.isLoadLogin,
-                            obscureText: controller.showHidePass,
-                            controller: controller.passController,
-                            textAlign: TextAlign.start,
-                            textAlignVertical: TextAlignVertical.top,
-                            decoration: InputDecoration(
-                              labelText: "Senha",
-                              prefixIcon: Icon(
-                                Icons.lock,
-                                color: AppThemeUtils.colorPrimary,
-                              ),
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  controller.showHidePass
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
-                                  color: AppThemeUtils.darkGrey,
-                                ),
-                                onPressed: () {
-                                  controller.showHideIcon();
-                                },
-                              ),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: AppThemeUtils.colorGrayBg,
-                                  width: 0.0,
-                                ),
-                              ),
+                      builder: (context) => TextField(
+                        enabled: !controller.isLoadLogin,
+                        obscureText: controller.showHidePass,
+                        controller: controller.passController,
+                        textAlign: TextAlign.start,
+                        textAlignVertical: TextAlignVertical.top,
+                        decoration: InputDecoration(
+                          labelText: "Senha",
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: AppThemeUtils.colorPrimary,
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              controller.showHidePass
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: AppThemeUtils.darkGrey,
+                            ),
+                            onPressed: () {
+                              controller.showHideIcon();
+                            },
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppThemeUtils.colorGrayBg,
+                              width: 0.0,
                             ),
                           ),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 30),
@@ -121,25 +118,22 @@ class _LoginProdutoPageState
                     width: MediaQuery.of(context).size.width,
                     height: 50,
                     child: Observer(
-                      builder:
-                          (context) =>
-                              controller.isLoadLogin
-                                  ? CircularProgressIndicator()
-                                  : ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          AppThemeUtils.colorPrimary,
-                                    ),
-                                    onPressed: () {
-                                      controller.login();
-                                    },
-                                    child: Text(
-                                      "Entrar",
-                                      style: AppThemeUtils.normalBoldSize(
-                                        color: AppThemeUtils.whiteColor,
-                                      ),
-                                    ),
-                                  ),
+                      builder: (context) => controller.isLoadLogin
+                          ? CircularProgressIndicator()
+                          : ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppThemeUtils.colorPrimary,
+                              ),
+                              onPressed: () {
+                                controller.login();
+                              },
+                              child: Text(
+                                "Entrar",
+                                style: AppThemeUtils.normalBoldSize(
+                                  color: AppThemeUtils.whiteColor,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                   Container(

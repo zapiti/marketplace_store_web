@@ -24,19 +24,20 @@ class ProductSobre extends StatelessWidget {
         child: Column(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-          child: Observer(builder: (_)=> UserImageWidget(
-            changeImage: (txt) {
-              controller.currentProduct.image = txt;
-              controller.updateCurrentProduct(controller.currentProduct);
-            },
-            width: MediaQuery.of(context).size.width,
-            height: 160,
-            isRounded: false,
-            addButtom: "Adicionar foto do produto",
-            userImage: controller.currentProduct.image,
-          ),
-        )),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            child: Observer(
+              builder: (_) => UserImageWidget(
+                changeImage: (txt) {
+                  controller.currentProduct.image = txt;
+                  controller.updateCurrentProduct(controller.currentProduct);
+                },
+                width: MediaQuery.of(context).size.width,
+                height: 160,
+                isRounded: false,
+                addButtom: "Adicionar foto do produto",
+                userImage: controller.currentProduct.image,
+              ),
+            )),
         Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: TextField(
@@ -142,8 +143,8 @@ class ProductSobre extends StatelessWidget {
               controller.updateCurrentProduct(controller.currentProduct);
               controller.nextToQuantity(context);
             },
-            style:
-                ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: AppThemeUtils.colorPrimary),
           ),
         ),
         SizedBox(

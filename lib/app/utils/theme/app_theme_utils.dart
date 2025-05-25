@@ -5,89 +5,135 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../utils/colors/hex_color_utils.dart';
 
 enum ThemeSize { BIG, MEDIUM, SMALL }
+
 enum ThemeLayoutType { WEB, ANDROID, IOS }
 
 class AppThemeUtils {
   final ThemeData kIOSTheme = ThemeData(
-    //   primarySwatch: Theme.of(context).primaryColor,
     primaryColor: Colors.grey[100],
-    primaryColorBrightness: Brightness.light,
-    //  backgroundColor: Theme.of(context).primaryColor,
+    colorScheme: ColorScheme.light(
+      primary: Colors.grey[100]!,
+      brightness: Brightness.light,
+    ),
   );
 
   final ThemeData kWebTheme = ThemeData(
-    primarySwatch: Colors.purple,
-    // accentColor: Theme.of(context).primaryColor,
-    backgroundColor: Colors.white,
+    primaryColor: Colors.purple,
+    colorScheme: ColorScheme.light(
+      primary: Colors.purple,
+      background: Colors.white,
+    ),
   );
 
   final ThemeData kAndroidTheme = ThemeData(
-    primarySwatch: Colors.purple,
-    // accentColor: Theme.of(context).primaryColor,
-    backgroundColor: Colors.yellow,
+    primaryColor: Colors.purple,
+    colorScheme: ColorScheme.light(
+      primary: Colors.purple,
+      background: Colors.yellow,
+    ),
   );
 
-  static var colorGrayLight = Colors.grey[400];
-
-  static Color orangeColor = HexColor("F06565");
-  static Color blueColor = HexColor("309AE7");
-
-  static var whiteColor = Colors.white;
-
-  static var colorGrayBg = HexColor("F4F5F5");
-
-  static var successColor = HexColor("#479934");
-
-  static var yellow = Colors.yellow[800];
-
-  //static var grey = Colors.grey;
+  static const Color colorPrimary = Color(0xFF2196F3);
+  static const Color colorSecondary = Color(0xFF03A9F4);
+  static const Color colorAccent = Color(0xFF00BCD4);
+  static const Color colorGrayBg = Color(0xFFF5F5F5);
+  static const Color darkGrey = Color(0xFF757575);
+  static const Color whiteColor = Colors.white;
+  static final Color black = Colors.black;
+  static final Color colorGrayLight = Colors.grey[400]!;
+  static final Color orangeColor = HexColor("F06565");
+  static final Color blueColor = HexColor("309AE7");
+  static final Color successColor = HexColor("#479934");
+  static final Color yellow = Colors.yellow[800]!;
+  static final Color colorPrimaryDark = HexColor("192BC2");
+  static final Color iconColor = HexColor("964015");
+  static final Color colorError = HexColor("CA3838");
+  static final Color completeColor = Color(0xff5e6172);
+  static final Color inProgressColor = colorPrimary;
+  static final Color todoColor = Color(0xffd1d2d7);
 
   static TextStyle bigBoldSize({Color? color}) => GoogleFonts.quicksand(
-      decoration: TextDecoration.none,
-      fontSize: 22,
-      fontWeight: FontWeight.bold,
-      color: color);
+        decoration: TextDecoration.none,
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+        color: color,
+      );
 
   static TextStyle bigSize({Color? color, double fontSise = 22}) =>
       GoogleFonts.quicksand(
-          decoration: TextDecoration.none, fontSize: fontSise, color: color);
+        decoration: TextDecoration.none,
+        fontSize: fontSise,
+        color: color,
+      );
 
-  static TextStyle normalBoldSize({Color? color, double fontSize = 16}) =>
-      GoogleFonts.quicksand(
-          decoration: TextDecoration.none,
-          fontSize: fontSize,
-          fontWeight: FontWeight.bold,
-          color: color);
+  static TextStyle normalSize({Color? color, double? fontSize}) {
+    return TextStyle(color: color ?? darkGrey, fontSize: fontSize ?? 16);
+  }
 
-  static TextStyle normalSize({
-    Color? color,
-    double fontSize = 14,
-    TextDecoration decoration = TextDecoration.none,
-    FontWeight fontWeight = FontWeight.normal,
-  }) =>
-      GoogleFonts.quicksand(
-          decoration: decoration,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          color: color);
+  static TextStyle normalBoldSize({Color? color, double? fontSize}) {
+    return TextStyle(
+      color: color ?? darkGrey,
+      fontSize: fontSize ?? 16,
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  static TextStyle titleSize({Color? color, double? fontSize}) {
+    return TextStyle(
+      color: color ?? darkGrey,
+      fontSize: fontSize ?? 24,
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  static TextStyle subtitleSize({Color? color, double? fontSize}) {
+    return TextStyle(
+      color: color ?? darkGrey,
+      fontSize: fontSize ?? 20,
+      fontWeight: FontWeight.w500,
+    );
+  }
 
   static TextStyle smallSize({Color? color, double fontSize = 14}) =>
       GoogleFonts.quicksand(
-          decoration: TextDecoration.none, fontSize: fontSize, color: color);
+        decoration: TextDecoration.none,
+        fontSize: fontSize,
+        color: color,
+      );
 
-  static Color colorPrimary = HexColor("192BC2"); //" 00A4D5");
-  static Color colorPrimaryDark = HexColor("192BC2"); //"00A4D5");
-
-  static Color iconColor = HexColor("964015");
-  static Color black = HexColor("313534");
-  static Color darkGrey = HexColor("ADAEAE");
-  static Color colorError = HexColor("CA3838");
-  // static Color colorTextLight = HexColor("8A7776");
-
-  static Color completeColor = Color(0xff5e6172);
-  static Color inProgressColor = colorPrimary;
-  static Color todoColor = Color(0xffd1d2d7);
-
+  static ThemeData get lightTheme {
+    return ThemeData(
+      primaryColor: colorPrimary,
+      colorScheme: ColorScheme.light(
+        primary: colorPrimary,
+        secondary: colorSecondary,
+        surface: whiteColor,
+        background: colorGrayBg,
+        error: Colors.red,
+      ),
+      scaffoldBackgroundColor: colorGrayBg,
+      appBarTheme: AppBarTheme(
+        backgroundColor: colorPrimary,
+        foregroundColor: whiteColor,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: colorPrimary,
+          foregroundColor: whiteColor,
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: colorPrimary),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: whiteColor,
+        border: OutlineInputBorder(borderSide: BorderSide(color: colorPrimary)),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: colorPrimary, width: 2),
+        ),
+        labelStyle: TextStyle(color: darkGrey),
+      ),
+    );
+  }
 }
-
-

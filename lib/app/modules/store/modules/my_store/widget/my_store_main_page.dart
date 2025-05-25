@@ -1,5 +1,3 @@
-
-
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -43,7 +41,6 @@ class MyStoreMainPage extends StatelessWidget {
               children: [
                 Flexible(
                     child: Container(
-
                         width: 250,
                         margin:
                             EdgeInsets.symmetric(horizontal: 5, vertical: 20),
@@ -66,7 +63,6 @@ class MyStoreMainPage extends StatelessWidget {
                                     storeControl.establishment?.operationHours),
                                 style: AppThemeUtils.normalBoldSize(
                                     fontSize: 8, color: Colors.black),
-
                                 minFontSize: 8,
                               ),
                             ],

@@ -34,132 +34,142 @@ class _OptionsRegisterState
             height: MediaQuery.of(context).size.height,
             fit: BoxFit.fill,
           ),
-       Observer(builder: (_)=>   Container(
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    child: SvgPicture.asset(
-                      ImagePath.imageLogo,
-                      width: 150,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "DESEJA SE CADASTRAR PARA?",
-                        textAlign: TextAlign.center,
-                        style: AppThemeUtils.normalBoldSize(
-                            color: AppThemeUtils.whiteColor, fontSize: 20),
-                      )),
-                  Container(
-                      height: 50,
-                      width: 200,
-                      margin: EdgeInsets.all(10),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          controller.selectPage(controller.PEDIDO);
-                          if (widget.scrollController.hasClients)
-                            widget.scrollController.animateTo(
-                              widget.scrollController.position.maxScrollExtent,
-                              duration: new Duration(milliseconds: 200),
-                              curve: Curves.easeOut,
-                            );
-                        },
-                        child: Text(
-                          "FAZER UM PEDIDO",
-                          style: AppThemeUtils.normalBoldSize(
-                              color: controller.actualPage == controller.PEDIDO
-                                  ? AppThemeUtils.colorPrimary
-                                  : AppThemeUtils.whiteColor,fontSize: 14),
+          Observer(
+              builder: (_) => Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: SvgPicture.asset(
+                          ImagePath.imageLogo,
+                          width: 150,
+                          fit: BoxFit.fill,
                         ),
-                        style: ElevatedButton.styleFrom(
-                            primary:
-                                controller.actualPage == controller.PEDIDO
+                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            "DESEJA SE CADASTRAR PARA?",
+                            textAlign: TextAlign.center,
+                            style: AppThemeUtils.normalBoldSize(
+                                color: AppThemeUtils.whiteColor, fontSize: 20),
+                          )),
+                      Container(
+                          height: 50,
+                          width: 200,
+                          margin: EdgeInsets.all(10),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              controller.selectPage(controller.PEDIDO);
+                              if (widget.scrollController.hasClients)
+                                widget.scrollController.animateTo(
+                                  widget.scrollController.position
+                                      .maxScrollExtent,
+                                  duration: new Duration(milliseconds: 200),
+                                  curve: Curves.easeOut,
+                                );
+                            },
+                            child: Text(
+                              "FAZER UM PEDIDO",
+                              style: AppThemeUtils.normalBoldSize(
+                                  color:
+                                      controller.actualPage == controller.PEDIDO
+                                          ? AppThemeUtils.colorPrimary
+                                          : AppThemeUtils.whiteColor,
+                                  fontSize: 14),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    controller.actualPage == controller.PEDIDO
+                                        ? Colors.white
+                                        : Colors.transparent,
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5)),
+                                    side: BorderSide(
+                                        color: AppThemeUtils.whiteColor,
+                                        width: 1))),
+                          )),
+                      Container(
+                          height: 50,
+                          width: 200,
+                          margin: EdgeInsets.all(10),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              controller.selectPage(controller.PRODUTO);
+                              if (widget.scrollController.hasClients)
+                                widget.scrollController.animateTo(
+                                  widget.scrollController.position
+                                      .maxScrollExtent,
+                                  duration: new Duration(milliseconds: 200),
+                                  curve: Curves.easeOut,
+                                );
+                            },
+                            child: Text(
+                              "ANUNCIAR PRODUTOS",
+                              style: AppThemeUtils.normalBoldSize(
+                                  color: controller.actualPage ==
+                                          controller.PRODUTO
+                                      ? AppThemeUtils.colorPrimary
+                                      : AppThemeUtils.whiteColor,
+                                  fontSize: 14),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    controller.actualPage == controller.PRODUTO
+                                        ? Colors.white
+                                        : Colors.transparent,
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5)),
+                                    side: BorderSide(
+                                        color: AppThemeUtils.whiteColor,
+                                        width: 1))),
+                          )),
+                      Container(
+                          height: 50,
+                          width: 200,
+                          margin: EdgeInsets.all(10),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              controller.selectPage(controller.ENTREGADOR);
+                              if (widget.scrollController.hasClients)
+                                widget.scrollController.animateTo(
+                                  widget.scrollController.position
+                                      .maxScrollExtent,
+                                  duration: new Duration(milliseconds: 200),
+                                  curve: Curves.easeOut,
+                                );
+                            },
+                            child: Text(
+                              "REALIZAR ENTREGAS",
+                              style: AppThemeUtils.normalBoldSize(
+                                  color: controller.actualPage ==
+                                          controller.ENTREGADOR
+                                      ? AppThemeUtils.colorPrimary
+                                      : AppThemeUtils.whiteColor,
+                                  fontSize: 14),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: controller.actualPage ==
+                                        controller.ENTREGADOR
                                     ? Colors.white
                                     : Colors.transparent,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5)),
-                                side: BorderSide(
-                                    color: AppThemeUtils.whiteColor,
-                                    width: 1))),
-                      )),
-                  Container(
-                      height: 50,
-                      width: 200,
-                      margin: EdgeInsets.all(10),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          controller.selectPage(controller.PRODUTO);
-                          if (widget.scrollController.hasClients)
-                            widget.scrollController.animateTo(
-                              widget.scrollController.position.maxScrollExtent,
-                              duration: new Duration(milliseconds: 200),
-                              curve: Curves.easeOut,
-                            );
-                        },
-                        child: Text(
-                          "ANUNCIAR PRODUTOS",
-                          style: AppThemeUtils.normalBoldSize(
-                              color: controller.actualPage == controller.PRODUTO
-                                  ? AppThemeUtils.colorPrimary
-                                  : AppThemeUtils.whiteColor,fontSize: 14),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            primary: controller.actualPage == controller.PRODUTO
-                                ? Colors.white
-                                : Colors.transparent,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5)),
-                                side: BorderSide(
-                                    color:AppThemeUtils.whiteColor,
-                                    width: 1))),
-                      )),
-                  Container(
-                      height: 50,
-                      width: 200,
-                      margin: EdgeInsets.all(10),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          controller.selectPage(controller.ENTREGADOR);
-                          if (widget.scrollController.hasClients)
-                            widget.scrollController.animateTo(
-                              widget.scrollController.position.maxScrollExtent,
-                              duration: new Duration(milliseconds: 200),
-                              curve: Curves.easeOut,
-                            );
-                        },
-                        child: Text(
-                          "REALIZAR ENTREGAS",
-                          style: AppThemeUtils.normalBoldSize(
-                            color: controller.actualPage == controller.ENTREGADOR
-                                ? AppThemeUtils.colorPrimary
-                                : AppThemeUtils.whiteColor,fontSize: 14
-                          ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            primary:
-                                controller.actualPage == controller.ENTREGADOR
-                                    ? Colors.white
-                                    : Colors.transparent,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5)),
-                                side: BorderSide(
-                                    color: AppThemeUtils.whiteColor,
-                                    width: 1))),
-                      )),
-                ],
-              )))
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5)),
+                                    side: BorderSide(
+                                        color: AppThemeUtils.whiteColor,
+                                        width: 1))),
+                          )),
+                    ],
+                  )))
         ],
       ),
     );

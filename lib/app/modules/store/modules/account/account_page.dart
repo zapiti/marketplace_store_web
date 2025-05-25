@@ -17,53 +17,51 @@ class AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:PageWeb(child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                          margin: EdgeInsets.only(top: 30, bottom: 20),
-                          child: Text(
-                            "Sua conta",
-                            style: AppThemeUtils.normalBoldSize(
-                                color: AppThemeUtils.colorPrimary,
-                                fontSize: 24),
-                          )),
-                      TitleDescriptionWebWidget(
-                        title: "Alterar senha",
-                        action: () {
-                          Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_ALTERPASS);
-                        },
-                        iconData: FontAwesomeIcons.lock,
-                      ),
-                      lineViewWidget(),
-                      TitleDescriptionWebWidget(
-                        title: "Minha carteira",
-                        action: () {
-                          Modular.to.pushNamed(ConstantsRoutes.CALL_WALLET);
-                        },
-                        iconData: FontAwesomeIcons.wallet,
-                      ),
-                      lineViewWidget(),
-                      TitleDescriptionWebWidget(
-                        title: "Ajuda",
-                        action: () {
-                          Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_HELP);
-                        },
-                        iconData: FontAwesomeIcons.question,
-                      ),
-                      lineViewWidget(),
-                      TitleDescriptionWebWidget(
-                        title: "Sair",
-                        action: () {
-                          
-                          Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
-                        },
-                        iconData: Icons.exit_to_app,
-                      ),
-                      lineViewWidget(),
-                    ],
-                  ))
-    );
+        body: PageWeb(
+            child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+            margin: EdgeInsets.only(top: 30, bottom: 20),
+            child: Text(
+              "Sua conta",
+              style: AppThemeUtils.normalBoldSize(
+                  color: Theme.of(context).colorScheme.primary, fontSize: 24),
+            )),
+        TitleDescriptionWebWidget(
+          title: "Alterar senha",
+          action: () {
+            Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_ALTERPASS);
+          },
+          iconData: FontAwesomeIcons.lock,
+        ),
+        lineViewWidget(),
+        TitleDescriptionWebWidget(
+          title: "Minha carteira",
+          action: () {
+            Modular.to.pushNamed(ConstantsRoutes.CALL_WALLET);
+          },
+          iconData: FontAwesomeIcons.wallet,
+        ),
+        lineViewWidget(),
+        TitleDescriptionWebWidget(
+          title: "Ajuda",
+          action: () {
+            Modular.to.pushNamed(ConstantsRoutes.CALL_STORE_HELP);
+          },
+          iconData: FontAwesomeIcons.question,
+        ),
+        lineViewWidget(),
+        TitleDescriptionWebWidget(
+          title: "Sair",
+          action: () {
+            Modular.to.pushReplacementNamed(ConstantsRoutes.LOGIN);
+          },
+          iconData: Icons.exit_to_app,
+        ),
+        lineViewWidget(),
+      ],
+    )));
   }
 }

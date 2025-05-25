@@ -1,8 +1,9 @@
-import 'package:auto_size_text_pk/auto_size_text_pk.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:grouped_list/grouped_list.dart';
+
 import 'package:new_marketplace_web/app/components/empty/empty_view.dart';
 import 'package:new_marketplace_web/app/components/load/load_elements.dart';
 import 'package:new_marketplace_web/app/modules/store/modules/home/item/item_product_edit.dart';
@@ -43,12 +44,15 @@ class _MyStoreAlterPageState
                 Flexible(
                     child: Observer(
                         builder: (_) => Container(
-                            height: 60,width: 240,
+                            height: 60,
+                            width: 240,
                             margin: EdgeInsets.symmetric(
                                 horizontal: 5, vertical: 20),
                             child: ElevatedButton(
                               child: AutoSizeText(
-                                "Definir horário de funcionamento",textAlign: TextAlign.center,minFontSize: 8,
+                                "Definir horário de funcionamento",
+                                textAlign: TextAlign.center,
+                                minFontSize: 8,
                                 style: AppThemeUtils.normalSize(
                                     fontSize: 14,
                                     color: controller.actualPage ==
@@ -57,7 +61,7 @@ class _MyStoreAlterPageState
                                         : AppThemeUtils.colorPrimary),
                               ),
                               style: ElevatedButton.styleFrom(
-                                  primary: controller.actualPage ==
+                                  backgroundColor: controller.actualPage ==
                                           controller.HORARIO
                                       ? AppThemeUtils.colorPrimary
                                       : AppThemeUtils.whiteColor,
@@ -73,27 +77,30 @@ class _MyStoreAlterPageState
                 Flexible(
                     child: Observer(
                         builder: (_) => Container(
-                            height: 60,width: 240,
+                            height: 60,
+                            width: 240,
                             margin: EdgeInsets.symmetric(
                                 horizontal: 2, vertical: 20),
                             child: ElevatedButton(
                               child: AutoSizeText(
-                                "Definir tempo para preparo",textAlign: TextAlign.center,minFontSize: 8,
+                                "Definir tempo para preparo",
+                                textAlign: TextAlign.center,
+                                minFontSize: 8,
                                 style: AppThemeUtils.normalSize(
                                     fontSize: 14,
                                     color: controller.actualPage ==
-                                        controller.MYTEMPO
+                                            controller.MYTEMPO
                                         ? AppThemeUtils.whiteColor
                                         : AppThemeUtils.colorPrimary),
                               ),
                               style: ElevatedButton.styleFrom(
-                                  primary: controller.actualPage ==
-                                      controller.MYTEMPO
+                                  backgroundColor: controller.actualPage ==
+                                          controller.MYTEMPO
                                       ? AppThemeUtils.colorPrimary
                                       : AppThemeUtils.whiteColor,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
-                                      new BorderRadius.circular(4.0),
+                                          new BorderRadius.circular(4.0),
                                       side: BorderSide(
                                           color: AppThemeUtils.colorPrimary))),
                               onPressed: () {
@@ -103,12 +110,15 @@ class _MyStoreAlterPageState
                 Flexible(
                     child: Observer(
                         builder: (_) => Container(
-                            height: 60,width: 240,
+                            height: 60,
+                            width: 240,
                             margin: EdgeInsets.symmetric(
                                 horizontal: 2, vertical: 20),
                             child: ElevatedButton(
                               child: AutoSizeText(
-                                "Telefone para contato",textAlign: TextAlign.center,minFontSize: 8,
+                                "Telefone para contato",
+                                textAlign: TextAlign.center,
+                                minFontSize: 8,
                                 style: AppThemeUtils.normalSize(
                                     fontSize: 14,
                                     color: controller.actualPage ==
@@ -117,7 +127,7 @@ class _MyStoreAlterPageState
                                         : AppThemeUtils.colorPrimary),
                               ),
                               style: ElevatedButton.styleFrom(
-                                  primary: controller.actualPage ==
+                                  backgroundColor: controller.actualPage ==
                                           controller.TELEFONE
                                       ? AppThemeUtils.colorPrimary
                                       : AppThemeUtils.whiteColor,

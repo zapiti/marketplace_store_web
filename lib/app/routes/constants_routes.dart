@@ -4,6 +4,10 @@ class ConstantsRoutes {
   //static const String INICIO = '/inicio';
   static const String LOGIN = '/login';
   static const String SEARCH = '/search';
+  static const String REGISTER = '/register';
+  static const String HOME = '/home';
+  static const String PROFILE = '/profile';
+  static const String SETTINGS = '/settings';
 
   //region <!Loja!>
   static const String STOREROUTE = '/loja';
@@ -58,8 +62,9 @@ class ConstantsRoutes {
   static const String HOME_CLIENT_PAGE = '/home';
   static const String CALL_CLIENT_HOMEPAGE = CLIENTROUTE + HOME_CLIENT_PAGE;
 
-  static const String HOME_SHOP_CLIENT_PAGE  = '/detalhe_loja/';
-  static const String CALL_HOME_SHOP_CLIENT_PAGE = CLIENTROUTE + HOME_SHOP_CLIENT_PAGE;
+  static const String HOME_SHOP_CLIENT_PAGE = '/detalhe_loja/';
+  static const String CALL_HOME_SHOP_CLIENT_PAGE =
+      CLIENTROUTE + HOME_SHOP_CLIENT_PAGE;
   //endregion
 
   //region <!pedidos!>
@@ -68,12 +73,13 @@ class ConstantsRoutes {
   //endregion
 
   //region <!pedidos!>
-  static const String  DELIVERY_CLIENT_PAGE = '/entragas';
-  static const String CALL_DELIVERY_CLIENT_PAGE = CLIENTROUTE + DELIVERY_CLIENT_PAGE;
+  static const String DELIVERY_CLIENT_PAGE = '/entragas';
+  static const String CALL_DELIVERY_CLIENT_PAGE =
+      CLIENTROUTE + DELIVERY_CLIENT_PAGE;
   //endregion
 
   //region <!Sacola!>
-  static const String BAG_CLIENT_PAGE  = '/sacola';
+  static const String BAG_CLIENT_PAGE = '/sacola';
   static const String CALL_BAG_CLIENT_PAGE = CLIENTROUTE + BAG_CLIENT_PAGE;
   //endregion
 
@@ -81,14 +87,14 @@ class ConstantsRoutes {
   static const String ALTERPASSCLIENT = '/alterar_senha';
   static const String CALL_CLIENT_ALTERPASS = CLIENTROUTE + ALTERPASSCLIENT;
 
-  static const String HELPCLIENT= '/ajuda';
+  static const String HELPCLIENT = '/ajuda';
   static const String CALL_CLIENT_HELP = CLIENTROUTE + HELPCLIENT;
 
   static const String ACCOUNTCLIENTPAGE = '/conta';
-  static const String CALL_ACCOUNT_CLIENT_PAGE = CLIENTROUTE + ACCOUNTCLIENTPAGE;
+  static const String CALL_ACCOUNT_CLIENT_PAGE =
+      CLIENTROUTE + ACCOUNTCLIENTPAGE;
 
   static const String LANDING = '/inicio';
-
 
   //endregion
 

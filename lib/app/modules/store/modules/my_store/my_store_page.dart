@@ -48,7 +48,8 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                                 changeImage: (txt) {
                                   storeControl.establishment?.coverImage = txt;
                                   storeControl.updateEstablishment(
-                                      context, storeControl.establishment!,onlyStab: true);
+                                      context, storeControl.establishment!,
+                                      onlyStab: true);
                                 },
                                 width: MediaQuery.of(context).size.width,
                                 height: 160,
@@ -67,7 +68,8 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                                     changeImage: (txt) {
                                       storeControl.establishment?.image = txt;
                                       storeControl.updateEstablishment(
-                                          context, storeControl.establishment!,onlyStab: true);
+                                          context, storeControl.establishment!,
+                                          onlyStab: true);
                                     },
                                     userImage:
                                         storeControl.establishment?.image,
@@ -95,8 +97,9 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                                           "Editar loja",
                                           style: AppThemeUtils.normalSize(
                                               fontSize: 14,
-                                              color:
-                                                  AppThemeUtils.colorPrimary),
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary),
                                         ),
                                       ),
                                     )
@@ -113,7 +116,8 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                               child: Text(
                                 "+ Adicionar produto ",
                                 style: AppThemeUtils.normalSize(
-                                    color: AppThemeUtils.colorPrimary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     fontSize: 14),
                               ),
                               style: ElevatedButton.styleFrom(
@@ -122,7 +126,9 @@ class MyStorePageState extends ModularState<MyStorePage, MyStoreStore> {
                                       borderRadius:
                                           new BorderRadius.circular(4.0),
                                       side: BorderSide(
-                                          color: AppThemeUtils.colorPrimary))),
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary))),
                               onPressed: () {
                                 Modular.to.pushNamed(ConstantsRoutes
                                     .CALL_ALTER_PRODUCT_STORE_PAGE);
@@ -148,7 +154,7 @@ Container buildText(StoreStore storeControl) {
         Text(
           " (${storeControl.establishment?.description ?? ''})",
           style: AppThemeUtils.normalBoldSize(
-              fontSize: 12, color: AppThemeUtils.colorPrimary),
+              fontSize: 12, color: Theme.of(context).colorScheme.primary),
         )
       ],
     ),

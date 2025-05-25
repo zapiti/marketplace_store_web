@@ -75,10 +75,9 @@ class ProductBarCode extends StatelessWidget {
                       controller.saveProductToDigite(context);
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: AppThemeUtils.colorPrimary),
+                        backgroundColor: AppThemeUtils.colorPrimary),
                   ),
                 )),
-
               ],
             ),
             Container(
@@ -94,8 +93,8 @@ class ProductBarCode extends StatelessWidget {
                 onPressed: () {
                   controller.saveProduct(context);
                 },
-                style:
-                    ElevatedButton.styleFrom(primary: AppThemeUtils.darkGrey),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppThemeUtils.darkGrey),
               ),
             )
           ],

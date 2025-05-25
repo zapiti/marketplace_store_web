@@ -8,7 +8,6 @@ import 'package:new_marketplace_web/app/modules/store/modules/account/account_st
 
 import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
-
 class AccountAlterMyWalletPage extends StatefulWidget {
   @override
   AccountAlterMyWalletPageState createState() =>
@@ -31,7 +30,7 @@ class AccountAlterMyWalletPageState extends State<AccountAlterMyWalletPage> {
             child: Text(
               "Alterar carteira",
               style: AppThemeUtils.normalBoldSize(
-                  color: AppThemeUtils.colorPrimary, fontSize: 24),
+                  color: Theme.of(context).colorScheme.primary, fontSize: 24),
             )),
         Container(
             margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -121,8 +120,8 @@ class AccountAlterMyWalletPageState extends State<AccountAlterMyWalletPage> {
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              style:
-                  ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.primary),
               child: Text(
                 "ADICIONAR CONTA",
                 style:

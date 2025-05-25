@@ -1,79 +1,116 @@
 import 'package:flutter/material.dart';
-import 'package:new_marketplace_web/app/modules/login/widget/options_login.dart';
-import 'package:new_marketplace_web/app/modules/register/widget/options_register.dart';
-import 'package:new_marketplace_web/app/modules/register/widget/options_register_page.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:new_marketplace_web/app/modules/register/register_store.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
 import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
-import 'package:new_marketplace_web/app/utils/utils.dart';
-import 'package:responsive/flex_widget.dart';
-import 'package:responsive/responsive_row.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
-  RegisterPageState createState() => RegisterPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class RegisterPageState extends State<RegisterPage> {
-  ScrollController _scrollController = new ScrollController();
-
+class _RegisterPageState extends ModularState<RegisterPage, RegisterStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-          controller: _scrollController,
-          child: ResponsiveRow(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: <Widget>[
-                FlexWidget(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    child: OptionsRegister(_scrollController),
-                  ),
-                  xs: 12,
-                  md: 12,
-                  xl: 6,
-                  sm: 12,
-                  lg: 6,
-                  xxl: 6,
-                  xxxl: 6,
-                ),
-                FlexWidget(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.all(20),
-                    child: Stack(
-                      children: [
-                        OptionsRegisterPage(),
-                        Utils.isSmalSize(BoxConstraints(
-                                maxWidth: MediaQuery.of(context).size.width))
-                            ? SizedBox()
-                            : Align(
-                                alignment: Alignment.bottomRight,
-                                child: FloatingActionButton(
-                                    backgroundColor: AppThemeUtils.colorPrimary,
-                                    onPressed: () {
-                                      if (_scrollController.hasClients)
-                                        _scrollController.animateTo(
-                                          0,
-                                          duration:
-                                              new Duration(milliseconds: 200),
-                                          curve: Curves.easeOut,
-                                        );
-                                    },
-                                    child: Icon(Icons.arrow_circle_up_rounded)))
-                      ],
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+          child: Container(
+            width: 500,
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Escolha o tipo de ",
+                          style: AppThemeUtils.normalSize(fontSize: 20),
+                          children: [
+                            TextSpan(
+                              text: "cadastro",
+                              style: AppThemeUtils.normalBoldSize(fontSize: 20),
+                            ),
+                            TextSpan(
+                              text: ":",
+                              style: AppThemeUtils.normalSize(fontSize: 20),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                  xs: 12,
-                  md: 12,
-                  xl: 6,
-                  sm: 12,
-                  lg: 6,
-                  xxl: 6,
-                  xxxl: 6,
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30),
+                      child: Column(
+                        children: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppThemeUtils.colorPrimary,
+                            ),
+                            onPressed: () {
+                              controller.selectPage(controller.PEDIDO);
+                              Modular.to.pushReplacementNamed(
+                                ConstantsRoutes.REGISTER,
+                              );
+                            },
+                            child: Text(
+                              "Cliente",
+                              style: AppThemeUtils.normalBoldSize(
+                                color: AppThemeUtils.whiteColor,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppThemeUtils.colorPrimary,
+                            ),
+                            onPressed: () {
+                              controller.selectPage(controller.PRODUTO);
+                              Modular.to.pushReplacementNamed(
+                                ConstantsRoutes.REGISTER,
+                              );
+                            },
+                            child: Text(
+                              "Loja",
+                              style: AppThemeUtils.normalBoldSize(
+                                color: AppThemeUtils.whiteColor,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppThemeUtils.colorPrimary,
+                            ),
+                            onPressed: () {
+                              controller.selectPage(controller.ENTREGADOR);
+                              Modular.to.pushReplacementNamed(
+                                ConstantsRoutes.REGISTER,
+                              );
+                            },
+                            child: Text(
+                              "Entregador",
+                              style: AppThemeUtils.normalBoldSize(
+                                color: AppThemeUtils.whiteColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ])),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

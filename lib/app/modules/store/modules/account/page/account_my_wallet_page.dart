@@ -43,7 +43,7 @@ class AccountMyWalletPageState extends State<AccountMyWalletPage> {
               child: Text(
                 "Minha carteira",
                 style: AppThemeUtils.normalBoldSize(
-                    color: AppThemeUtils.colorPrimary, fontSize: 24),
+                    color: Theme.of(context).colorScheme.primary, fontSize: 24),
               )),
           Container(
             child: Stack(
@@ -88,7 +88,7 @@ class AccountMyWalletPageState extends State<AccountMyWalletPage> {
                                 : AppThemeUtils.successColor),
                       ),
                       style: ElevatedButton.styleFrom(
-                          primary: AppThemeUtils.whiteColor,
+                          backgroundColor: AppThemeUtils.whiteColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(12.0),
                               side: BorderSide(
@@ -128,13 +128,13 @@ class AccountMyWalletPageState extends State<AccountMyWalletPage> {
                 )
               : SingleChildScrollView(
                   child: SimpleTimeLine(
-                      timelineList: ((_accountStore.walletData?.transactions ??
-                              []))
-                          .map<TimelineEntity>((e) => TimelineEntity(
-                              enable: true,
-                              description: e.description,
-                              title: Utils.moneyMasked(e.value)))
-                          .toList()))
+                      timelineList:
+                          ((_accountStore.walletData?.transactions ?? []))
+                              .map<TimelineEntity>((e) => TimelineEntity(
+                                  enable: true,
+                                  description: e.description,
+                                  title: Utils.moneyMasked(e.value)))
+                              .toList()))
         ]));
   }
 }

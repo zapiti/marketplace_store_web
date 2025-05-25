@@ -19,18 +19,24 @@ class ApiClient {
       _dio.options.baseUrl = baseUrl;
       print("Url=> $baseUrl");
 
-      _dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
-        var header = getHeaderToken(token: user);
-        options.headers = header;
+      _dio.interceptors.add(
+        InterceptorsWrapper(
+          onRequest: (options, handler) {
+            var header = getHeaderToken(token: user);
+            options.headers = header;
 
-        options.connectTimeout = 50 * 1000; // 60 seconds
-        options.receiveTimeout = 50 * 1000; // 60 seconds
-        return handler.next(options); //continue
-      }, onResponse: (response, handler) {
-        return handler.next(response); // continue
-      }, onError: (DioError e, handler) {
-        return handler.next(e); //continue
-      }));
+            options.connectTimeout = Duration(seconds: 50);
+            options.receiveTimeout = Duration(seconds: 50);
+            return handler.next(options); //continue
+          },
+          onResponse: (response, handler) {
+            return handler.next(response); // continue
+          },
+          onError: (DioError e, handler) {
+            return handler.next(e); //continue
+          },
+        ),
+      );
     } catch (e) {}
     return _dio;
   }

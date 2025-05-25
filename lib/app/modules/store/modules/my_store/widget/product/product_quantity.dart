@@ -35,102 +35,96 @@ class _ProductQuantityState extends State<ProductQuantity> {
                     setState(() {
                       newStoreUnity = myPairs;
                     });
-                    widget.controller.currentProduct.quantityType = myPairs.first;
+                    widget.controller.currentProduct.quantityType =
+                        myPairs.first;
                   },
                 )),
             newStoreUnity.first == "UNIDADE"
-                    ? Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                        child: TextField(
-                          controller: MaskedTextController(
-                              text: widget.controller.currentProduct.stock
-                                  ?.toString(),
-                              mask: '0000000'),
-                          onChanged: (text) {
-                            if (text.isNotEmpty) {
-                              widget.controller.currentProduct.stock =
-                                  double.tryParse(text);
-                            } else {
-                              widget.controller.currentProduct.stock = 0.0;
-                            }
+                ? Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    child: TextField(
+                      controller: MaskedTextController(
+                          text: widget.controller.currentProduct.stock
+                              ?.toString(),
+                          mask: '0000000'),
+                      onChanged: (text) {
+                        if (text.isNotEmpty) {
+                          widget.controller.currentProduct.stock =
+                              double.tryParse(text);
+                        } else {
+                          widget.controller.currentProduct.stock = 0.0;
+                        }
+                      },
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(borderSide: BorderSide()),
+                          labelText: 'Quantidade em estoque*'),
+                    ))
+                : Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    child: Column(
+                      children: [
+                        CustomDropMenuWidget(
+                          controller: TextEditingController(
+                              text: widget
+                                  .controller.currentProduct.quantityType),
+                          isExpanded: true,
+                          title: "Espeficações*",
+                          listen: (text) {
+                            widget.controller.currentProduct.specification =
+                                text;
                           },
-                          decoration: InputDecoration(
-                              border:
-                                  OutlineInputBorder(borderSide: BorderSide()),
-                              labelText: 'Quantidade em estoque*'),
-                        ))
-                    : Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                        child: Column(
-                          children: [
-                            CustomDropMenuWidget(
-                              controller: TextEditingController(
-                                  text: widget
-                                      .controller.currentProduct.quantityType),
-                              isExpanded: true,
-                              title: "Espeficações*",
-                              listen: (text) {
-                                widget.controller.currentProduct.specification =
-                                    text;
-                              },
-                              listElements: [
-                                Pairs("GRAMAS", "GRAMAS"),
-                                Pairs("KILOS", "KILOS"),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Expanded(
-                                    child: TextField(
-                                  controller: MaskedTextController(
-                                      text: widget
-                                          .controller.currentProduct.qtdMin
-                                          .toString(),
-                                      mask: '0000000'),
-                                  onChanged: (text) {
-                                    if (text.isNotEmpty) {
-                                      widget.controller.currentProduct.qtdMin =
-                                          double.tryParse(text);
-                                    } else {
-                                      widget.controller.currentProduct.qtdMin =
-                                          0.0;
-                                    }
-                                  },
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide()),
-                                      labelText: 'Qtd mínima*'),
-                                )),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                    child: TextField(
-                                  controller: MaskedTextController(
-                                      text: widget
-                                          .controller.currentProduct.qtdMax
-                                          .toString(),
-                                      mask: '0000000'),
-                                  onChanged: (text) {
-                                    if (text.isNotEmpty) {
-                                      widget.controller.currentProduct.qtdMax =
-                                          double.tryParse(text);
-                                    } else {
-                                      widget.controller.currentProduct.qtdMax =
-                                          0.0;
-                                    }
-                                  },
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide()),
-                                      labelText: 'Qtd máxima*'),
-                                ))
-                              ],
-                            )
+                          listElements: [
+                            Pairs("GRAMAS", "GRAMAS"),
+                            Pairs("KILOS", "KILOS"),
                           ],
-                        )),
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                                child: TextField(
+                              controller: MaskedTextController(
+                                  text: widget.controller.currentProduct.qtdMin
+                                      .toString(),
+                                  mask: '0000000'),
+                              onChanged: (text) {
+                                if (text.isNotEmpty) {
+                                  widget.controller.currentProduct.qtdMin =
+                                      double.tryParse(text);
+                                } else {
+                                  widget.controller.currentProduct.qtdMin = 0.0;
+                                }
+                              },
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide()),
+                                  labelText: 'Qtd mínima*'),
+                            )),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                                child: TextField(
+                              controller: MaskedTextController(
+                                  text: widget.controller.currentProduct.qtdMax
+                                      .toString(),
+                                  mask: '0000000'),
+                              onChanged: (text) {
+                                if (text.isNotEmpty) {
+                                  widget.controller.currentProduct.qtdMax =
+                                      double.tryParse(text);
+                                } else {
+                                  widget.controller.currentProduct.qtdMax = 0.0;
+                                }
+                              },
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide()),
+                                  labelText: 'Qtd máxima*'),
+                            ))
+                          ],
+                        )
+                      ],
+                    )),
             Container(
               height: 60,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -149,7 +143,7 @@ class _ProductQuantityState extends State<ProductQuantity> {
                         widget.controller.nextToQrcode(context);
                       },
                 style: ElevatedButton.styleFrom(
-                    primary: AppThemeUtils.colorPrimary),
+                    backgroundColor: AppThemeUtils.colorPrimary),
               ),
             )
           ],

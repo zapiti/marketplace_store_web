@@ -1,6 +1,5 @@
-
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:jwt_decode/jwt_decode.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:mobx/mobx.dart';
 import 'package:rxdart/rxdart.dart';
 import 'models/current_user.dart';
@@ -36,7 +35,7 @@ abstract class _AppStoreBase extends Disposable with Store {
     if (user == null) {
       var localUser = await _authToken.getToken();
       if (localUser != null) {
-        user = CurrentUser.fromMap(Jwt.parseJwt(localUser));
+        user = CurrentUser.fromMap(JwtDecoder.decode(localUser));
         currentUser = user;
       }
     }

@@ -61,10 +61,11 @@ class _MyStoreAddProductPageState
                                         : AppThemeUtils.colorPrimary),
                               ),
                               style: ElevatedButton.styleFrom(
-                                  primary: controller.actualProductPage ==
-                                          controller.SOBRE
-                                      ? AppThemeUtils.colorPrimary
-                                      : AppThemeUtils.whiteColor,
+                                  backgroundColor:
+                                      controller.actualProductPage ==
+                                              controller.SOBRE
+                                          ? AppThemeUtils.colorPrimary
+                                          : AppThemeUtils.colorPrimary,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(4.0),
@@ -95,10 +96,11 @@ class _MyStoreAddProductPageState
                                         : AppThemeUtils.colorPrimary),
                               ),
                               style: ElevatedButton.styleFrom(
-                                  primary: controller.actualProductPage ==
-                                          controller.QUANTIDADE
-                                      ? AppThemeUtils.colorPrimary
-                                      : AppThemeUtils.whiteColor,
+                                  backgroundColor:
+                                      controller.actualProductPage ==
+                                              controller.QUANTIDADE
+                                          ? AppThemeUtils.colorPrimary
+                                          : AppThemeUtils.colorPrimary,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(4.0),
@@ -129,10 +131,11 @@ class _MyStoreAddProductPageState
                                         : AppThemeUtils.colorPrimary),
                               ),
                               style: ElevatedButton.styleFrom(
-                                  primary: controller.actualProductPage ==
-                                          controller.CODIGO_DE_BARRAS
-                                      ? AppThemeUtils.colorPrimary
-                                      : AppThemeUtils.whiteColor,
+                                  backgroundColor:
+                                      controller.actualProductPage ==
+                                              controller.CODIGO_DE_BARRAS
+                                          ? AppThemeUtils.colorPrimary
+                                          : AppThemeUtils.colorPrimary,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(4.0),

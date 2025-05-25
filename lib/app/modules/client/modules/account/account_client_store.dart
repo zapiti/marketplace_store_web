@@ -9,8 +9,8 @@ import 'package:mobx/mobx.dart';
 part 'account_client_store.g.dart';
 
 class AccountClientStore = _AccountClientStoreBase with _$AccountClientStore;
-abstract class _AccountClientStoreBase with Store {
 
+abstract class _AccountClientStoreBase with Store {
   final _repository = Modular.get<AccountClientRepository>();
 
   final controllerHelp = TextEditingController();
@@ -63,7 +63,8 @@ abstract class _AccountClientStoreBase with Store {
         Utils.showSnackBar('Senha alterada com sucesso', context);
       }
     }
-    }
+  }
+
   Future<void> sendHelp(BuildContext context) async {
     final response = await _repository.sendHelp(controllerHelp.text);
 
@@ -71,11 +72,11 @@ abstract class _AccountClientStoreBase with Store {
       Utils.showSnackBar(response.error, context);
     } else {
       controllerHelp.clear();
-      showGenericDialog(
+      DialogGeneric.showGenericDialog(
           context: context,
           title: 'Salvo com sucesso',
           description:
-          "Sua dúvida foi enviada com sucesso logo retornaremos com sua resposta por email",
+              "Sua dúvida foi enviada com sucesso logo retornaremos com sua resposta por email",
           positiveText: 'OK',
           positiveCallback: () {
             Modular.to.navigate(ConstantsRoutes.CALL_ACCOUNT_CLIENT_PAGE);

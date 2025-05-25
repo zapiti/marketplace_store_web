@@ -30,7 +30,7 @@ class AccountHelpPageState extends State<AccountHelpPage> {
               child: Text(
                 "Ajuda",
                 style: AppThemeUtils.normalBoldSize(
-                    color: AppThemeUtils.colorPrimary, fontSize: 24),
+                    color: Theme.of(context).colorScheme.primary, fontSize: 24),
               )),
           Container(
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -61,7 +61,7 @@ class AccountHelpPageState extends State<AccountHelpPage> {
               height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: AppThemeUtils.colorPrimary),
+                    backgroundColor: Theme.of(context).colorScheme.primary),
                 child: Text(
                   "ENVIAR",
                   style:

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:jwt_decode/jwt_decode.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:new_marketplace_web/app/core/request_core.dart';
 import 'package:new_marketplace_web/app/models/current_user.dart';
@@ -28,7 +28,7 @@ class AuthRepository {
     if (result.error == null) {
       if (result.content.toString().contains("access_token")) {
         var token = result.content["access_token"];
-        var current = CurrentUser.fromMap(Jwt.parseJwt(token));
+        var current = CurrentUser.fromMap(JwtDecoder.decode(token));
         var appStore = Modular.get<AppStore>();
         appStore.setCurrentUser(current);
         _setToken(token);

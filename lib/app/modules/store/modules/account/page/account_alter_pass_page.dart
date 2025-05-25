@@ -25,7 +25,7 @@ class AccountAlterPassPageState
               child: Text(
                 "Alterar senha",
                 style: AppThemeUtils.normalBoldSize(
-                    color: AppThemeUtils.colorPrimary, fontSize: 24),
+                    color: Theme.of(context).colorScheme.primary, fontSize: 24),
               )),
           Container(
               margin: EdgeInsets.symmetric(horizontal: 5, vertical: 15),
@@ -52,7 +52,7 @@ class AccountAlterPassPageState
                           controller.showPassActual
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: AppThemeUtils.colorPrimary,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                         onPressed: () {
                           controller.hideActualPass();
@@ -85,7 +85,7 @@ class AccountAlterPassPageState
                           controller.showPass
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: AppThemeUtils.colorPrimary,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                         onPressed: () {
                           controller.hidePass();
@@ -113,7 +113,7 @@ class AccountAlterPassPageState
                       suffixIcon: IconButton(
                         icon: Icon(
                           true ? Icons.visibility : Icons.visibility_off,
-                          color: AppThemeUtils.colorPrimary,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                         onPressed: () {
                           controller.hidePassConfirm();
@@ -129,7 +129,7 @@ class AccountAlterPassPageState
               height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: AppThemeUtils.colorPrimary),
+                    backgroundColor: Theme.of(context).colorScheme.primary),
                 child: Text(
                   "ALTERAR SENHA",
                   style:

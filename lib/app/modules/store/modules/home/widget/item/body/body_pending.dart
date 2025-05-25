@@ -91,7 +91,12 @@ class BodyPending extends StatelessWidget {
                                         margin: EdgeInsets.only(left: 10),
                                         child: ImageWidgetComponent(
                                           e.image ?? '',
-                                          width: MediaQuery.of(context).size.width < 500 ? 50: 150,
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .width <
+                                                  500
+                                              ? 50
+                                              : 150,
                                         ),
                                       )
                                     ],
@@ -107,29 +112,31 @@ class BodyPending extends StatelessWidget {
             ],
           ),
           Container(
-            height: 45,width: 200,
-              margin: EdgeInsets.only(top: 20,left: 10,right: 10),
-              child:  ElevatedButton(
-                style:
-                ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
+              height: 45,
+              width: 200,
+              margin: EdgeInsets.only(top: 20, left: 10, right: 10),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppThemeUtils.colorPrimary),
                 onPressed: () {},
                 child: Text(
                   "ACEITAR",
-                  style:
-                  AppThemeUtils.normalBoldSize(color: AppThemeUtils.whiteColor),
+                  style: AppThemeUtils.normalBoldSize(
+                      color: AppThemeUtils.whiteColor),
                 ),
               )),
           Container(
-              height: 45,width: 200,
+              height: 45,
+              width: 200,
               margin: EdgeInsets.all(20),
-              child:  ElevatedButton(
-                style:
-                ElevatedButton.styleFrom(primary: AppThemeUtils.whiteColor),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppThemeUtils.whiteColor),
                 onPressed: () {},
                 child: Text(
                   "RECUSAR",
-                  style:
-                  AppThemeUtils.normalBoldSize(color: AppThemeUtils.colorPrimary),
+                  style: AppThemeUtils.normalBoldSize(
+                      color: AppThemeUtils.colorPrimary),
                 ),
               ))
         ],

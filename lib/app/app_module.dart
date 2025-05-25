@@ -1,18 +1,21 @@
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:new_marketplace_web/app/core/request_core.dart';
+import 'package:new_marketplace_web/app/modules/login/login_module.dart';
+import 'package:new_marketplace_web/app/modules/register/register_module.dart';
+import 'package:new_marketplace_web/app/routes/constants_routes.dart';
+import 'package:new_marketplace_web/app/utils/theme/app_theme_utils.dart';
 
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
-    // Temporary empty binds for now
+    Bind.lazySingleton((i) => RequestCore()),
   ];
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute(
-      Modular.initialRoute,
-      child: (_, __) => const TemporaryHomePage(),
-    ),
+    ModuleRoute(Modular.initialRoute, module: LoginModule()),
+    ModuleRoute(ConstantsRoutes.REGISTER, module: RegisterModule()),
   ];
 }
 
@@ -36,6 +39,18 @@ class TemporaryHomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class AppWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      title: 'Marketplace',
+      theme: AppThemeUtils.lightTheme,
+      routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate,
     );
   }
 }

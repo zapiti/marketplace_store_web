@@ -64,27 +64,42 @@ abstract class _RegisterStoreBase with Store {
   }
 
   @action
- Future<void> getRegister(BuildContext context) async {
+  Future<void> register() async {
+    isLoadLogin = true;
+    try {
+      // TODO: Implement register logic
+      await Future.delayed(Duration(seconds: 2));
+    } catch (e) {
+      print(e);
+    } finally {
+      isLoadLogin = false;
+    }
+  }
+
+  @action
+  Future<void> getRegister(BuildContext context) async {
     isLoadLogin = true;
     final response = await _repository.createClient(
-        name: nameUserController.text,
-        email: emailController.text,
-        password: passControllerConfirm.text);
+      name: nameUserController.text,
+      email: emailController.text,
+      password: passControllerConfirm.text,
+    );
     isLoadLogin = false;
     if (response.error != null) {
       Utils.showSnackBar(response.error, context);
     } else {
-      showGenericDialog(
-          context: context,
-          title: 'Salvo com sucesso',
-          description: "Tudo pronto agora você já pode fazer seu pedido",
-          positiveText: 'OK',
-          positiveCallback: () {
-            final loginController = Modular.get<LoginStore>();
-            loginController.userController.text = emailController.text;
-            loginController.passController.text = passController.text;
-            loginController.getLoginClient(context);
-          });
+      DialogGeneric.showGenericDialog(
+        context: context,
+        title: 'Salvo com sucesso',
+        description: "Tudo pronto agora você já pode fazer seu pedido",
+        positiveText: 'OK',
+        positiveCallback: () {
+          final loginController = Modular.get<LoginStore>();
+          loginController.userController.text = emailController.text;
+          loginController.passController.text = passController.text;
+          loginController.getLoginClient(context);
+        },
+      );
     }
   }
 
@@ -96,15 +111,24 @@ abstract class _RegisterStoreBase with Store {
     if (response.error != null) {
       Utils.showSnackBar(response.error, context);
     } else {
-      showGenericDialog(
-          context: context,
-          title: 'Salvo com sucesso',
-          description:
-              "Tudo pronto agora só aguardar a aprovação no seu e-mail para ativação da sua conta",
-          positiveText: 'OK',
-          positiveCallback: () {
-            Modular.to.pushReplacementNamed(ConstantsRoutes.LANDING);
-          });
+      DialogGeneric.showGenericDialog(
+        context: context,
+        title: 'Salvo com sucesso',
+        description:
+            "Tudo pronto agora só aguardar a aprovação no seu e-mail para ativação da sua conta",
+        positiveText: 'OK',
+        positiveCallback: () {
+          Modular.to.pushReplacementNamed(ConstantsRoutes.LANDING);
+        },
+      );
     }
+  }
+
+  @override
+  void dispose() {
+    nameUserController.dispose();
+    emailController.dispose();
+    passController.dispose();
+    passControllerConfirm.dispose();
   }
 }

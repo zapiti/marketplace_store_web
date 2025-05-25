@@ -31,14 +31,13 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:PageWeb(
-        child: Column(
+      body: PageWeb(
+          child: Column(
         children: <Widget>[
           Container(
             child: Center(
               child: Observer(
                   builder: (_) => Container(
-
                         margin:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                         child: Row(
@@ -82,7 +81,10 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                                       horizontal: 10),
                                                   child: AutoSizeText(
                                                     Utils.moneyMasked(
-                                                        storeControl.establishment?.wallet ?? 0.0),
+                                                        storeControl
+                                                                .establishment
+                                                                ?.wallet ??
+                                                            0.0),
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,
@@ -98,7 +100,8 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                         ],
                                       ),
                                       style: ElevatedButton.styleFrom(
-                                          primary: AppThemeUtils.successColor,
+                                          backgroundColor:
+                                              AppThemeUtils.successColor,
                                           elevation: 0,
                                           shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.all(
@@ -123,14 +126,21 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                             color: controller.actualPage ==
                                                     controller.ANDAMENTO
                                                 ? AppThemeUtils.whiteColor
-                                                : AppThemeUtils.colorPrimary,
+                                                : Theme.of(context)
+                                                    .colorScheme
+                                                    .primary,
                                             fontSize: 14),
                                       ),
                                       style: ElevatedButton.styleFrom(
-                                          primary: controller.actualPage ==
-                                                  controller.ANDAMENTO
-                                              ? AppThemeUtils.colorPrimary
-                                              : AppThemeUtils.whiteColor,
+                                          backgroundColor:
+                                              controller.actualPage ==
+                                                      controller.ANDAMENTO
+                                                  ? Theme.of(context)
+                                                      .colorScheme
+                                                      .primary
+                                                  : Theme.of(context)
+                                                      .colorScheme
+                                                      .primary,
                                           elevation: 0,
                                           shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.only(
@@ -138,8 +148,9 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                                   bottomLeft:
                                                       Radius.circular(10)),
                                               side: BorderSide(
-                                                  color: AppThemeUtils
-                                                      .colorPrimary,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .primary,
                                                   width: 1))),
                                     ))),
                             Expanded(
@@ -157,14 +168,21 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                             color: controller.actualPage ==
                                                     controller.ANTERIOR
                                                 ? AppThemeUtils.whiteColor
-                                                : AppThemeUtils.colorPrimary,
+                                                : Theme.of(context)
+                                                    .colorScheme
+                                                    .primary,
                                             fontSize: 14),
                                       ),
                                       style: ElevatedButton.styleFrom(
-                                          primary: controller.actualPage ==
-                                                  controller.ANTERIOR
-                                              ? AppThemeUtils.colorPrimary
-                                              : AppThemeUtils.whiteColor,
+                                          backgroundColor:
+                                              controller.actualPage ==
+                                                      controller.ANTERIOR
+                                                  ? Theme.of(context)
+                                                      .colorScheme
+                                                      .primary
+                                                  : Theme.of(context)
+                                                      .colorScheme
+                                                      .primary,
                                           elevation: 0,
                                           shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.only(
@@ -172,8 +190,9 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
                                                   bottomRight:
                                                       Radius.circular(10)),
                                               side: BorderSide(
-                                                  color: AppThemeUtils
-                                                      .colorPrimary,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .primary,
                                                   width: 1))),
                                     )))
                           ],
@@ -185,7 +204,6 @@ class HomePageState extends ModularState<HomePage, HomeStore> {
               child: Container(
             child: Center(
               child: Container(
-
                 child: HomePageOptions(controller),
               ),
             ),

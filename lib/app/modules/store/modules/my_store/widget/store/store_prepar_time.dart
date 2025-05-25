@@ -54,8 +54,8 @@ class StorePreparTime extends StatelessWidget {
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              style:
-                  ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: AppThemeUtils.colorPrimary),
               child: Text(
                 "DEFINIR",
                 style:

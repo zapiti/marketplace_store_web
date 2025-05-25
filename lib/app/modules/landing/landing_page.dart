@@ -22,14 +22,11 @@ class LandingPageState extends State<LandingPage> {
     SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
       final _appStore = Modular.get<AppStore>();
       _appStore.getCurrentUserFutureValue().then((value) {
-
         if (value != null) {
           if (value.client != null) {
-            Modular.to
-                .pushReplacementNamed(ConstantsRoutes.CLIENTROUTE);
+            Modular.to.pushReplacementNamed(ConstantsRoutes.CLIENTROUTE);
           } else if (value.establishment != null) {
-            Modular.to
-                .pushReplacementNamed(ConstantsRoutes.STOREROUTE);
+            Modular.to.pushReplacementNamed(ConstantsRoutes.STOREROUTE);
           }
         }
       });
@@ -109,7 +106,7 @@ class LandingPageState extends State<LandingPage> {
                                         fit: BoxFit.fill,
                                       ),
                                       style: ElevatedButton.styleFrom(
-                                          primary: Colors.transparent,
+                                          backgroundColor: Colors.transparent,
                                           elevation: 0),
                                     ))),
                             Expanded(
@@ -124,7 +121,7 @@ class LandingPageState extends State<LandingPage> {
                                         fit: BoxFit.fill,
                                       ),
                                       style: ElevatedButton.styleFrom(
-                                          primary: Colors.transparent,
+                                          backgroundColor: Colors.transparent,
                                           elevation: 0),
                                     )))
                           ],

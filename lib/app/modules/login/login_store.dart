@@ -16,8 +16,9 @@ abstract class _LoginStoreBase with Store {
   final PRODUTO = "PRODUTO";
   final ENTREGADOR = "ENTREGADOR";
 
-  final passController = TextEditingController();
+  final emailController = TextEditingController();
   final userController = TextEditingController();
+  final passController = TextEditingController();
   final authRepository = Modular.get<AuthRepository>();
 
   @observable
@@ -49,12 +50,26 @@ abstract class _LoginStoreBase with Store {
     actualPage = page;
   }
 
+  @action
+  Future<void> login() async {
+    isLoadLogin = true;
+    try {
+      // TODO: Implement login logic
+      await Future.delayed(Duration(seconds: 2));
+    } catch (e) {
+      print(e);
+    } finally {
+      isLoadLogin = false;
+    }
+  }
+
   getLoginClient(BuildContext context) async {
     showLoad();
     final resultLogin = await authRepository.getLogin(
-        username: userController.text,
-        password: passController.text,
-        isClient: true);
+      username: emailController.text,
+      password: passController.text,
+      isClient: true,
+    );
     hideLoad();
     if (resultLogin.error == null) {
       await Future.delayed(Duration(seconds: 1));
@@ -69,9 +84,10 @@ abstract class _LoginStoreBase with Store {
     showLoad();
 
     final resultLogin = await authRepository.getLogin(
-        username: userController.text,
-        password: passController.text,
-        isClient: false);
+      username: emailController.text,
+      password: passController.text,
+      isClient: false,
+    );
     hideLoad();
     if (resultLogin.error == null) {
       await Future.delayed(Duration(seconds: 1));
@@ -80,5 +96,12 @@ abstract class _LoginStoreBase with Store {
     } else {
       Utils.showSnackBar(resultLogin.error, context);
     }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    userController.dispose();
+    passController.dispose();
   }
 }

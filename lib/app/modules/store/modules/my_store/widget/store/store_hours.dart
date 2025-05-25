@@ -8,17 +8,12 @@ import '../../../../store_store.dart';
 import '../../my_store_store.dart';
 
 class StoreHours extends StatefulWidget {
-
-
   @override
   _StoreHoursState createState() => _StoreHoursState();
 }
 
 class _StoreHoursState extends State<StoreHours> {
-
   final storeControl = Modular.get<StoreStore>();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -46,31 +41,35 @@ class _StoreHoursState extends State<StoreHours> {
                           margin: EdgeInsets.all(10),
                           child: ElevatedButton(
                             child: Text(
-                             e.day.toString(),
+                              e.day.toString(),
                               style: AppThemeUtils.normalSize(
                                   color: AppThemeUtils.whiteColor),
                             ),
                             onPressed: () {
-
                               setState(() {
-                                e.isClosed =  !(e.isClosed  ?? true);
-                                storeControl.establishment?.operationHours![index] = e;
+                                e.isClosed = !(e.isClosed ?? true);
+                                storeControl
+                                    .establishment?.operationHours![index] = e;
                               });
-
                             },
                             style: ElevatedButton.styleFrom(
-                                primary:  (e.isClosed  ?? true)? AppThemeUtils.colorGrayLight: AppThemeUtils.successColor),
+                                backgroundColor: (e.isClosed ?? true)
+                                    ? AppThemeUtils.colorGrayLight
+                                    : AppThemeUtils.successColor),
                           ),
                         )),
                         Expanded(
                             child: Container(
                           margin: EdgeInsets.all(10),
                           child: CustomDropMenuWidget(
-                            controller: TextEditingController(text: e.start ?? '00:00'),
-                            isExpanded: true,listen: (text){
-                            e.start = text;
-                            storeControl.establishment?.operationHours![index] = e;
-                          },
+                            controller:
+                                TextEditingController(text: e.start ?? '00:00'),
+                            isExpanded: true,
+                            listen: (text) {
+                              e.start = text;
+                              storeControl
+                                  .establishment?.operationHours![index] = e;
+                            },
                             title: "00:00",
                             listElements: Utils.getHours(),
                           ),
@@ -79,12 +78,15 @@ class _StoreHoursState extends State<StoreHours> {
                             child: Container(
                                 margin: EdgeInsets.all(10),
                                 child: CustomDropMenuWidget(
-                                  controller: TextEditingController(text: e.end ?? '00:00'),
+                                  controller: TextEditingController(
+                                      text: e.end ?? '00:00'),
                                   isExpanded: true,
-                                  title: "00:00",listen: (text){
-                                  e.end = text;
-                                  storeControl.establishment?.operationHours![index] = e;
-                                },
+                                  title: "00:00",
+                                  listen: (text) {
+                                    e.end = text;
+                                    storeControl.establishment
+                                        ?.operationHours![index] = e;
+                                  },
                                   listElements: Utils.getHours(),
                                 ))),
                       ],
@@ -103,10 +105,11 @@ class _StoreHoursState extends State<StoreHours> {
                     AppThemeUtils.normalSize(color: AppThemeUtils.whiteColor),
               ),
               onPressed: () {
-                storeControl.updateEstablishment(context, storeControl.establishment!);
+                storeControl.updateEstablishment(
+                    context, storeControl.establishment!);
               },
-              style:
-                  ElevatedButton.styleFrom(primary: AppThemeUtils.colorPrimary),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: AppThemeUtils.colorPrimary),
             ),
           ),
           SizedBox(
